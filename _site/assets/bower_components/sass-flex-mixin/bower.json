@@ -1,0 +1,22 @@
+{
+  "name": "sass-flex-mixin",
+  "version": "1.0.1",
+  "license" : "MIT",
+  "main": [
+    "_flexbox.scss"
+  ],
+  "ignore": [
+    "tests",
+    "**/.*",
+    "**/*.md",
+    "**/*.json"
+  ],
+  "dependencies": {},
+  "devDependencies": {},
+  "keywords": [
+    "sass",
+    "css",
+	"flexbox",
+	"mixin"
+  ]
+}

@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'gidoleregular';
+  src: url('fonts/Gidole.woff') format('woff'), url('fonts/Gidole.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  font-family: 'gidoleregular', sans-serif;
+  font-weight: normal !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
