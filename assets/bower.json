@@ -1,8 +1,0 @@
-{
-  "name": "personal-website",
-  "description": "My personal website/portfolio",
-  "version": "1.0.0",
-  "dependencies": {
-    "sass-flex-mixin": "~1.0.1"
-  }
-}

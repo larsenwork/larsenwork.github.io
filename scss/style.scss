@@ -1,0 +1,180 @@
+// Components
+@import 'reset';
+// @import 'noise';
+@import 'fonts';
+@import 'typographic';
+
+// Variables
+$text-color: white;
+$padding-percent: 8;
+$gradient: linear-gradient(to bottom left, hsl(250, 100%, 50%) 0%, hsl(10, 100%, 50%) 100%);
+$fade-black: black;
+
+// Typegraphic vars
+$line-height-ratio: 1.75;
+$header-ratio: $golden;
+$body-font: 'gidole';
+$body-font-weight: normal;
+$body-color: $text-color;
+$header-font: $body-font;
+$header-font-weight: $body-font-weight;
+$header-color: $text-color;
+$min-font: 14px;
+$max-font: 20px;
+$min-width: 600px;
+$max-width: 1140px;
+$vertical-rhythm: true;
+
+// Typographic
+@include typographic();
+
+// Selection
+* {
+  user-select: none;
+}
+p {
+  user-select: text;
+  a,
+  small {
+    user-select: text;
+  }
+}
+p,
+a,
+small {
+  &::selection {
+    color     : white;
+    background: black;
+  }
+}
+
+// Layout + styling
+html {
+  -webkit-font-smoothing : antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body {
+  color                : $text-color;
+  padding              : 0 $padding-percent+%;
+  background           : $gradient;
+  background-attachment: fixed;
+  opacity              : 0;
+  animation            : fadeIn ease-in 1;
+  animation-fill-mode  : forwards;
+  animation-duration   : 0.6s;
+  animation-delay      : 0.3s;
+  &:before {
+    content         : '';
+    position        : fixed;
+    top             : 0;
+    bottom          : 0;
+    left            : 0;
+    right           : 0;
+    background-size : 50px 50px;
+    opacity         : 0.5;
+    pointer-events  : none;
+  }
+}
+header {
+  height     : 60vh;
+  padding-top: 20vh;
+  position   : relative;
+  svg {
+    width    : 100%;
+    max-width: $max-width;
+    fill     : $text-color;
+    position : absolute;
+    top      : 55%;
+    left     : 50%;
+    transform: translate3d(-50%,-50%,0);
+  }
+}
+article {
+  max-width: 40rem;
+  margin   : 0 auto;
+}
+p {
+  letter-spacing: 0.03rem;
+  font-size     : 1.2rem;
+  line-height   : 2rem;
+  margin-bottom : 2rem;
+}
+a {
+  transition     : 0.6s ease;
+  text-decoration: none;
+  color          : rgba($text-color,0.4);
+  &:hover,
+  &:focus {
+    transition: 0.3s ease;
+    color     : $text-color;
+  }
+}
+small {
+  font-size: 70%;
+}
+
+// IDs
+.cssmask {
+  #fadeOut {
+    position      : fixed;
+    top           : 0;
+    right         : 0;
+    bottom        : 0;
+    left          : 0;
+    background    : $gradient;
+    mask-image    : linear-gradient($fade-black 0%, transparent 20%, transparent 80%, $fade-black 100%);
+    pointer-events: none;
+    &:before {
+      content         : '';
+      position        : fixed;
+      top             : 0;
+      bottom          : 0;
+      left            : 0;
+      right           : 0;
+      background-size : 50px 50px;
+      opacity         : 0.5;
+    }
+  }
+}
+
+// Classes
+.contact {
+  margin-top: vr-block(2);
+}
+.social {
+  margin-left: - vr-block(.3);
+  height     : 40vh;
+  max-height : 40vw;
+  a {
+    display: inline-block;
+    height : vr-block(2);
+    width  : vr-block(2);
+    svg {
+      transition: 0.6s ease;
+      fill      : $text-color;
+      opacity   : 0.4;
+      height    : 100%;
+      width     : 100%;
+    }
+    &:hover,
+    &:focus {
+      svg {
+        transition: 0.3s ease;
+        opacity   : 1;
+      }
+    }
+  }
+}
+.center {
+  text-align: center;
+}
+
+// Animation
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
