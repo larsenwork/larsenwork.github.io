@@ -8,7 +8,8 @@ const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('gulp-autoprefixer');
 const pngquant = require('imagemin-pngquant');
 
-const stylesheet = 'scss/style.scss';
+const stylesheet = 'scss/main.scss';
+const script     = 'main.js';
 const distFolder = 'dist';
 const imgSrc     = 'img/*';
 const imgDist    = 'dist/img';
@@ -37,7 +38,7 @@ gulp.task('scripts', function() {
   return gulp.src(jsFiles)
     .pipe(sourcemaps.init())
     .pipe(uglify())
-    .pipe(concat('main.min.js'))
+    .pipe(concat(script))
     // .pipe(sourcemaps.write())
     .pipe(gulp.dest(distFolder))
     .pipe(browserSync.reload({
