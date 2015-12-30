@@ -58,6 +58,9 @@ html {
   -webkit-font-smoothing : antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+html, body {
+  height: 100%;
+}
 body {
   color                : $text-color;
   padding              : 0 5%;
@@ -77,7 +80,7 @@ header {
 }
 header {
   position  : relative;
-  height    : 80vh;
+  height    : 80%;
   max-height: 120vw;
   .container {
     max-width     : $max-width*0.6;
