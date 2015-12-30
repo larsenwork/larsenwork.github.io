@@ -15,9 +15,7 @@ const imgSrc     = 'img/*';
 const imgDist    = 'dist/img';
 const scssFiles  = 'scss/*.scss';
 const htmlFiles  = '*.html';
-const jsFiles    = ['js/snap.svg.js', 'js/snap.svg.easing.js', 'js/modernizr.js',
-  'js/app.js'
-];
+const jsFiles    = ['js/snap.svg.js', 'js/modernizr.js', 'js/app.js'];
 
 gulp.task('sass', function() {
   return gulp.src(stylesheet)

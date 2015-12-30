@@ -13,6 +13,11 @@ var svg = document.getElementById(
   k10 = Snap.select('#k10');
 
 // Animation timing
+mina.easeInOutBack = function (n, s) {
+  if ( s == undefined ) s = 1.70158;
+  if ( ( n *= 2 ) < 1 ) return 0.5 * ( Math.pow( n, 2 ) * ( ( ( s *= 1.525 ) + 1 ) * n - s ) );
+  return 0.5 * ( Math.pow( ( n -= 2 ), 2 ) * ( ( ( s *= 1.525 ) + 1 ) * n + s ) + 2 );
+};
 var easing = mina.easeInOutBack,
   duration = 2500,
   delay = 200,
