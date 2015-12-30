@@ -35,7 +35,7 @@ setTimeout(function() {
   swingRightO8();
   swingRightR9();
   swingRightK10();
-}, 2000);
+}, 500);
 
 function swingRightL1() {
   setTimeout(function() {
