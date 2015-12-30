@@ -8,9 +8,10 @@
 // Variables
 $text-color: white;
 $padding-percent: 8;
-$gradient: linear-gradient(to bottom left, hsl(41, 100%, 43%) 0%, hsl(335, 60%, 44%) 100%);
+//Orange
+$gradient: linear-gradient(to bottom left, hsl(39, 100%, 46%) 0%, hsl(334, 69%, 48%) 100%);
 $fade-black: black;
-$link-opacity: 0.5;
+$link-opacity: 0.3;
 
 // Typegraphic vars
 $line-height-ratio: 1.75;
@@ -22,13 +23,14 @@ $header-font: $body-font;
 $header-font-weight: $body-font-weight;
 $header-color: $text-color;
 $min-font: 14px;
-$max-font: 20px;
+$max-font: 18px;
 $min-width: 600px;
-$max-width: 1140px;
+$max-width: 1000px;
 $vertical-rhythm: true;
 
 // Typographic
 @include typographic();
+// @include grid-overlay(red, 1);
 
 // Selection
 * {
@@ -45,8 +47,8 @@ p,
 a,
 small {
   &::selection {
-    color     : white;
-    background: black;
+    color     : black;
+    background: transparent;
   }
 }
 
@@ -74,8 +76,8 @@ header {
 }
 header {
   position   : relative;
-  height     : 60vh;
-  padding-top: 20vh;
+  height     : 80vh;
+  max-height: 120vw;
   svg {
     width    : 100%;
     max-width: $max-width*0.6;
@@ -87,7 +89,7 @@ header {
   }
 }
 article {
-  max-width: 40rem;
+  max-width: 35rem;
   margin   : 0 auto;
   position : relative;
 }
@@ -96,38 +98,52 @@ p {
   font-size     : 1.2rem;
   line-height   : 2rem;
   margin-bottom : 2rem;
+  a {
+    position: relative;
+    &:after {
+      transition      : 0.6s ease;
+      content         : '';
+      position        : absolute;
+      left            : -0.1rem;
+      right           : -0.1rem;
+      bottom          : -0.03rem;
+      height          : 0.3rem;
+      background-color: rgba($text-color,$link-opacity);
+    }
+    &:hover,
+    &:focus {
+      &:after {
+        transition: 0.2s ease;
+        left            : -0.3rem;
+        right           : -0.3rem;
+        bottom          : -0.2rem;
+        height          : 0.15rem;
+        background-color: $text-color;
+      }
+    }
+  }
 }
 a {
-  transition     : 0.6s ease;
   text-decoration: none;
-  color          : rgba($text-color,$link-opacity);
-  &:hover,
-  &:focus {
-    transition: 0.3s ease;
-    color     : $text-color;
-  }
+  color          : $text-color;
 }
 img {
   position : absolute;
   z-index  : -10;
   bottom   : 0;
-  right    : 0;
+  right    : -5%;
   width    : 630px;
-  max-width: 55%;
+  max-width: 60%;
   opacity  : 0.2;
 }
 
 // Classes
-.quote {
-  font-size : 80%;
-  text-align: center;
-}
 .contact {
-  margin-top: vr-block(2);
+  padding-top: vr-block(1.9);
 }
 .social {
   margin-left: - vr-block(.3);
-  height     : 40vh;
+  height     : vr-block(8);
   max-height : 40vw;
   a {
     display: inline-block;
