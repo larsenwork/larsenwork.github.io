@@ -8,7 +8,7 @@
 // Variables
 $text-color: white;
 $padding-percent: 8;
-$gradient: linear-gradient(to bottom left, hsl(250, 100%, 35%) 0%, hsl(10, 100%, 40%) 100%);
+$gradient: linear-gradient(to bottom left, hsl(41, 100%, 43%) 0%, hsl(335, 60%, 44%) 100%);
 $fade-black: black;
 $link-opacity: 0.5;
 
@@ -65,7 +65,7 @@ body {
   animation-fill-mode  : forwards;
   animation-duration   : 1.2s;
   animation-delay      : 0.3s;
-  height               : 100vh;
+  position             : relative;
 }
 article,
 header {
@@ -89,6 +89,7 @@ header {
 article {
   max-width: 40rem;
   margin   : 0 auto;
+  position : relative;
 }
 p {
   letter-spacing: 0.03rem;
@@ -106,10 +107,19 @@ a {
     color     : $text-color;
   }
 }
+img {
+  position : absolute;
+  z-index  : -10;
+  bottom   : 0;
+  right    : 0;
+  width    : 630px;
+  max-width: 55%;
+  opacity  : 0.2;
+}
 
 // Classes
 .quote {
-  font-size: 80%;
+  font-size : 80%;
   text-align: center;
 }
 .contact {
