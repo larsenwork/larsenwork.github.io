@@ -1,5 +1,6 @@
 // Components
 @import 'reset';
+
 // @import 'noise';
 @import 'fonts';
 @import 'typographic';
@@ -7,8 +8,9 @@
 // Variables
 $text-color: white;
 $padding-percent: 8;
-$gradient: linear-gradient(to bottom left, hsl(250, 100%, 50%) 0%, hsl(10, 100%, 50%) 100%);
+$gradient: linear-gradient(to bottom left, hsl(250, 100%, 35%) 0%, hsl(10, 100%, 40%) 100%);
 $fade-black: black;
+$link-opacity: 0.5;
 
 // Typegraphic vars
 $line-height-ratio: 1.75;
@@ -55,33 +57,28 @@ html {
 }
 body {
   color                : $text-color;
-  padding              : 0 $padding-percent+%;
+  padding              : 0 5%;
   background           : $gradient;
   background-attachment: fixed;
   opacity              : 0;
   animation            : fadeIn ease-in 1;
   animation-fill-mode  : forwards;
-  animation-duration   : 0.6s;
+  animation-duration   : 1.2s;
   animation-delay      : 0.3s;
-  &:before {
-    content         : '';
-    position        : fixed;
-    top             : 0;
-    bottom          : 0;
-    left            : 0;
-    right           : 0;
-    background-size : 50px 50px;
-    opacity         : 0.5;
-    pointer-events  : none;
-  }
+  height               : 100vh;
+}
+article,
+header {
+  position: relative;
+  z-index : -1;
 }
 header {
+  position   : relative;
   height     : 60vh;
   padding-top: 20vh;
-  position   : relative;
   svg {
     width    : 100%;
-    max-width: $max-width;
+    max-width: $max-width*0.6;
     fill     : $text-color;
     position : absolute;
     top      : 55%;
@@ -102,42 +99,19 @@ p {
 a {
   transition     : 0.6s ease;
   text-decoration: none;
-  color          : rgba($text-color,0.4);
+  color          : rgba($text-color,$link-opacity);
   &:hover,
   &:focus {
     transition: 0.3s ease;
     color     : $text-color;
   }
 }
-small {
-  font-size: 70%;
-}
-
-// IDs
-.cssmask {
-  #fadeOut {
-    position      : fixed;
-    top           : 0;
-    right         : 0;
-    bottom        : 0;
-    left          : 0;
-    background    : $gradient;
-    mask-image    : linear-gradient($fade-black 0%, transparent 20%, transparent 80%, $fade-black 100%);
-    pointer-events: none;
-    &:before {
-      content         : '';
-      position        : fixed;
-      top             : 0;
-      bottom          : 0;
-      left            : 0;
-      right           : 0;
-      background-size : 50px 50px;
-      opacity         : 0.5;
-    }
-  }
-}
 
 // Classes
+.quote {
+  font-size: 80%;
+  text-align: center;
+}
 .contact {
   margin-top: vr-block(2);
 }
@@ -152,7 +126,7 @@ small {
     svg {
       transition: 0.6s ease;
       fill      : $text-color;
-      opacity   : 0.4;
+      opacity   : $link-opacity;
       height    : 100%;
       width     : 100%;
     }
@@ -165,9 +139,6 @@ small {
     }
   }
 }
-.center {
-  text-align: center;
-}
 
 // Animation
 @keyframes fadeIn {
@@ -176,5 +147,22 @@ small {
   }
   to {
     opacity: 1;
+  }
+}
+
+// Don't show on iOS devices
+@media only screen and (min-device-width : 1025px) {
+  .cssmask {
+    body:before {
+      content       : '';
+      position      : fixed;
+      top           : 0;
+      right         : 0;
+      bottom        : 0;
+      left          : 0;
+      background    : $gradient;
+      mask-image    : linear-gradient($fade-black 0%, transparent 20%, transparent 80%, $fade-black 100%);
+      pointer-events: none;
+    }
   }
 }
