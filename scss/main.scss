@@ -8,10 +8,16 @@
 // Variables
 $text-color: white;
 $padding-percent: 8;
+$hover-trans: 0.3s ease;
+$hover-out: 0.6s ease;
 
 //Orange
-$gradient: linear-gradient(to bottom left, hsl(39, 100%, 46%) 0%, hsl(334, 69%, 48%) 100%);
-$fade-black: black;
+$start-color: hsl(39, 100%, 46%);
+$medium-color: hsl(14, 70%, 54%);
+$end-color: hsl(334, 69%, 48%);
+$gradient: linear-gradient(to bottom left, $start-color 0%, $end-color 100%);
+$horizontalgradient: linear-gradient(to left, $medium-color 0%, $end-color 100%);
+$fade-black: rgba(0,0,0,0.8);
 $link-opacity: 0.5;
 
 // Typegraphic vars
@@ -28,6 +34,17 @@ $max-font: 18px;
 $min-width: 600px;
 $max-width: 1000px;
 $vertical-rhythm: true;
+
+// Background mixin
+@mixin background(){
+  content   : '';
+  position  : fixed;
+  top       : 0;
+  right     : 0;
+  bottom    : 0;
+  left      : 0;
+  background: $gradient;
+};
 
 // Typographic
 @include typographic();
@@ -63,21 +80,19 @@ body {
   height: 100%;
 }
 body {
-  color                : $text-color;
-  padding              : 0 5%;
-  background           : $gradient;
-  background-attachment: fixed;
-  opacity              : 0;
-  animation            : fadeIn ease-in 1;
-  animation-fill-mode  : forwards;
-  animation-duration   : 1.2s;
-  animation-delay      : 0.3s;
-  position             : relative;
-}
-article,
-header {
-  position: relative;
-  z-index : -1;
+  color              : $text-color;
+  padding            : 0 5%;
+  background         : $horizontalgradient;
+  opacity            : 0;
+  animation          : fadeIn ease-in 1;
+  animation-fill-mode: forwards;
+  animation-duration : 1.2s;
+  animation-delay    : 0.3s;
+  position           : relative;
+  &:after {
+    @include background();
+    z-index   : -10;
+  }
 }
 header {
   position  : relative;
@@ -110,39 +125,33 @@ p {
   font-size     : 1.2rem;
   line-height   : 2rem;
   margin-bottom : 2rem;
-  a {
-    position: relative;
+}
+a {
+  position       : relative;
+  display        : inline-block;
+  text-decoration: none;
+  color          : $text-color;
+  &:after {
+    transition      : $hover-out;
+    content         : '';
+    position        : absolute;
+    left            : -0.1rem;
+    right           : -0.1rem;
+    bottom          : 0.3rem;
+    height          : 0.3rem;
+    background-color: rgba($text-color,$link-opacity);
+  }
+  &:hover,
+  &:focus {
     &:after {
-      transition-duration       : 0.5s;
-      transition-timing-function: ease;
-      content                   : '';
-      position                  : absolute;
-      left                      : -0.1rem;
-      right                     : -0.1rem;
-      bottom                    : -0.0rem;
-      height                    : 0.3rem;
-      background-color          : rgba($text-color,$link-opacity);
-    }
-    &:hover,
-    &:focus {
-      &:after {
-        transition-duration: 0.2s;
-        left               : -0.3rem;
-        right              : -0.3rem;
-        bottom             : -0.1rem;
-        height             : 0.1rem;
-        background-color   : $text-color;
-      }
+      transition      : $hover-trans;
+      transform       : scale3d(1,0.5,1) translate3d(0, 0.4rem, 0);
+      background-color: $text-color;
     }
   }
 }
-a {
-  text-decoration: none;
-  color          : $text-color;
-}
 img {
   position : absolute;
-  z-index  : -10;
   bottom   : 0;
   right    : -5%;
   width    : 630px;
@@ -159,9 +168,8 @@ img {
   height     : vr-block(8);
   max-height : 40vw;
   a {
-    display: inline-block;
-    height : vr-block(2);
-    width  : vr-block(2);
+    height: vr-block(2);
+    width : vr-block(2);
     svg {
       transition: 0.6s ease;
       fill      : $text-color;
@@ -169,10 +177,13 @@ img {
       height    : 100%;
       width     : 100%;
     }
+    &:after {
+      opacity: 0;
+    }
     &:hover,
     &:focus {
       svg {
-        transition: 0.3s ease;
+        transition: $hover-trans;
         opacity   : 1;
       }
     }
@@ -190,18 +201,16 @@ img {
 }
 
 // Don't show on iOS devices
-@media only screen and (min-device-width : 1025px) {
+@media screen and (min-width: 1025px) {
+  // Don't show on unsuported devices
   .cssmask {
-    body:before {
-      content       : '';
-      position      : fixed;
-      top           : 0;
-      right         : 0;
-      bottom        : 0;
-      left          : 0;
-      background    : $gradient;
-      mask-image    : linear-gradient($fade-black 0%, transparent 20%, transparent 80%, $fade-black 100%);
-      pointer-events: none;
+    body {
+      &:before {
+        @include background();
+        mask-image    : linear-gradient($fade-black 0%, transparent 15%, transparent 85%, $fade-black 100%);
+        pointer-events: none;
+        z-index       : 10;
+      }
     }
   }
 }
