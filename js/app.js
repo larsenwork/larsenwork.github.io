@@ -24,17 +24,17 @@ var easing = mina.easeInOutBack,
   swungRight = false;
 
 // Svg visibility check
-function isScrolledIntoView(el) {
-  var elementTop = el.getBoundingClientRect().top;
-  var elementBottom = el.getBoundingClientRect().bottom;
+function isVisible(element) {
+  var elementTop = element.getBoundingClientRect().top;
+  var elementBottom = element.getBoundingClientRect().bottom;
   var elementCenter = (elementTop + elementBottom)/2;
   return elementCenter > 0;
 }
 
-// Check every 100ms if we want to animate
+// Check every 100ms if and what we want to animate
 function startSwinging() {
   // Are we in view?
-  if (isScrolledIntoView(svg)) {
+  if (isVisible(svg)) {
     // Are we currently not animating?
     if (l1.inAnim().length == 0 && k10.inAnim().length == 0) {
       // Have we swung right?
