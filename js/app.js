@@ -25,10 +25,10 @@ var easing = mina.easeInOutBack,
 
 // Svg visibility check
 function isScrolledIntoView(el) {
-  var elemTop = el.getBoundingClientRect().top;
-  var elemBottom = el.getBoundingClientRect().bottom;
-  var isVisible = (elemTop >= 0) && (elemBottom <= window.innerHeight);
-  return isVisible;
+  var elementTop = el.getBoundingClientRect().top;
+  var elementBottom = el.getBoundingClientRect().bottom;
+  var elementCenter = (elementTop + elementBottom)/2;
+  return elementCenter > 0;
 }
 
 // Check every 100ms if we want to animate
