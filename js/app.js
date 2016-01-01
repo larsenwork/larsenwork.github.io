@@ -19,8 +19,8 @@ mina.easeInOutBack = function(n, s) {
   return 0.5 * (Math.pow((n -= 2), 2) * (((s *= 1.525) + 1) * n + s) + 2);
 };
 var easing = mina.easeInOutBack,
-  duration = 2500,
-  delay = 120,
+  duration = 2200,
+  delay = 100,
   swungRight = false;
 
 // Svg visibility check
@@ -32,7 +32,7 @@ function isVisible(element) {
 }
 
 // Check every 100ms if and what we want to animate
-function startSwinging() {
+function swingTest() {
   // Are we in view?
   if (isVisible(svg)) {
     // Are we currently not animating?
@@ -45,9 +45,9 @@ function startSwinging() {
       }
     }
   }
-  setTimeout(startSwinging, 100);
+  setTimeout(swingTest, 100);
 };
-startSwinging();
+swingTest();
 
 function swingRight() {
   swungRight = true;
