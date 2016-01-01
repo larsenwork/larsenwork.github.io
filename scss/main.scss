@@ -12,7 +12,7 @@ $padding-percent: 8;
 //Orange
 $gradient: linear-gradient(to bottom left, hsl(39, 100%, 46%) 0%, hsl(334, 69%, 48%) 100%);
 $fade-black: black;
-$link-opacity: 0.3;
+$link-opacity: 0.5;
 
 // Typegraphic vars
 $line-height-ratio: 1.75;
@@ -58,7 +58,8 @@ html {
   -webkit-font-smoothing : antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-html, body {
+html,
+body {
   height: 100%;
 }
 body {
@@ -112,24 +113,25 @@ p {
   a {
     position: relative;
     &:after {
-      transition      : 0.6s ease;
-      content         : '';
-      position        : absolute;
-      left            : -0.1rem;
-      right           : -0.1rem;
-      bottom          : -0.03rem;
-      height          : 0.3rem;
-      background-color: rgba($text-color,$link-opacity);
+      transition-duration       : 0.5s;
+      transition-timing-function: ease;
+      content                   : '';
+      position                  : absolute;
+      left                      : -0.1rem;
+      right                     : -0.1rem;
+      bottom                    : -0.0rem;
+      height                    : 0.3rem;
+      background-color          : rgba($text-color,$link-opacity);
     }
     &:hover,
     &:focus {
       &:after {
-        transition      : 0.2s ease;
-        left            : -0.3rem;
-        right           : -0.3rem;
-        bottom          : -0.2rem;
-        height          : 0.15rem;
-        background-color: $text-color;
+        transition-duration: 0.2s;
+        left               : -0.3rem;
+        right              : -0.3rem;
+        bottom             : -0.1rem;
+        height             : 0.1rem;
+        background-color   : $text-color;
       }
     }
   }
