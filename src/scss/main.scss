@@ -17,7 +17,7 @@ $end-color: hsl(334, 69%, 48%);
 $gradient: linear-gradient(to bottom left, $start-color 0%, $end-color 100%);
 $horizontalgradient: linear-gradient(to left, $medium-color 0%, $end-color 100%);
 $fade-black: rgba(0,0,0,0.8);
-$link-opacity: 0.5;
+$link-opacity: 0.3;
 
 // Typegraphic vars
 $line-height-ratio: 1.75;
@@ -52,16 +52,10 @@ $vertical-rhythm: true;
 * {
   user-select: none;
 }
-p {
-  user-select: text;
-  a,
-  small {
-    user-select: text;
-  }
-}
 p,
 a,
 small {
+  user-select: text;
   &::selection {
     color     : $medium-color;
     background: $text-color;
@@ -81,9 +75,6 @@ body {
   color     : $text-color;
   padding   : 0 5%;
   background: $horizontalgradient;
-  opacity   : 0;
-  animation : 1.2s fadeIn ease-in 1 forwards;
-  position  : relative;
   &:after,
   &:before {
     @include pseudo(fixed);
@@ -92,6 +83,12 @@ body {
     background: $gradient;
     z-index   : -10;
   }
+}
+header,
+article {
+  opacity  : 0;
+  animation: 0.6s fadeIn ease-in 1 forwards 0.3s;
+  position : relative;
 }
 header {
   position  : relative;
@@ -117,15 +114,8 @@ article {
   margin   : 0 auto;
   position : relative;
 }
-p {
-  letter-spacing: 0.03rem;
-  font-size     : 1.2rem;
-  line-height   : 2rem;
-  margin-bottom : 2rem;
-}
 a {
   position       : relative;
-  display        : inline-block;
   text-decoration: none;
   color          : $text-color;
   &:after {
@@ -134,7 +124,7 @@ a {
     position        : absolute;
     left            : -0.1rem;
     right           : -0.1rem;
-    bottom          : 0.35rem;
+    bottom          : 0;
     height          : 0.3rem;
     background-color: rgba($text-color,$link-opacity);
   }
@@ -155,36 +145,33 @@ img {
   position : absolute;
   bottom   : 0;
   right    : -5%;
-  width    : 630px;
-  max-width: 60%;
+  width    : 60%;
   opacity  : 0.2;
 }
 
 // Classes
 .contact {
   padding-top: vr-block(1.9);
+  line-height: vr-block(1.5);
 }
 .social {
-  margin-left: - vr-block(.3);
+  margin-left: - vr-block(.4);
   height     : vr-block(7);
-  max-height : 40vw;
+  max-height : 30vw;
   a {
-    height: vr-block(2);
-    width : vr-block(2);
-    svg {
-      transition: $hover-out;
-      fill      : $text-color;
-      opacity   : $link-opacity;
-    }
+    transition: $hover-out;
+    display   : inline-block;
+    height    : vr-block(2);
+    width     : vr-block(2);
+    fill      : $text-color;
+    opacity   : $link-opacity;
     &:after {
       opacity: 0;
     }
     &:hover,
     &:focus {
-      svg {
-        transition: $hover-in;
-        opacity   : 1;
-      }
+      opacity   : 1;
+      transition: $hover-in;
     }
   }
 }
@@ -212,5 +199,15 @@ img {
         z-index       : 10;
       }
     }
+  }
+}
+
+// Less space between links if modern browser with mouse
+@media (pointer: fine) {
+  .contact {
+    line-height: inherit;
+  }
+  .social {
+    height: vr-block(8);
   }
 }

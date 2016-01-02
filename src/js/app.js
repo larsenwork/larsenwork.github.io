@@ -28,8 +28,8 @@ mina.easeInOutBack = function(n, s) {
   return 0.5 * (Math.pow((n -= 2), 2) * (((s *= 1.525) + 1) * n + s) + 2);
 };
 var easing = mina.easeInOutBack,
-  duration = 4200,
-  delay = 100,
+  duration = 3000,
+  delay = 80,
   swungRight = false;
 
 // Svg visibility check
@@ -56,7 +56,8 @@ function swingTest() {
   }
   setTimeout(swingTest, 100);
 };
-swingTest();
+// Start swinging 1s after page load
+setTimeout(swingTest, 1000);
 
 function swingRight() {
   swungRight = true;
