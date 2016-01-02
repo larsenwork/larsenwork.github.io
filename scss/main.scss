@@ -163,6 +163,9 @@ img {
 // Classes
 .contact {
   padding-top: vr-block(1.9);
+  a {
+    margin-top: vr-block(0.5);
+  }
 }
 .social {
   margin-left: - vr-block(.3);
