@@ -584,6 +584,7 @@ $vertical-rhythm    : true !default;
 }
 
 
+
 /// The Typographic Reset. This is where Typographic goes through every markup element and styles it to adhere to a vertical rhythm. After you set your variables in a settings file fire this mixin.
 ///
 /// @example
@@ -594,119 +595,126 @@ $vertical-rhythm    : true !default;
   html {
     @include t-html;
   }
-
-  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-  a, abbr, acronym, address, big, cite, code,
-  del, dfn, em, img, ins, kbd, q, s, samp,
-  small, strike, strong, sub, sup, tt, var,
-  b, u, i, center,
-  dl, dt, dd, ol, ul, li,
-  fieldset, form, label, legend,
-  table, caption, tbody, tfoot, thead, tr, th, td {
+  p, a {
     @include t-reset;
   }
-
-  p, blockquote, pre,
-  address,
-  dl, ol, ul,
-  table {
+  p {
     @include t-block;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    @include t-header;
-  }
 
-  h1 {
-    @include t-h1;
-  }
-
-  h2 {
-    @include t-h2;
-  }
-
-  h3 {
-    @include t-h3;
-  }
-
-  h4 {
-    @include t-h4;
-  }
-
-  h5 {
-    @include t-h5;
-  }
-
-  h6 {
-    @include t-h6;
-  }
-
-  blockquote {
-    @include t-blockquote;
-  }
-
-  pre {
-    @include t-pre;
-  }
-
-  code {
-    @include t-code;
-  }
-
-  big, small, sub, sup {
-    line-height: 0;
-  }
-
-  abbr, acronym {
-    @include t-abbr;
-  }
-
-  address {
-    font-style: normal;
-  }
-
-  dt {
-    @include t-dt;
-  }
-
-  ul {
-    padding-left: 1.1em;
-  }
-
-  ol {
-    padding-left: 1.4em;
-  }
-
-  fieldset {
-    @include t-fieldset;
-  }
-
-  legend {
-    @include t-legend;
-  }
-
-  input[type="text"], input[type="email"], input[type="password"], textarea {
-    @include t-input;
-  }
-
-  input[type="submit"], button {
-    @include t-button;
-  }
-
-  label {
-    @include t-label;
-  }
-
-  table {
-    @include t-table;
-  }
-
-  th {
-    @include t-th;
-  }
-
-  td {
-    @include t-td;
-  }
+  // h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+  // a, abbr, acronym, address, big, cite, code,
+  // del, dfn, em, img, ins, kbd, q, s, samp,
+  // small, strike, strong, sub, sup, tt, var,
+  // b, u, i, center,
+  // dl, dt, dd, ol, ul, li,
+  // fieldset, form, label, legend,
+  // table, caption, tbody, tfoot, thead, tr, th, td {
+  //   @include t-reset;
+  // }
+  //
+  // p, blockquote, pre,
+  // address,
+  // dl, ol, ul,
+  // table {
+  //   @include t-block;
+  // }
+  //
+  // h1, h2, h3, h4, h5, h6 {
+  //   @include t-header;
+  // }
+  //
+  // h1 {
+  //   @include t-h1;
+  // }
+  //
+  // h2 {
+  //   @include t-h2;
+  // }
+  //
+  // h3 {
+  //   @include t-h3;
+  // }
+  //
+  // h4 {
+  //   @include t-h4;
+  // }
+  //
+  // h5 {
+  //   @include t-h5;
+  // }
+  //
+  // h6 {
+  //   @include t-h6;
+  // }
+  //
+  // blockquote {
+  //   @include t-blockquote;
+  // }
+  //
+  // pre {
+  //   @include t-pre;
+  // }
+  //
+  // code {
+  //   @include t-code;
+  // }
+  //
+  // big, small, sub, sup {
+  //   line-height: 0;
+  // }
+  //
+  // abbr, acronym {
+  //   @include t-abbr;
+  // }
+  //
+  // address {
+  //   font-style: normal;
+  // }
+  //
+  // dt {
+  //   @include t-dt;
+  // }
+  //
+  // ul {
+  //   padding-left: 1.1em;
+  // }
+  //
+  // ol {
+  //   padding-left: 1.4em;
+  // }
+  //
+  // fieldset {
+  //   @include t-fieldset;
+  // }
+  //
+  // legend {
+  //   @include t-legend;
+  // }
+  //
+  // input[type="text"], input[type="email"], input[type="password"], textarea {
+  //   @include t-input;
+  // }
+  //
+  // input[type="submit"], button {
+  //   @include t-button;
+  // }
+  //
+  // label {
+  //   @include t-label;
+  // }
+  //
+  // table {
+  //   @include t-table;
+  // }
+  //
+  // th {
+  //   @include t-th;
+  // }
+  //
+  // td {
+  //   @include t-td;
+  // }
 
 }

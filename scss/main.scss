@@ -1,6 +1,5 @@
 // Components
-@import 'reset';
-
+// @import 'reset';
 // @import 'noise';
 @import 'fonts';
 @import 'typographic';
@@ -8,7 +7,7 @@
 // Variables
 $text-color: white;
 $padding-percent: 8;
-$hover-trans: 0.3s ease;
+$hover-in: 0.3s ease;
 $hover-out: 0.6s ease;
 
 //Orange
@@ -36,14 +35,13 @@ $max-width: 1000px;
 $vertical-rhythm: true;
 
 // Background mixin
-@mixin background(){
-  content   : '';
-  position  : fixed;
-  top       : 0;
-  right     : 0;
-  bottom    : 0;
-  left      : 0;
-  background: $gradient;
+@mixin pseudo($position) {
+  content : '';
+  position: $position;
+  top     : 0;
+  right   : 0;
+  bottom  : 0;
+  left    : 0;
 };
 
 // Typographic
@@ -65,8 +63,8 @@ p,
 a,
 small {
   &::selection {
-    color     : black;
-    background: transparent;
+    color     : $medium-color;
+    background: $text-color;
   }
 }
 
@@ -80,17 +78,18 @@ body {
   height: 100%;
 }
 body {
-  color              : $text-color;
-  padding            : 0 5%;
-  background         : $horizontalgradient;
-  opacity            : 0;
-  animation          : fadeIn ease-in 1;
-  animation-fill-mode: forwards;
-  animation-duration : 1.2s;
-  animation-delay    : 0.3s;
-  position           : relative;
+  color     : $text-color;
+  padding   : 0 5%;
+  background: $horizontalgradient;
+  opacity   : 0;
+  animation : 1.2s fadeIn ease-in 1 forwards;
+  position  : relative;
+  &:after,
+  &:before {
+    @include pseudo(fixed);
+  }
   &:after {
-    @include background();
+    background: $gradient;
     z-index   : -10;
   }
 }
@@ -107,8 +106,6 @@ header {
     padding-bottom: 22.56%;
   }
   svg {
-    width   : 100%;
-    height  : 100%;
     fill    : $text-color;
     position: absolute;
     top     : 0;
@@ -144,11 +141,15 @@ a {
   &:hover,
   &:focus {
     &:after {
-      transition      : $hover-trans;
+      transition      : $hover-in;
       transform       : scale3d(1,0.5,1) translate3d(0, 0.4rem, 0);
       background-color: $text-color;
     }
   }
+}
+svg {
+  height: 100%;
+  width : 100%;
 }
 img {
   position : absolute;
@@ -171,11 +172,9 @@ img {
     height: vr-block(2);
     width : vr-block(2);
     svg {
-      transition: 0.6s ease;
+      transition: $hover-out;
       fill      : $text-color;
       opacity   : $link-opacity;
-      height    : 100%;
-      width     : 100%;
     }
     &:after {
       opacity: 0;
@@ -183,7 +182,7 @@ img {
     &:hover,
     &:focus {
       svg {
-        transition: $hover-trans;
+        transition: $hover-in;
         opacity   : 1;
       }
     }
@@ -200,13 +199,14 @@ img {
   }
 }
 
-// Don't show on iOS devices
+// Don't show mask on iOS devices
 @media screen and (min-width: 1025px) {
+
   // Don't show on unsuported devices
   .cssmask {
     body {
       &:before {
-        @include background();
+        background    : $gradient;
         mask-image    : linear-gradient($fade-black 0%, transparent 15%, transparent 85%, $fade-black 100%);
         pointer-events: none;
         z-index       : 10;
