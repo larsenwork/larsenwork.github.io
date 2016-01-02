@@ -7,36 +7,41 @@ const imagemin = require('gulp-imagemin');
 const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('gulp-autoprefixer');
 const pngquant = require('imagemin-pngquant');
+const inlinesource = require('gulp-inline-source');
 
-const stylesheet = 'scss/main.scss';
-const script     = 'main.js';
 const distFolder = 'dist';
-const imgSrc     = 'img/*';
-const imgDist    = 'dist/img';
-const scssFiles  = 'scss/*.scss';
-const htmlFiles  = '*.html';
-const jsFiles    = ['js/snap.svg.js', 'js/modernizr.js', 'js/app.js'];
+
+const htmlSrc = 'src/*.html';
+const htmlDist = '*.html';
+
+const scssMain = 'src/scss/main.scss';
+const scssFiles = 'src/scss/*.scss';
+const cssMain = 'dist/main.css';
+
+const imgSrc = 'src/img/*';
+const imgDist = 'dist/img';
+
+const jsMain = 'main.js';
+const jsFiles = ['src/js/snap.svg.js', 'src/js/modernizr.js', 'src/js/app.js'];
 
 gulp.task('sass', function() {
-  return gulp.src(stylesheet)
+  return gulp.src(scssMain)
     .pipe(sass({
       outputStyle: 'compressed'
-    }))
+    }).on('error', sass.logError))
     .pipe(autoprefixer({
       browsers: ['last 2 versions'],
       cascade: false
     }))
     .pipe(gulp.dest(distFolder))
-    .pipe(browserSync.reload({
-      stream: true
-    }))
 });
+
 
 gulp.task('scripts', function() {
   return gulp.src(jsFiles)
     .pipe(sourcemaps.init())
     .pipe(uglify())
-    .pipe(concat(script))
+    .pipe(concat(jsMain))
     // .pipe(sourcemaps.write())
     .pipe(gulp.dest(distFolder))
     .pipe(browserSync.reload({
@@ -56,12 +61,11 @@ gulp.task('images', function() {
     .pipe(gulp.dest(imgDist));
 });
 
-gulp.task('watch', ['browserSync', 'sass', 'scripts', 'images'], function() {
-  gulp.watch(scssFiles, ['sass']);
-  gulp.watch(htmlFiles, browserSync.reload);
-  gulp.watch(jsFiles, ['scripts']);
-  gulp.watch(imgSrc, ['images']);
-})
+gulp.task('inlinesource', function() {
+  return gulp.src('src/*.html')
+    .pipe(inlinesource())
+    .pipe(gulp.dest(''))
+});
 
 gulp.task('browserSync', function() {
   browserSync({
@@ -69,4 +73,14 @@ gulp.task('browserSync', function() {
       baseDir: ''
     },
   })
-})
+});
+
+gulp.task('default', ['sass', 'scripts', 'inlinesource', 'images', 'browserSync'],
+  function() {
+    gulp.watch([htmlSrc, cssMain], ['inlinesource']);
+    gulp.watch(scssFiles, ['sass']);
+    gulp.watch(jsFiles, ['scripts']);
+    gulp.watch(imgSrc, ['images']);
+    gulp.watch(htmlDist, browserSync.reload);
+  }
+);

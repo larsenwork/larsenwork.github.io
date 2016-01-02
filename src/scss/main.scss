@@ -134,7 +134,7 @@ a {
     position        : absolute;
     left            : -0.1rem;
     right           : -0.1rem;
-    bottom          : 0.3rem;
+    bottom          : 0.35rem;
     height          : 0.3rem;
     background-color: rgba($text-color,$link-opacity);
   }
@@ -163,13 +163,10 @@ img {
 // Classes
 .contact {
   padding-top: vr-block(1.9);
-  a {
-    margin-top: vr-block(0.5);
-  }
 }
 .social {
   margin-left: - vr-block(.3);
-  height     : vr-block(8);
+  height     : vr-block(7);
   max-height : 40vw;
   a {
     height: vr-block(2);
