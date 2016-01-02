@@ -28,8 +28,8 @@ $body-color: $text-color;
 $header-font: $body-font;
 $header-font-weight: $body-font-weight;
 $header-color: $text-color;
-$min-font: 14px;
-$max-font: 18px;
+$min-font: 16px;
+$max-font: 22px;
 $min-width: 600px;
 $max-width: 1000px;
 $vertical-rhythm: true;
@@ -110,9 +110,10 @@ header {
   }
 }
 article {
-  max-width: 35rem;
+  max-width: 28rem;
   margin   : 0 auto;
   position : relative;
+  letter-spacing: 0.03rem;
 }
 a {
   position       : relative;
@@ -142,21 +143,21 @@ svg {
   width : 100%;
 }
 img {
-  position : absolute;
-  bottom   : 0;
-  right    : -5%;
-  width    : 60%;
-  opacity  : 0.2;
+  position: absolute;
+  bottom  : 0;
+  right   : -5%;
+  width   : 60%;
+  opacity : 0.2;
 }
 
 // Classes
 .contact {
-  padding-top: vr-block(1.9);
+  padding-top: vr-block(0.9);
   line-height: vr-block(1.5);
 }
 .social {
   margin-left: - vr-block(.4);
-  height     : vr-block(7);
+  height     : vr-block(6);
   max-height : 30vw;
   a {
     transition: $hover-out;
@@ -208,6 +209,6 @@ img {
     line-height: inherit;
   }
   .social {
-    height: vr-block(8);
+    height: vr-block(7);
   }
 }
