@@ -23,6 +23,8 @@ const cssMain = 'dist/main.css';
 const imgSrc = 'src/img/*';
 const imgDist = 'dist/img';
 
+const favSrc = 'src/fav/*';
+
 const jsMain = 'main.js';
 const jsFiles = ['src/js/snap.svg.js', 'src/js/modernizr.js', 'src/js/app.js'];
 
@@ -61,6 +63,18 @@ gulp.task('images', function() {
       use: [pngquant()]
     }))
     .pipe(gulp.dest(imgDist));
+});
+
+gulp.task('favicons', function() {
+  return gulp.src(favSrc)
+    .pipe(imagemin({
+      progressive: true,
+      svgoPlugins: [{
+        removeViewBox: false
+      }],
+      use: [pngquant()]
+    }))
+    .pipe(gulp.dest(''));
 });
 
 gulp.task('inlinesource', function() {

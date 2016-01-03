@@ -109,7 +109,7 @@ footer {
   margin-top : vr-block(2);
   line-height: vr-block(1.5);
   overflow   : hidden;
-  height     : vr-block(10);
+  min-height : vr-block(10);
 }
 a {
   position       : relative;
@@ -149,8 +149,11 @@ img {
 
 // Classes
 .social {
-  margin-left: - vr-block(.4);
-  max-width  : 60%;
+  max-width: 60%;
+  margin   : vr-block(.5) 0 vr-block(1) (- vr-block(.4));
+  span {
+    display: inline-block;
+  }
   a {
     transition: $hover-out;
     display   : inline-block;
@@ -158,6 +161,7 @@ img {
     width     : vr-block(2);
     fill      : $text-color;
     opacity   : $icon-opacity;
+    margin-top: - vr-block(.5);
     &:after {
       opacity: 0;
     }
