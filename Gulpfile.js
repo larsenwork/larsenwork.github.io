@@ -8,6 +8,8 @@ const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('gulp-autoprefixer');
 const pngquant = require('imagemin-pngquant');
 const inlinesource = require('gulp-inline-source');
+const htmlmin = require('gulp-htmlmin');
+
 
 const distFolder = 'dist';
 
@@ -67,6 +69,21 @@ gulp.task('inlinesource', function() {
     .pipe(gulp.dest(''))
 });
 
+gulp.task('minify', function() {
+  return gulp.src('*.html')
+    .pipe(htmlmin({
+      removeComments: true,
+      collapseWhitespace: true,
+      removeRedundantAttributes: true,
+      removeScriptTypeAttributes: true,
+      removeStyleLinkTypeAttributes: true
+    }))
+    .pipe(gulp.dest(''))
+    .pipe(browserSync.reload({
+      stream: true
+    }))
+});
+
 gulp.task('browserSync', function() {
   browserSync({
     server: {
@@ -75,12 +92,14 @@ gulp.task('browserSync', function() {
   })
 });
 
-gulp.task('default', ['sass', 'scripts', 'inlinesource', 'images', 'browserSync'],
+gulp.task('default', ['sass', 'scripts', 'inlinesource', 'minify', 'images',
+    'browserSync'
+  ],
   function() {
     gulp.watch([htmlSrc, cssMain], ['inlinesource']);
     gulp.watch(scssFiles, ['sass']);
     gulp.watch(jsFiles, ['scripts']);
     gulp.watch(imgSrc, ['images']);
-    gulp.watch(htmlDist, browserSync.reload);
+    gulp.watch(htmlDist, ['minify']);
   }
 );
