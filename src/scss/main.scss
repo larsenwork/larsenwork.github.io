@@ -42,6 +42,17 @@ $vertical-rhythm: true;
   -moz-osx-font-smoothing: grayscale;
 }
 
+// Reset
+* {
+  box-sizing: border-box;
+  margin    : 0;
+  padding   : 0;
+}
+body,
+html {
+  height: 100%;
+}
+
 // Typographic
 @include typographic();
 
@@ -63,12 +74,8 @@ p > a {
 html {
   @include fontfix();
 }
-html,
 body {
-  height : 100%;
-  margin : 0;
-  padding: 0;
-  color  : $text-color;
+  color: $text-color;
 }
 header {
   height    : 80%;
