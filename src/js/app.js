@@ -1,10 +1,10 @@
 // Lazy load
-// var imgEl = document.getElementsByTagName('img');
-// for (var i = 0; i < imgEl.length; i++) {
-//   if (imgEl[i].getAttribute('data-src')) {
-//     imgEl[i].setAttribute('src', imgEl[i].getAttribute('data-src'));
-//   }
-// }
+var imgEl = document.getElementsByTagName('img');
+for (var i = 0; i < imgEl.length; i++) {
+  if (imgEl[i].getAttribute('data-src')) {
+    imgEl[i].setAttribute('src', imgEl[i].getAttribute('data-src'));
+  }
+}
 
 // Elements
 var svg = document.getElementById("larsenwork"),
