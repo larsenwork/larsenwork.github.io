@@ -74,6 +74,7 @@ header {
   height    : 80%;
   max-height: 100vw;
   .container {
+    width         : 85%;
     max-width     : $max-width*0.6;
     position      : relative;
     top           : 55%;
@@ -98,10 +99,10 @@ footer {
   }
 }
 footer {
-  margin-top : vr-block(1.9);
+  margin-top : vr-block(2);
   line-height: vr-block(1.5);
-  overflow  : hidden;
-  height: vr-block(10);
+  overflow   : hidden;
+  height     : vr-block(10);
 }
 a {
   position       : relative;
@@ -141,8 +142,8 @@ img {
 
 // Classes
 .social {
-  margin-left   : - vr-block(.4);
-  max-width     : 50%;
+  margin-left: - vr-block(.4);
+  max-width  : 50%;
   a {
     transition: $hover-out;
     display   : inline-block;
