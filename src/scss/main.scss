@@ -4,20 +4,14 @@
 @import 'fonts';
 @import 'typographic';
 
-// Variables
-$text-color: white;
-$padding-percent: 8;
+// Misc var
+$color: hsl(206, 22%, 26%);
+$fade-black: rgba(0,0,0,1);
+$link-opacity: 0.3;
+$icon-opacity: 0.6;
+$text-color: $color;
 $hover-in: 0.3s ease;
 $hover-out: 0.6s ease;
-
-//Orange
-$start-color: hsl(39, 100%, 46%);
-$medium-color: hsl(14, 70%, 54%);
-$end-color: hsl(334, 69%, 48%);
-$gradient: linear-gradient(to bottom left, $start-color 0%, $end-color 100%);
-$horizontalgradient: linear-gradient(to left, $medium-color 0%, $end-color 100%);
-$fade-black: rgba(0,0,0,0.8);
-$link-opacity: 0.3;
 
 // Typegraphic vars
 $line-height-ratio: 1.75;
@@ -29,12 +23,12 @@ $header-font: $body-font;
 $header-font-weight: $body-font-weight;
 $header-color: $text-color;
 $min-font: 16px;
-$max-font: 22px;
+$max-font: 20px;
 $min-width: 600px;
 $max-width: 1000px;
 $vertical-rhythm: true;
 
-// Background mixin
+// Mixins
 @mixin pseudo($position) {
   content : '';
   position: $position;
@@ -42,7 +36,11 @@ $vertical-rhythm: true;
   right   : 0;
   bottom  : 0;
   left    : 0;
-};
+}
+@mixin fontfix() {
+  -webkit-font-smoothing : antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
 // Typographic
 @include typographic();
@@ -53,47 +51,28 @@ $vertical-rhythm: true;
   user-select: none;
 }
 p,
-a,
-small {
+p > a {
   user-select: text;
   &::selection {
-    color     : $medium-color;
-    background: $text-color;
+    color     : white;
+    background: $color;
   }
 }
 
 // Layout + styling
 html {
-  -webkit-font-smoothing : antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  @include fontfix();
 }
 html,
 body {
-  height: 100%;
-}
-body {
-  color     : $text-color;
-  padding   : 0 5%;
-  background: $horizontalgradient;
-  &:after,
-  &:before {
-    @include pseudo(fixed);
-  }
-  &:after {
-    background: $gradient;
-    z-index   : -10;
-  }
-}
-header,
-article {
-  opacity  : 0;
-  animation: 0.6s fadeIn ease-in 1 forwards 0.3s;
-  position : relative;
+  height : 100%;
+  margin : 0;
+  padding: 0;
+  color  : $text-color;
 }
 header {
-  position  : relative;
   height    : 80%;
-  max-height: 120vw;
+  max-height: 100vw;
   .container {
     max-width     : $max-width*0.6;
     position      : relative;
@@ -109,11 +88,18 @@ header {
     left    : 0;
   }
 }
-article {
-  max-width: 28rem;
+article,
+footer {
+  max-width: 35rem;
   margin   : 0 auto;
   position : relative;
-  letter-spacing: 0.03rem;
+  > * {
+    padding: 0 5%;
+  }
+}
+footer {
+  margin-top : vr-block(1.9);
+  line-height: vr-block(1.5);
 }
 a {
   position       : relative;
@@ -133,7 +119,7 @@ a {
   &:focus {
     &:after {
       transition      : $hover-in;
-      transform       : scale3d(1,0.5,1) translate3d(0, 0.4rem, 0);
+      transform       : scale3d(1,0.3,1) translate3d(0, 0.6rem, 0);
       background-color: $text-color;
     }
   }
@@ -146,26 +132,20 @@ img {
   position: absolute;
   bottom  : 0;
   right   : -5%;
-  width   : 60%;
-  opacity : 0.2;
+  height  : 100%;
 }
 
 // Classes
-.contact {
-  padding-top: vr-block(0.9);
-  line-height: vr-block(1.5);
-}
 .social {
-  margin-left: - vr-block(.4);
-  height     : vr-block(6);
-  max-height : 30vw;
+  margin-left   : - vr-block(.4);
+  padding-bottom: vr-block(4);
   a {
     transition: $hover-out;
     display   : inline-block;
     height    : vr-block(2);
     width     : vr-block(2);
     fill      : $text-color;
-    opacity   : $link-opacity;
+    opacity   : $icon-opacity;
     &:after {
       opacity: 0;
     }
@@ -177,38 +157,24 @@ img {
   }
 }
 
-// Animation
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 // Don't show mask on iOS devices
 @media screen and (min-width: 1025px) {
 
-  // Don't show on unsuported devices
+  // Only show on supported devices
   .cssmask {
-    body {
-      &:before {
-        background    : $gradient;
-        mask-image    : linear-gradient($fade-black 0%, transparent 15%, transparent 85%, $fade-black 100%);
-        pointer-events: none;
-        z-index       : 10;
-      }
+    body:before {
+      @include pseudo(fixed);
+      background    : white;
+      mask-image    : linear-gradient($fade-black 0%, transparent 20%, transparent 80%, $fade-black 100%);
+      pointer-events: none;
+      z-index       : 10;
     }
   }
 }
 
 // Less space between links if modern browser with mouse
 @media (pointer: fine) {
-  .contact {
+  footer {
     line-height: inherit;
-  }
-  .social {
-    height: vr-block(7);
   }
 }
