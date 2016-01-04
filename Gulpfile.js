@@ -14,7 +14,6 @@ const htmlmin = require('gulp-htmlmin');
 const distFolder = 'dist';
 
 const htmlSrc = 'src/*.html';
-const htmlDist = '*.html';
 
 const scssMain = 'src/scss/main.scss';
 const scssFiles = 'src/scss/*.scss';
@@ -65,7 +64,7 @@ gulp.task('images', function() {
     .pipe(gulp.dest(imgDist));
 });
 
-gulp.task('favicons', function() {
+gulp.task('fav', function() {
   return gulp.src(favSrc)
     .pipe(imagemin({
       progressive: true,
@@ -80,11 +79,6 @@ gulp.task('favicons', function() {
 gulp.task('inlinesource', function() {
   return gulp.src('src/*.html')
     .pipe(inlinesource())
-    .pipe(gulp.dest(''))
-});
-
-gulp.task('minify', function() {
-  return gulp.src('*.html')
     .pipe(htmlmin({
       removeComments: true,
       collapseWhitespace: true,
@@ -106,7 +100,7 @@ gulp.task('browserSync', function() {
   })
 });
 
-gulp.task('default', ['sass', 'scripts', 'inlinesource', 'minify', 'images',
+gulp.task('default', ['sass', 'scripts', 'inlinesource', 'images',
     'browserSync'
   ],
   function() {
@@ -114,6 +108,5 @@ gulp.task('default', ['sass', 'scripts', 'inlinesource', 'minify', 'images',
     gulp.watch(scssFiles, ['sass']);
     gulp.watch(jsFiles, ['scripts']);
     gulp.watch(imgSrc, ['images']);
-    gulp.watch(htmlDist, ['minify']);
   }
 );
