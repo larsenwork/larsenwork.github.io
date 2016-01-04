@@ -61,7 +61,10 @@ gulp.task('images', function() {
       }],
       use: [pngquant()]
     }))
-    .pipe(gulp.dest(imgDist));
+    .pipe(gulp.dest(imgDist))
+    .pipe(browserSync.reload({
+      stream: true
+    }))
 });
 
 gulp.task('fav', function() {

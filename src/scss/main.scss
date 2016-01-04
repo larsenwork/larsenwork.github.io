@@ -7,7 +7,8 @@
 // Misc var
 $color: hsl(206, 22%, 26%);
 $fade-black: rgba(0,0,0,1);
-$link-opacity: 0.3;
+$link-opacity: 0.6;
+$link-color: #dd5e30;
 $icon-opacity: 0.6;
 $text-color: $color;
 $hover-in: 0.3s ease;
@@ -80,14 +81,21 @@ body {
 header {
   height    : 80%;
   max-height: 100vw;
-  .container {
-    width         : 85%;
-    max-width     : $max-width*0.6;
-    position      : relative;
-    top           : 55%;
-    left          : 50%;
-    transform     : translate3d(-50%,-50%,0);
-    padding-bottom: 22.56%;
+  width     : 85%;
+  max-width : $max-width*0.6;
+  margin    : 0 auto;
+  > div {
+    position : relative;
+    top      : 50%;
+    left     : 50%;
+    transform: translate3d(-50%,-50%,0);
+    > div {
+      position : relative;
+      padding-bottom: 22.56%;
+      &:first-child {
+        padding-bottom: 40%;
+      }
+    }
   }
   svg {
     fill    : $text-color;
@@ -121,16 +129,17 @@ a {
     position        : absolute;
     left            : -0.1rem;
     right           : -0.1rem;
-    bottom          : 0;
-    height          : 0.3rem;
-    background-color: rgba($text-color,$link-opacity);
+    bottom          : -0.05rem;
+    height          : 0.15rem;
+    background-color: rgba($link-color,$link-opacity);
+    z-index         : -1;
   }
   &:hover,
   &:focus {
     &:after {
       transition      : $hover-in;
-      transform       : scale3d(1,0.3,1) translate3d(0, 0.6rem, 0);
-      background-color: $text-color;
+      transform       : translate3d(0, 0.15rem, 0);
+      background-color: $link-color;
     }
   }
 }
@@ -159,7 +168,6 @@ img {
     display   : inline-block;
     height    : vr-block(2);
     width     : vr-block(2);
-    fill      : $text-color;
     opacity   : $icon-opacity;
     margin-top: - vr-block(.5);
     &:after {
