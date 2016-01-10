@@ -6,7 +6,7 @@
 
 // Misc var
 $color: hsl(206, 22%, 26%);
-$fade-black: rgba(0,0,0,1);
+$fade-black: rgba(0,0,0,0.7);
 $link-opacity: 0.6;
 $link-color: #dd5e30;
 $icon-opacity: 0.6;
@@ -186,12 +186,19 @@ img {
 
   // Only show on supported devices
   .cssmask {
-    body:before {
-      @include pseudo(fixed);
-      background    : white;
-      mask-image    : linear-gradient($fade-black 0%, transparent 20%, transparent 80%, $fade-black 100%);
-      pointer-events: none;
-      z-index       : 10;
+    body {
+      &:before, &:after {
+        @include pseudo(fixed);
+        background    : white;
+        pointer-events: none;
+        z-index       : 10;
+      }
+      &:before {
+        mask-image    : linear-gradient($fade-black 0%, transparent 20%, transparent 80%, $fade-black 100%);
+      }
+      &:after {
+        mask-image    : linear-gradient($fade-black 0%, transparent 8%, transparent 92%, $fade-black 100%);
+      }
     }
   }
 }
