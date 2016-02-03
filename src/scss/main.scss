@@ -123,13 +123,14 @@ a {
   position       : relative;
   text-decoration: none;
   color          : $text-color;
+  display        : inline-block;
   &:after {
     transition      : $hover-out;
     content         : '';
     position        : absolute;
     left            : -0.1rem;
     right           : -0.1rem;
-    bottom          : -0.05rem;
+    bottom          : 0.25rem;
     height          : 0.15rem;
     background-color: rgba($link-color,$link-opacity);
     z-index         : -1;
@@ -138,7 +139,7 @@ a {
   &:focus {
     &:after {
       transition      : $hover-in;
-      transform       : translate3d(0, 0.15rem, 0);
+      transform       : translate3d(0, 0.2rem, 0);
       background-color: $link-color;
     }
   }
