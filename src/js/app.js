@@ -21,7 +21,7 @@ var svg = document.getElementById("larsenwork"),
 // Default paths
 function path(id) {
   return document.getElementById(id).getAttribute('d');
-};
+}
 
 var l1start = path('l1'),
   a2start = path('a2'),
@@ -67,7 +67,7 @@ function swingTest() {
     }
   }
   setTimeout(swingTest, 500);
-};
+}
 
 // Animation functions
 function larsenAnimate(element, path, delayFactor) {
@@ -121,7 +121,7 @@ function swingLeft() {
       "M455 260h150v1305c0 22 0 45 11 59 8 10 19 14 35 14 14 0 30-2 46-6l24 128c-27 8-57 12-92 12-56 0-104-27-136-66-38-46-38-108-38-141V260z",
       9, swingRight);
   } else {
-    isAnimating = false
+    isAnimating = false;
   }
 }
 
@@ -140,7 +140,7 @@ function swingRight() {
     larsenAnimate(r9, r9start, 8);
     larsenAnimateCallback(k10, k10start, 9, swingLeft);
   } else {
-    isAnimating = false
+    isAnimating = false;
   }
 }
 

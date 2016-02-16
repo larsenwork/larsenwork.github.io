@@ -25,7 +25,7 @@ const imgDist = 'dist/img';
 const favSrc = 'src/fav/*';
 
 const jsMain = 'main.js';
-const jsFiles = ['src/js/snap.svg.js', 'src/js/modernizr.js', 'src/js/app.js'];
+const jsFiles = ['src/js/snap.svg.js', 'src/js/app.js'];
 
 gulp.task('sass', function() {
   return gulp.src(scssMain)
@@ -36,7 +36,7 @@ gulp.task('sass', function() {
       browsers: ['last 2 versions'],
       cascade: false
     }))
-    .pipe(gulp.dest(distFolder))
+    .pipe(gulp.dest(distFolder));
 });
 
 
@@ -49,7 +49,7 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest(distFolder))
     .pipe(browserSync.reload({
       stream: true
-    }))
+    }));
 });
 
 gulp.task('images', function() {
@@ -64,7 +64,7 @@ gulp.task('images', function() {
     .pipe(gulp.dest(imgDist))
     .pipe(browserSync.reload({
       stream: true
-    }))
+    }));
 });
 
 gulp.task('fav', function() {
@@ -92,7 +92,7 @@ gulp.task('inlinesource', function() {
     .pipe(gulp.dest(''))
     .pipe(browserSync.reload({
       stream: true
-    }))
+    }));
 });
 
 gulp.task('browserSync', function() {
@@ -100,7 +100,7 @@ gulp.task('browserSync', function() {
     server: {
       baseDir: ''
     },
-  })
+  });
 });
 
 gulp.task('default', ['sass', 'scripts', 'inlinesource', 'images',
