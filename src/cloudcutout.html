@@ -14,12 +14,12 @@
   <meta name="twitter:site" content="@larsenwork">
   <meta name="twitter:title" content="Andreas Larsen">
   <meta name="twitter:description" content="Redesign of the cloudcutout image QA interface, 8 hrs, Spring 2016">
-  <meta name="twitter:image" content="http://larsenwork.com/dist/img/larsenwork-website.jpg">
+  <meta name="twitter:image" content="/dist/img/CloudCutout 3.png">
 
   <!-- Open Graph data -->
   <meta property="og:title" content="Andreas Larsen" />
   <meta property="og:url" content="http://larsenwork.com/" />
-  <meta property="og:image" content="http://larsenwork.com/dist/img/larsenwork-website.jpg" />
+  <meta property="og:image" content="/dist/img/CloudCutout 3.png" />
   <meta property="og:description" content="Redesign of the cloudcutout image QA interface, 8 hrs, Spring 2016" />
 
   <!-- Favicon -->
@@ -40,7 +40,7 @@
       </svg>
     </a>
     <div class="header__tools">
-      <div class="dropdown dropdown--expanded">
+      <div class="dropdown">
         <div class="dropdown__title">
           Background
         </div>
@@ -53,13 +53,31 @@
         </div>
       </div>
       <div class="dropdown">
-        Brush
+        <div class="dropdown__title">
+          Brush
+        </div>
         <div class="dropdown__list">
-          You can't see me because my parent is not expanded
+          <ul>
+            <li>
+              Empty
+            </li>
+          </ul>
         </div>
       </div>
       <div class="dropdown">
-        44%
+        <div class="dropdown__title">
+          44%
+        </div>
+        <div class="dropdown__list">
+          <ul>
+            <li>
+              Size to fit
+            </li>
+            <li>
+              Original size
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
     <div class="header__links">
@@ -81,23 +99,24 @@
       Components
     </h2>
     <p>
-      Font: <a href="http://www.webtype.com/font/interstate-family/">Interstate</a> (the one used on highway signs in the US - great for a clear and characterfull UI)
+      Fonts: <a href="http://www.webtype.com/font/interstate-family/">Interstate</a> (light, normal and bold)
       <br /> Forms: <a href="http://materializecss.com/forms.html">materializecss</a> (recommendation, not shown)
+      <br /> Scss: <a href="https://github.com/larsenwork/larsenwork.github.io/blob/master/src/scss/projects/cloudcutout/main.scss">source on github</a> 
     </p>
     <h2>Screenshots</h2>
     <p>
       Click to see full size
     </p>
     <div class="screenshots">
-      <a href="/src/img/CloudCutout 1.png"><img src="/src/img/CloudCutout 1.png" /></a>
-      <a href="/src/img/CloudCutout 2.png"><img src="/src/img/CloudCutout 2.png" /></a>
-      <a href="/src/img/CloudCutout 3.png"><img src="/src/img/CloudCutout 3.png" /></a>
-      <a href="/src/img/CloudCutout 3a.png"><img src="/src/img/CloudCutout 3a.png" /></a>
-      <a href="/src/img/CloudCutout 3b.png"><img src="/src/img/CloudCutout 3b.png" /></a>
-      <a href="/src/img/CloudCutout 3c.png"><img src="/src/img/CloudCutout 3c.png" /></a>
-      <a href="/src/img/CloudCutout 3d.png"><img src="/src/img/CloudCutout 3d.png" /></a>
-      <a href="/src/img/CloudCutout 3e.png"><img src="/src/img/CloudCutout 3e.png" /></a>
-      <a href="/src/img/CloudCutout 4.png"><img src="/src/img/CloudCutout 4.png" /></a>
+      <a href="/dist/img/CloudCutout 1.png"><img src="/dist/img/CloudCutout 1.png" /></a>
+      <a href="/dist/img/CloudCutout 2.png"><img src="/dist/img/CloudCutout 2.png" /></a>
+      <a href="/dist/img/CloudCutout 3.png"><img src="/dist/img/CloudCutout 3.png" /></a>
+      <a href="/dist/img/CloudCutout 3a.png"><img src="/dist/img/CloudCutout 3a.png" /></a>
+      <a href="/dist/img/CloudCutout 3b.png"><img src="/dist/img/CloudCutout 3b.png" /></a>
+      <a href="/dist/img/CloudCutout 3c.png"><img src="/dist/img/CloudCutout 3c.png" /></a>
+      <a href="/dist/img/CloudCutout 3d.png"><img src="/dist/img/CloudCutout 3d.png" /></a>
+      <a href="/dist/img/CloudCutout 3e.png"><img src="/dist/img/CloudCutout 3e.png" /></a>
+      <a href="/dist/img/CloudCutout 4.png"><img src="/dist/img/CloudCutout 4.png" /></a>
     </div>
   </section>
   <footer>
@@ -124,6 +143,20 @@
   </footer>
   <script>
     document.getElementsByClassName('dropdown')[0].addEventListener('click', function() {
+      if (this.classList.contains('dropdown--expanded')) {
+        this.classList.remove('dropdown--expanded');
+      } else {
+        this.classList.add('dropdown--expanded');
+      }
+    });
+    document.getElementsByClassName('dropdown')[1].addEventListener('click', function() {
+      if (this.classList.contains('dropdown--expanded')) {
+        this.classList.remove('dropdown--expanded');
+      } else {
+        this.classList.add('dropdown--expanded');
+      }
+    });
+    document.getElementsByClassName('dropdown')[2].addEventListener('click', function() {
       if (this.classList.contains('dropdown--expanded')) {
         this.classList.remove('dropdown--expanded');
       } else {
