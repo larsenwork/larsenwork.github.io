@@ -7,12 +7,12 @@
 // Misc var
 $color: hsl(206, 22%, 26%);
 $fade-black: rgba(0,0,0,0.7);
-$link-opacity: 0.6;
+$link-opacity: .6;
 $link-color: #dd5e30;
-$icon-opacity: 0.6;
+$icon-opacity: .6;
 $text-color: $color;
-$hover-in: 0.3s ease;
-$hover-out: 0.6s ease;
+$hover-in: .3s ease;
+$hover-out: .6s ease;
 
 // Typegraphic vars
 $line-height-ratio: 1.75;
@@ -38,6 +38,7 @@ $vertical-rhythm: true;
   bottom  : 0;
   left    : 0;
 }
+
 @mixin fontfix() {
   -webkit-font-smoothing : antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -49,6 +50,7 @@ $vertical-rhythm: true;
   margin    : 0;
   padding   : 0;
 }
+
 body,
 html {
   height: 100%;
@@ -62,9 +64,11 @@ html {
 * {
   user-select: none;
 }
+
 p,
 p > a {
   user-select: text;
+
   &::selection {
     color     : white;
     background: $color;
@@ -75,28 +79,34 @@ p > a {
 html {
   @include fontfix();
 }
+
 body {
   color: $text-color;
 }
+
 header {
   height    : 80%;
   max-height: 100vw;
   width     : 85%;
   max-width : $max-width*0.6;
   margin    : 0 auto;
+
   > div {
     position : relative;
     top      : 50%;
     left     : 50%;
     transform: translate3d(-50%,-50%,0);
+
     > div {
-      position : relative;
+      position      : relative;
       padding-bottom: 22.56%;
+
       &:first-child {
         padding-bottom: 40%;
       }
     }
   }
+
   svg {
     fill    : $text-color;
     position: absolute;
@@ -104,37 +114,43 @@ header {
     left    : 0;
   }
 }
+
 article,
 footer {
   max-width: 35rem;
   margin   : 0 auto;
   position : relative;
+
   > * {
     padding: 0 5%;
   }
 }
+
 footer {
   margin-top : vr-block(2);
   line-height: vr-block(1.5);
   overflow   : hidden;
   min-height : vr-block(10);
 }
+
 a {
   position       : relative;
   text-decoration: none;
   color          : $text-color;
   display        : inline-block;
+
   &:after {
     transition      : $hover-out;
     content         : '';
     position        : absolute;
     left            : -0.1rem;
     right           : -0.1rem;
-    bottom          : 0.25rem;
-    height          : 0.15rem;
+    bottom          : .25rem;
+    height          : .15rem;
     background-color: rgba($link-color,$link-opacity);
     z-index         : -1;
   }
+
   &:hover,
   &:focus {
     &:after {
@@ -144,10 +160,12 @@ a {
     }
   }
 }
+
 svg {
   height: 100%;
   width : 100%;
 }
+
 img {
   position  : absolute;
   bottom    : 0;
@@ -161,9 +179,11 @@ img {
 .social {
   max-width: 60%;
   margin   : vr-block(.5) 0 vr-block(1) (- vr-block(.4));
+
   span {
     display: inline-block;
   }
+
   a {
     transition: $hover-out;
     display   : inline-block;
@@ -171,9 +191,11 @@ img {
     width     : vr-block(2);
     opacity   : $icon-opacity;
     margin-top: - vr-block(.5);
+
     &:after {
       opacity: 0;
     }
+
     &:hover,
     &:focus {
       opacity   : 1;

@@ -10,13 +10,12 @@ const pngquant = require('imagemin-pngquant');
 const inlinesource = require('gulp-inline-source');
 const htmlmin = require('gulp-htmlmin');
 
-
 const distFolder = 'dist';
-
 const htmlSrc = 'src/*.html';
 
 const scssMain = 'src/scss/main.scss';
-const scssFiles = 'src/scss/*.scss';
+const scssProject = 'src/scss/projects/*/main.scss';
+const scssFiles = 'src/scss/**/*.scss';
 const cssMain = 'dist/main.css';
 
 const imgSrc = 'src/img/*';
@@ -39,6 +38,17 @@ gulp.task('sass', function() {
     .pipe(gulp.dest(distFolder));
 });
 
+gulp.task('projectSass', function() {
+  return gulp.src(scssProject)
+    .pipe(sass({
+      outputStyle: 'compressed'
+    }).on('error', sass.logError))
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions'],
+      cascade: false
+    }))
+    .pipe(gulp.dest(distFolder));
+});
 
 gulp.task('scripts', function() {
   return gulp.src(jsFiles)
@@ -103,12 +113,12 @@ gulp.task('browserSync', function() {
   });
 });
 
-gulp.task('default', ['sass', 'scripts', 'inlinesource', 'images',
+gulp.task('default', ['sass', 'projectSass', 'scripts', 'inlinesource', 'images',
     'browserSync'
   ],
   function() {
     gulp.watch([htmlSrc, cssMain], ['inlinesource']);
-    gulp.watch(scssFiles, ['sass']);
+    gulp.watch(scssFiles, ['sass', 'projectSass']);
     gulp.watch(jsFiles, ['scripts']);
     gulp.watch(imgSrc, ['images']);
   }
