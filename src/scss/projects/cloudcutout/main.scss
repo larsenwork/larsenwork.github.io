@@ -249,6 +249,7 @@ footer {
   a {
     box-shadow   : 0 0 $margin rgba($black, .2);
     flex-shrink  : 1;
+    line-height  : 0;
     margin-bottom: $margin * 3;
     width        : 100%;
     @media (min-width: 40rem) {
