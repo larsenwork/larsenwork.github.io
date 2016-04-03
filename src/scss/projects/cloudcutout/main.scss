@@ -131,9 +131,6 @@ header {
 
 .header__logo {
   line-height: 0;
-  @media (max-width: 30rem) {
-    display: none;
-  }
 }
 
 .header__links {
@@ -252,10 +249,12 @@ footer {
     line-height  : 0;
     margin-bottom: $margin * 3;
     width        : 100%;
+
     @media (min-width: 40rem) {
       margin-bottom: 3vw;
       width        : 47.2vw;
     }
+
     @media (min-width: 60rem) {
       margin-bottom: 2vw;
       width        : 31.3vw;
@@ -264,5 +263,18 @@ footer {
 
   img {
     max-width: 100%;
+  }
+}
+
+// Skal håndteres med en hamburgermenu eller noget lign
+@media (max-width: 50rem) {
+  .header__tools {
+    display: none;
+  }
+}
+
+@media (max-width: 30rem) {
+  .header__links {
+    display: none;
   }
 }
