@@ -132,6 +132,7 @@ a {
   position: relative;
   text-decoration: none;
   transition: $hover-out;
+  white-space: nowrap;
 
   &:after {
     background-color: rgba($link-color,$link-opacity);
