@@ -3,9 +3,9 @@
 // @import 'noise';
 @import 'fonts';
 @import 'typographic';
-
 // Misc var
 $color: hsl(206, 22%, 26%);
+$white: #fff;
 $fade-black: rgba(0,0,0,0.7);
 $link-opacity: .6;
 $link-color: #dd5e30;
@@ -13,7 +13,6 @@ $icon-opacity: .6;
 $text-color: $color;
 $hover-in: .3s ease;
 $hover-out: .6s ease;
-
 // Typegraphic vars
 $line-height-ratio: 1.75;
 $header-ratio: $golden;
@@ -28,39 +27,35 @@ $max-font: 20px;
 $min-width: 600px;
 $max-width: 1000px;
 $vertical-rhythm: true;
-
 // Mixins
 @mixin pseudo($position) {
-  content : '';
+  content: '';
   position: $position;
-  top     : 0;
-  right   : 0;
-  bottom  : 0;
-  left    : 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
-
 @mixin fontfix() {
-  -webkit-font-smoothing : antialiased;
+  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 // Reset
 * {
   box-sizing: border-box;
-  margin    : 0;
-  padding   : 0;
+  margin: 0;
+  padding: 0;
 }
 
 body,
 html {
   height: 100%;
 }
-
 // Typographic
 @include typographic();
-
 // @include grid-overlay(red, 1);
 // Selection
+
 * {
   user-select: none;
 }
@@ -70,11 +65,10 @@ p > a {
   user-select: text;
 
   &::selection {
-    color     : white;
+    color: $white;
     background: $color;
   }
 }
-
 // Layout + styling
 html {
   @include fontfix();
@@ -85,20 +79,20 @@ body {
 }
 
 header {
-  height    : 80%;
+  height: 80%;
   max-height: 100vw;
-  width     : 85%;
-  max-width : $max-width*0.6;
-  margin    : 0 auto;
+  width: 85%;
+  max-width: $max-width*0.6;
+  margin: 0 auto;
 
   > div {
-    position : relative;
-    top      : 50%;
-    left     : 50%;
+    position: relative;
+    top: 50%;
+    left: 50%;
     transform: translate3d(-50%,-50%,0);
 
     > div {
-      position      : relative;
+      position: relative;
       padding-bottom: 22.56%;
 
       &:first-child {
@@ -108,18 +102,18 @@ header {
   }
 
   svg {
-    fill    : $text-color;
+    fill: $text-color;
     position: absolute;
-    top     : 0;
-    left    : 0;
+    top: 0;
+    left: 0;
   }
 }
 
 article,
 footer {
   max-width: 35rem;
-  margin   : 0 auto;
-  position : relative;
+  margin: 0 auto;
+  position: relative;
 
   > * {
     padding: 0 5%;
@@ -127,58 +121,62 @@ footer {
 }
 
 footer {
-  margin-top : vr-block(2);
   line-height: vr-block(1.5);
-  overflow   : hidden;
-  min-height : vr-block(10);
+  margin-top: vr-block(2);
+  min-height: vr-block(10);
+  overflow: hidden;
 }
 
 a {
-  position       : relative;
+  color: $text-color;
+  position: relative;
   text-decoration: none;
-  color          : $text-color;
-  display        : inline-block;
+  transition: $hover-out;
 
   &:after {
-    transition      : $hover-out;
-    content         : '';
-    position        : absolute;
-    left            : -0.1rem;
-    right           : -0.1rem;
-    bottom          : .25rem;
-    height          : .15rem;
     background-color: rgba($link-color,$link-opacity);
-    z-index         : -1;
+    bottom: -0.1rem;
+    content: '';
+    height: .15rem;
+    left: -0.1rem;
+    position: absolute;
+    transition: $hover-out;
+    right: -0.1rem;
+    z-index: -1;
   }
 
-  &:hover,
-  &:focus {
+  &:focus,
+  &:hover {
+    color: $white;
+    transition: $hover-in;
+
     &:after {
-      transition      : $hover-in;
-      transform       : translate3d(0, 0.2rem, 0);
       background-color: $link-color;
+      height: 120%;
+      left: -0.3rem;
+      right: -0.3rem;
+      transition: $hover-in;
     }
   }
 }
 
 svg {
   height: 100%;
-  width : 100%;
+  width: 100%;
 }
 
 img {
-  position  : absolute;
-  bottom    : 0;
-  right     : -5%;
-  z-index   : -1;
+  position: absolute;
+  bottom: 0;
+  right: -5%;
+  z-index: -1;
   max-height: 100%;
-  max-width : 60%;
+  max-width: 60%;
 }
-
 // Classes
 .social {
   max-width: 60%;
-  margin   : vr-block(.5) 0 vr-block(1) (- vr-block(.4));
+  margin: vr-block(.5) 0 vr-block(1) (- vr-block(.4));
 
   span {
     display: inline-block;
@@ -186,24 +184,23 @@ img {
 
   a {
     transition: $hover-out;
-    display   : inline-block;
-    height    : vr-block(2);
-    width     : vr-block(2);
-    opacity   : $icon-opacity;
+    display: inline-block;
+    height: vr-block(2);
+    width: vr-block(2);
+    opacity: $icon-opacity;
     margin-top: - vr-block(.5);
 
     &:after {
       opacity: 0;
     }
 
-    &:hover,
-    &:focus {
-      opacity   : 1;
+    &:focus,
+    &:hover {
+      opacity: 1;
       transition: $hover-in;
     }
   }
 }
-
 // Less space between links if modern browser with mouse
 @media (pointer: fine) {
   footer {
