@@ -8,7 +8,7 @@ $color: hsl(206, 22%, 26%);
 $white: #fff;
 $fade-black: rgba(0,0,0,0.7);
 $link-opacity: .6;
-$link-color: #dd5e30;
+$link-color: $color;
 $icon-opacity: .6;
 $text-color: $color;
 $hover-in: .3s ease;
@@ -164,6 +164,7 @@ a {
 svg {
   height: 100%;
   width: 100%;
+  fill: $text-color;
 }
 
 img {
