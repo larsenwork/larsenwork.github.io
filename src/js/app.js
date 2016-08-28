@@ -35,14 +35,14 @@ var l1start = path('l1'),
   k10start = path('k10');
 
 
-mina.easeInOutBack = function(n, s) {
+var easeInOutBack = function(n, s) {
   s = 1.70158;
   if ((n *= 2) < 1) return 0.5 * (Math.pow(n, 2) * (((s *= 1.525) + 1) * n - s));
   return 0.5 * (Math.pow((n -= 2), 2) * (((s *= 1.525) + 1) * n + s) + 2);
 };
 
-var easing = mina.easeInOutBack,
-  duration = 3000,
+var easing = easeInOutBack,
+  duration = 2500,
   delay = duration / 20,
   isAnimating = true,
   swungRight = true;

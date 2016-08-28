@@ -4,12 +4,12 @@
 @import 'fonts';
 @import 'typographic';
 // Misc var
-$color: hsl(206, 22%, 26%);
+$color: hsl(206, 3%, 20%);
 $white: #fff;
 $fade-black: rgba(0,0,0,0.7);
-$link-opacity: .6;
-$link-color: $color;
-$icon-opacity: .6;
+$link-opacity: .5;
+$link-color: #eb8000;
+$icon-opacity: .7;
 $text-color: $color;
 $hover-in: .3s ease;
 $hover-out: .6s ease;
@@ -24,8 +24,8 @@ $header-font-weight: $body-font-weight;
 $header-color: $text-color;
 $min-font: 16px;
 $max-font: 20px;
-$min-width: 600px;
-$max-width: 1000px;
+$min-width: 400px;
+$max-width: 630px;
 $vertical-rhythm: true;
 // Mixins
 @mixin pseudo($position) {
@@ -54,8 +54,9 @@ html {
 // Typographic
 @include typographic();
 // @include grid-overlay(red, 1);
-// Selection
 
+
+// Selection
 * {
   user-select: none;
 }
@@ -69,6 +70,15 @@ p > a {
     background: $color;
   }
 }
+
+// Defaults
+p {
+  padding: 0 vr-block(.25);
+}
+svg {
+  fill: currentColor;
+}
+
 // Layout + styling
 html {
   @include fontfix();
@@ -78,56 +88,44 @@ body {
   color: $text-color;
 }
 
-header {
-  height: 80%;
+.header {
+  height: 50vh;
   max-height: 100vw;
+  min-height: 300px;
   width: 85%;
-  max-width: $max-width*0.6;
+  max-width: $max-width*0.8;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-  > div {
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate3d(-50%,-50%,0);
-
-    > div {
-      position: relative;
-      padding-bottom: 22.56%;
-
-      &:first-child {
-        padding-bottom: 40%;
-      }
-    }
+  &__logo {
+    color: $link-color;
+    height: vr-block(3);
+    margin-bottom: vr-block(.3);
   }
 
-  svg {
-    fill: $text-color;
-    position: absolute;
-    top: 0;
-    left: 0;
+  &__logotext {
+    height: vr-block(2);
+    display: block;
   }
 }
 
 article,
 footer {
-  max-width: 35rem;
+  max-width: $max-width;
   margin: 0 auto;
   position: relative;
-
-  > * {
-    padding: 0 5%;
-  }
 }
 
 footer {
   line-height: vr-block(1.5);
-  margin-top: vr-block(2);
+  margin-top: vr-block(1);
   min-height: vr-block(10);
-  overflow: hidden;
 }
 
-a {
+p > a {
   color: $text-color;
   position: relative;
   text-decoration: none;
@@ -138,11 +136,11 @@ a {
     background-color: rgba($link-color,$link-opacity);
     bottom: -0.1rem;
     content: '';
-    height: .15rem;
-    left: -0.1rem;
+    height: 4px;
+    left: 0;
     position: absolute;
     transition: $hover-out;
-    right: -0.1rem;
+    right: 0;
     z-index: -1;
   }
 
@@ -161,12 +159,6 @@ a {
   }
 }
 
-svg {
-  height: 100%;
-  width: 100%;
-  fill: $text-color;
-}
-
 img {
   position: absolute;
   bottom: 0;
@@ -175,20 +167,17 @@ img {
   max-height: 100%;
   max-width: 60%;
 }
+
 // Classes
 .social {
   max-width: 60%;
-  margin: vr-block(.5) 0 vr-block(1) (- vr-block(.4));
-
-  span {
-    display: inline-block;
-  }
+  margin: vr-block(1.6) 0 vr-block(.4) (- vr-block(.3));
 
   a {
     transition: $hover-out;
     display: inline-block;
-    height: vr-block(2);
-    width: vr-block(2);
+    height: vr-block(1.5);
+    width: vr-block(1.5);
     opacity: $icon-opacity;
     margin-top: - vr-block(.5);
 
@@ -202,7 +191,14 @@ img {
       transition: $hover-in;
     }
   }
+
+  &__icon {
+    height: 100%;
+    width: 100%;
+    fill: $link-color;
+  }
 }
+
 // Less space between links if modern browser with mouse
 @media (pointer: fine) {
   footer {
