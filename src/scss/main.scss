@@ -4,14 +4,15 @@
 @import 'fonts';
 @import 'typographic';
 // Misc var
-$color: hsl(30, 4%, 12%);
+$color: hsl(192, 2%, 20%);
 $white: #fff;
-$link-opacity: .8;
-$link-color: hsl(22, 100%, 43%);
-$icon-opacity: .7;
+$link-opacity: 1;
+$link-color: hsl(12, 83%, 49%);
+$icon-opacity: 1;
 $text-color: $color;
-$hover-in: .3s ease;
-$hover-out: .6s ease;
+$gradient: linear-gradient( 190deg, hsl(22, 90%, 50%), hsl(8, 80%, 50%));
+$hover-in: .2s ease;
+$hover-out: .4s ease;
 // Typegraphic vars
 $line-height-ratio: 1.75;
 $header-ratio: $golden;
@@ -26,19 +27,7 @@ $max-font: 20px;
 $min-width: 400px;
 $max-width: 630px;
 $vertical-rhythm: true;
-// Mixins
-@mixin pseudo($position) {
-  content: '';
-  position: $position;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-@mixin fontfix() {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+
 // Reset
 * {
   box-sizing: border-box;
@@ -73,16 +62,13 @@ p > a {
 // Defaults
 p {
   padding: 0 vr-block(.25);
+  letter-spacing: 0.025em;
 }
 svg {
-  fill: currentColor;
+  fill: url(#svgGradient);
 }
 
 // Layout + styling
-html {
-  @include fontfix();
-}
-
 body {
   color: $text-color;
 }
@@ -100,7 +86,6 @@ body {
   justify-content: center;
 
   &__logo {
-    color: $link-color;
     height: vr-block(3);
     margin-bottom: vr-block(.3);
   }
@@ -108,6 +93,7 @@ body {
   &__logotext {
     height: vr-block(2);
     display: block;
+    fill: currentColor;
   }
 }
 
@@ -133,7 +119,7 @@ p > a {
   z-index: 1;
 
   &:after {
-    background-color: rgba($link-color,$link-opacity);
+    background: $gradient;
     bottom: 0;
     content: '';
     height: 2px;
@@ -150,12 +136,12 @@ p > a {
     transition: $hover-in;
 
     &:after {
-      background-color: $link-color;
       bottom: -0.15rem;
-      height: 130%;
-      left: -0.3rem;
-      right: -0.3rem;
+      height: vr-block(.8);
+      left: -0.25rem;
+      right: -0.25rem;
       transition: $hover-in;
+      border-radius: vr-block(.2);
     }
   }
 }
@@ -172,31 +158,50 @@ img {
 // Classes
 .social {
   max-width: 60%;
-  margin: vr-block(1.6) 0 vr-block(.4) (- vr-block(.3));
+  margin: vr-block(1.6) 0 vr-block(.4);
 
   a {
-    transition: $hover-out;
     display: inline-block;
-    height: vr-block(1.5);
-    width: vr-block(1.5);
-    opacity: $icon-opacity;
-    margin-top: - vr-block(.5);
+    margin-top: - vr-block(.25);
+    position: relative;
+    line-height: 0;
+    color: $link-color;
+    transition: $hover-out;
 
     &:after {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      content: '';
+      background: $gradient;
+      z-index: -1;
+      border-radius: vr-block(.5);
+      transform: scale3d(0,0,0);
+      transition: $hover-out;
       opacity: 0;
     }
-
     &:focus,
     &:hover {
-      opacity: 1;
       transition: $hover-in;
+      color: $white;
+
+      &:after {
+        transition: $hover-in;
+        transform: scale3d(1,1,1);
+        opacity: 1;
+      }
+
+      .social__icon {
+        fill: currentColor;
+      }
     }
   }
 
   &__icon {
-    height: 100%;
-    width: 100%;
-    fill: $link-color;
+    height: vr-block(1.5);
+    width: vr-block(1.5);
   }
 }
 
