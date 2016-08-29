@@ -4,11 +4,10 @@
 @import 'fonts';
 @import 'typographic';
 // Misc var
-$color: hsl(206, 3%, 20%);
+$color: hsl(30, 4%, 12%);
 $white: #fff;
-$fade-black: rgba(0,0,0,0.7);
-$link-opacity: .5;
-$link-color: #eb8000;
+$link-opacity: .8;
+$link-color: hsl(22, 100%, 43%);
 $icon-opacity: .7;
 $text-color: $color;
 $hover-in: .3s ease;
@@ -92,7 +91,7 @@ body {
   height: 50vh;
   max-height: 100vw;
   min-height: 300px;
-  width: 85%;
+  width: 85vw;
   max-width: $max-width*0.8;
   margin: 0 auto;
   display: flex;
@@ -131,12 +130,13 @@ p > a {
   text-decoration: none;
   transition: $hover-out;
   white-space: nowrap;
+  z-index: 1;
 
   &:after {
     background-color: rgba($link-color,$link-opacity);
-    bottom: -0.1rem;
+    bottom: 0;
     content: '';
-    height: 4px;
+    height: 2px;
     left: 0;
     position: absolute;
     transition: $hover-out;
@@ -151,7 +151,8 @@ p > a {
 
     &:after {
       background-color: $link-color;
-      height: 120%;
+      bottom: -0.15rem;
+      height: 130%;
       left: -0.3rem;
       right: -0.3rem;
       transition: $hover-in;
@@ -162,7 +163,7 @@ p > a {
 img {
   position: absolute;
   bottom: 0;
-  right: -5%;
+  right: 0;
   z-index: -1;
   max-height: 100%;
   max-width: 60%;
