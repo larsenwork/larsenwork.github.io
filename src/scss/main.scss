@@ -10,7 +10,7 @@ $link-opacity: 1;
 $link-color: hsl(12, 83%, 49%);
 $icon-opacity: 1;
 $text-color: $color;
-$gradient: linear-gradient( 190deg, hsl(22, 90%, 50%), hsl(8, 80%, 50%));
+$gradient: linear-gradient( 170deg, hsl(20, 90%, 50%), hsl(10, 80%, 50%));
 $hover-in: .2s ease;
 $hover-out: .4s ease;
 // Typegraphic vars
@@ -62,7 +62,7 @@ p > a {
 // Defaults
 p {
   padding: 0 vr-block(.25);
-  letter-spacing: 0.025em;
+  letter-spacing: 0.015em;
 }
 svg {
   fill: url(#svgGradient);
@@ -162,7 +162,7 @@ img {
 
   a {
     display: inline-block;
-    margin-top: - vr-block(.25);
+    margin-top: - vr-block(.3);
     position: relative;
     line-height: 0;
     color: $link-color;
