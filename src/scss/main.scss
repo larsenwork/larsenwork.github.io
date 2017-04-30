@@ -1,9 +1,7 @@
 // Components
-// @import 'reset';
-// @import 'noise';
 @import 'fonts';
 @import 'typographic';
-// Misc var
+// Misc vars
 $color: hsl(192, 2%, 20%);
 $white: #fff;
 $link-opacity: 1;
@@ -22,10 +20,10 @@ $body-color: $text-color;
 $header-font: $body-font;
 $header-font-weight: $body-font-weight;
 $header-color: $text-color;
-$min-font: 16px;
+$min-font: 14px;
 $max-font: 20px;
 $min-width: 400px;
-$max-width: 630px;
+$max-width: 700px;
 $vertical-rhythm: true;
 
 // Reset
@@ -56,13 +54,14 @@ p > a {
   &::selection {
     color: $white;
     background: $color;
+    text-shadow: none;
   }
 }
 
 // Defaults
 p {
-  padding: 0 vr-block(.25);
-  letter-spacing: 0.015em;
+  padding: 0 vr-block(.5);
+  letter-spacing: 0.01em;
 }
 svg {
   fill: url(#svgGradient);
@@ -107,7 +106,7 @@ footer {
 footer {
   line-height: vr-block(1.5);
   margin-top: vr-block(1);
-  min-height: vr-block(10);
+  min-height: vr-block(8);
 }
 
 p > a {
@@ -117,6 +116,19 @@ p > a {
   transition: $hover-out;
   white-space: nowrap;
   z-index: 1;
+  text-shadow:
+    0rem .09rem white,
+    0rem -.09rem white,
+    .09rem .09rem white,
+    .09rem -.09rem white,
+    -.09rem .09rem white,
+    -.09rem -.09rem white,
+    .14rem .09rem white,
+    .14rem 0 white,
+    .14rem -.09rem white,
+    -.14rem .09rem white,
+    -.14rem 0 white,
+    -.14rem -.09rem white;
 
   &:after {
     background: $gradient;
@@ -134,6 +146,7 @@ p > a {
   &:hover {
     color: $white;
     transition: $hover-in;
+    text-shadow: none;
 
     &:after {
       bottom: -0.15rem;
@@ -151,14 +164,14 @@ img {
   bottom: 0;
   right: 0;
   z-index: -1;
-  max-height: 100%;
+  max-height: 130%;
   max-width: 60%;
 }
 
 // Classes
 .social {
   max-width: 60%;
-  margin: vr-block(1.6) 0 vr-block(.4);
+  margin: vr-block(1.6) vr-block(.25) vr-block(.4);
 
   a {
     display: inline-block;
@@ -202,6 +215,21 @@ img {
   &__icon {
     height: vr-block(1.5);
     width: vr-block(1.5);
+  }
+}
+
+@media (min-width: $max-width) {
+  img {
+    margin-right: vr-block(.5);
+  }
+}
+
+@media (min-width: $max-width * 2) {
+  img {
+    margin-right: 0;
+    position: fixed;
+    width: calc((100vw - #{$max-width}) / 2);
+    max-width: $max-width;
   }
 }
 
