@@ -1,58 +1,48 @@
 <template>
-  <section class="container">
-    <div>
-      <logo/>
-      <h1 class="title">
-        larsenwork
+  <div class="p-index theme-primary">
+    <app-hero/>
+    <section class="p-index-section u-lineLength u-container u-section">
+      <h1>
+        Hi, I'm Andreas
       </h1>
-      <h2 class="subtitle">
-        My personal webiste
-      </h2>
-      <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">Documentation</a>
-        <a href="https://github.com/nuxt/nuxt.js" target="_blank" class="button--grey">GitHub</a>
-      </div>
-    </div>
-  </section>
+      <p>
+        An ambitious and humble healthcare professional turned developer + designer from Copenhagen, Denmark.
+      </p>
+      <p>
+        I'm at LEO Innovation Lab helping people who lives with chronic skin diseases. Before that I've worked at/with e.g. Momondo, DR and Nationalmuseet.
+      </p>
+      <p>
+        This font is named Gidole after my hometown in Ethiopia where the እ letter is also from.
+      </p>
+      <p>
+        Feel free to contact me. Iʼm always up for a beer or coffee.
+      </p>
+    </section>
+  </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import hero from '~/components/hero'
 
 export default {
   components: {
-    Logo
+    'app-hero': hero
+  },
+  transition () {
+    return {
+      mode: ''
+    }
   }
 }
 </script>
 
-<style>
-.container {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* 1 */
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
+<style lang="postcss">
+  .p-index {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .p-index-section {
+    z-index: 1;
+  }
 </style>

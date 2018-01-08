@@ -7,7 +7,7 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'My personal webiste' }
+      { hid: 'description', name: 'description', content: 'My personal website' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -16,7 +16,7 @@ module.exports = {
   /*
   ** Customize the progress bar color
   */
-  loading: { color: '#3B8070' },
+  loading: { color: 'hsl(110, 90%, 35%)' },
   /*
   ** Build configuration
   */
@@ -33,6 +33,17 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    }
+    },
+
+    /*
+    ** PostCSS config
+    */
+    postcss: [
+      require('postcss-import')(),
+      require('postcss-custom-media')(),
+      require('postcss-nesting')(),
+      require('postcss-easing-gradients')(),
+      require('autoprefixer')
+    ]
   }
 }

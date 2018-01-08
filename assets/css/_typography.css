@@ -1,0 +1,45 @@
+@font-face {
+  font-family: 'gidole';
+  src:
+    url('~/assets/fonts/gidole-regular.woff2') format('woff2'),
+    url('~/assets/fonts/gidole-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  font-size: var(--fontSize-html);
+}
+
+body {
+  font-family: 'gidole', sans-serif;
+  letter-spacing: .2px;
+  line-height: var(--lineHeight-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: 0;
+  line-height: 1.1; /* Good enough for now... */
+}
+
+h1 {
+  font-size: var(--fontSize-h1);
+  margin-top: var(--lineHeight-margin-medium);
+  margin-bottom: var(--lineHeight-margin-small);
+}
+
+h2 {
+  font-size: var(--fontSize-h2);
+  margin-top: var(--lineHeight-margin-medium);
+  margin-bottom: var(--lineHeight-margin-small);
+}
+
+* + p {
+  margin-top: var(--lineHeight-margin-small);
+}
+
+a {
+  cursor: pointer;
+}

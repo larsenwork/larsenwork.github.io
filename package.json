@@ -12,10 +12,16 @@
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint"
   },
+  "browserslist": [
+    "> 5%",
+    "last 2 versions"
+  ],
   "dependencies": {
-    "nuxt": "^1.0.0-rc11"
+    "nuxt": "^1.0.0-rc11",
+    "postcss-easing-gradients": "^2.0.0-beta"
   },
   "devDependencies": {
+    "autoprefixer": "^7.2.4",
     "babel-eslint": "^7.2.3",
     "eslint": "^4.3.0",
     "eslint-config-standard": "^10.2.1",
@@ -24,6 +30,10 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^3.0.1"
+    "eslint-plugin-standard": "^3.0.1",
+    "normalize.css": "^7.0.0",
+    "postcss-custom-media": "^6.0.0",
+    "postcss-import": "^11.0.0",
+    "postcss-nesting": "^4.2.1"
   }
 }

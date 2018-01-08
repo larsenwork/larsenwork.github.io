@@ -1,0 +1,13 @@
+body {
+  background-color: var(--color-dark);
+  color: var(--color-bright);
+  overflow-x: hidden;
+}
+
+.page-enter-active, .page-leave-active {
+  transition: opacity var(--transition);
+}
+
+.page-enter, .page-leave-active {
+  opacity: 0;
+}

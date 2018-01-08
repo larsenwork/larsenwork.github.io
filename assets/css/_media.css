@@ -1,0 +1,6 @@
+:root {
+  @custom-media --small (min-width: 320px);
+  @custom-media --medium (min-width: 600px);
+  @custom-media --large (min-width: 900px);
+  @custom-media --xlarge (min-width: 1440px);
+}

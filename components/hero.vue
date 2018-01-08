@@ -1,0 +1,89 @@
+<template>
+  <div class="hero">
+    <div class="hero_gradient u-position-cover"></div>
+    <img
+        src="~/assets/images/me-1000w.jpg"
+        srcset="~/assets/images/me-500w.jpg 500w,
+            ~/assets/images/me-1000w.jpg 1000w,
+            ~/assets/images/me-1500w.jpg 1500w,
+            ~/assets/images/me-2000w.jpg 2000w">
+  </div>
+</template>
+
+<script>
+  export default {
+
+  }
+</script>
+
+<style lang="postcss">
+  @import '../assets/css/_media.css';
+
+  .hero {
+    position: relative;
+    margin-bottom: -5rem;
+
+    @media (--large) {
+      max-width: var(--img-maxWidth);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 75%;
+      max-height: 20rem;
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        cubic-bezier(0.55, 0, 0.55, 1),
+        hsl(0, 0%, 8%)
+      );
+    }
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: 80vw;
+    min-height: 40vh;
+    max-height: 20rem;
+    object-fit: cover;
+  }
+
+  .hero_gradient {
+    opacity: 0;
+    will-change: opacity;
+    transition: var(--transition);
+
+    @media (--large) {
+      opacity: 1;
+    }
+
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      top: 0;
+      width: 20%;
+      background: linear-gradient(
+        to left,
+        transparent,
+        cubic-bezier(0.55, 0, 0.55, 1),
+        hsl(0, 0%, 8%)
+      );
+    }
+
+    &::before {
+      left: -1px;
+    }
+
+    &::after {
+      right: -1px;
+      transform: rotate(180deg);
+    }
+  }
+</style>
