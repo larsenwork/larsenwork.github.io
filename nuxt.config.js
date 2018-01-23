@@ -44,6 +44,13 @@ module.exports = {
       require('postcss-nesting')(),
       require('postcss-easing-gradients')(),
       require('autoprefixer')
-    ]
+    ],
+
+    /*
+    ** Babel config
+    */
+    babel: {
+      // plugins: ['lodash']
+    }
   }
 }

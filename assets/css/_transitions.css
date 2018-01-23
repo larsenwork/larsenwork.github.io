@@ -1,0 +1,45 @@
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 1s;
+}
+
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+  will-change: opacity;
+}
+
+.tr-dropdown-enter-active,
+.tr-dropdown-leave-active {
+  transition: var(--transition);
+}
+
+.tr-dropdown-enter,
+.tr-dropdown-leave-to {
+  transform: translateY(calc(var(--spacer-xsmall) * -1));
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.tr-dropup-enter-active,
+.tr-dropup-leave-active {
+  transition: var(--transition);
+}
+
+.tr-dropup-enter,
+.tr-dropup-leave-to {
+  transform: translateY(var(--spacer-xsmall));
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.tr-fade-enter-active,
+.tr-fade-leave-active {
+  transition: var(--transition);
+}
+
+.tr-fade-enter,
+.tr-fade-leave-to {
+  opacity: 0;
+  will-change: opacity;
+}

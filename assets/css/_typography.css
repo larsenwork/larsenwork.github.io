@@ -13,33 +13,118 @@ html {
 
 body {
   font-family: 'gidole', sans-serif;
-  letter-spacing: .2px;
   line-height: var(--lineHeight-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  letter-spacing: 0;
   line-height: 1.1; /* Good enough for now... */
 }
 
 h1 {
   font-size: var(--fontSize-h1);
+  letter-spacing: -0.02em;
   margin-top: var(--lineHeight-margin-medium);
   margin-bottom: var(--lineHeight-margin-small);
+  margin-left: -.05em;
 }
 
 h2 {
   font-size: var(--fontSize-h2);
+  letter-spacing: -0.01em;
   margin-top: var(--lineHeight-margin-medium);
-  margin-bottom: var(--lineHeight-margin-small);
+  margin-bottom: var(--lineHeight-margin-xsmall);
+  margin-left: -.05em;
 }
 
-* + p {
+*:not(h1):not(h2) + p,
+*:not(h1):not(h2) + code {
   margin-top: var(--lineHeight-margin-small);
 }
 
 a {
   cursor: pointer;
+}
+
+input {
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+pre, code {
+  font-family: monaco, Consolas, "Lucida Console", monospace;
+  font-size: 0.8rem;
+  line-height: calc(var(--lineHeight-body) * 3 / 4);
+}
+
+code {
+  position: relative;
+  display: block;
+}
+
+pre {
+  padding: var(--spacer-small);
+  border-radius: var(--spacer-xsmall);
+  background-color: var(--color-themed-bg-dimmed);
+
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+
+  &::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: var(--spacer-xsmall);
+    bottom: var(--spacer-xsmall);
+    width: calc(var(--spacer-small) * 1.5);
+    background-image: linear-gradient(
+      to right,
+      var(--color-themed-bg-dimmed-transparent),
+      var(--color-themed-bg-dimmed)
+    );
+  }
+}
+
+.layout a {
+  background-image: linear-gradient(var(--color-brand), var(--color-brand));
+  background-repeat: no-repeat;
+  background-size: 100% 1.5px;
+  background-position: center bottom;
+  background-origin: padding-box;
+  text-shadow:
+    0 0.12em var(--color-themed-bg),
+    0 0.06em var(--color-themed-bg),
+    0 -0.06em var(--color-themed-bg),
+    0 -0.12em var(--color-themed-bg),
+    0.06em 0.12em var(--color-themed-bg),
+    0.06em 0.06em var(--color-themed-bg),
+    0.06em 0 var(--color-themed-bg),
+    0.06em -0.06em var(--color-themed-bg),
+    0.06em -0.12em var(--color-themed-bg),
+    -0.06em 0.12em var(--color-themed-bg),
+    -0.06em 0.06em var(--color-themed-bg),
+    -0.06em 0em var(--color-themed-bg),
+    -0.06em -0.06em var(--color-themed-bg),
+    -0.06em -0.12em var(--color-themed-bg),
+    0.12em 0.12em var(--color-themed-bg),
+    0.12em 0.06em var(--color-themed-bg),
+    0.12em 0 var(--color-themed-bg),
+    0.12em -0.06em var(--color-themed-bg),
+    0.12em -0.12em var(--color-themed-bg),
+    -0.12em 0.12em var(--color-themed-bg),
+    -0.12em 0.06em var(--color-themed-bg),
+    -0.12em 0 var(--color-themed-bg),
+    -0.12em -0.06em var(--color-themed-bg),
+    -0.12em -0.12em var(--color-themed-bg);
+  transition: color .1s ease-out;
+}
+
+.t-codeLabel {
+  position: absolute;
+  font-size: 1em;
+  top: 0;
+  right: var(--spacer-xsmall);
+  transform: translateY(-50%);
+  opacity: var(--opacity-mid);
 }

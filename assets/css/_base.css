@@ -1,13 +1,33 @@
+body,
+.theme-primary,
+.theme-secondary {
+  background-color: var(--color-themed-bg);
+  color: var(--color-themed-fg);
+}
+
 body {
-  background-color: var(--color-dark);
-  color: var(--color-bright);
   overflow-x: hidden;
 }
 
-.page-enter-active, .page-leave-active {
-  transition: opacity var(--transition);
-}
+button {
+  background: transparent;
+  color: inherit;
+  padding: var(--spacer-small);
+  border-radius: var(--spacer-small);
+  transition: var(--transition);
+  box-shadow: var(--shadow);
+  overflow: hidden;
 
-.page-enter, .page-leave-active {
-  opacity: 0;
+  &:hover {
+    box-shadow: var(--shadow--hover);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &.is-active {
+    box-shadow: var(--shadow--inset);
+    transition: 0.2s var(--transitionFunction);
+  }
 }

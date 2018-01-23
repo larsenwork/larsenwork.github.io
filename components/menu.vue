@@ -3,50 +3,58 @@
       class="c-menu"
       :class="$store.state.menuVisible ? 'is-expanded' : ''">
     <div class="c-menu-links u-lineLength">
-      <div>
+      <div class="c-menu-links-column">
         <h2 class="c-menu-links-header">Me</h2>
         <nuxt-link
             class="c-menu-link"
-            @click.native="$store.commit('hideMenu')"
+            @click.native="hideMenu"
             to="/">
           About
         </nuxt-link>
         <nuxt-link
             class="c-menu-link"
-            @click.native="$store.commit('hideMenu')"
+            @click.native="hideMenu"
             to="/">
           Projects
         </nuxt-link>
       </div>
-      <div>
+      <div class="c-menu-links-column">
         <h2 class="c-menu-links-header">Tools</h2>
         <nuxt-link
             class="c-menu-link"
-            @click.native="$store.commit('hideMenu')"
+            @click.native="hideMenu"
             to="/tools/easing-gradients">
           Easing Gradients
         </nuxt-link>
         <nuxt-link
             class="c-menu-link"
-            @click.native="$store.commit('hideMenu')"
+            @click.native="hideMenu"
             to="/tools/easing-gradients">
           Fluid Scale
         </nuxt-link>
       </div>
-      <div>
+      <div class="c-menu-links-column">
         <h2 class="c-menu-links-header">Rambling</h2>
         <nuxt-link
             class="c-menu-link"
-            @click.native="$store.commit('hideMenu')"
+            @click.native="hideMenu"
             to="/tools/easing-gradients">
           Blog
         </nuxt-link>
         <nuxt-link
             class="c-menu-link"
-            @click.native="$store.commit('hideMenu')"
+            @click.native="hideMenu"
             to="/tools/easing-gradients">
           Talks
         </nuxt-link>
+      </div>
+      <div class="c-menu-links-donate">
+        <h2 class="c-menu-links-header">Say Thanks</h2>
+        <a
+            href="https://www.crowdrise.com/larsenwork-paying-it-forward"
+            class="c-menu-link">
+          Pay it forward
+        </a>
       </div>
       <div class="c-menu-links-social">
         <h2 class="c-menu-links-header">@larsenwork</h2>
@@ -54,8 +62,7 @@
       </div>
     </div>
     <div
-        class="c-menu-toggle"
-        @click="$store.commit('showMenu')">
+        class="c-menu-toggle">
       <svg
           class="c-menu-toggle-bg"
           xmlns="http://www.w3.org/2000/svg"
@@ -64,6 +71,7 @@
       </svg>
       <svg
           class="c-menu-toggle-logo"
+          @click="toggleMenu"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 86 86">
         <path
@@ -83,113 +91,161 @@
   export default {
     components: {
       'app-social': social
+    },
+    methods: {
+      toggleMenu () {
+        if (this.$store.state.menuVisible) {
+          this.hideMenu()
+        } else {
+          this.$store.commit('showMenu')
+          this.$store.commit('showOverlay')
+          this.$store.commit('hideGradientEditor')
+        }
+      },
+      hideMenu () {
+        this.$store.commit('hideMenu')
+        this.$store.commit('hideOverlay')
+      }
     }
   }
 </script>
 
-
 <style lang="postcss">
-  @import '../assets/css/_media.css';
+@import '../assets/css/_media.css';
 
-  :root {
-    --expand-transitionDuration: 0.3s;
+:root {
+  --expand-transitionDuration: 0.6s;
+}
+
+.c-menu {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: var(--zIndex-nav);
+  display: flex;
+  justify-content: center;
+  color: var(--color-bright);
+  padding-bottom: var(--spacer-large);
+  pointer-events: none;
+
+  &.is-expanded {
+    pointer-events: auto;
   }
 
-  .c-menu {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    overflow: hidden;
-    z-index: var(--zIndex-nav);
-    display: flex;
-    justify-content: center;
-    color: var(--color-bright);
-    padding-bottom: var(--lineHeight-margin-xsmall);
+  @nest .is-menuInline & {
+    position: relative;
+    pointer-events: auto;
+  }
+}
+
+.c-menu-links {
+  visibility: hidden;
+  opacity: 0;
+  will-change: opacity;
+  padding: var(--spacer-small);
+  width: 100%;
+  display: grid;
+  grid-gap: var(--spacer-small);
+  grid-template-columns: repeat(2, 1fr);
+
+  @media (--medium) {
+    grid-template-columns: repeat(6, 1fr);
   }
 
-  .c-menu-links {
-    visibility: hidden;
-    opacity: 0;
-    will-change: opacity;
-    margin: var(--spacer-small);
-    width: 100%;
-    display: grid;
-    grid-gap: var(--spacer-small);
-    grid-template-columns: 1fr 1fr;
-
-    @media (--medium) {
-      grid-template-columns: 1fr 1fr 1fr;
-    }
-
-    @nest .c-menu.is-expanded & {
-      transition: 0.2s var(--transitionFunction) calc(var(--expand-transitionDuration) - 0.1s);
-      visibility: visible;
-      opacity: 1;
-    }
+  @nest .c-menu.is-expanded &, .is-menuInline & {
+    transition: 0.2s var(--transitionFunction) calc(var(--expand-transitionDuration) - 0.1s);
+    visibility: visible;
+    opacity: 1;
   }
+}
 
-  .c-menu-links-header {
-    margin-top: var(--lineHeight-margin-small);
-    margin-bottom: var(--lineHeight-margin-xsmall);
+.c-menu-links-header {
+  margin-top: var(--lineHeight-margin-small);
+  margin-bottom: var(--lineHeight-margin-xsmall);
+  opacity: var(--opacity-mid);
+}
+
+.c-menu-links-column {
+  @media (--medium) {
+    grid-column: span 2;
+  }
+}
+
+.c-menu-links-donate {
+  @media (--medium) {
+    grid-column: span 3;
+  }
+}
+
+.c-menu-links-social {
+  grid-column: span 2;
+
+  @media (--medium) {
+    grid-column: span 3;
+  }
+}
+
+.c-menu-link {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+}
+
+.c-menu-toggle {
+  position: absolute;
+  right: var(--spacer-small);
+  bottom: var(--spacer-small);
+  width: var(--spacer-large);
+  height: var(--spacer-large);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: -1;
+  fill: var(--color-brand);
+  will-change: transform;
+
+  @nest .c-menu.is-expanded &, .is-menuInline & {
+    transform: translateX(-50vw) translateX(50%) translateX(var(--spacer-small));
+    transition: calc(var(--expand-transitionDuration) / 2) ease-in;
+  }
+}
+
+.c-menu-toggle-logo {
+  pointer-events: all;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+  filter:
+    drop-shadow( var(--shadow1--hover) )
+    drop-shadow( var(--shadow2--hover) );
+
+  @nest .c-menu.is-expanded &, .is-menuInline & {
+    transition: transform calc(var(--expand-transitionDuration) / 2) var(--transitionFunction) calc(var(--expand-transitionDuration) / 2);
+    transform: translateY(var(--spacer-small));
+    filter: none;
+  }
+  @nest .is-menuInline & {
+    pointer-events: none;
     opacity: var(--opacity-mid);
   }
+}
 
-  .c-menu-links-social {
-    @media (--medium) {
-      grid-column: 1 / -1;
-    }
+.c-menu-toggle-bg {
+  height: 280vmax;
+  width: 280vmax;
+  flex-shrink: 0;
+  will-change: transform;
+  transform: scale(0.02);
+
+  @nest .c-menu.is-expanded &, .is-menuInline & {
+    transition: calc(var(--expand-transitionDuration) / 2) var(--transitionFunction) calc(var(--expand-transitionDuration) / 2);
+    transform: translateY(var(--spacer-small)) scale(1);
   }
-
-  .c-menu-link {
-    color: inherit;
-    text-decoration: none;
-    display: block;
+  @nest .c-menu.is-expanded & {
+    opacity: 0.95;
   }
-
-  .c-menu-toggle {
-    position: absolute;
-    right: var(--spacer-small);
-    bottom: var(--spacer-small);
-    width: var(--spacer-large);
-    height: var(--spacer-large);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: -1;
-    will-change: transform;
-    fill: var(--color-brand);
-
-    @nest .c-menu.is-expanded & {
-      transform: translateX(-50vw) translateX(50%) translateX(var(--spacer-small));
-      transition: calc(var(--expand-transitionDuration) - 0.15s) ease-in;
-      cursor: unset;
-    }
-  }
-
-  .c-menu-toggle-logo {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-  }
-
-  .c-menu-toggle-logo-a {
-    @nest .c-menu.is-expanded & {
-      display: none;
-    }
-  }
-
-  .c-menu-toggle-bg {
-    height: 180vmax;
-    width: 180vmax;
-    flex-shrink: 0;
-    will-change: transform;
-    transform: scale(0.02);
-
-    @nest .c-menu.is-expanded & {
-      transition: var(--expand-transitionDuration) var(--transitionFunction) 0.1s;
-      transform: scale(1);
-    }
-  }
+}
 </style>

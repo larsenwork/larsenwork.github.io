@@ -1,15 +1,7 @@
-.theme-primary {
-  background-color: var(--color-dark);
-  color: var(--color-bright);
-}
-
-.theme-secondary {
-  background-color: var(--color-bright);
-  color: var(--color-dark);
-}
-
 .u-lineLength {
   max-width: var(--lineLength-maxWidth);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Positioning */
@@ -22,10 +14,28 @@
 }
 
 .u-container {
-  margin-right: var(--spacer-small);
-  margin-left: var(--spacer-small);
+  padding-right: var(--spacer-small);
+  padding-left: var(--spacer-small);
+  width: 100%;
 }
 
 .u-section {
   margin-bottom: var(--spacer-large);
+}
+
+.u-no-padding {
+  padding: 0 !important;
+}
+
+.u-knob {
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  background-color: var(--color-bright);
+  box-shadow: var(--shadow);
+  transform: translate(-50%, -50%);
+  &:hover {
+    box-shadow: var(--shadow--hover);
+  }
 }

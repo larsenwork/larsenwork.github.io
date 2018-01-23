@@ -3,4 +3,5 @@
   @custom-media --medium (min-width: 600px);
   @custom-media --large (min-width: 900px);
   @custom-media --xlarge (min-width: 1440px);
+  @custom-media --highRes (min-resolution: 190dpi);
 }
