@@ -12,10 +12,10 @@
         I'm at LEO Innovation Lab helping people who lives with chronic skin diseases. Before that I've worked at/with e.g. Momondo, DR and Nationalmuseet.
       </p>
       <p>
-        I named this font Gidole after my hometown in Ethiopia where the እ letter is also from.
+        Here you'll find some of the open source tools, posts and projects I've done. One of them being this font Gidole after my hometown in Ethiopia where the እ letter is also from.
       </p>
       <p>
-        Feel free to contact me. Iʼm always up for a beer or coffee.
+        I hope you find some if it relevant/useful and feel free to contact me. Iʼm always up for a beer or coffee.
       </p>
     </section>
   </div>
@@ -35,7 +35,7 @@ export default {
   },
   head: {
     bodyAttrs: {
-      class: 'is-menuInline'
+      class: 'is-navigationInline'
     }
   }
 }

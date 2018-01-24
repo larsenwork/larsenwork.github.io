@@ -10,6 +10,7 @@
       </h1>
       <p>Gradients often have hard edges where they start and/or end. We can avoid those (and do other fun stuff) by controlling the color mix with easing functions.</p>
       <h2>Examples</h2>
+      <gradient-examples></gradient-examples>
       <h2>Editor</h2>
       <p>Easily create and preview your own easing gradients. Note that the CSSWG proposal syntax isn't supported in any browsers yet.</p>
       <gradient-editor></gradient-editor>
@@ -27,6 +28,7 @@
 
 <script>
 import gradientEditor from '~/components/tools/gradient/editor'
+import gradientExamples from '~/components/tools/gradient/examples'
 
 export default {
   transition () {
@@ -40,7 +42,8 @@ export default {
     }
   },
   components: {
-    gradientEditor
+    gradientEditor,
+    gradientExamples
   }
 }
 </script>
@@ -48,7 +51,7 @@ export default {
 
 <style lang="postcss">
 .p-easingGradients {
-  --preview-maxSize: calc(var(--fontSize-h1) * 10);
-  --editor-size: calc(var(--preview-maxSize) * 2 / 3);
+  --preview-maxSize: calc(var(--lineHeight-body) * 14);
+  --editor-size: calc(var(--preview-maxSize) / 2);
 }
 </style>

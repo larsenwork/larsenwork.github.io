@@ -28,7 +28,7 @@ export default {
   stroke-linejoin: round;
   vector-effect: non-scaling-stroke;
 
-  @nest .c-easingEditor-editor & {
+  @nest .c-gradientEditor-editor & {
     stroke-width: var(--stroke-large);
   }
 }

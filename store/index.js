@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 const createStore = () => {
   return new Vuex.Store({
     state: {
-      menuVisible: false,
+      navigationVisible: false,
       overlayVisible: false,
       parentBounding: {},
       notifications: [],
@@ -46,11 +46,11 @@ const createStore = () => {
       }
     },
     mutations: {
-      showMenu (state) {
-        state.menuVisible = true
+      showNavigation (state) {
+        state.navigationVisible = true
       },
-      hideMenu (state) {
-        state.menuVisible = false
+      hideNavigation (state) {
+        state.navigationVisible = false
       },
       showOverlay (state) {
         state.overlayVisible = true

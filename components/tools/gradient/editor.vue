@@ -1,13 +1,12 @@
 <template>
   <div
-      class="c-easingEditor"
+      class="c-gradientEditor"
+      :class="{
+        'is-active': $store.state.gradient.editorActive !== ''
+      }"
       >
     <div
-        class="c-easingEditor-toggles"
-        :class="{
-          'is-active': $store.state.gradient.editorActive !== ''
-        }"
-        role="tablist"
+        class="c-gradientEditor-toggles u-grid"
         >
       <button
           @click="toggleEditor('direction')"
@@ -15,10 +14,9 @@
           :class="{
             'is-active': $store.state.gradient.editorActive === 'direction'
           }"
-          role="tab"
           >
         <div
-            class="c-easingEditor-toggle"
+            class="c-gradientEditor-toggle"
             >
           <direction-preview></direction-preview>
         </div>
@@ -28,10 +26,9 @@
           :class="{
             'is-active': $store.state.gradient.editorActive === 'color1'
           }"
-          role="tab"
           >
           <div
-              class="c-easingEditor-toggle c-easingEditor-toggle--color"
+              class="c-gradientEditor-toggle c-gradientEditor-toggle--color"
               :style="{
                 '--hue': $store.state.gradient.color1.h,
                 '--saturation': $store.state.gradient.color1.s,
@@ -46,10 +43,9 @@
           :class="{
             'is-active': $store.state.gradient.editorActive === 'ease'
           }"
-          role="tab"
           >
         <div
-            class="c-easingEditor-toggle"
+            class="c-gradientEditor-toggle"
             >
           <easing-preview></easing-preview>
         </div>
@@ -60,10 +56,9 @@
           :class="{
             'is-active': $store.state.gradient.editorActive === 'color2'
           }"
-          role="tab"
           >
           <div
-              class="c-easingEditor-toggle c-easingEditor-toggle--color"
+              class="c-gradientEditor-toggle c-gradientEditor-toggle--color"
               :style="{
                 '--hue': $store.state.gradient.color2.h,
                 '--saturation': $store.state.gradient.color2.s,
@@ -78,19 +73,19 @@
         name="tr-dropdown"
         >
       <div
-          class="c-easingEditor-editors"
+          class="c-gradientEditor-editors"
           v-if="$store.state.gradient.editorActive !== ''"
           >
         <transition
             name="tr-fade"
             >
           <div
-              class="c-easingEditor-editor"
+              class="c-gradientEditor-editor"
               v-if="$store.state.gradient.editorActive === 'direction'"
               key="direction"
               >
             <div
-                class="c-easingEditor-editor-svg"
+                class="c-gradientEditor-editor-svg"
                 >
               <direction-preview></direction-preview>
               <direction-edit></direction-edit>
@@ -98,7 +93,7 @@
           </div>
           <div
               v-if="$store.state.gradient.editorActive === 'color1'"
-              class="c-easingEditor-editor"
+              class="c-gradientEditor-editor"
               key="color1"
               >
             <color-edit
@@ -107,12 +102,12 @@
             </color-edit>
           </div>
           <div
-              class="c-easingEditor-editor"
+              class="c-gradientEditor-editor"
               v-if="$store.state.gradient.editorActive === 'ease'"
               key="ease"
               >
             <div
-                class="c-easingEditor-editor-svg"
+                class="c-gradientEditor-editor-svg"
                 >
               <easing-preview></easing-preview>
               <easing-edit></easing-edit>
@@ -120,7 +115,7 @@
           </div>
           <div
               v-if="$store.state.gradient.editorActive === 'color2'"
-              class="c-easingEditor-editor"
+              class="c-gradientEditor-editor"
               key="color2"
               >
             <color-edit
@@ -131,7 +126,7 @@
         </transition>
       </div>
     </transition>
-    <div class="c-easingEditor-output">
+    <div class="c-gradientEditor-output">
     </div>
     <code>
       <h3 class="t-codeLabel">CSSWG Proposal</h3>
@@ -185,9 +180,7 @@ export default {
 </script>
 
 <style lang="postcss">
-.c-easingEditor-toggles {
-  display: grid;
-  grid-gap: var(--spacer-small);
+.c-gradientEditor-toggles {
   margin: var(--lineHeight-margin-small) auto;
   grid-template-columns: repeat(4, 1fr);
   max-width: var(--preview-maxSize);
@@ -195,11 +188,11 @@ export default {
   z-index: var(--zIndex-modal);
 }
 
-.c-easingEditor-toggle {
+.c-gradientEditor-toggle {
   position: relative;
   padding-bottom: 100%;
 
-  &.c-easingEditor-toggle--color {
+  &.c-gradientEditor-toggle--color {
     border-radius: var(--spacer-xsmall);
     background-image:
       linear-gradient(
@@ -216,21 +209,21 @@ export default {
           var(--alpha)
         )
       ),
-      linear-gradient(45deg, var(--color-themed-bg-dimmed) 25%, transparent 25%),
-      linear-gradient(-45deg, var(--color-themed-bg-dimmed) 25%, transparent 25%),
-      linear-gradient(45deg, transparent 75%, var(--color-themed-bg-dimmed) 75%),
-      linear-gradient(-45deg, transparent 75%, var(--color-themed-bg-dimmed) 75%);
+      linear-gradient(45deg, var(--color-themed-bg-dimmed-more) 25%, transparent 25%),
+      linear-gradient(-45deg, var(--color-themed-bg-dimmed-more) 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, var(--color-themed-bg-dimmed-more) 75%),
+      linear-gradient(-45deg, transparent 75%, var(--color-themed-bg-dimmed-more) 75%);
     background-size: 100%, 16px, 16px, 16px, 16px;
     background-position: 0 0, 0 0, 0 8px, 8px -8px, -8px 0px;
   }
 }
 
-.c-easingEditor-editors {
+.c-gradientEditor-editors {
   position: relative;
   z-index: var(--zIndex-modal);
 }
 
-.c-easingEditor-editor {
+.c-gradientEditor-editor {
   position: absolute;
   top: 0;
   left: calc(50% - 50vw);
@@ -242,18 +235,18 @@ export default {
   padding: var(--spacer-small);
 }
 
-.c-easingEditor-editor-svg {
+.c-gradientEditor-editor-svg {
   position: relative;
   height: 100%;
 }
 
-.c-easingEditor-output {
+.c-gradientEditor-output {
   margin-bottom: var(--lineHeight-margin-small);
-  height: calc(var(--editor-size) * 3);
+  height: var(--editor-size);
   border-radius: var(--spacer-xsmall);
   background-image: linear-gradient(
     to bottom,
-    #000,
+    hsla(0, 0%, 0%, 0.7),
     cubic-bezier(0.42, 0, 0.58, 1),
     hsla(0, 0%, 0%, 0)
   );

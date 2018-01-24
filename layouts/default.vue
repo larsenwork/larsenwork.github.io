@@ -4,27 +4,30 @@
         class="layout"
         :class="{
           'is-dimmed': $store.state.overlayVisible,
-          'is-menuExpanded': $store.state.menuVisible
+          'is-navigationExpanded': $store.state.navigationVisible
         }"
         >
+      <githubCorner/>
       <nuxt/>
     </div>
-    <app-notifications></app-notifications>
-    <app-menu/>
-    <app-overlay/>
+    <notifications/>
+    <navigation/>
+    <overlay/>
   </div>
 </template>
 
 <script>
-  import menu from '~/components/menu'
+  import navigation from '~/components/navigation'
   import overlay from '~/components/overlay'
   import notifications from '~/components/notifications'
+  import githubCorner from '~/components/github-corner'
 
   export default {
     components: {
-      'app-menu': menu,
-      'app-overlay': overlay,
-      'app-notifications': notifications
+      navigation,
+      overlay,
+      notifications,
+      githubCorner
     }
   }
 </script>
@@ -35,7 +38,7 @@
     display: flex;
     width: 100%;
 
-    &>* {
+    & > [class^="p-"] {
       flex-basis: 100%;
       flex-shrink: 0;
       margin-right: -100%;

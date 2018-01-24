@@ -2,7 +2,7 @@
   <div
       class="c-overlay"
       :class="$store.state.overlayVisible ? 'is-visible' : ''"
-      @click.stop="hideMenu"
+      @click.stop="hideNavigation"
       >
   </div>
 </template>
@@ -10,8 +10,8 @@
 <script>
   export default {
     methods: {
-      hideMenu () {
-        this.$store.commit('hideMenu')
+      hideNavigation () {
+        this.$store.commit('hideNavigation')
         this.$store.commit('hideOverlay')
         this.$store.commit('hideGradientEditor')
       }

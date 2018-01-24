@@ -38,6 +38,12 @@ h2 {
   margin-left: -.05em;
 }
 
+h3 {
+  font-size: 1rem;
+  margin-top: var(--lineHeight-margin-small);
+  margin-bottom: var(--lineHeight-margin-xsmall);
+}
+
 *:not(h1):not(h2) + p,
 *:not(h1):not(h2) + code {
   margin-top: var(--lineHeight-margin-small);
@@ -86,7 +92,7 @@ pre {
   }
 }
 
-.layout a {
+.layout .u-section a {
   background-image: linear-gradient(var(--color-brand), var(--color-brand));
   background-repeat: no-repeat;
   background-size: 100% 1.5px;

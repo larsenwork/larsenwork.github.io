@@ -39,3 +39,8 @@
     box-shadow: var(--shadow--hover);
   }
 }
+
+.u-grid {
+  display: grid;
+  grid-gap: var(--spacer-small);
+}
