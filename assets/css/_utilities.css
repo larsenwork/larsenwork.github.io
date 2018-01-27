@@ -5,6 +5,10 @@
 }
 
 /* Positioning */
+.u-position-relative {
+  position: relative;
+}
+
 .u-position-cover {
   position: absolute;
   top: 0;

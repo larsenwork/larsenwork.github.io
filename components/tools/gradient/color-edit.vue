@@ -133,13 +133,11 @@ export default {
         transparent,
         black
       ),
-      linear-gradient(45deg, var(--color-themed-bg-dimmed-more) 25%, transparent 25%),
-      linear-gradient(-45deg, var(--color-themed-bg-dimmed-more) 25%, transparent 25%),
-      linear-gradient(45deg, transparent 75%, var(--color-themed-bg-dimmed-more) 75%),
-      linear-gradient(-45deg, transparent 75%, var(--color-themed-bg-dimmed-more) 75%),
+      linear-gradient(45deg, var(--color-themed-bg-dimmed-more) 25%, transparent 25%, transparent 75%, var(--color-themed-bg-dimmed-more) 75%, var(--color-themed-bg-dimmed-more)),
+      linear-gradient(45deg, var(--color-themed-bg-dimmed-more) 25%, transparent 25%, transparent 75%, var(--color-themed-bg-dimmed-more) 75%, var(--color-themed-bg-dimmed-more)),
       linear-gradient(#fff, #fff);
-    background-size: 100% 100%, 16px 16px, 16px 16px, 16px 16px, 16px 16px, 100% 100%;
-    background-position: 0 0, 0 0, 0 8px, 8px -8px, -8px 0px, 0 0;
+    background-size: 100% 100%, 16px 16px, 16px 16px, 100% 100%;
+    background-position: 0 0, 0 0, 8px 8px, 0 0;
     position: relative;
   }
 }

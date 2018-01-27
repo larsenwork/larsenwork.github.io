@@ -31,3 +31,9 @@ button {
     transition: 0.2s var(--transitionFunction);
   }
 }
+
+::selection {
+  color: var(--color-themed-bg);
+  background-color: var(--color-brand);
+  text-shadow: none;
+}

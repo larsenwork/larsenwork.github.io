@@ -78,23 +78,23 @@ export default {
 }
 
 .c-easingEdit-lines {
-  opacity: var(--opacity-low);
   overflow: visible;
+  opacity: var(--opacity-low);
 }
 
 .c-easingEdit-line,
 .c-easingEdit-helpLine {
+  stroke: currentColor;
   stroke-width: var(--stroke-large);
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke: currentColor;
   vector-effect: non-scaling-stroke;
 }
 
 .c-easingEdit-helpLine {
   opacity: var(--opacity-mid);
   fill: none;
-  stroke-dasharray: var(--stroke-large) calc(var(--stroke-large) * 4);
+  stroke-dasharray: var(--stroke-large--unitLess), calc(var(--stroke-large--unitLess) * 4);
 }
 </style>
 

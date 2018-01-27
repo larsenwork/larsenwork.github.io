@@ -44,6 +44,6 @@ export default {
           y: yPosition
         })
       }
-    }, 10)
+    }, 1000 / 60)
   }
 }

@@ -71,7 +71,7 @@ export default {
 .c-directionEdit-helpLine {
   opacity: var(--opacity-mid);
   fill: none;
-  stroke-dasharray: var(--stroke-large) calc(var(--stroke-large) * 4);
+  stroke-dasharray: var(--stroke-large--unitLess), calc(var(--stroke-large--unitLess) * 4);
 }
 </style>
 

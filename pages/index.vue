@@ -6,7 +6,7 @@
         Hi, I'm Andreas
       </h1>
       <p>
-        An ambitious and humble healthcare professional turned developer + designer from Copenhagen, Denmark.
+        I'm an ambitious and humble healthcare professional turned developer + designer from Copenhagen, Denmark.
       </p>
       <p>
         I'm at LEO Innovation Lab helping people who lives with chronic skin diseases. Before that I've worked at/with e.g. Momondo, DR and Nationalmuseet.

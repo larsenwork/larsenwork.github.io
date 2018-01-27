@@ -1,4 +1,5 @@
 import Vuex from 'vuex'
+import { sv2sl, xy2deg } from './helpers'
 
 const createStore = () => {
   return new Vuex.Store({
@@ -10,24 +11,25 @@ const createStore = () => {
       mouseElement: '',
       gradient: {
         editorActive: '',
+        cssOutput: '',
         direction: {
-          deg: 180,
+          deg: 0,
           x: 0.5,
-          y: 0.2
+          y: 0.8
         },
         ease1: {
-          x: 0.42,
+          x: 0.45,
           y: 0
         },
         ease2: {
-          x: 0.58,
-          y: 1
+          x: 0.5,
+          y: 0.5
         },
         color1: {
           h: 0,
           s: 0,
           l: 0,
-          a: 0.7,
+          a: 0,
           hsv: {
             s: 0,
             v: 0
@@ -37,7 +39,7 @@ const createStore = () => {
           h: 0,
           s: 0,
           l: 0,
-          a: 0,
+          a: 0.7,
           hsv: {
             s: 0,
             v: 0
@@ -88,44 +90,16 @@ const createStore = () => {
           const hsvS = obj.x
           const hsvV = obj.y
           const hsl = sv2sl(hsvS, hsvV)
-          state.gradient[`${obj.element}`].s = hsl[0] * 100
-          state.gradient[`${obj.element}`].l = hsl[1] * 100
+          const sat = hsl[0] * 100
+          const light = hsl[1] * 100
+          state.gradient[`${obj.element}`].s = sat
+          state.gradient[`${obj.element}`].l = light
           state.gradient[`${obj.element}`].hsv.s = hsvS * 100
           state.gradient[`${obj.element}`].hsv.v = hsvV * 100
         }
       }
     }
   })
-}
-
-function sv2sl (s, v) {
-  var l = (2 - s) * v / 2
-  if (l !== 0) {
-    if (l === 1) {
-      s = 0
-    } else if (l < 0.5) {
-      s = s * v / (l * 2)
-    } else {
-      s = s * v / (2 - l * 2)
-    }
-  }
-  return [s, l]
-}
-
-function xy2deg (x, y) {
-  const deltaX = 0.5 - x
-  const deltaY = y - 0.5
-  const rad = Math.atan2(deltaY, deltaX)
-  const deg = rad * (180 / Math.PI)
-  const correctedDeg = (270 + deg) % 360
-  const errorMargin = 5
-  const errorMarginFrom45 = correctedDeg % 45
-  const errorCorrectedDeg = errorMarginFrom45 > (45 - errorMargin)
-    ? correctedDeg + 45 - errorMarginFrom45
-    : errorMarginFrom45 < errorMargin
-      ? correctedDeg - errorMarginFrom45
-      : correctedDeg
-  return errorCorrectedDeg
 }
 
 export default createStore

@@ -22,20 +22,26 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.1; /* Good enough for now... */
 }
 
+h1, h2 {
+  color: var(--color-themed-bg);
+  background-color: var(--color-themed-fg);
+  display: inline-block;
+  padding-right: calc(var(--lineHeight-margin-xsmall) / 2);
+  padding-left: calc(var(--lineHeight-margin-xsmall) / 2);
+}
+
 h1 {
   font-size: var(--fontSize-h1);
   letter-spacing: -0.02em;
-  margin-top: var(--lineHeight-margin-medium);
+  margin-top: var(--lineHeight-margin-large);
   margin-bottom: var(--lineHeight-margin-small);
-  margin-left: -.05em;
 }
 
 h2 {
   font-size: var(--fontSize-h2);
   letter-spacing: -0.01em;
-  margin-top: var(--lineHeight-margin-medium);
-  margin-bottom: var(--lineHeight-margin-xsmall);
-  margin-left: -.05em;
+  margin-top: var(--lineHeight-margin-large);
+  margin-bottom: var(--lineHeight-margin-small);
 }
 
 h3 {
@@ -67,6 +73,7 @@ pre, code {
 code {
   position: relative;
   display: block;
+  max-width: 100%;
 }
 
 pre {
@@ -130,6 +137,7 @@ pre {
   position: absolute;
   font-size: 1em;
   top: 0;
+  margin-top: 0;
   right: var(--spacer-xsmall);
   transform: translateY(-50%);
   opacity: var(--opacity-mid);

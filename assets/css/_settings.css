@@ -3,18 +3,16 @@
   --color-dark-dimmed: hsl(0, 0%, 4%);
   --color-dark-dimmed-more: hsl(0, 0%, 0%);
   --color-dark-dimmed-transparent: hsla(0, 0%, 4%, 0);
-  --color-dark-text: hsla(0, 0%, 12%, 0.9);
   --color-bright: hsl(0, 0%, 100%);
   --color-bright-dimmed: hsl(0, 0%, 96%);
   --color-bright-dimmed-more: hsl(0, 0%, 92%);
   --color-bright-dimmed-transparent: hsla(0, 0%, 96%, 0);
-  --color-bright-text: hsla(0, 0%, 100%, 0.9);
   --color-brand: hsl(335, 85%, 55%);
   --color-themed-bg: var(--color-dark);
   --color-themed-bg-dimmed: var(--color-dark-dimmed);
   --color-themed-bg-dimmed-more: var(--color-dark-dimmed-more);
   --color-themed-bg-dimmed-transparent: var(--color-dark-dimmed-transparent);
-  --color-themed-fg: var(--color-bright-text);
+  --color-themed-fg: var(--color-bright);
 
   --lineLength-maxWidth: 35rem;
   --img-maxWidth: 51rem;
@@ -27,6 +25,7 @@
   --lineHeight-margin-xsmall: calc(var(--lineHeight-body) / 4 * 1);
   --lineHeight-margin-small: calc(var(--lineHeight-body) / 4 * 3);
   --lineHeight-margin-medium: calc(var(--lineHeight-body) / 4 * 6);
+  --lineHeight-margin-large: calc(var(--lineHeight-body) / 4 * 9);
 
   --spacer-xsmall: calc(var(--fontSize-h1) / 4);
   --spacer-small: calc(var(--fontSize-h1) / 2);
@@ -37,6 +36,7 @@
   --stroke-small: 1px;
   --stroke-medium: 2px;
   --stroke-large: 4px;
+  --stroke-large--unitLess: 4;
   --stroke-xsmall--highRes: 0.5px;
 
   --opacity-low: 0.25;
@@ -81,7 +81,7 @@
   --color-themed-bg-dimmed: var(--color-dark-dimmed);
   --color-themed-bg-dimmed-more: var(--color-dark-dimmed-more);
   --color-themed-bg-dimmed-transparent: var(--color-dark-dimmed-transparent);
-  --color-themed-fg: var(--color-bright-text);
+  --color-themed-fg: var(--color-bright);
 }
 
 .theme-secondary {
@@ -89,7 +89,7 @@
   --color-themed-bg-dimmed: var(--color-bright-dimmed);
   --color-themed-bg-dimmed-more: var(--color-bright-dimmed-more);
   --color-themed-bg-dimmed-transparent: var(--color-bright-dimmed-transparent);
-  --color-themed-fg: var(--color-dark-text);
+  --color-themed-fg: var(--color-dark);
 }
 
 .is-navigationExpanded {

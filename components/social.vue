@@ -54,7 +54,7 @@
 
   .c-social-icon {
     fill: currentColor;
-    height: var(--fontSize-h1);
-    width: var(--fontSize-h1);
+    height: var(--fontSize-h2);
+    width: var(--fontSize-h2);
   }
 </style>

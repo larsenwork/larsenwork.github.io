@@ -22,7 +22,7 @@
         <nuxt-link
             class="c-navigation-link"
             @click.native="hideNavigation"
-            to="/tools/easing-gradients">
+            to="/easing-gradients">
           Easing Gradients
         </nuxt-link>
         <div
@@ -216,6 +216,8 @@
 .c-navigation-toggle-logo {
   pointer-events: all;
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   will-change: transform;
