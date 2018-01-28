@@ -34,15 +34,16 @@
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
-    "lodash": "^4.17.4",
     "math-hypot": "^1.0.0",
     "postcss-custom-media": "^6.0.0",
     "postcss-easing-gradients": "^2.0.0-beta",
     "postcss-import": "^11.0.0",
     "postcss-nesting": "^4.2.1",
     "push-dir": "^0.4.1",
+    "throttleit": "^1.0.0",
     "vue-color": "^2.4.3",
     "vue-no-ssr": "^0.2.2",
-    "vue-slider-component": "^2.4.8"
+    "vue-slider-component": "^2.4.8",
+    "webpack-bundle-analyzer": "^2.9.2"
   }
 }

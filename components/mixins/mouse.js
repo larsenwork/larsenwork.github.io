@@ -1,4 +1,4 @@
-import _ from 'lodash'
+import throttle from 'throttleit'
 
 export default {
   mounted: function () {
@@ -13,7 +13,7 @@ export default {
       this.$store.commit('parentBounding', event.target.parentElement.getBoundingClientRect())
       this.$store.commit('mouseDown', element)
     },
-    move: _.throttle(function (event) {
+    move: throttle(function (event) {
       const element = this.$store.state.mouseElement
       if (element) {
         const cursorX = typeof event.clientX === 'number'
