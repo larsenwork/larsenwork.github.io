@@ -1,3 +1,5 @@
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+
 module.exports = {
   /*
   ** Headers of the page
@@ -24,6 +26,14 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    plugins: [
+      new BundleAnalyzerPlugin({
+        analyzerMode: 'static',
+        generateStatsFile: true,
+        openAnalyzer: false,
+        logLevel: 'info'
+      })
+    ],
     /*
     ** Run ESLint on save
     */
@@ -53,7 +63,6 @@ module.exports = {
     ** Babel config
     */
     babel: {
-      // plugins: ['lodash']
     }
   }
 }
