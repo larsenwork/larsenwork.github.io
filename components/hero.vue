@@ -3,11 +3,12 @@
     <div class="hero-gradient u-position-cover"></div>
     <img
         class="hero-img"
-        src="~/assets/images/me-1000w.jpg"
-        srcset="~/assets/images/me-500w.jpg 500w,
-            ~/assets/images/me-1000w.jpg 1000w,
-            ~/assets/images/me-1500w.jpg 1500w,
-            ~/assets/images/me-2000w.jpg 2000w">
+        src="https://res.cloudinary.com/larsenwork/image/upload/w_1000/v1517138735/andreas.jpg"
+        srcset="https://res.cloudinary.com/larsenwork/image/upload/w_500/v1517138735/andreas.jpg 500w,
+            https://res.cloudinary.com/larsenwork/image/upload/w_1000/v1517138735/andreas.jpg 1000w,
+            https://res.cloudinary.com/larsenwork/image/upload/w_1500/v1517138735/andreas.jpg 1500w,
+            https://res.cloudinary.com/larsenwork/image/upload/w_2000/v1517138735/andreas.jpg 2000w"
+    >
   </div>
 </template>
 

@@ -12,16 +12,25 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'My personal website' }
+      { hid: 'description', name: 'description', content: 'Andreas Larsen is an ambitious and humble healthcare professional turned developer + designer from Copenhagen, Denmark.' },
+      { hid: 'og:image', property: 'og:image', content: 'https://res.cloudinary.com/larsenwork/image/upload/v1517138735/andreas.jpg' },
+      { name: 'apple-mobile-web-app-title', content: 'Larsenwork' },
+      { name: 'application-name', content: 'Larsenwork' },
+      { name: 'theme-color', content: '#ee2b7c' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
+      { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
+      { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
+      { rel: 'manifest', href: '/manifest.json' },
+      { rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: '#ee2b7c' },
     ]
   },
   /*
   ** Customize the progress bar color
   */
-  loading: { color: 'hsl(110, 90%, 35%)' },
+  loading: { color: 'hsl(335, 85%, 55%)' },
   /*
   ** Build configuration
   */

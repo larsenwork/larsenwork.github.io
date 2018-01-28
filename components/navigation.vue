@@ -53,7 +53,7 @@
         </a>
       </div>
       <div class="c-navigation-links-social">
-        <h3 class="c-navigation-links-header">@larsenwork</h3>
+        <h3 class="c-navigation-links-header">andreas@larsenwork.com</h3>
         <app-social></app-social>
       </div>
     </div>
@@ -61,14 +61,12 @@
         class="c-navigation-toggle">
       <svg
           class="c-navigation-toggle-bg"
-          xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 86 86">
         <use xlink:href="#logo-bg"/>
       </svg>
       <svg
           class="c-navigation-toggle-logo"
           @click="toggleNavigation"
-          xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 86 86">
         <path
             id="logo-bg"
