@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>Gradients under text/ui are used to increase contrast but should themselves be as invisible as possible. The examples below have the same amount of blackness behind the text but the "easing" gradient blends in nicer with the image. Making the gradient less dark at the bottom is just a personal preference of mine.
+    <p>Gradients under text/ui are used to increase contrast but should themselves be as invisible as possible. The examples below have the same amount of blackness behind the text but the "easing" gradient blends in nicer with the image.</p>
     <div class="c-gradientExamples u-grid">
       <div
           class="c-gradientExamples-item"
