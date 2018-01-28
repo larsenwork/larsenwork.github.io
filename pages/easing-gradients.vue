@@ -5,12 +5,12 @@
     <section
         class="u-lineLength u-container u-section"
         >
-      <h1>
-        Easing Gradients
-      </h1>
+      <h1>Easing Gradients</h1>
       <p>Linear gradients often have hard edges where they start and/or end. We can avoid those by controlling the color mix with easing functions.</p>
+      <p>It's currently a <a href="https://github.com/w3c/csswg-drafts/issues/1332">CSSWG proposal</a> but you can use the <a href="#editor">editor</a> below and/or <a href="https://github.com/larsenwork/postcss-easing-gradients">postCSS-easing-gradients</a>. I'm creating a <a href="https://github.com/larsenwork/sketch-easing-gradient">Sketch plugin</a> too.</p>
       <h2>Examples</h2>
       <gradient-examples></gradient-examples>
+      <div id="editor"></div>
       <h2>Editor</h2>
       <p>Create and preview your own easing gradients in CSS. Note that the CSSWG proposal syntax isn't supported in any browsers yet.</p>
       <gradient-editor></gradient-editor>
