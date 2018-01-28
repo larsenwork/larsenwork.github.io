@@ -12,6 +12,7 @@
           </div>
           <img
               src="~/assets/images/gradient-plant.jpg"
+              alt="plant"
               />
       </div>
       <div
@@ -24,6 +25,7 @@
           </div>
           <img
               src="~/assets/images/gradient-plant.jpg"
+              alt="plant"
               />
       </div>
     </div>
@@ -47,6 +49,23 @@
               Easing
           </div>
       </div>
+    </div>
+    <p>I believe a lot of designs that use on gradients could benifit from this approach including the Spotify player shown below.</p>
+    <div class="c-gradientExamples">
+      <div
+          class="c-gradientExamples-item"
+          >
+          <img
+              src="~/assets/images/gradient-spotify-linear.jpg"
+              alt="spotify with linear gradient"
+              />
+          <img
+              class="u-position-cover c-gradientExamples-item-spotify"
+              src="~/assets/images/gradient-spotify-easing.jpg"
+              alt="spotify with easing gradient"
+              />
+      </div>
+
     </div>
   </div>
 </template>
@@ -185,6 +204,26 @@ export default {
       cubic-bezier(.42,0,.58,1),
       rgba(30, 6, 60, 0)
     );
+  }
+}
+
+.c-gradientExamples-item-spotify {
+  opacity: 0;
+  animation: pulse 3s infinite both;
+}
+
+@keyframes pulse {
+  20% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
   }
 }
 </style>
