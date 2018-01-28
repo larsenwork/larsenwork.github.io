@@ -5,7 +5,7 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'larsenwork',
+    title: 'Larsenwork',
     htmlAttrs: {
       lang: 'en'
     },
@@ -17,6 +17,7 @@ module.exports = {
       { name: 'twitter:site', content: '@larsenwork' },
       { name: 'twitter:creator', content: '@larsenwork' },
       { hid: 'og:image', property: 'og:image', content: 'https://res.cloudinary.com/larsenwork/image/upload/v1517138735/andreas.jpg' },
+      { hid: 'og:title', property: 'og:title', content: 'Larsenwork' },
       { name: 'apple-mobile-web-app-title', content: 'Larsenwork' },
       { name: 'application-name', content: 'Larsenwork' },
       { name: 'theme-color', content: '#ee2b7c' }
