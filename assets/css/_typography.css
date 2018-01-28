@@ -141,4 +141,5 @@ pre {
   right: var(--spacer-xsmall);
   transform: translateY(-50%);
   opacity: var(--opacity-mid);
+  z-index: 1;
 }
