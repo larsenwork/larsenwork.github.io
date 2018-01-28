@@ -52,7 +52,8 @@ export default {
   },
   data () {
     return {
-      title: 'Easing Gradients'
+      title: 'Easing Gradients',
+      description: 'Easing gradients supercharges linear gradients so they\'re a lot more flexible and you can say goodbye to hard edges.'
     }
   },
   head () {
@@ -62,18 +63,24 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: 'Easing gradients supercharges linear gradients so they\'re a lot more flexible and you can say goodbye to hard edges.'
+          content: this.description
         },
         {
           hid: 'og:description',
           property: 'og:description',
-          content: 'Easing gradients supercharges linear gradients so they\'re a lot more flexible and you can say goodbye to hard edges.'
+          content: this.description
         },
         {
           hid: 'og:image',
           property: 'og:image',
           content: 'https://res.cloudinary.com/larsenwork/image/upload/v1517138718/gradients-social.gif'
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: this.title
         }
+
       ],
       bodyAttrs: {
         class: 'theme-secondary'
