@@ -18,6 +18,7 @@ module.exports = {
       { name: 'twitter:creator', content: '@larsenwork' },
       { hid: 'og:image', property: 'og:image', content: 'https://res.cloudinary.com/larsenwork/image/upload/v1517138735/andreas.jpg' },
       { hid: 'og:title', property: 'og:title', content: 'Larsenwork' },
+      { hid: 'og:description', property: 'og:description', content: 'Andreas Larsen is an ambitious and humble healthcare professional turned developer + designer from Copenhagen, Denmark.' },
       { name: 'apple-mobile-web-app-title', content: 'Larsenwork' },
       { name: 'application-name', content: 'Larsenwork' },
       { name: 'theme-color', content: '#ee2b7c' }

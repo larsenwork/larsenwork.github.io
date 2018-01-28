@@ -65,6 +65,11 @@ export default {
           content: 'Easing gradients supercharges linear gradients so they\'re a lot more flexible and you can say goodbye to hard edges.'
         },
         {
+          hid: 'og:description',
+          property: 'og:description',
+          content: 'Easing gradients supercharges linear gradients so they\'re a lot more flexible and you can say goodbye to hard edges.'
+        },
+        {
           hid: 'og:image',
           property: 'og:image',
           content: 'https://res.cloudinary.com/larsenwork/image/upload/v1517138718/gradients-social.gif'
