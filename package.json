@@ -9,12 +9,13 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
+    "deploy": "push-dir --dir=dist --branch=master --cleanup",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint"
   },
   "browserslist": [
     "> 5%",
-    "last 2 versions"
+    "last 1 versions"
   ],
   "dependencies": {
     "nuxt": "^1.0.0-rc11"
@@ -39,6 +40,7 @@
     "postcss-easing-gradients": "^2.0.0-beta",
     "postcss-import": "^11.0.0",
     "postcss-nesting": "^4.2.1",
+    "push-dir": "^0.4.1",
     "vue-color": "^2.4.3",
     "vue-no-ssr": "^0.2.2",
     "vue-slider-component": "^2.4.8"
