@@ -8,11 +8,11 @@
       <h1>
         Easing Gradients
       </h1>
-      <p>Plain linear gradients can have hard edges where they start and/or end. We can avoid those by controlling the color mix with easing functions.</p>
+      <p>Linear gradients often have hard edges where they start and/or end. We can avoid those by controlling the color mix with easing functions.</p>
       <h2>Examples</h2>
       <gradient-examples></gradient-examples>
       <h2>Editor</h2>
-      <p>Easily create and preview your own easing gradients in CSS. Note that the CSSWG proposal syntax isn't supported in any browsers yet.</p>
+      <p>Create and preview your own easing gradients in CSS. Note that the CSSWG proposal syntax isn't supported in any browsers yet.</p>
       <gradient-editor></gradient-editor>
       <h2>Explained</h2>
       <p>I wrote about it in detail on <a href="https://css-tricks.com/easing-linear-gradients/">CSS-Tricks</a>.</p>
