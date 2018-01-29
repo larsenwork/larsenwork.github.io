@@ -1,4 +1,4 @@
-import easingGradientCalc from '~/components/tools/gradient/easing-gradient-calc'
+import easingGradientCalc from './gradient-coordinates'
 import chroma from 'chroma-js'
 
 export default {

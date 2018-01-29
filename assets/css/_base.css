@@ -1,12 +1,12 @@
+html, body {
+  overflow-x: hidden;
+}
+
 body,
 .theme-primary,
 .theme-secondary {
   background-color: var(--color-themed-bg);
   color: var(--color-themed-fg);
-}
-
-body {
-  overflow-x: hidden;
 }
 
 button {

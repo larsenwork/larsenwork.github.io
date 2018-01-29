@@ -29,10 +29,7 @@
       <ul>
         <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/single-transition-timing-function">MDN: Timing functions</a> &mdash; cubic bezier and steps explained.</li>
         <li><a href="https://github.com/gka/chroma.js/">Chroma.js</a> &mdash; a fantastic color lib in that I use to mix the colors.</li>
-        <li><a href="https://unsplash.com/photos/FV_PxCqgtwc?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Plant photo</a> &mdash; by Igor Son on Unsplash</li>
-        <li></li>
-        <li></li>
-        <li></li>
+        <li><a href="https://unsplash.com/photos/FV_PxCqgtwc?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Plant</a> &mdash; photo by Igor Son on Unsplash</li>
       </ul>
     </section>
   </div>

@@ -37,6 +37,7 @@
   .layout {
     display: flex;
     width: 100%;
+    overflow-x: hidden;
 
     & > [class^="p-"] {
       flex-basis: 100%;

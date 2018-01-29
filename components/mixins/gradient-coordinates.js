@@ -1,21 +1,21 @@
 import BezierEasing from 'bezier-easing'
-import hypot from 'math-hypot'
 
 const rounded = (number, precission = 0) => +number.toFixed(precission)
 
-export default function easingGradientCalc (bezierCoordinates) {
+export default function easingGradientCalc (
+  bezierCoordinates,
+  delta = 1 / 10,
+  incrementSize = 1 / 1000) {
   const bezierFunction = BezierEasing(...bezierCoordinates)
-  const incrementSize = 0.001
   let x = 0
   let y = 0
   let xOld = 0
   let yOld = 0
   let firstTime = true
-  let delta = 1 / 10
   let coordinates = []
 
-  // After first time test if distance last coordinate added in inner loop (xOld, yOld) to (1, 1) is within tolerance
-  while (firstTime || !(hypot(1 - xOld, 1 - yOld) > delta)) {
+  // After first time test if distance from last coordinate added in inner loop (xOld, yOld) to (1, 1) is within tolerance
+  while (firstTime || (Math.hypot(1 - xOld, 1 - yOld) < delta)) {
     if (firstTime) {
       firstTime = false
     } else {
@@ -31,7 +31,7 @@ export default function easingGradientCalc (bezierCoordinates) {
     // Loop and add coordinates every time it's far enough away from the previous one
     while (y <= 1) {
       x = bezierFunction(y)
-      if (hypot(x - xOld, y - yOld) > delta) {
+      if (Math.hypot(x - xOld, y - yOld) > delta) {
         coordinates.push({
           mix: x,
           position: `${rounded(y * 100, 2)}%`
