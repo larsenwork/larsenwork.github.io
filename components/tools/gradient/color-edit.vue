@@ -110,7 +110,7 @@ export default {
   border-radius: var(--spacer-xsmall);
   background-image:
     linear-gradient( to bottom, hsla(0, 0%, 0%, 0), hsl(0, 0%, 0%)),
-    linear-gradient( to right, hsla(0, 0%, 100%), hsla(0, 0%, 100%, 0)),
+    linear-gradient( to right, hsl(0, 0%, 100%), hsla(0, 0%, 100%, 0)),
     linear-gradient( hsl(var(--hue), 100%, 50%), hsl(var(--hue), 100%, 50%));
   position: relative;
 }
