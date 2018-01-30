@@ -51,7 +51,7 @@
   --zIndex-notification: 30;
   --zIndex-modal: 20;
   --zIndex-overlay: 10;
-  --zIndex-modal-isNavigationExpanded: 5;
+  --zIndex-editor: 5;
   --zIndex-githubCorner: 1;
 
 
@@ -90,10 +90,6 @@
   --color-themed-bg-dimmed-more: var(--color-bright-dimmed-more);
   --color-themed-bg-dimmed-transparent: var(--color-bright-dimmed-transparent);
   --color-themed-fg: var(--color-dark);
-}
-
-.is-navigationExpanded {
-  --zIndex-modal: var(--zIndex-modal-isNavigationExpanded);
 }
 
 @media (--highRes) {

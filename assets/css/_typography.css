@@ -74,6 +74,7 @@ code {
   position: relative;
   display: block;
   max-width: 100%;
+  min-width: 0; /* Fixes wrapping issues inside grids */
 }
 
 pre {

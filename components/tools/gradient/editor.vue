@@ -68,15 +68,31 @@
       </button>
     </div>
     <div class="u-position-relative">
+      <div class="u-position-cover c-gradientEditor-output">
+        <div class="u-position-relative">
+          <div class="c-gradientEditor-gradient u-position-cover"></div>
+          <div class="c-gradientEditor-gradient c-gradientEditor-gradient--linear u-position-cover"></div>
+        </div>
+        <code>
+          <h3 class="t-codeLabel">CSS</h3>
+          <pre>{{ gradientCalc }}</pre>
+        </code>
+      </div>
+      <div class="c-gradientEditor-editors c-gradientEditor-editors--dummy u-grid">
+        <div
+            class="u-aspect--1-1"
+            >
+        </div>
+      </div>
       <transition
           name="tr-fade"
           >
         <div
-            class="c-gradientEditor-editors u-grid"
+            class="c-gradientEditor-editors u-grid u-position-cover"
             v-if="$store.state.gradient.editorActive !== ''"
             >
           <div
-              class="c-gradientEditor-editors-item"
+              class="u-aspect--1-1"
               >
             <transition
                 name="tr-fade"
@@ -128,7 +144,8 @@
             </transition>
           </div>
           <div
-              class="c-gradientEditor-editors-item"
+              v-if="$store.state.gradient.editorActive !== ''"
+              class="u-position-relative"
               >
             <div class="c-gradientEditor-gradient u-position-cover"></div>
             <div class="c-gradientEditor-gradient c-gradientEditor-gradient--linear u-position-cover"></div>
@@ -136,14 +153,6 @@
         </div>
       </transition>
     </div>
-    <div class="c-gradientEditor-output u-position-relative">
-      <div class="c-gradientEditor-gradient u-position-cover"></div>
-      <div class="c-gradientEditor-gradient c-gradientEditor-gradient--linear u-position-cover"></div>
-    </div>
-    <code>
-      <h3 class="t-codeLabel">CSS</h3>
-      <pre>{{ gradientCalc }}</pre>
-    </code>
     <code>
       <h3 class="t-codeLabel">CSSWG Proposal</h3>
       <pre>linear-gradient(
@@ -174,13 +183,9 @@ export default {
   mixins: [gradientOutput],
   methods: {
     toggleEditor (editor) {
-      if (this.$store.state.gradient.editorActive === editor) {
-        this.$store.commit('hideGradientEditor')
-        this.$store.commit('hideOverlay')
-      } else {
-        this.$store.commit('showGradientEditor', editor)
-        this.$store.commit('showOverlay')
-      }
+      this.$store.state.gradient.editorActive === editor
+        ? this.$store.commit('hideGradientEditor')
+        : this.$store.commit('showGradientEditor', editor)
     },
     tabAway (event, editor) {
       if ((event.shiftKey && editor === 'direction') || (!event.shiftKey && editor === 'color2')) {
@@ -199,7 +204,6 @@ export default {
   grid-template-columns: repeat(4, 1fr);
   max-width: var(--preview-maxSize);
   position: relative;
-  z-index: var(--zIndex-modal);
 }
 
 .c-gradientEditor-toggle {
@@ -221,50 +225,21 @@ export default {
 }
 
 .c-gradientEditor-editors {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  padding-left: var(--spacer-small);
-  z-index: var(--zIndex-modal);
   grid-template-columns: 2fr 1fr;
   background-color: var(--color-themed-bg);
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    height: var(--spacer-medium);
-    background: linear-gradient(to bottom, hsl(0, 0%, 100%), hsla(0, 0%, 100%, 0));
-    z-index: -1;
-  }
+  z-index: var(--zIndex-editor);
 
   @media (--medium) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
   }
 
-  @media (--large) {
-    padding-right: 0;
-    padding-left: 0;
-  }
-}
-
-.c-gradientEditor-editors-item {
-  position: relative;
-
-  &::before {
-    width: 100%;
-    padding-top: 100%;
-    content: '';
-    display: flex;
+  &.c-gradientEditor-editors--dummy {
+    visibility: hidden;
+    opacity: 0;
   }
 }
-
 
 .c-gradientEditor-editor {
-
 }
 
 .c-gradientEditor-gradient {
@@ -293,7 +268,7 @@ export default {
 }
 
 .c-gradientEditor-output {
-  margin-bottom: var(--lineHeight-margin-small);
-  height: var(--editor-size);
+  display: grid;
+  grid-template-rows: 1fr;
 }
 </style>

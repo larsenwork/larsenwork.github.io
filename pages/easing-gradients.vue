@@ -96,6 +96,5 @@ export default {
 <style lang="postcss">
 .p-easingGradients {
   --preview-maxSize: calc(var(--lineHeight-body) * 14);
-  --editor-size: calc(var(--preview-maxSize) / 2);
 }
 </style>

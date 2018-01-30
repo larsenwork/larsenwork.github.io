@@ -13,7 +13,6 @@
       hideNavigation () {
         this.$store.commit('hideNavigation')
         this.$store.commit('hideOverlay')
-        this.$store.commit('hideGradientEditor')
       }
     }
   }

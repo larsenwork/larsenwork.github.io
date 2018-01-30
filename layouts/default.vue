@@ -3,8 +3,7 @@
     <div
         class="layout"
         :class="{
-          'is-dimmed': $store.state.overlayVisible,
-          'is-navigationExpanded': $store.state.navigationVisible
+          'is-dimmed': $store.state.overlayVisible
         }"
         >
       <githubCorner/>

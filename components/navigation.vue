@@ -93,7 +93,6 @@
         } else {
           this.$store.commit('showNavigation')
           this.$store.commit('showOverlay')
-          this.$store.commit('hideGradientEditor')
         }
       },
       hideNavigation () {

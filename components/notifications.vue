@@ -2,16 +2,15 @@
   <transition name="tr-dropup">
     <div
         class="c-notifications"
-        v-if="messages.length"
+        v-if="notifications.length"
         >
       <transition name="tr-fade">
         <div
-            v-for="(message, index) of messages"
-            v-if="message !== ''"
+            v-for="(notification, index) of notifications"
             :key="index"
             class="u-lineLength u-container"
             >
-          {{ message }}
+          {{ notification }}
         </div>
       </transition>
     </div>
@@ -19,26 +18,10 @@
 </template>
 
 <script>
-import gradientOutput from '~/components/mixins/gradient-output'
-
-const uppercaseFirst = str => str.charAt(0).toUpperCase() + str.slice(1)
-
 export default {
-  mixins: [gradientOutput],
   data: function () {
     return {
       notifications: []
-    }
-  },
-  computed: {
-    messages () {
-      return [...this.notifications, this.editorValue].filter(str => str !== '')
-    },
-    editorValue () {
-      const editor = this.$store.state.gradient.editorActive
-      return editor === ''
-        ? ''
-        : this['gradient' + uppercaseFirst(editor)]
     }
   }
 }
