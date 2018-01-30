@@ -5,7 +5,7 @@
       <a :href="`https://twitter.com/intent/tweet?text=${twitterText}&hashtags=${twitterHashtags}&url=${twitterUrl}&via=larsenwork`">tweeting about it</a>,
       <a :href="`https://github.com/larsenwork/${repo}`">star/contribute on GitHub</a>
       or
-      <a href="https://www.crowdrise.com/larsenwork-paying-it-forward">donate to my foundraiser</a>
+      <a href="https://www.crowdrise.com/larsenwork-paying-it-forward">donate to my fundraiser</a>
       for Ethiopia Health Aid Inc.
     </p>
   </div>
