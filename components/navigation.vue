@@ -127,11 +127,6 @@
   &.is-expanded {
     pointer-events: auto;
   }
-
-  @nest .is-navigationInline & {
-    position: relative;
-    pointer-events: auto;
-  }
 }
 
 .c-navigation-links {
@@ -146,7 +141,7 @@
     grid-template-columns: repeat(6, 1fr);
   }
 
-  @nest .c-navigation.is-expanded &, .is-navigationInline & {
+  @nest .c-navigation.is-expanded & {
     transition: 0.2s var(--transitionFunction) calc(var(--expand-transitionDuration) - 0.1s);
     visibility: visible;
     opacity: 1;
@@ -204,7 +199,7 @@
   fill: var(--color-brand);
   will-change: transform;
 
-  @nest .c-navigation.is-expanded &, .is-navigationInline & {
+  @nest .c-navigation.is-expanded & {
     transform: translateX(-50vw) translateX(50%) translateX(var(--spacer-small));
     transition: calc(var(--expand-transitionDuration) / 2) ease-in;
   }
@@ -222,14 +217,10 @@
     drop-shadow( var(--shadow1--hover) )
     drop-shadow( var(--shadow2--hover) );
 
-  @nest .c-navigation.is-expanded &, .is-navigationInline & {
+  @nest .c-navigation.is-expanded & {
     transition: transform calc(var(--expand-transitionDuration) / 2) var(--transitionFunction) calc(var(--expand-transitionDuration) / 2);
     transform: translateY(var(--spacer-small));
     filter: none;
-  }
-  @nest .is-navigationInline & {
-    pointer-events: none;
-    opacity: var(--opacity-mid);
   }
 }
 
@@ -240,7 +231,7 @@
   will-change: transform;
   transform: scale(0.02);
 
-  @nest .c-navigation.is-expanded &, .is-navigationInline & {
+  @nest .c-navigation.is-expanded & {
     transition: calc(var(--expand-transitionDuration) / 2) var(--transitionFunction) calc(var(--expand-transitionDuration) / 2);
     transform: translateY(var(--spacer-small)) scale(1);
   }

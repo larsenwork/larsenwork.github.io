@@ -32,11 +32,6 @@ export default {
     return {
       mode: ''
     }
-  },
-  head: {
-    bodyAttrs: {
-      class: 'is-navigationInline'
-    }
   }
 }
 </script>
