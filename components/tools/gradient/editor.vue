@@ -228,9 +228,14 @@ export default {
   grid-template-columns: 2fr 1fr;
   background-color: var(--color-themed-bg);
   z-index: var(--zIndex-editor);
+  padding-left: var(--spacer-small);
 
   @media (--medium) {
     grid-template-columns: 1fr 1fr;
+  }
+
+  @media (min-width: 650px) {
+    padding-left: 0;
   }
 
   &.c-gradientEditor-editors--dummy {
