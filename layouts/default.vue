@@ -3,7 +3,8 @@
     <div
         class="layout"
         :class="{
-          'is-dimmed': $store.state.overlayVisible
+          'is-dimmed': $store.state.overlayVisible,
+          'is-moused': $store.state.mouseElement
         }"
         >
       <githubCorner/>
@@ -46,7 +47,8 @@
       min-height: 100vh;
     }
 
-    &.is-dimmed {
+    &.is-dimmed,
+    &.is-moused {
       user-select: none;
     }
   }
