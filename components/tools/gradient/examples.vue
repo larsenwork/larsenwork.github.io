@@ -29,7 +29,7 @@
               />
       </div>
     </div>
-    <p>When transitioning between two solid colors the edges become promiment if we don't ease-in-out of it. The image on <nuxt-link to="/">my frontpage</nuxt-link> uses this technique too.</p>
+    <p>When transitioning between two solid colors the edges become prominent if we don't ease-in-out of it. The image on <nuxt-link to="/">my frontpage</nuxt-link> uses this technique too.</p>
     <div class="c-gradientExamples u-grid">
       <div
           class="c-gradientExamples-item c-gradientExamples-item--aspect"
@@ -50,7 +50,7 @@
           </div>
       </div>
     </div>
-    <p>I believe a lot of designs that use on gradients could benifit from this approach including the Spotify player shown below.</p>
+    <p>I believe that there are many designs out there that could benefit from this approach, including the Spotify player shown below.</p>
     <div class="c-gradientExamples u-grid">
       <div
           class="c-gradientExamples-item"

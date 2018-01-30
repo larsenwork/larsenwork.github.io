@@ -24,13 +24,13 @@
       <h2>Explained</h2>
       <p>I wrote about it in detail on <a href="https://css-tricks.com/easing-linear-gradients/">CSS-Tricks</a> and would love to do a conference talk 😉 or two about it.</p>
       <p>Fortunately <a href="https://twitter.com/chriscoyier/status/861559397419560960">Chris Coyier</a> and others liked the idea and <a href="https://twitter.com/meyerweb/status/861614513371664384">Eric Meyer</a> made a <a href="https://github.com/w3c/csswg-drafts/issues/1332">CSSWG proposal</a> where the syntax was refined and you can chime in with your ideas/suggestions.</p>
-      <p>Until that happens 🤞 you can use the <a href="https://github.com/larsenwork/postcss-easing-gradients">postCSS-easing-gradients</a> plugin which is more powerfull than the editor above.</p>
+      <p>Until that happens 🤞 you can use the <a href="https://github.com/larsenwork/postcss-easing-gradients">postCSS-easing-gradients</a> plugin which is more powerful than the editor above.</p>
       <p>What the plugin and the editor does is adding a bunch of intermediate color-stops to create a "low poly" version of the easing function. The end result is ok for now and a lot prettier in relevant use cases.</p>
       <h2>Resources</h2>
       <ul>
         <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/single-transition-timing-function">MDN: Timing functions</a> &mdash; cubic bezier and steps explained.</li>
-        <li><a href="https://github.com/gka/chroma.js/">Chroma.js</a> &mdash; a fantastic color lib in that I use to mix the colors.</li>
-        <li><a href="https://unsplash.com/photos/FV_PxCqgtwc?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Plant</a> &mdash; photo by Igor Son on Unsplash</li>
+        <li><a href="https://github.com/gka/chroma.js/">Chroma.js</a> &mdash; a fantastic color lib that I use to mix the colors.</li>
+        <li><a href="https://unsplash.com/photos/FV_PxCqgtwc?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Plant</a> &mdash; photo by Igor Son on Unsplash.</li>
       </ul>
     </section>
   </div>
