@@ -228,7 +228,7 @@ export default {
   grid-template-columns: 2fr 1fr;
   background-color: var(--color-themed-bg);
   z-index: var(--zIndex-editor);
-  padding-left: var(--spacer-small);
+  padding-left: var(--spacer-medium);
 
   @media (--medium) {
     grid-template-columns: 1fr 1fr;
