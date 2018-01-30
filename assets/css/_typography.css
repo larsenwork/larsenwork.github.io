@@ -67,7 +67,7 @@ input {
 }
 
 pre, code {
-  font-family: Monaco, Consolas, "Lucida Console", monospace;
+  font-family: Monaco, Menlo, Consolas, "Lucida Console", monospace;
   font-size: 0.8rem;
   line-height: calc(var(--lineHeight-body) * 3 / 4);
   letter-spacing: 0;
