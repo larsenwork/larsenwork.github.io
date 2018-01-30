@@ -18,7 +18,7 @@ export default {
       type: String,
       required: true
     },
-    path: {
+    slug: {
       type: String,
       required: true
     },
@@ -32,7 +32,7 @@ export default {
       return encodeURI(`${this.tweetText} by @larsenwork`)
     },
     twitterUrl () {
-      return encodeURI(`https://larsenwork${this.path}`)
+      return encodeURI(`https://larsenwork${this.slug}`)
     }
   }
 }
