@@ -1,4 +1,5 @@
 import easingGradientCalc from './gradient-coordinates'
+import easingGradientDirections from './gradient-directions'
 import chroma from 'chroma-js'
 
 export default {
@@ -40,7 +41,10 @@ export default {
   methods: {
     getStoreDirection () {
       const deg = rounded(this.$store.state.gradient.direction.deg)
-      return `${deg}deg`
+      const str = easingGradientDirections[deg]
+        ? easingGradientDirections[deg]
+        : `${deg}deg`
+      return str
     },
     getStoreBezierCoordinates () {
       const x1 = rounded(this.$store.state.gradient.ease1.x, 2)
