@@ -19,26 +19,22 @@
 </script>
 
 <style lang="postcss">
-  .c-overlay {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    opacity: 0;
-    visibility: hidden;
-    will-change: opacity;
-    background-color: var(--color-themed-bg);
-    transition: var(--transition);
-    z-index: var(--zIndex-overlay);
+.c-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  will-change: opacity;
+  background-color: var(--color-themed-bg);
+  transition: var(--transition);
+  z-index: var(--zIndex-overlay);
 
-    &.is-visible {
-      visibility: visible;
-      opacity: var(--opacity-high);
-    }
-
-    &:not(.is-visible) {
-      transition-delay: 0.1s;
-    }
+  &.is-visible {
+    visibility: visible;
+    opacity: var(--opacity-high);
   }
+}
 </style>

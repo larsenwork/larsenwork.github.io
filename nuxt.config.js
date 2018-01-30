@@ -35,7 +35,7 @@ module.exports = {
   /*
   ** Customize the progress bar color
   */
-  loading: { color: 'hsl(335, 85%, 55%)' },
+  loading: false,
   /*
   ** Build configuration
   */

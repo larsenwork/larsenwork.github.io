@@ -136,6 +136,7 @@
   padding: var(--spacer-small);
   width: 100%;
   grid-template-columns: repeat(2, 1fr);
+  transition: var(--transition);
 
   @media (--medium) {
     grid-template-columns: repeat(6, 1fr);
@@ -152,7 +153,7 @@
   color: var(--color-dark);
   margin-top: var(--lineHeight-margin-small);
   margin-bottom: var(--lineHeight-margin-xsmall);
-  opacity: var(--opacity-mid);
+  opacity: var(--opacity-high);
 }
 
 .c-navigation-links-column {
@@ -198,10 +199,24 @@
   z-index: -1;
   fill: var(--color-brand);
   will-change: transform;
+  animation: fade-up var(--transitionDuration) ease 1s backwards;
+  transition: transform var(--transition);
+  transform: translateX(0);
 
   @nest .c-navigation.is-expanded & {
     transform: translateX(-50vw) translateX(50%) translateX(var(--spacer-small));
     transition: calc(var(--expand-transitionDuration) / 2) ease-in;
+  }
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -212,14 +227,11 @@
   left: 0;
   width: 100%;
   height: 100%;
-  will-change: transform;
   filter:
     drop-shadow( var(--shadow1--hover) )
     drop-shadow( var(--shadow2--hover) );
 
   @nest .c-navigation.is-expanded & {
-    transition: transform calc(var(--expand-transitionDuration) / 2) var(--transitionFunction) calc(var(--expand-transitionDuration) / 2);
-    transform: translateY(var(--spacer-small));
     filter: none;
   }
 }
@@ -230,13 +242,13 @@
   flex-shrink: 0;
   will-change: transform;
   transform: scale(0.02);
+  opacity: 0;
+  transition: opacity var(--transition), transform 0s linear var(--transitionDuration);
 
   @nest .c-navigation.is-expanded & {
-    transition: calc(var(--expand-transitionDuration) / 2) var(--transitionFunction) calc(var(--expand-transitionDuration) / 2);
-    transform: translateY(var(--spacer-small)) scale(1);
-  }
-  @nest .c-navigation.is-expanded & {
     opacity: 1;
+    transition: transform calc(var(--expand-transitionDuration) / 2) var(--transitionFunction) calc(var(--expand-transitionDuration) / 2);
+    transform: translateY(var(--spacer-small)) scale(1);
   }
 }
 </style>

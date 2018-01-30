@@ -51,7 +51,6 @@ export default {
 <style lang="postcss">
 .c-githubCorner {
   fill: var(--color-brand);
-  opacity: var(--opacity-mid);
   position: absolute;
   top: 0;
   right: 0;

@@ -7,7 +7,7 @@
   --color-bright-dimmed: hsl(0, 0%, 96%);
   --color-bright-dimmed-more: hsl(0, 0%, 92%);
   --color-bright-dimmed-transparent: hsla(0, 0%, 96%, 0);
-  --color-brand: hsl(335, 85%, 55%);
+  --color-brand: hsl(330, 100%, 45%);
   --color-themed-bg: var(--color-dark);
   --color-themed-bg-dimmed: var(--color-dark-dimmed);
   --color-themed-bg-dimmed-more: var(--color-dark-dimmed-more);

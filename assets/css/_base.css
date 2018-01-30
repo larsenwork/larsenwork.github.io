@@ -34,7 +34,7 @@ button {
 
 ::selection {
   color: var(--color-themed-bg);
-  background-color: var(--color-brand);
+  background-color: var(--color-themed-fg);
   text-shadow: none;
 }
 
