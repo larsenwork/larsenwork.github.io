@@ -17,19 +17,19 @@
 </template>
 
 <script>
-  import navigation from '~/components/navigation'
-  import overlay from '~/components/overlay'
-  import notifications from '~/components/notifications'
-  import githubCorner from '~/components/github-corner'
+import navigation from '~/components/navigation'
+import overlay from '~/components/overlay'
+import notifications from '~/components/notifications'
+import githubCorner from '~/components/github-corner'
 
-  export default {
-    components: {
-      navigation,
-      overlay,
-      notifications,
-      githubCorner
-    }
+export default {
+  components: {
+    navigation,
+    overlay,
+    notifications,
+    githubCorner
   }
+}
 </script>
 
 <style lang="postcss">
