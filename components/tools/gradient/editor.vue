@@ -68,8 +68,8 @@
       </button>
     </div>
     <div class="u-position-relative">
-      <div class="u-position-cover c-gradientEditor-output">
-        <div class="u-position-relative">
+      <div class="c-gradientEditor-output u-position-cover">
+        <div class="c-gradientEditor-output-gradient u-position-relative">
           <div class="c-gradientEditor-gradient u-position-cover"></div>
           <div class="c-gradientEditor-gradient c-gradientEditor-gradient--linear u-position-cover"></div>
         </div>
@@ -268,7 +268,11 @@ export default {
 }
 
 .c-gradientEditor-output {
-  display: grid;
-  grid-template-rows: 1fr;
+  display: flex;
+  flex-direction: column;
+}
+
+.c-gradientEditor-output-gradient {
+  flex-grow: 1;
 }
 </style>
