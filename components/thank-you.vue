@@ -32,7 +32,7 @@ export default {
       return encodeURI(`${this.tweetText} by @larsenwork`)
     },
     twitterUrl () {
-      return encodeURI(`https://larsenwork${this.slug}`)
+      return encodeURI(`https://larsenwork.com/${this.slug}`)
     }
   }
 }

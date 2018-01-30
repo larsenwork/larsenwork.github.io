@@ -17,7 +17,7 @@
       <thank-you
           tweetText="Awesome easing gradient demo and editor"
           repo="postcss-easing-gradients"
-          :slug="$nuxt.$route.path"
+          :slug="$nuxt.$route.name"
           >
       </thank-you>
       <h2>Explained</h2>
