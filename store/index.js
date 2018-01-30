@@ -53,6 +53,8 @@ const createStore = () => {
       },
       hideNavigation (state) {
         state.navigationVisible = false
+        document.body.classList.add('tr-navigation-hide')
+        setTimeout(function () { document.body.classList.remove('tr-navigation-hide') }, 300)
       },
       showOverlay (state) {
         state.overlayVisible = true

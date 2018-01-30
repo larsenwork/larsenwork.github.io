@@ -243,12 +243,15 @@
   fill: var(--color-brand);
   will-change: transform;
   animation: fade-up var(--transitionDuration) ease 1s backwards;
-  transition: transform 0s linear var(--transitionDuration);
-  transform: translateX(0);
 
   @nest .c-navigation.is-expanded & {
+    opacity: 1;
     transform: translateX(-50vw) translateX(50%) translateX(var(--spacer-small));
-    transition: calc(var(--expand-transitionDuration) / 2) ease-in;
+    transition: transform calc(var(--expand-transitionDuration) / 2) ease-in;
+  }
+
+  @nest .tr-navigation-hide & {
+    animation: fade-down var(--transition) forwards;
   }
 }
 
@@ -263,6 +266,17 @@
   }
 }
 
+@keyframes fade-down {
+  0% {
+    opacity: 1;
+    transform: translateX(-50vw) translateX(50%) translateX(var(--spacer-small));
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50vw) translateX(50%) translateX(var(--spacer-small)) translateY(0.5rem);
+  }
+}
+
 .c-navigation-toggle-logo {
   pointer-events: all;
   position: absolute;
@@ -270,11 +284,13 @@
   left: 0;
   width: 100%;
   height: 100%;
+  transition: filter 0s linear var(--transitionDuration);
   filter:
     drop-shadow( var(--shadow1--hover) )
     drop-shadow( var(--shadow2--hover) );
 
   @nest .c-navigation.is-expanded & {
+    transition: none;
     filter: none;
   }
 }
