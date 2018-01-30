@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-        class="layout"
+        class="layout ie-check"
         :class="{
           'is-dimmed': $store.state.overlayVisible,
           'is-moused': $store.state.mouseElement
@@ -10,9 +10,12 @@
       <githubCorner/>
       <nuxt/>
     </div>
-    <notifications/>
-    <navigation/>
-    <overlay/>
+    <div class="ie-check">
+      <notifications/>
+      <navigation/>
+      <overlay/>
+    </div>
+    <div class="ie-message">Sorry, this is my playground where I test out new techniques so I don't support IE/Edge browsers right now. Try using Chrome or Firefox.</div>
   </div>
 </template>
 
@@ -33,23 +36,23 @@ export default {
 </script>
 
 <style lang="postcss">
-  @import '../assets/css/main.css';
-  .layout {
-    display: flex;
-    width: 100%;
-    overflow-x: hidden;
+@import '../assets/css/main.css';
+.layout {
+  display: flex;
+  width: 100%;
+  overflow-x: hidden;
 
-    & > [class^="p-"] {
-      flex-basis: 100%;
-      flex-shrink: 0;
-      max-width: 100%;
-      margin-right: -100%;
-      min-height: 100vh;
-    }
-
-    &.is-dimmed,
-    &.is-moused {
-      user-select: none;
-    }
+  & > [class^="p-"] {
+    flex-basis: 100%;
+    flex-shrink: 0;
+    max-width: 100%;
+    margin-right: -100%;
+    min-height: 100vh;
   }
+
+  &.is-dimmed,
+  &.is-moused {
+    user-select: none;
+  }
+}
 </style>

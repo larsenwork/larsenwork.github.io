@@ -37,3 +37,32 @@ button {
   background-color: var(--color-brand);
   text-shadow: none;
 }
+
+.ie-check {
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    display: none !important;
+  }
+}
+
+.ie-message {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  display: none;
+  max-width: 30rem;
+
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    display: block;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .ie-check,
+  .ie-check * {
+    display: none !important;
+  }
+
+  .ie-message {
+    display: block !important;
+  }
+}
