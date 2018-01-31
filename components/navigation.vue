@@ -143,7 +143,7 @@ export default {
   }
 
   @nest .c-navigation.is-expanded & {
-    transition: 0.2s var(--transitionFunction) calc(var(--expand-transitionDuration) - 0.1s);
+    transition: calc(var(--expand-transitionDuration) / 2) var(--transitionFunction) calc(var(--expand-transitionDuration) / 2);
     visibility: visible;
     opacity: 1;
   }
@@ -249,7 +249,7 @@ export default {
 
   @nest .c-navigation.is-expanded & {
     opacity: 1;
-    transition: transform calc(var(--expand-transitionDuration) / 2) var(--transitionFunction) calc(var(--expand-transitionDuration) / 2);
+    transition: transform calc(var(--expand-transitionDuration) / 3 * 2) var(--transitionFunction) calc(var(--expand-transitionDuration) / 3 * 1);
     transform: translateY(var(--spacer-small)) scale(1);
   }
 }
