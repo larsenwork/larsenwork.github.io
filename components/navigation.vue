@@ -4,7 +4,9 @@
       :class="$store.state.navigationVisible ? 'is-expanded' : ''">
     <div class="c-navigation-links u-lineLength u-grid">
       <div class="c-navigation-links-column">
-        I have some menu issues...
+        <h3 class="c-navigation-links-header">
+          Me
+        </h3>
       </div>
     </div>
     <div
