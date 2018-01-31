@@ -33,6 +33,8 @@
               >
           </vue-slider>
         </div>
+      </no-ssr>
+      <no-ssr>
         <div
             class="c-colorEdit-alpha"
             >
