@@ -7,6 +7,15 @@
         <h3 class="c-navigation-links-header">
           Me
         </h3>
+        <nuxt-link
+            class="c-navigation-link"
+            @click.native="hideNavigation"
+            to="/">
+          About
+        </nuxt-link>
+        <div class="c-navigation-link c-navigation-link--wip">
+          Projects
+        </div>
       </div>
     </div>
     <div
