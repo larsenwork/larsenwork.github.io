@@ -3,12 +3,6 @@
       class="c-navigation"
       :class="$store.state.navigationVisible ? 'is-expanded' : ''">
     <div class="c-navigation-links u-lineLength u-grid">
-      <div class="c-navigation-links-social">
-        <h3 class="c-navigation-links-header">
-          andreas@larsenwork.com
-        </h3>
-        <app-social></app-social>
-      </div>
     </div>
     <div
         class="c-navigation-toggle">
