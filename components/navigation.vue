@@ -249,10 +249,6 @@
     transform: translateX(-50vw) translateX(50%) translateX(var(--spacer-small));
     transition: transform calc(var(--expand-transitionDuration) / 2) ease-in;
   }
-
-  @nest .tr-navigation-hide & {
-    animation: fade-down var(--transition) forwards;
-  }
 }
 
 @keyframes fade-up {
@@ -263,17 +259,6 @@
   100% {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes fade-down {
-  0% {
-    opacity: 1;
-    transform: translateX(-50vw) translateX(50%) translateX(var(--spacer-small));
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(-50vw) translateX(50%) translateX(var(--spacer-small)) translateY(0.5rem);
   }
 }
 
