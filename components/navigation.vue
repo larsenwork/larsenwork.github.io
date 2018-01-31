@@ -124,26 +124,26 @@
 </template>
 
 <script>
-  import social from '~/components/social'
-  export default {
-    components: {
-      'app-social': social
-    },
-    methods: {
-      toggleNavigation () {
-        if (this.$store.state.navigationVisible) {
-          this.hideNavigation()
-        } else {
-          this.$store.commit('showNavigation')
-          this.$store.commit('showOverlay')
-        }
-      },
-      hideNavigation () {
-        this.$store.commit('hideNavigation')
-        this.$store.commit('hideOverlay')
+import social from '~/components/social'
+export default {
+  components: {
+    'app-social': social
+  },
+  methods: {
+    toggleNavigation () {
+      if (this.$store.state.navigationVisible) {
+        this.hideNavigation()
+      } else {
+        this.$store.commit('showNavigation')
+        this.$store.commit('showOverlay')
       }
+    },
+    hideNavigation () {
+      this.$store.commit('hideNavigation')
+      this.$store.commit('hideOverlay')
     }
   }
+}
 </script>
 
 <style lang="postcss">
