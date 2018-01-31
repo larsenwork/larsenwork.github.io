@@ -33,33 +33,31 @@
               >
           </vue-slider>
         </div>
-      </no-ssr>
-      <div
-          class="c-colorEdit-alpha"
-          >
-        <no-ssr>
+        <div
+            class="c-colorEdit-alpha"
+            >
           <vue-slider
               v-bind="slider.alpha"
               :show="$store.state.gradient.editorActive === color"
               v-model="$store.state.gradient[color].a"
               >
           </vue-slider>
-        </no-ssr>
-      </div>
+        </div>
+      </no-ssr>
     </div>
   </div>
 </template>
 
 <script>
-import NoSSR from 'vue-no-ssr'
 import mouse from '~/components/mixins/mouse'
 
-let components = {
-  'no-ssr': NoSSR
-}
+let components = {}
+
 if (process.browser) {
   let VueSlider = require('vue-slider-component')
-  components['vue-slider'] = VueSlider
+  components = {
+    'vue-slider': VueSlider
+  }
 }
 
 const defaultSlider = {

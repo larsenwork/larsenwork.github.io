@@ -41,7 +41,6 @@
     "postcss-nesting": "^4.2.1",
     "push-dir": "^0.4.1",
     "throttleit": "^1.0.0",
-    "vue-no-ssr": "^0.2.2",
     "vue-slider-component": "^2.5.3",
     "webpack-bundle-analyzer": "^2.9.2"
   }
