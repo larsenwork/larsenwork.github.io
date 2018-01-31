@@ -12,6 +12,7 @@
     </div>
     <div class="ie-check">
       <notifications/>
+      <navigation/>
       <overlay/>
     </div>
     <div class="ie-message">Sorry, this is my playground where I test out new techniques so I don't support IE/Edge browsers right now. Try using Chrome or Firefox.</div>
