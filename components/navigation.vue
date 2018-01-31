@@ -7,12 +7,6 @@
         <h3 class="c-navigation-links-header">
           Me
         </h3>
-        <nuxt-link
-            class="c-navigation-link"
-            @click.native="hideNavigation"
-            to="/">
-          About
-        </nuxt-link>
         <div class="c-navigation-link c-navigation-link--wip">
           Projects
         </div>
@@ -21,12 +15,6 @@
         <h3 class="c-navigation-links-header">
           Tools
         </h3>
-        <nuxt-link
-            class="c-navigation-link"
-            @click.native="hideNavigation"
-            to="/easing-gradients">
-          Easing Gradients
-        </nuxt-link>
         <div class="c-navigation-link c-navigation-link--wip">
           Fluid Scale
         </div>
@@ -56,6 +44,7 @@
         <h3 class="c-navigation-links-header">
           andreas@larsenwork.com
         </h3>
+        <app-social></app-social>
       </div>
     </div>
     <div
