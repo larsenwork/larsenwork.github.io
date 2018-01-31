@@ -200,11 +200,12 @@ export default {
   fill: var(--color-brand);
   will-change: transform;
   animation: fade-up var(--transitionDuration) ease 1s backwards;
+  transition: transform calc(var(--expand-transitionDuration) / 2) var(--transitionFunction);
+  transform: translatex(0);
 
   @nest .c-navigation.is-expanded & {
     opacity: 1;
     transform: translateX(-50vw) translateX(50%) translateX(var(--spacer-small));
-    transition: transform calc(var(--expand-transitionDuration) / 2) ease-in;
   }
 }
 
