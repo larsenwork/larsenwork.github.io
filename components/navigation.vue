@@ -54,8 +54,9 @@
       </div>
       <div class="c-navigation-links-social">
         <h3 class="c-navigation-links-header">
-          andreas@larsenwork.com
+          andreas at larsenwork.com
         </h3>
+        <app-social></app-social>
       </div>
     </div>
     <div
