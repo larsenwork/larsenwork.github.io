@@ -3,7 +3,7 @@
       class="c-navigation"
       :class="$store.state.navigationVisible ? 'is-expanded' : ''">
     <div class="c-navigation-links u-lineLength u-grid">
-      <div>
+      <div class="c-navigation-links-column">
         I have some menu issues...
       </div>
     </div>
