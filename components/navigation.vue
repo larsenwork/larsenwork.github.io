@@ -59,26 +59,6 @@
         <app-social></app-social>
       </div>
     </div>
-    <div
-        class="c-navigation-toggle">
-      <svg
-          class="c-navigation-toggle-bg"
-          viewBox="0 0 86 86">
-        <use xlink:href="#logo-bg" />
-      </svg>
-      <svg
-          class="c-navigation-toggle-logo"
-          @click="toggleNavigation"
-          viewBox="0 0 86 86">
-        <path
-            id="logo-bg"
-            d="M13.5 41.65C13.5 25.48 18.9 12 35.07 12 52.59 12 75.5 25.48 75.5 43S53.93 74 36.41 74C18.9 74 13.5 59.17 13.5 41.65z" />
-        <path
-            class="c-navigation-toggle-logo-a"
-            d="M33.97 23.87c1.77 0 3.57 0 4.84 1.27.9.9 1.38 2.44.62 4.18h4.26l-1.75 4.55 5.12.02s-2.73 4.79-3.95 7.46c4.62 0 7.6 2.85 8.8 6.8.74 2.41 1.41 7 1.96 11.98H48.6c-.58-4.76-1.13-9.14-1.94-11.22-1-2.53-2.32-3.56-5.57-3.35-2.56 5.46-2.94 9.88-2.94 14.57h-5.27c0-9.8 2.04-14 7.1-23.8l-4.42-.02 2.01-5.34c-1.07.46-2.37.46-3.59.46.32-2.44.32-5.12 0-7.56z"
-            fill="#FFF" />
-      </svg>
-    </div>
   </nav>
 </template>
 
