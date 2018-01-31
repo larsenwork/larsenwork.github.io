@@ -24,7 +24,10 @@
 }
 
 .u-section {
-  margin-bottom: var(--spacer-large);
+  margin-bottom: var(--lineHeight-margin-large);
+  &:last-child {
+    margin-bottom: calc(var(--lineHeight-margin-large) + var(--lineHeight-margin-small));
+  }
 }
 
 .u-no-padding {
