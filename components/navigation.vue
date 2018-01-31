@@ -54,7 +54,7 @@
       </div>
       <div class="c-navigation-links-social">
         <h3 class="c-navigation-links-header">
-          andreas&#64;larsenwork.com
+          andreas at larsenwork.com
         </h3>
         <app-social></app-social>
       </div>
