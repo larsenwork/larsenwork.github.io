@@ -1,17 +1,10 @@
 <template>
   <nav
       class="c-navigation"
-      :class="$store.state.navigationVisible ? 'is-expanded' : ''"
-      >
-    <div
-        class="c-navigation-links u-lineLength u-grid"
-        >
-      <div
-          class="c-navigation-links-column"
-          >
-        <h3
-            class="c-navigation-links-header"
-            >
+      :class="$store.state.navigationVisible ? 'is-expanded' : ''">
+    <div class="c-navigation-links u-lineLength u-grid">
+      <div class="c-navigation-links-column">
+        <h3 class="c-navigation-links-header">
           Me
         </h3>
         <nuxt-link
@@ -20,18 +13,12 @@
             to="/">
           About
         </nuxt-link>
-        <div
-            class="c-navigation-link c-navigation-link--wip"
-            >
+        <div class="c-navigation-link c-navigation-link--wip">
           Projects
         </div>
       </div>
-      <div
-          class="c-navigation-links-column"
-          >
-        <h3
-            class="c-navigation-links-header"
-            >
+      <div class="c-navigation-links-column">
+        <h3 class="c-navigation-links-header">
           Tools
         </h3>
         <nuxt-link
@@ -40,60 +27,40 @@
             to="/easing-gradients">
           Easing Gradients
         </nuxt-link>
-        <div
-            class="c-navigation-link c-navigation-link--wip"
-            >
+        <div class="c-navigation-link c-navigation-link--wip">
           Fluid Scale
         </div>
       </div>
-      <div
-          class="c-navigation-links-column"
-          >
-        <h3
-            class="c-navigation-links-header"
-            >
+      <div class="c-navigation-links-column">
+        <h3 class="c-navigation-links-header">
           Ramblings
         </h3>
-        <div
-            class="c-navigation-link c-navigation-link--wip"
-            >
+        <div class="c-navigation-link c-navigation-link--wip">
           Blog
         </div>
-        <div
-            class="c-navigation-link c-navigation-link--wip"
-            >
+        <div class="c-navigation-link c-navigation-link--wip">
           Talks
         </div>
       </div>
-      <div
-          class="c-navigation-links-donate"
-          >
-        <h3
-            class="c-navigation-links-header"
-            >
+      <div class="c-navigation-links-donate">
+        <h3 class="c-navigation-links-header">
           Pay it forward
         </h3>
         <a
             href="https://www.crowdrise.com/larsenwork-paying-it-forward"
-            class="c-navigation-link"
-            >
+            class="c-navigation-link">
           Donate to a charity
         </a>
       </div>
-      <div
-          class="c-navigation-links-social"
-          >
-        <h3
-            class="c-navigation-links-header"
-            >
+      <div class="c-navigation-links-social">
+        <h3 class="c-navigation-links-header">
           andreas@larsenwork.com
         </h3>
         <app-social></app-social>
       </div>
     </div>
     <div
-        class="c-navigation-toggle"
-        >
+        class="c-navigation-toggle">
       <svg
           class="c-navigation-toggle-bg"
           viewBox="0 0 86 86">
