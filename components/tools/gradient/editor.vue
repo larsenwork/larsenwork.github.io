@@ -5,8 +5,8 @@
         'is-active': $store.state.gradient.editorActive !== ''
       }"
       :style="{
-        '--gradient': gradientCalc,
-        '--gradient--linear': `linear-gradient(${gradientDirection }, ${ gradientColor1 }, ${ gradientColor2 })`
+        '--gradient': gradient,
+        '--gradient--linear': `linear-gradient(${ gradientDirection }, ${ gradientColor1 }, ${ gradientColor2 })`
       }"
       >
     <div
@@ -20,7 +20,7 @@
           }"
           >
         <div
-            class="c-gradientEditor-toggle"
+            class="u-aspect--1-1"
             >
           <direction-preview></direction-preview>
         </div>
@@ -32,7 +32,7 @@
           }"
           >
           <div
-              class="c-gradientEditor-toggle c-gradientEditor-toggle--color"
+              class="c-gradientEditor-toggles-color u-aspect--1-1"
               :style="{
                 '--hsla': gradientColor1
               }"
@@ -46,7 +46,7 @@
           }"
           >
         <div
-            class="c-gradientEditor-toggle"
+            class="u-aspect--1-1"
             >
           <easing-preview></easing-preview>
         </div>
@@ -59,7 +59,7 @@
           }"
           >
           <div
-              class="c-gradientEditor-toggle c-gradientEditor-toggle--color"
+              class="c-gradientEditor-toggles-color u-aspect--1-1"
               :style="{
                 '--hsla': gradientColor2
               }"
@@ -68,6 +68,20 @@
       </button>
     </div>
     <div class="u-position-relative">
+      <transition
+          name="tr-fade"
+          >
+        <button
+            class="c-gradientEditor-settingsToggle button-small"
+            v-if="$store.state.gradient.editorActive === 'ease'"
+            @click="toggleGradientSettings"
+            >
+          <icon
+              name="settings"
+              >
+          </icon>
+        </button>
+      </transition>
       <div class="c-gradientEditor-output u-position-cover">
         <div class="c-gradientEditor-output-gradient u-position-relative">
           <div class="c-gradientEditor-gradient u-position-cover"></div>
@@ -75,7 +89,7 @@
         </div>
         <code>
           <h3 class="t-codeLabel">CSS</h3>
-          <pre>{{ gradientCalc }}</pre>
+          <pre>{{ gradient }}</pre>
         </code>
       </div>
       <div class="c-gradientEditor-editors c-gradientEditor-editors--dummy u-grid">
@@ -120,16 +134,37 @@
                 </color-edit>
               </div>
               <div
-                  class="c-gradientEditor-editor u-position-cover"
                   v-if="$store.state.gradient.editorActive === 'ease'"
-                  key="ease"
                   >
-                <div
-                    class="c-gradientEditor-editor-svg"
+                <transition
+                    name="tr-fade"
                     >
-                  <easing-preview></easing-preview>
-                  <easing-edit></easing-edit>
-                </div>
+                  <div
+                      v-if="$store.state.gradient.settingsVisible"
+                      class="c-gradientEditor-settings u-position-cover"
+                      >
+                    Color Mode:
+                    <select v-model="$store.state.gradient.settings.colorMode">
+                      <option>rgb</option>
+                      <option>hsl</option>
+                      <option>lab</option>
+                      <option>lch</option>
+                      <option>lrgb</option>
+                    </select>
+                  </div>
+                  <div
+                      v-else
+                      class="c-gradientEditor-editor u-position-cover"
+                      key="ease"
+                      >
+                    <div
+                        class="c-gradientEditor-editor-svg"
+                        >
+                      <easing-preview></easing-preview>
+                      <easing-edit></easing-edit>
+                    </div>
+                  </div>
+                </transition>
               </div>
               <div
                   v-if="$store.state.gradient.editorActive === 'color2'"
@@ -171,6 +206,7 @@ import easingPreview from '~/components/tools/gradient/easing-preview'
 import directionEdit from '~/components/tools/gradient/direction-edit'
 import directionPreview from '~/components/tools/gradient/direction-preview'
 import gradientOutput from '~/components/mixins/gradient-output'
+import icon from '~/components/icon'
 
 export default {
   components: {
@@ -178,9 +214,15 @@ export default {
     easingEdit,
     easingPreview,
     directionEdit,
-    directionPreview
+    directionPreview,
+    icon
   },
   mixins: [gradientOutput],
+  computed: {
+    gradient: function () {
+      return this.gradientCalc(this.$store.state.gradient.settings.colorMode)
+    }
+  },
   methods: {
     toggleEditor (editor) {
       this.$store.state.gradient.editorActive === editor
@@ -191,6 +233,9 @@ export default {
       if ((event.shiftKey && editor === 'direction') || (!event.shiftKey && editor === 'color2')) {
         this.toggleEditor(editor)
       }
+    },
+    toggleGradientSettings () {
+      this.$store.commit('toggleGradientSettings')
     }
   }
 }
@@ -200,28 +245,41 @@ export default {
 @import '../../../assets/css/_media.css';
 
 .c-gradientEditor-toggles {
-  margin: var(--lineHeight-margin-small) auto;
+  margin-top: var(--lineHeight-margin-small);
+  margin-bottom: var(--lineHeight-margin-small);
   grid-template-columns: repeat(4, 1fr);
   max-width: var(--preview-maxSize);
   position: relative;
 }
 
-.c-gradientEditor-toggle {
-  position: relative;
-  padding-bottom: 100%;
+.c-gradientEditor-toggles-color {
+  border-radius: var(--spacer-xsmall);
+  background-image:
+    linear-gradient(
+      var(--hsla),
+      var(--hsla)
+    ),
+    linear-gradient(45deg, var(--color-themed-bg-dimmed-more) 25%, transparent 25%, transparent 75%, var(--color-themed-bg-dimmed-more) 75%, var(--color-themed-bg-dimmed-more)),
+    linear-gradient(45deg, var(--color-themed-bg-dimmed-more) 25%, transparent 25%, transparent 75%, var(--color-themed-bg-dimmed-more) 75%, var(--color-themed-bg-dimmed-more));
+  background-size: 1rem 1rem;
+  background-position: 0 0, 0 0, .5rem .5rem;
+}
 
-  &.c-gradientEditor-toggle--color {
-    border-radius: var(--spacer-xsmall);
-    background-image:
-      linear-gradient(
-        var(--hsla),
-        var(--hsla)
-      ),
-      linear-gradient(45deg, var(--color-themed-bg-dimmed-more) 25%, transparent 25%, transparent 75%, var(--color-themed-bg-dimmed-more) 75%, var(--color-themed-bg-dimmed-more)),
-      linear-gradient(45deg, var(--color-themed-bg-dimmed-more) 25%, transparent 25%, transparent 75%, var(--color-themed-bg-dimmed-more) 75%, var(--color-themed-bg-dimmed-more));
-    background-size: 1rem 1rem;
-    background-position: 0 0, 0 0, .5rem .5rem;
+.c-gradientEditor-settingsToggle {
+  position: absolute;
+  top: 0;
+  left: calc(var(--spacer-small) * -1);
+  z-index: var(--zIndex-editorSettings);
+
+  @media (--large) {
+    left: 0;
+    transform: translateX(-100%) translateX(calc(var(--spacer-small) * -1));
   }
+}
+
+.c-gradientEditor-settings {
+  background-color: var(--color-themed-bg);
+  z-index: var(--zIndex-editorSettings);
 }
 
 .c-gradientEditor-editors {
@@ -234,7 +292,7 @@ export default {
     grid-template-columns: 1fr 1fr;
   }
 
-  @media (min-width: 650px) {
+  @media (--large) {
     padding-left: 0;
   }
 

@@ -67,6 +67,7 @@
 
 <script>
 import mouse from '~/components/mixins/mouse'
+
 export default {
   mixins: [mouse]
 }
@@ -77,9 +78,15 @@ export default {
   /* Placeholder */
 }
 
+.c-easingEdit-toggle {
+  margin-top: var(--spacer-xsmall);
+  margin-left: var(--spacer-xsmall);
+}
+
 .c-easingEdit-lines {
   overflow: visible;
   opacity: var(--opacity-low);
+  z-index: -1;
 }
 
 .c-easingEdit-line,

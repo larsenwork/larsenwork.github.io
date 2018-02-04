@@ -16,8 +16,10 @@ export default {
     gradientEase () {
       const [x1, y1, x2, y2] = this.getStoreBezierCoordinates()
       return `cubic-bezier(${x1}, ${y1}, ${x2}, ${y2})`
-    },
-    gradientCalc () {
+    }
+  },
+  methods: {
+    gradientCalc (colorMode = 'lrgb') {
       const colorStops = easingGradientCalc(this.getStoreBezierCoordinates())
       const colors = [
         this.getStoreHsla1(),
@@ -29,16 +31,14 @@ export default {
           : chroma(color)
       })
       const cssColorStops = colorStops.map(stop => {
-        let mixedColor = chroma.mix(...correctTransparentColors, stop.mix, 'lrgb')
+        let mixedColor = chroma.mix(...correctTransparentColors, stop.mix, colorMode)
         mixedColor = mixedColor.alpha(rounded(mixedColor.alpha(), 3))
         return `${mixedColor.css('hsl')} ${stop.position}`
       })
       const direction = this.getStoreDirection()
       const gradientCSS = `linear-gradient(${direction}, ${cssColorStops.join(', ')})`
       return gradientCSS
-    }
-  },
-  methods: {
+    },
     getStoreDirection () {
       const deg = rounded(this.$store.state.gradient.direction.deg)
       const str = easingGradientDirections[deg]

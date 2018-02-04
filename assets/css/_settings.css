@@ -47,11 +47,12 @@
   --transitionFunction: ease;
   --transition: var(--transitionDuration) var(--transitionFunction);
 
-  --zIndex-nav: 40;
-  --zIndex-notification: 30;
-  --zIndex-modal: 20;
-  --zIndex-overlay: 10;
-  --zIndex-editor: 5;
+  --zIndex-nav: 60;
+  --zIndex-notification: 50;
+  --zIndex-modal: 40;
+  --zIndex-overlay: 30;
+  --zIndex-editorSettings: 20;
+  --zIndex-editor: 10;
   --zIndex-githubCorner: 1;
 
 

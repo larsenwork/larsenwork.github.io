@@ -52,12 +52,13 @@
   grid-gap: var(--spacer-small);
 }
 
-.u-aspect--1-1 {
+.u-aspect--1-1,
+.u-aspect--2-3 {
   position: relative;
+  width: 100%;
 
   &::before {
     width: 100%;
-    padding-top: 100%;
     content: '';
     display: flex;
   }
@@ -70,3 +71,16 @@
     height: 100%;
   }
 }
+
+.u-aspect--1-1 {
+  &::before {
+    padding-top: 100%;
+  }
+}
+
+.u-aspect--2-3 {
+  &::before {
+    padding-top: calc(100% * 2 / 3);
+  }
+}
+

@@ -11,6 +11,7 @@ const createStore = () => {
       mouseElement: '',
       gradient: {
         editorActive: '',
+        settingsVisible: false,
         cssOutput: '',
         direction: {
           deg: 0,
@@ -44,6 +45,9 @@ const createStore = () => {
             s: 0,
             v: 0
           }
+        },
+        settings: {
+          colorMode: 'lrgb'
         }
       }
     },
@@ -68,7 +72,9 @@ const createStore = () => {
       },
       hideGradientEditor (state) {
         state.gradient.editorActive = ''
-        state.gradient.editorValue = ''
+      },
+      toggleGradientSettings (state) {
+        state.gradient.settingsVisible = !state.gradient.settingsVisible
       },
       parentBounding (state, obj) {
         state.parentBounding = obj

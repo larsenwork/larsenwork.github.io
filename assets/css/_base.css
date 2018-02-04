@@ -10,7 +10,8 @@ body,
 }
 
 button {
-  background: transparent;
+  display: flex;
+  background: var(--color-themed-bg);
   color: inherit;
   padding: var(--spacer-small);
   border-radius: var(--spacer-small);
@@ -30,12 +31,39 @@ button {
     box-shadow: var(--shadow--inset);
     transition: 0.2s var(--transitionFunction);
   }
+
+  &.button-small {
+    padding: var(--spacer-xsmall);
+    border-radius: var(--spacer-small);
+  }
+}
+
+select {
+  font-family: inherit;
+	width: 100%;
+	margin: 0;
+	outline: none;
+	padding: var(--spacer-xsmall);
+	font-size: 1rem;
+  appearance: none;
+  border-radius: var(--spacer-xsmall);
+  box-shadow: var(--shadow);
+  background: var(--color-themed-bg);
+
+  &:focus {
+    outline: none;
+  }
 }
 
 ::selection {
   color: var(--color-themed-bg);
   background-color: var(--color-themed-fg);
   text-shadow: none;
+}
+
+:focus {
+  outline: 1px solid var(--color-brand);
+  box-shadow: var(--shadow--hover);
 }
 
 .ie-check {
