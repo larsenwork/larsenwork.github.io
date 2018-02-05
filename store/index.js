@@ -74,6 +74,7 @@ const createStore = () => {
       },
       showGradientEditor (state, editor) {
         state.gradient.editorActive = editor
+        state.gradient.settingsVisible = false
       },
       hideGradientEditor (state) {
         state.gradient.editorActive = ''
