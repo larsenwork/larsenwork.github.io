@@ -39,10 +39,10 @@ export default {
       const cssColorStops = colorStops.map(stop => {
         let mixedColor = chroma.mix(...correctTransparentColors, stop.mix, colorMode)
         mixedColor = mixedColor.alpha(rounded(mixedColor.alpha(), 3))
-        return `${mixedColor.css('hsl')} ${stop.position}`
+        return `${mixedColor.css('hsl').split(',').join(', ')} ${stop.position}`
       })
       const direction = this.getStoreDirection()
-      const gradientCSS = `linear-gradient(${direction}, ${cssColorStops.join(', ')})`
+      const gradientCSS = `linear-gradient(${direction}, ${cssColorStops.join(', ')});`
       return gradientCSS
     },
     getStoreDirection () {
