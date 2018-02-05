@@ -26,6 +26,10 @@ const createStore = () => {
           x: 0.5,
           y: 0.5
         },
+        steps: {
+          number: 4,
+          skip: 'skip-none'
+        },
         color1: {
           h: 330,
           s: 100,
@@ -47,7 +51,8 @@ const createStore = () => {
           }
         },
         settings: {
-          colorMode: 'lrgb'
+          colorMode: 'lrgb',
+          easingFunction: 'cubic-bezier'
         }
       }
     },

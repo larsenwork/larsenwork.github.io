@@ -1,4 +1,5 @@
-import easingGradientCalc from './gradient-coordinates'
+import easingStopsCubic from './gradient-stops-cubic'
+import easingStopsSteps from './gradient-stops-steps'
 import easingGradientDirections from './gradient-directions'
 import chroma from 'chroma-js'
 
@@ -13,14 +14,20 @@ export default {
     gradientColor2 () {
       return this.getStoreHsla2()
     },
-    gradientEase () {
-      const [x1, y1, x2, y2] = this.getStoreBezierCoordinates()
-      return `cubic-bezier(${x1}, ${y1}, ${x2}, ${y2})`
+    gradientFunction () {
+      if (this.$store.state.gradient.settings.easingFunction === 'cubic-bezier') {
+        return `cubic-bezier(${this.getStoreBezierCoordinates().join(', ')})`
+      } else {
+        return `steps(${this.$store.state.gradient.steps.number}, ${this.$store.state.gradient.steps.skip})`
+      }
     }
   },
   methods: {
     gradientCalc (colorMode = 'lrgb') {
-      const colorStops = easingGradientCalc(this.getStoreBezierCoordinates())
+      const colorStops = this.$store.state.gradient.settings.easingFunction === 'cubic-bezier'
+        ? easingStopsCubic(this.getStoreBezierCoordinates())
+        : easingStopsSteps(this.$store.state.gradient.steps.number, this.$store.state.gradient.steps.skip)
+      console.log(colorStops)
       const colors = [
         this.getStoreHsla1(),
         this.getStoreHsla2()

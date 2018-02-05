@@ -27,7 +27,7 @@ export default {
   stroke: currentColor;
   vector-effect: non-scaling-stroke;
 
-  @nest .c-gradientEditor-editor & {
+  @nest .c-gradientEditor-editors & {
     stroke-width: var(--stroke-large);
   }
 }

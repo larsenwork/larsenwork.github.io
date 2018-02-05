@@ -73,6 +73,9 @@
           >
         <button
             class="c-gradientEditor-settingsToggle button-small"
+            :class="{
+              'is-active': $store.state.gradient.settingsVisible
+            }"
             v-if="$store.state.gradient.editorActive === 'ease'"
             @click="toggleGradientSettings"
             >
@@ -112,12 +115,12 @@
                 name="tr-fade"
                 >
               <div
-                  class="c-gradientEditor-editor u-position-cover"
+                  class="u-position-cover"
                   v-if="$store.state.gradient.editorActive === 'direction'"
                   key="direction"
                   >
                 <div
-                    class="c-gradientEditor-editor-svg"
+                    class="c-gradientEditor-svg"
                     >
                   <direction-preview></direction-preview>
                   <direction-edit></direction-edit>
@@ -125,7 +128,7 @@
               </div>
               <div
                   v-if="$store.state.gradient.editorActive === 'color1'"
-                  class="c-gradientEditor-editor u-position-cover"
+                  class="u-position-cover"
                   key="color1"
                   >
                 <color-edit
@@ -142,9 +145,20 @@
                   <div
                       v-if="$store.state.gradient.settingsVisible"
                       class="c-gradientEditor-settings u-position-cover"
+                      key="settings"
                       >
-                    Color Mode:
-                    <select v-model="$store.state.gradient.settings.colorMode">
+                    Easing function:
+                    <select
+                        class="u-marginBottom"
+                        v-model="$store.state.gradient.settings.easingFunction"
+                        >
+                      <option>cubic-bezier</option>
+                      <option>steps</option>
+                    </select>
+                    Color space:
+                    <select
+                        v-model="$store.state.gradient.settings.colorMode"
+                        >
                       <option>rgb</option>
                       <option>hsl</option>
                       <option>lab</option>
@@ -154,21 +168,49 @@
                   </div>
                   <div
                       v-else
-                      class="c-gradientEditor-editor u-position-cover"
+                      class="u-position-cover"
                       key="ease"
                       >
-                    <div
-                        class="c-gradientEditor-editor-svg"
+                    <transition
+                        name="tr-fade"
                         >
-                      <easing-preview></easing-preview>
-                      <easing-edit></easing-edit>
-                    </div>
+                      <div
+                          class="c-gradientEditor-svg"
+                          v-if="$store.state.gradient.settings.easingFunction === 'cubic-bezier'"
+                          key="cubic"
+                          >
+                        <easing-preview></easing-preview>
+                        <easing-edit></easing-edit>
+                      </div>
+                      <div
+                          v-if="$store.state.gradient.settings.easingFunction === 'steps'"
+                          key="steps"
+                          >
+                        Steps number:
+                        <input
+                            class="u-marginBottom"
+                            v-model="$store.state.gradient.steps.number"
+                            type="number"
+                            min="2"
+                            max="1000"
+                            >
+                        Steps skip:
+                        <select
+                            v-model="$store.state.gradient.steps.skip"
+                            >
+                          <option>skip-none</option>
+                          <option>skip-both</option>
+                          <option>skip-start</option>
+                          <option>skip-end</option>
+                        </select>
+                      </div>
+                    </transition>
                   </div>
                 </transition>
               </div>
               <div
                   v-if="$store.state.gradient.editorActive === 'color2'"
-                  class="c-gradientEditor-editor u-position-cover"
+                  class="u-position-cover"
                   key="color2"
                   >
                 <color-edit
@@ -193,7 +235,7 @@
       <pre>linear-gradient(
   {{ gradientDirection }},
   {{ gradientColor1 }},
-  {{ gradientEase }},
+  {{ gradientFunction }},
   {{ gradientColor2 }}
 );</pre></code>
   </div>
@@ -302,9 +344,6 @@ export default {
   }
 }
 
-.c-gradientEditor-editor {
-}
-
 .c-gradientEditor-gradient {
   background: var(--gradient);
   border-radius: var(--spacer-xsmall);
@@ -322,7 +361,7 @@ export default {
   }
 }
 
-.c-gradientEditor-editor-svg {
+.c-gradientEditor-svg {
   position: absolute;
   top: var(--stroke-medium);
   right: var(--stroke-medium);

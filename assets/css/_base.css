@@ -34,25 +34,29 @@ button {
 
   &.button-small {
     padding: var(--spacer-xsmall);
-    border-radius: var(--spacer-small);
+    border-radius: var(--spacer-xsmall);
   }
 }
 
-select {
+input, select {
+  display: flex;
   font-family: inherit;
-	width: 100%;
-	margin: 0;
-	outline: none;
-	padding: var(--spacer-xsmall);
 	font-size: 1rem;
+	margin: 0;
+	padding: var(--spacer-xsmall);
+	outline: none;
   appearance: none;
   border-radius: var(--spacer-xsmall);
   box-shadow: var(--shadow);
-  background: var(--color-themed-bg);
+  width: 100%;
 
   &:focus {
     outline: none;
   }
+}
+
+select {
+  background: var(--color-themed-bg);
 }
 
 ::selection {

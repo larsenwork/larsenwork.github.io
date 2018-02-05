@@ -1,8 +1,6 @@
 import BezierEasing from 'bezier-easing'
 
-const rounded = (number, precission = 0) => +number.toFixed(precission)
-
-export default function easingGradientCalc (
+export default function (
   bezierCoordinates,
   delta = 0.1,
   incrementSize = 0.001) {
@@ -34,7 +32,7 @@ export default function easingGradientCalc (
       if (Math.hypot(x - xOld, y - yOld) > delta) {
         coordinates.push({
           mix: x,
-          position: `${rounded(y * 100, 2)}%`
+          position: `${(y * 100).toFixed(1)}%`
         })
         xOld = x
         yOld = y
@@ -43,14 +41,17 @@ export default function easingGradientCalc (
     }
   }
   // Add start and stop coordinates
-  coordinates.unshift({
-    mix: 0,
-    position: '0%'
-  })
-  coordinates.push({
-    mix: 1,
-    position: '100%'
-  })
+  coordinates = [
+    {
+      mix: 0,
+      position: '0%'
+    },
+    ...coordinates,
+    {
+      mix: 1,
+      position: '100%'
+    }
+  ]
 
   return coordinates
 }

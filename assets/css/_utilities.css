@@ -84,3 +84,14 @@
   }
 }
 
+.u-marginBottom {
+  margin-bottom: var(--lineHeight-margin-small);
+}
+
+.u-textUppercase {
+  text-transform: uppercase;
+}
+
+.u-textCapitalize {
+  text-transform: capitalize;
+}
