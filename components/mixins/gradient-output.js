@@ -27,7 +27,6 @@ export default {
       const colorStops = this.$store.state.gradient.settings.easingFunction === 'cubic-bezier'
         ? easingStopsCubic(this.getStoreBezierCoordinates())
         : easingStopsSteps(this.$store.state.gradient.steps.number, this.$store.state.gradient.steps.skip)
-      console.log(colorStops)
       const colors = [
         this.getStoreHsla1(),
         this.getStoreHsla2()
