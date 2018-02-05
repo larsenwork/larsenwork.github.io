@@ -42,7 +42,7 @@ export default {
         return `${mixedColor.css('hsl').split(',').join(', ')} ${stop.position}`
       })
       const direction = this.getStoreDirection()
-      const gradientCSS = `linear-gradient(${direction}, ${cssColorStops.join(', ')});`
+      const gradientCSS = `linear-gradient(${direction}, ${cssColorStops.join(', ')})`
       return gradientCSS
     },
     getStoreDirection () {

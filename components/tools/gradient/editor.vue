@@ -221,7 +221,7 @@
     </div>
     <code>
       <h3 class="t-codeLabel">CSS</h3>
-      <pre>{{ gradient }}</pre>
+      <pre>{{ gradient }};</pre>
     </code>
     <code>
       <h3 class="t-codeLabel">CSSWG Proposal</h3>
