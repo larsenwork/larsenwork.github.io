@@ -1,6 +1,6 @@
 import easingStopsCubic from './gradient-stops-cubic'
 import easingStopsSteps from './gradient-stops-steps'
-import easingGradientDirections from './gradient-directions'
+import * as easingShorthands from './gradient-shorthands'
 import chroma from 'chroma-js'
 
 export default {
@@ -47,8 +47,8 @@ export default {
     },
     getStoreDirection () {
       const deg = rounded(this.$store.state.gradient.direction.deg)
-      const str = easingGradientDirections[deg]
-        ? easingGradientDirections[deg]
+      const str = easingShorthands.direction[deg]
+        ? easingShorthands.direction[deg]
         : `${deg}deg`
       return str
     },

@@ -7,30 +7,13 @@
         class="c-directionEdit-lines u-position-cover"
         viewBox="0 0 1 1"
         >
-      <line
+      <circle
           class="c-directionEdit-helpLine"
-          x1=".5"
-          y1=".2"
-          x2=".5"
-          y2=".8"
+          cx="0.5"
+          cy="0.5"
+          r="0.3"
           >
-      </line>
-      <line
-          class="c-directionEdit-helpLine"
-          x1=".2"
-          y1=".5"
-          x2=".8"
-          y2=".5"
-          >
-      </line>
-      <rect
-          class="c-directionEdit-helpLine"
-          x="0"
-          y="0"
-          width="1"
-          height="1"
-          >
-      </rect>
+      </circle>
     </svg>
     <div
         class="u-knob"
@@ -55,23 +38,18 @@ export default {
 }
 
 .c-directionEdit-lines {
-  opacity: var(--opacity-low);
   overflow: visible;
+  z-index: -1;
 }
 
-.c-directionEdit-line,
 .c-directionEdit-helpLine {
   stroke-width: var(--stroke-large);
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke: currentColor;
   vector-effect: non-scaling-stroke;
-}
-
-.c-directionEdit-helpLine {
+  stroke: var(--color-brand);
   opacity: var(--opacity-mid);
   fill: none;
-  stroke-dasharray: var(--stroke-large--unitLess), calc(var(--stroke-large--unitLess) * 4);
 }
 </style>
 

@@ -8,19 +8,51 @@
         viewBox="0 0 1 1"
         >
       <line
-          class="c-easingEdit-helpLine"
-          x1=".5"
-          y1=".2"
-          x2=".5"
-          y2=".8"
+          class="c-easingEdit-thinLine"
+          x1=".25"
+          y1="0"
+          x2=".25"
+          y2="1"
           >
       </line>
       <line
-          class="c-easingEdit-helpLine"
-          x1=".2"
+          class="c-easingEdit-thinLine"
+          x1=".5"
+          y1="0"
+          x2=".5"
+          y2="1"
+          >
+      </line>
+      <line
+          class="c-easingEdit-thinLine"
+          x1=".75"
+          y1="0"
+          x2=".75"
+          y2="1"
+          >
+      </line>
+      <line
+          class="c-easingEdit-thinLine"
+          x1="0"
+          y1=".25"
+          x2="1"
+          y2=".25"
+          >
+      </line>
+      <line
+          class="c-easingEdit-thinLine"
+          x1="0"
           y1=".5"
-          x2=".8"
+          x2="1"
           y2=".5"
+          >
+      </line>
+      <line
+          class="c-easingEdit-thinLine"
+          x1="0"
+          y1=".75"
+          x2="1"
+          y2=".75"
           >
       </line>
       <rect
@@ -85,23 +117,32 @@ export default {
 
 .c-easingEdit-lines {
   overflow: visible;
-  opacity: var(--opacity-low);
   z-index: -1;
 }
 
 .c-easingEdit-line,
 .c-easingEdit-helpLine {
-  stroke: currentColor;
   stroke-width: var(--stroke-large);
   stroke-linecap: round;
   stroke-linejoin: round;
   vector-effect: non-scaling-stroke;
 }
 
-.c-easingEdit-helpLine {
+.c-easingEdit-line {
+  stroke: var(--color-brand);
   opacity: var(--opacity-mid);
+}
+
+.c-easingEdit-helpLine {
+  stroke: var(--color-themed-bg-dimmed-more);
   fill: none;
-  stroke-dasharray: var(--stroke-large--unitLess), calc(var(--stroke-large--unitLess) * 4);
+}
+
+.c-easingEdit-thinLine {
+  fill: none;
+  stroke-width: var(--stroke-medium);
+  stroke: var(--color-themed-bg-dimmed-more);
+  vector-effect: non-scaling-stroke;
 }
 </style>
 

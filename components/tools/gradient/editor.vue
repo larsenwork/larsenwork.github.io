@@ -10,7 +10,37 @@
       }"
       >
     <div
-        class="c-gradientEditor-toggles u-grid"
+        class="c-gradientEditor-settings u-grid u-marginTop"
+        >
+      <div>
+        <div class="c-gradientEditor-label">
+          Easing function
+        </div>
+        <select
+            v-model="$store.state.gradient.settings.easingFunction"
+            >
+          <option>cubic-bezier</option>
+          <option>steps</option>
+        </select>
+      </div>
+      <div>
+        <div class="c-gradientEditor-label">
+          Color space
+        </div>
+        <select
+            v-model="$store.state.gradient.settings.colorMode"
+            >
+          <option>rgb</option>
+          <option>hsl</option>
+          <option>lab</option>
+          <option>lch</option>
+          <option>lrgb</option>
+        </select>
+      </div>
+    </div>
+    <p class="c-gradientEditor-label u-marginTop">Easing linear gradient</p>
+    <div
+        class="c-gradientEditor-toggles u-grid u-marginBottom"
         >
       <button
           @click="toggleEditor('direction')"
@@ -68,32 +98,11 @@
       </button>
     </div>
     <div class="u-position-relative">
-      <transition
-          name="tr-fade"
-          >
-        <button
-            class="c-gradientEditor-settingsToggle button-small"
-            :class="{
-              'is-active': $store.state.gradient.settingsVisible
-            }"
-            v-if="$store.state.gradient.editorActive !== ''"
-            @click="toggleGradientSettings"
-            >
-          <icon
-              name="settings"
-              >
-          </icon>
-        </button>
-      </transition>
       <div class="c-gradientEditor-output u-position-cover">
         <div class="c-gradientEditor-output-gradient u-position-relative">
           <div class="c-gradientEditor-gradient u-position-cover"></div>
           <div class="c-gradientEditor-gradient c-gradientEditor-gradient--linear u-position-cover"></div>
         </div>
-        <code>
-          <h3 class="t-codeLabel">CSS</h3>
-          <pre>{{ gradient }}</pre>
-        </code>
       </div>
       <div class="c-gradientEditor-editors c-gradientEditor-editors--dummy u-grid">
         <div
@@ -114,30 +123,6 @@
             <transition
                 name="tr-fade"
                 >
-              <div
-                  v-if="$store.state.gradient.settingsVisible"
-                  class="c-gradientEditor-settings u-position-cover"
-                  key="settings"
-                  >
-                Easing function:
-                <select
-                    class="u-marginBottom"
-                    v-model="$store.state.gradient.settings.easingFunction"
-                    >
-                  <option>cubic-bezier</option>
-                  <option>steps</option>
-                </select>
-                Color space:
-                <select
-                    v-model="$store.state.gradient.settings.colorMode"
-                    >
-                  <option>rgb</option>
-                  <option>hsl</option>
-                  <option>lab</option>
-                  <option>lch</option>
-                  <option>lrgb</option>
-                </select>
-              </div>
               <div
                   class="u-position-cover"
                   v-if="$store.state.gradient.editorActive === 'direction' && !$store.state.gradient.settingsVisible"
@@ -180,16 +165,28 @@
                       v-if="$store.state.gradient.settings.easingFunction === 'steps'"
                       key="steps"
                       >
-                    Steps number:
+                    <label
+                        for="c-gradientEditor-input-steps-number"
+                        class="c-gradientEditor-label"
+                        >
+                      Steps number
+                    </label>
                     <input
+                        id="c-gradientEditor-input-steps-number"
                         class="u-marginBottom"
                         v-model="$store.state.gradient.steps.number"
                         type="number"
                         min="2"
                         max="1000"
                         >
-                    Steps skip:
+                    <label
+                        for="c-gradientEditor-input-steps-number"
+                        class="c-gradientEditor-label"
+                        >
+                      Steps skip
+                    </label>
                     <select
+                        id="c-gradientEditor-input-steps-number"
                         v-model="$store.state.gradient.steps.skip"
                         >
                       <option>skip-none</option>
@@ -222,6 +219,10 @@
         </div>
       </transition>
     </div>
+    <code>
+      <h3 class="t-codeLabel">CSS</h3>
+      <pre>{{ gradient }}</pre>
+    </code>
     <code>
       <h3 class="t-codeLabel">CSSWG Proposal</h3>
       <pre>linear-gradient(
@@ -267,9 +268,6 @@ export default {
       if ((event.shiftKey && editor === 'direction') || (!event.shiftKey && editor === 'color2')) {
         this.toggleEditor(editor)
       }
-    },
-    toggleGradientSettings () {
-      this.$store.commit('toggleGradientSettings')
     }
   }
 }
@@ -279,8 +277,6 @@ export default {
 @import '../../../assets/css/_media.css';
 
 .c-gradientEditor-toggles {
-  margin-top: var(--lineHeight-margin-small);
-  margin-bottom: var(--lineHeight-margin-small);
   grid-template-columns: repeat(4, 1fr);
   max-width: var(--preview-maxSize);
   position: relative;
@@ -299,21 +295,15 @@ export default {
   background-position: 0 0, 0 0, .5rem .5rem;
 }
 
-.c-gradientEditor-settingsToggle {
-  position: absolute;
-  top: 0;
-  left: calc(var(--spacer-small) * -1);
-  z-index: var(--zIndex-editorSettings);
-
-  @media (--large) {
-    left: 0;
-    transform: translateX(-100%) translateX(calc(var(--spacer-small) * -1));
-  }
+.c-gradientEditor-settings {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: var(--preview-maxSize);
 }
 
-.c-gradientEditor-settings {
-  background-color: var(--color-themed-bg);
-  z-index: var(--zIndex-editorSettings);
+.c-gradientEditor-label {
+  display: block;
+  margin-bottom: var(--lineHeight-margin-xsmall);
+  color: var(--color-themed-fg-50);
 }
 
 .c-gradientEditor-editors {
@@ -326,7 +316,7 @@ export default {
     grid-template-columns: 1fr 1fr;
   }
 
-  @media (--large) {
+  @media (min-width: 650px) {
     padding-left: 0;
   }
 

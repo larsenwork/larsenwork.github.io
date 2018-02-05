@@ -88,6 +88,10 @@
   margin-bottom: var(--lineHeight-margin-small);
 }
 
+.u-marginTop {
+  margin-top: var(--lineHeight-margin-small);
+}
+
 .u-textUppercase {
   text-transform: uppercase;
 }

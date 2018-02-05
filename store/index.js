@@ -1,5 +1,5 @@
 import Vuex from 'vuex'
-import { sv2sl, xy2deg } from './helpers'
+import { sv2sl, xy2deg, angle2rad } from './helpers'
 
 const createStore = () => {
   return new Vuex.Store({
@@ -11,20 +11,19 @@ const createStore = () => {
       mouseElement: '',
       gradient: {
         editorActive: '',
-        settingsVisible: false,
         cssOutput: '',
         direction: {
-          deg: 0,
+          deg: 180,
           x: 0.5,
-          y: 0.8
+          y: 0.2
         },
         ease1: {
-          x: 0.45,
+          x: 0.42,
           y: 0
         },
         ease2: {
-          x: 0.5,
-          y: 0.5
+          x: 0.58,
+          y: 1
         },
         steps: {
           number: 4,
@@ -34,14 +33,14 @@ const createStore = () => {
           h: 330,
           s: 100,
           l: 45,
-          a: 0,
+          a: 1,
           hsv: {
             s: 100,
             v: 90
           }
         },
         color2: {
-          h: 330,
+          h: 210,
           s: 100,
           l: 45,
           a: 1,
@@ -74,13 +73,9 @@ const createStore = () => {
       },
       showGradientEditor (state, editor) {
         state.gradient.editorActive = editor
-        state.gradient.settingsVisible = false
       },
       hideGradientEditor (state) {
         state.gradient.editorActive = ''
-      },
-      toggleGradientSettings (state) {
-        state.gradient.settingsVisible = !state.gradient.settingsVisible
       },
       parentBounding (state, obj) {
         state.parentBounding = obj
@@ -92,12 +87,18 @@ const createStore = () => {
         state.mouseElement = ''
       },
       updateXY (state, obj) {
-        if (obj.element.includes('ease') || obj.element.includes('direction')) {
+        if (obj.element.includes('ease')) {
           state.gradient[`${obj.element}`].x = obj.x
           state.gradient[`${obj.element}`].y = obj.y
-          if (obj.element.includes('direction')) {
-            state.gradient[`${obj.element}`].deg = xy2deg(obj.x, obj.y)
-          }
+        } else if (obj.element.includes('direction')) {
+          const center = 0.5
+          const radius = 0.3
+          const deg = xy2deg(obj.x, obj.y)
+          const mathDeg = 360 - (deg + 270) % 360
+          const radians = angle2rad(mathDeg)
+          state.gradient[`${obj.element}`].x = (Math.cos(radians) * radius + center).toFixed(5)
+          state.gradient[`${obj.element}`].y = (Math.sin(radians) * radius + center).toFixed(5)
+          state.gradient[`${obj.element}`].deg = deg
         } else if (obj.element.includes('color')) {
           const hsvS = obj.x
           const hsvV = obj.y

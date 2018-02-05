@@ -27,3 +27,7 @@ export function xy2deg (x, y) {
       : correctedDeg
   return errorCorrectedDeg
 }
+
+export function angle2rad (angle) {
+  return angle * (Math.PI / 180)
+}

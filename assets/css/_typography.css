@@ -71,6 +71,7 @@ pre, code {
   font-size: 0.8rem;
   line-height: calc(var(--lineHeight-body) * 3 / 4);
   letter-spacing: 0;
+  user-select: all;
 }
 
 code {
@@ -146,4 +147,5 @@ pre {
   transform: translateY(-50%);
   opacity: var(--opacity-mid);
   z-index: 1;
+  user-select: none;
 }
