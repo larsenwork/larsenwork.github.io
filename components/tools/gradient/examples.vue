@@ -32,7 +32,7 @@
     <p>When transitioning between two solid colors the edges become prominent if we don't ease-in-out of it. The image on <nuxt-link to="/">my frontpage</nuxt-link> uses this technique too.</p>
     <div class="c-gradientExamples u-grid">
       <div
-          class="c-gradientExamples-item u-aspect--2-3"
+          class="c-gradientExamples-item u-aspect--1-1"
           >
           <div
               class="c-gradientExamples-item-momondo c-gradientExamples-item-momondo--linear u-position-cover"
@@ -41,7 +41,7 @@
           </div>
       </div>
       <div
-          class="c-gradientExamples-item u-aspect--2-3"
+          class="c-gradientExamples-item u-aspect--1-1"
           >
           <div
               class="c-gradientExamples-item-momondo c-gradientExamples-item-momondo--easing u-position-cover"
