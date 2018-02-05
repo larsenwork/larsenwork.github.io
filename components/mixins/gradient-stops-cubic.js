@@ -32,7 +32,7 @@ export default function (
       if (Math.hypot(x - xOld, y - yOld) > delta) {
         coordinates.push({
           mix: x,
-          position: `${(y * 100).toFixed(1)}%`
+          position: `${+y.toFixed(3)}`
         })
         xOld = x
         yOld = y
@@ -44,12 +44,12 @@ export default function (
   coordinates = [
     {
       mix: 0,
-      position: '0%'
+      position: 0
     },
     ...coordinates,
     {
       mix: 1,
-      position: '100%'
+      position: 1
     }
   ]
 
