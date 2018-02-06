@@ -240,7 +240,7 @@ import easingEdit from '~/components/tools/gradient/easing-edit'
 import easingPreview from '~/components/tools/gradient/easing-preview'
 import directionEdit from '~/components/tools/gradient/direction-edit'
 import directionPreview from '~/components/tools/gradient/direction-preview'
-import gradientOutput from '~/components/mixins/gradient-output'
+import gradientOutput from '~/components/tools/gradient/calculations/gradient-output'
 import icon from '~/components/icon'
 
 export default {
@@ -278,8 +278,6 @@ export default {
 
 .c-gradientEditor-toggles {
   grid-template-columns: repeat(4, 1fr);
-  max-width: var(--preview-maxSize);
-  position: relative;
 }
 
 .c-gradientEditor-toggles-color {
@@ -297,7 +295,6 @@ export default {
 
 .c-gradientEditor-settings {
   grid-template-columns: repeat(2, 1fr);
-  max-width: var(--preview-maxSize);
 }
 
 .c-gradientEditor-label {

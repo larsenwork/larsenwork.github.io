@@ -1,17 +1,61 @@
 <template>
-  <svg
-      class="c-easingPreview u-position-cover"
-      viewBox="0 0 1 1">
-    <path
-        class="c-easingPreview-path"
-        :d="`M0 1C ${$store.state.gradient.ease1.x} ${1 - $store.state.gradient.ease1.y} ${$store.state.gradient.ease2.x} ${1 - $store.state.gradient.ease2.y} 1 0`"
-        />
-  </svg>
+  <div>
+    <svg
+        class="c-easingPreview u-position-cover"
+        viewBox="0 0 1 1">
+      <polyline
+          v-if="$store.state.gradient.settings.easingFunction === 'steps'"
+          class="c-easingPreview-path"
+          :points=polyline
+          />
+      <path
+          v-else
+          class="c-easingPreview-path"
+          :d="`M0 1C ${$store.state.gradient.ease1.x} ${1 - $store.state.gradient.ease1.y} ${$store.state.gradient.ease2.x} ${1 - $store.state.gradient.ease2.y} 1 0`"
+          />
+    </svg>
+  </div>
 </template>
 
 <script>
 export default {
-
+  computed: {
+    polyline () {
+      if (this.$store.state.gradient.settings.easingFunction === 'steps') {
+        let coordinates = this.$store.state.gradient.colorStopCoordinates
+        // Add missing coordinates that the svg needs but gradients doesn't
+        const firstCoordinate = coordinates[0]
+        const lastCoordinate = coordinates[coordinates.length - 1]
+        if (firstCoordinate.mix !== 0) {
+          coordinates.unshift({
+            mix: firstCoordinate.mix,
+            position: 0
+          })
+        }
+        coordinates.unshift({
+          mix: 0,
+          position: 0
+        })
+        if (lastCoordinate.mix !== 1) {
+          coordinates.push({
+            mix: lastCoordinate.mix,
+            position: 1
+          })
+        }
+        coordinates.push({
+          mix: 1,
+          position: 1
+        })
+        const polyline = coordinates.map(
+          obj => {
+            console.log(obj.position)
+            return `${obj.position},${1 - obj.mix}`
+          }
+        ).join(' ')
+        return polyline
+      }
+    }
+  }
 }
 </script>
 

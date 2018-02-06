@@ -120,10 +120,3 @@ export default {
   }
 }
 </script>
-
-
-<style lang="postcss">
-.p-easingGradients {
-  --preview-maxSize: calc(var(--lineHeight-body) * 14);
-}
-</style>

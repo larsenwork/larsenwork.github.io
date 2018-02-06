@@ -25,7 +25,8 @@ export default function (number, skip) {
     createStop((n + 1) / number, n / number, coordinates)
   } else if (skip === 'skip-none') {
     while ((n + 1) < number) {
-      createStop(n / number, (n + 1) / number, coordinates)
+      console.log(n, number)
+      createStop(n / (number - 1), (n + 1) / number, coordinates)
       createStop((n + 1) / (number - 1), (n + 1) / number, coordinates)
       ++n
     }

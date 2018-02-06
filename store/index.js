@@ -49,6 +49,7 @@ const createStore = () => {
             v: 90
           }
         },
+        colorStopCoordinates: [],
         settings: {
           colorMode: 'lrgb',
           easingFunction: 'cubic-bezier'
@@ -85,6 +86,9 @@ const createStore = () => {
       },
       mouseUp (state) {
         state.mouseElement = ''
+      },
+      updateStopCoordinates (state, colorstops) {
+        state.gradient.colorStopCoordinates = colorstops
       },
       updateXY (state, obj) {
         if (obj.element.includes('ease')) {
