@@ -50,7 +50,7 @@
           </div>
       </div>
     </div>
-    <p>I believe that there are many designs out there that could benefit from this approach, including the Spotify player shown below.</p>
+    <p>I believe that there are many designs out there that could benefit from this approach, including the Spotify player shown below (click to see the big picture).</p>
     <div class="c-gradientExamples u-grid">
       <a
           href="/images/gradient-spotify-linear.jpg"

@@ -97,11 +97,27 @@
           </div>
       </button>
     </div>
-    <div class="u-position-relative">
-      <div class="c-gradientEditor-output u-position-cover">
-        <div class="c-gradientEditor-output-gradient u-position-relative">
-          <div class="c-gradientEditor-gradient u-position-cover"></div>
-          <div class="c-gradientEditor-gradient c-gradientEditor-gradient--linear u-position-cover"></div>
+    <div
+        class="u-position-relative"
+        >
+      <div
+          class="c-gradientEditor-output"
+          :class="{
+            'is-slim': $store.state.gradient.editorActive !== ''
+          }"
+          >
+        <div
+            class="c-gradientEditor-gradient u-position-cover"
+            >
+        </div>
+        <div
+            class="c-gradientEditor-gradient c-gradientEditor-gradient--linear u-position-cover"
+            >
+          <div
+              class="c-gradientEditor-gradient-tooltip"
+              >
+            Plain gradient
+          </div>
         </div>
       </div>
       <div class="c-gradientEditor-editors c-gradientEditor-editors--dummy u-grid">
@@ -210,11 +226,28 @@
             </transition>
           </div>
           <div
-              v-if="$store.state.gradient.editorActive !== ''"
               class="u-position-relative"
               >
-            <div class="c-gradientEditor-gradient u-position-cover"></div>
-            <div class="c-gradientEditor-gradient c-gradientEditor-gradient--linear u-position-cover"></div>
+            <div
+                class="c-gradientEditor-gradient-wrap"
+                :class="{
+                  'is-active': $store.state.gradient.editorActive !== ''
+                }"
+                >
+              <div
+                  class="c-gradientEditor-gradient u-position-cover"
+                  >
+              </div>
+              <div
+                  class="c-gradientEditor-gradient c-gradientEditor-gradient--linear u-position-cover"
+                  >
+                <div
+                    class="c-gradientEditor-gradient-tooltip"
+                    >
+                  Plain gradient
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </transition>
@@ -304,14 +337,10 @@ export default {
 }
 
 .c-gradientEditor-editors {
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: minmax(10rem, 1fr) 1fr;
   background-color: var(--color-themed-bg);
   z-index: var(--zIndex-editor);
   padding-left: var(--spacer-medium);
-
-  @media (--medium) {
-    grid-template-columns: 1fr 1fr;
-  }
 
   @media (min-width: 650px) {
     padding-left: 0;
@@ -327,6 +356,9 @@ export default {
   background: var(--gradient);
   border-radius: var(--spacer-xsmall);
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &.c-gradientEditor-gradient--linear {
     background: var(--gradient--linear), linear-gradient(var(--color-themed-bg), var(--color-themed-bg));
@@ -335,9 +367,18 @@ export default {
     transition: var(--transition);
 
     &:hover {
-      opacity: 1;
+      @media (--medium) {
+        opacity: 1;
+      }
     }
   }
+}
+
+.c-gradientEditor-gradient-tooltip {
+  color: var(--color-themed-bg);
+  background-color: var(--color-themed-fg-50);
+  padding: var(--spacer-xsmall);
+  border-radius: var(--spacer-xsmall);
 }
 
 .c-gradientEditor-svg {
@@ -349,11 +390,17 @@ export default {
 }
 
 .c-gradientEditor-output {
-  display: flex;
-  flex-direction: column;
-}
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  transition-timing-function: var(--transitionFunction);
+  transition-duration: calc(var(--transitionDuration) / 2);
+  will-change: width;
 
-.c-gradientEditor-output-gradient {
-  flex-grow: 1;
+  &.is-slim {
+    width: calc(50% - (0.5 * var(--spacer-small)));
+  }
 }
 </style>
