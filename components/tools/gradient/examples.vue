@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>Gradients under text/ui are used to increase contrast but should themselves be as invisible as possible. The examples below have the same amount of blackness behind the text but the "easing" gradient blends in nicer with the image.</p>
+    <p>Gradients under text/ui are used to increase contrast but should often be as invisible as possible. The examples below have the same amount of blackness behind the text.</p>
     <div class="c-gradientExamples u-grid">
       <div
           class="c-gradientExamples-item"
@@ -29,7 +29,7 @@
               />
       </div>
     </div>
-    <p>When transitioning between two solid colors the edges become prominent if we don't ease-in-out of it. The image on <nuxt-link to="/">my frontpage</nuxt-link> uses this technique too.</p>
+    <p>When transitioning between colors the edges become prominent if we don't ease-in-out of it. The image fade-out on <nuxt-link to="/">my frontpage</nuxt-link> uses this technique too.</p>
     <div class="c-gradientExamples u-grid">
       <div
           class="c-gradientExamples-item u-aspect--1-1"

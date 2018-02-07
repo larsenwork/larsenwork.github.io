@@ -396,7 +396,7 @@ export default {
   width: 100%;
   height: 100%;
   transition-timing-function: var(--transitionFunction);
-  transition-duration: calc(var(--transitionDuration) / 2);
+  transition-duration: calc(var(--transitionDuration) / 1);
   will-change: width;
 
   &.is-slim {
