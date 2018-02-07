@@ -24,9 +24,15 @@ export default {
   },
   methods: {
     gradientCalc (colorMode = 'lrgb') {
+      let stepsNumber = this.$store.state.gradient.steps.number
+      if (stepsNumber === undefined || stepsNumber < 2) {
+        stepsNumber = 2
+      } else if (stepsNumber > 100) {
+        stepsNumber = 100
+      }
       const colorStops = this.$store.state.gradient.settings.easingFunction === 'cubic-bezier'
         ? easingStopsCubic(this.getStoreBezierCoordinates())
-        : easingStopsSteps(this.$store.state.gradient.steps.number, this.$store.state.gradient.steps.skip)
+        : easingStopsSteps(stepsNumber, this.$store.state.gradient.steps.skip)
       this.$store.commit('updateStopCoordinates', colorStops)
       const colors = [
         this.getStoreHsla1(),

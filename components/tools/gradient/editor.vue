@@ -185,15 +185,16 @@
                         for="c-gradientEditor-input-steps-number"
                         class="c-gradientEditor-label"
                         >
-                      Steps number
+                      Steps number (2-100)
                     </label>
                     <input
                         id="c-gradientEditor-input-steps-number"
                         class="u-marginBottom"
+                        @keypress="isNumber($event)"
                         v-model="$store.state.gradient.steps.number"
                         type="number"
                         min="2"
-                        max="1000"
+                        max="100"
                         >
                     <label
                         for="c-gradientEditor-input-steps-number"
@@ -300,6 +301,13 @@ export default {
     tabAway (event, editor) {
       if ((event.shiftKey && editor === 'direction') || (!event.shiftKey && editor === 'color2')) {
         this.toggleEditor(editor)
+      }
+    },
+    isNumber (event) {
+      if (event.keyCode > 31 && (event.keyCode < 48 || event.keyCode > 57)) {
+        event.preventDefault()
+      } else {
+        return true
       }
     }
   }

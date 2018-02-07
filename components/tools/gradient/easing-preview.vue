@@ -48,7 +48,6 @@ export default {
         })
         const polyline = coordinates.map(
           obj => {
-            console.log(obj.position)
             return `${obj.position},${1 - obj.mix}`
           }
         ).join(' ')
