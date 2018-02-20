@@ -33,7 +33,7 @@ export default {
     // lrgb as default value since it produces a result closes to most browser defaults
     gradientCalc(colorMode = 'lrgb') {
       // Because number input in Safari is a bitch...
-      let stepsNumber = this.$store.state.gradient.steps.number
+      let stepsNumber = Number(this.$store.state.gradient.steps.number)
       if (stepsNumber === undefined || stepsNumber < 2) {
         stepsNumber = 2
       } else if (stepsNumber > 100) {

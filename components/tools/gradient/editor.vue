@@ -252,12 +252,8 @@
     </code>
     <code>
       <h3 class="t-codeLabel">CSSWG Proposal</h3>
-      <pre>linear-gradient(
-  {{ gradientDirection }},
-  {{ gradientColor1 }},
-  {{ gradientFunction }},
-  {{ gradientColor2 }}
-    );</pre></code>
+      <pre>{{ prettyGradient }}</pre>
+    </code>
   </div>
 </template>
 
@@ -283,6 +279,14 @@ export default {
   computed: {
     gradient: function() {
       return this.gradientCalc(this.$store.state.gradient.settings.colorMode)
+    },
+    prettyGradient: function() {
+      return `linear-gradient(
+  ${this.gradientDirection},
+  ${this.gradientColor1},
+  ${this.gradientFunction},
+  ${this.gradientColor2}
+);`
     }
   },
   methods: {
