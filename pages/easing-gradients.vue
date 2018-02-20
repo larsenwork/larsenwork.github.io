@@ -1,11 +1,11 @@
 <template>
   <div
-      class="p-easingGradients theme-secondary"
-      >
+    class="p-easingGradients theme-secondary"
+  >
     <section
-        class="u-lineLength u-container u-section"
-        >
-      <h1>{{title}}</h1>
+      class="u-lineLength u-container u-section"
+    >
+      <h1>{{ title }}</h1>
       <p>
         Linear gradients often have hard edges where they start and/or end. We can avoid those by controlling the color mix with easing functions.
       </p>
@@ -15,22 +15,21 @@
       <h2>
         Examples
       </h2>
-      <gradient-examples></gradient-examples>
-      <div id="editor"></div><!-- For linking purposes -->
+      <gradient-examples/>
+      <div id="editor"/><!-- For linking purposes -->
       <h2>
         Editor
       </h2>
       <p>
         Create and preview your own easing gradients in CSS. Note that the CSSWG syntax isn't supported in any browsers yet.
       </p>
-      <gradient-editor></gradient-editor>
+      <gradient-editor/>
       <thank-you
-          tweetText="Awesome easing gradient demo and editor"
-          tweetHashtags="easinggradients,cssfuture"
-          repo="postcss-easing-gradients"
-          slug="easing-gradients"
-          >
-      </thank-you>
+        tweet-text="Awesome easing gradient demo and editor"
+        tweet-hashtags="easinggradients,cssfuture"
+        repo="postcss-easing-gradients"
+        slug="easing-gradients"
+      />
       <h2>
         Explained
       </h2>
@@ -76,13 +75,14 @@ export default {
     gradientExamples,
     thankYou
   },
-  data () {
+  data() {
     return {
       title: 'Easing Gradients',
-      description: 'Easing gradients supercharges linear gradients so they\'re a lot more flexible and you can say goodbye to hard edges.'
+      description:
+        "Easing gradients supercharges linear gradients so they're a lot more flexible and you can say goodbye to hard edges."
     }
   },
-  head () {
+  head() {
     return {
       title: this.title,
       meta: [
@@ -99,21 +99,21 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content: 'https://res.cloudinary.com/larsenwork/image/upload/v1517138718/gradients-social.gif'
+          content:
+            'https://res.cloudinary.com/larsenwork/image/upload/v1517138718/gradients-social.gif'
         },
         {
           hid: 'og:title',
           property: 'og:title',
           content: this.title
         }
-
       ],
       bodyAttrs: {
         class: 'theme-secondary'
       }
     }
   },
-  transition () {
+  transition() {
     return {
       mode: ''
     }

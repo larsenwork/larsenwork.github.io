@@ -18,7 +18,7 @@ export default {
   components: {
     'app-hero': hero
   },
-  transition () {
+  transition() {
     return {
       mode: ''
     }

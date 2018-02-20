@@ -1,9 +1,6 @@
 import BezierEasing from 'bezier-easing'
 
-export default function (
-  bezierCoordinates,
-  delta = 0.1,
-  incrementSize = 0.001) {
+export default function(bezierCoordinates, delta = 0.1, incrementSize = 0.001) {
   const bezierFunction = BezierEasing(...bezierCoordinates)
   let x = 0
   let y = 0
@@ -13,7 +10,7 @@ export default function (
   let coordinates = []
 
   // After first time test if distance from last coordinate added in inner loop (xOld, yOld) to (1, 1) is within 80% of average distance between coordinates
-  while (firstTime || (Math.hypot(1 - xOld, 1 - yOld) < delta * 0.8)) {
+  while (firstTime || Math.hypot(1 - xOld, 1 - yOld) < delta * 0.8) {
     if (firstTime) {
       firstTime = false
     } else {

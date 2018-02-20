@@ -57,40 +57,40 @@ const createStore = () => {
       }
     },
     mutations: {
-      showNavigation (state) {
+      showNavigation(state) {
         state.navigationVisible = true
       },
-      hideNavigation (state) {
+      hideNavigation(state) {
         state.navigationVisible = false
       },
-      showOverlay (state) {
+      showOverlay(state) {
         state.overlayVisible = true
       },
-      hideOverlay (state) {
+      hideOverlay(state) {
         state.overlayVisible = false
       },
-      addNotification (state, msg) {
+      addNotification(state, msg) {
         state.notifications = [msg, ...state.notifications]
       },
-      showGradientEditor (state, editor) {
+      showGradientEditor(state, editor) {
         state.gradient.editorActive = editor
       },
-      hideGradientEditor (state) {
+      hideGradientEditor(state) {
         state.gradient.editorActive = ''
       },
-      parentBounding (state, obj) {
+      parentBounding(state, obj) {
         state.parentBounding = obj
       },
-      mouseDown (state, element) {
+      mouseDown(state, element) {
         state.mouseElement = element
       },
-      mouseUp (state) {
+      mouseUp(state) {
         state.mouseElement = ''
       },
-      updateStopCoordinates (state, colorstops) {
+      updateStopCoordinates(state, colorstops) {
         state.gradient.colorStopCoordinates = colorstops
       },
-      updateXY (state, obj) {
+      updateXY(state, obj) {
         if (obj.element.includes('ease')) {
           state.gradient[`${obj.element}`].x = obj.x
           state.gradient[`${obj.element}`].y = obj.y
@@ -100,8 +100,14 @@ const createStore = () => {
           const deg = xy2deg(obj.x, obj.y)
           const mathDeg = 360 - (deg + 270) % 360
           const radians = angle2rad(mathDeg)
-          state.gradient[`${obj.element}`].x = (Math.cos(radians) * radius + center).toFixed(5)
-          state.gradient[`${obj.element}`].y = (Math.sin(radians) * radius + center).toFixed(5)
+          state.gradient[`${obj.element}`].x = (
+            Math.cos(radians) * radius +
+            center
+          ).toFixed(5)
+          state.gradient[`${obj.element}`].y = (
+            Math.sin(radians) * radius +
+            center
+          ).toFixed(5)
           state.gradient[`${obj.element}`].deg = deg
         } else if (obj.element.includes('color')) {
           const hsvS = obj.x

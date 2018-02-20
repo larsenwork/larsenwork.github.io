@@ -1,15 +1,15 @@
 <template>
   <transition name="tr-dropup">
     <div
-        class="c-notifications"
-        v-if="notifications.length"
-        >
+      class="c-notifications"
+      v-if="notifications.length"
+    >
       <transition name="tr-fade">
         <div
-            v-for="(notification, index) of notifications"
-            :key="index"
-            class="u-lineLength u-container"
-            >
+          v-for="(notification, index) of notifications"
+          :key="index"
+          class="u-lineLength u-container"
+        >
           {{ notification }}
         </div>
       </transition>
@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  data: function () {
+  data: function() {
     return {
       notifications: []
     }

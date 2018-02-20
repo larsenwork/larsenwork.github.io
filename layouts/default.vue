@@ -1,12 +1,12 @@
 <template>
   <div>
     <div
-        class="layout ie-check"
-        :class="{
-          'is-dimmed': $store.state.overlayVisible,
-          'is-moused': $store.state.mouseElement
-        }"
-        >
+      class="layout ie-check"
+      :class="{
+        'is-dimmed': $store.state.overlayVisible,
+        'is-moused': $store.state.mouseElement
+      }"
+    >
       <githubCorner/>
       <nuxt/>
     </div>

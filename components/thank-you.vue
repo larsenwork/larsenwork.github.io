@@ -32,13 +32,13 @@ export default {
     }
   },
   computed: {
-    twitterText () {
+    twitterText() {
       return encodeURI(`${this.tweetText}`)
     },
-    twitterHashtags () {
+    twitterHashtags() {
       return encodeURI(`${this.tweetHashtags}`)
     },
-    twitterUrl () {
+    twitterUrl() {
       return encodeURI(`https://larsenwork.com/${this.slug}`)
     }
   }

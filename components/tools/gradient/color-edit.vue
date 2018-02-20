@@ -1,49 +1,46 @@
 <template>
   <div
-      class="c-colorEdit"
-      @touchmove="move"
-      @touchend.prevent="up"
-      :style="{
-        '--hue': $store.state.gradient[color].h
-      }"
-      >
+    class="c-colorEdit"
+    @touchmove="move"
+    @touchend.prevent="up"
+    :style="{
+      '--hue': $store.state.gradient[color].h
+    }"
+  >
     <div
-        class="c-colorEdit-square"
-        >
+      class="c-colorEdit-square"
+    >
       <div
-          class="u-knob"
-          :style="`top: ${100 - $store.state.gradient[color].hsv.v}%; left: ${$store.state.gradient[color].hsv.s}%`"
-          @mousedown="down($event, color)"
-          @touchstart.prevent="down($event, color)"
-          >
-      </div>
+        class="u-knob"
+        :style="`top: ${100 - $store.state.gradient[color].hsv.v}%; left: ${$store.state.gradient[color].hsv.s}%`"
+        @mousedown="down($event, color)"
+        @touchstart.prevent="down($event, color)"
+      />
     </div>
 
     <div
-        class="c-colorEdit-sliders"
-        >
+      class="c-colorEdit-sliders"
+    >
       <no-ssr>
         <div
-            class="c-colorEdit-hue"
-            >
+          class="c-colorEdit-hue"
+        >
           <vue-slider
-              v-bind="slider.hue"
-              :show="$store.state.gradient.editorActive === color"
-              v-model="$store.state.gradient[color].h"
-              >
-          </vue-slider>
+            v-bind="slider.hue"
+            :show="$store.state.gradient.editorActive === color"
+            v-model="$store.state.gradient[color].h"
+          />
         </div>
       </no-ssr>
       <no-ssr>
         <div
-            class="c-colorEdit-alpha"
-            >
+          class="c-colorEdit-alpha"
+        >
           <vue-slider
-              v-bind="slider.alpha"
-              :show="$store.state.gradient.editorActive === color"
-              v-model="$store.state.gradient[color].a"
-              >
-          </vue-slider>
+            v-bind="slider.alpha"
+            :show="$store.state.gradient.editorActive === color"
+            v-model="$store.state.gradient[color].a"
+          />
         </div>
       </no-ssr>
     </div>
@@ -73,10 +70,15 @@ const defaultSlider = {
 }
 
 export default {
-  mixins: [mouse],
   components,
-  props: ['color'],
-  data: function () {
+  mixins: [mouse],
+  props: {
+    color: {
+      type: String,
+      required: true
+    }
+  },
+  data: function() {
     return {
       slider: {
         hue: {

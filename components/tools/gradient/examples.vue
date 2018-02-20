@@ -3,81 +3,79 @@
     <p>Gradients under text/ui are used to increase contrast but should often be as invisible as possible. The examples below have the same amount of blackness behind the text.</p>
     <div class="c-gradientExamples u-grid">
       <div
-          class="c-gradientExamples-item"
-          >
-          <div
-              class="c-gradientExamples-item-scrim c-gradientExamples-item-scrim--linear"
-              >
-              Linear
-          </div>
-          <img
-              src="~/assets/images/gradient-plant.jpg"
-              alt="plant"
-              />
+        class="c-gradientExamples-item"
+      >
+        <div
+          class="c-gradientExamples-item-scrim c-gradientExamples-item-scrim--linear"
+        >
+          Linear
+        </div>
+        <img
+          src="~/assets/images/gradient-plant.jpg"
+          alt="plant"
+        >
       </div>
       <div
-          class="c-gradientExamples-item"
-          >
-          <div
-              class="c-gradientExamples-item-scrim c-gradientExamples-item-scrim--easing"
-              >
-              Easing
-          </div>
-          <img
-              src="~/assets/images/gradient-plant.jpg"
-              alt="plant"
-              />
+        class="c-gradientExamples-item"
+      >
+        <div
+          class="c-gradientExamples-item-scrim c-gradientExamples-item-scrim--easing"
+        >
+          Easing
+        </div>
+        <img
+          src="~/assets/images/gradient-plant.jpg"
+          alt="plant"
+        >
       </div>
     </div>
     <p>When transitioning between colors the edges become prominent if we don't ease-in-out of it. The image fade-out on <nuxt-link to="/">my frontpage</nuxt-link> uses this technique too.</p>
     <div class="c-gradientExamples u-grid">
       <div
-          class="c-gradientExamples-item u-aspect--1-1"
-          >
-          <div
-              class="c-gradientExamples-item-momondo c-gradientExamples-item-momondo--linear u-position-cover"
-              >
-              Linear
-          </div>
+        class="c-gradientExamples-item u-aspect--1-1"
+      >
+        <div
+          class="c-gradientExamples-item-momondo c-gradientExamples-item-momondo--linear u-position-cover"
+        >
+          Linear
+        </div>
       </div>
       <div
-          class="c-gradientExamples-item u-aspect--1-1"
-          >
-          <div
-              class="c-gradientExamples-item-momondo c-gradientExamples-item-momondo--easing u-position-cover"
-              >
-              Easing
-          </div>
+        class="c-gradientExamples-item u-aspect--1-1"
+      >
+        <div
+          class="c-gradientExamples-item-momondo c-gradientExamples-item-momondo--easing u-position-cover"
+        >
+          Easing
+        </div>
       </div>
     </div>
     <p>I believe that there are many designs out there that could benefit from this approach, including the Spotify player shown below (click to see the big picture).</p>
     <div class="c-gradientExamples u-grid">
       <a
-          href="/images/gradient-spotify-linear.jpg"
-          class="c-gradientExamples-item"
-          >
+        href="/images/gradient-spotify-linear.jpg"
+        class="c-gradientExamples-item"
+      >
         <img
-            src="/images/gradient-spotify-linear.jpg"
-            alt="spotify with linear gradient"
-            />
+          src="/images/gradient-spotify-linear.jpg"
+          alt="spotify with linear gradient"
+        >
       </a>
       <a
-          href="/images/gradient-spotify-easing.jpg"
-          class="c-gradientExamples-item"
-          >
+        href="/images/gradient-spotify-easing.jpg"
+        class="c-gradientExamples-item"
+      >
         <img
-            src="/images/gradient-spotify-easing.jpg"
-            alt="spotify with easing gradient"
-            />
+          src="/images/gradient-spotify-easing.jpg"
+          alt="spotify with easing gradient"
+        >
       </a>
     </div>
   </div>
 </template>
 
 <script>
-export default {
-
-}
+export default {}
 </script>
 
 <style lang="postcss">

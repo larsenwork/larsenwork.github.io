@@ -1,27 +1,26 @@
 <template>
-  <div class="c-directionEdit u-position-cover"
-      @touchmove="move"
-      @touchend.prevent="up"
-      >
+  <div
+    class="c-directionEdit u-position-cover"
+    @touchmove="move"
+    @touchend.prevent="up"
+  >
     <svg
-        class="c-directionEdit-lines u-position-cover"
-        viewBox="0 0 1 1"
-        >
+      class="c-directionEdit-lines u-position-cover"
+      viewBox="0 0 1 1"
+    >
       <circle
-          class="c-directionEdit-helpLine"
-          cx="0.5"
-          cy="0.5"
-          r="0.3"
-          >
-      </circle>
+        class="c-directionEdit-helpLine"
+        cx="0.5"
+        cy="0.5"
+        r="0.3"
+      />
     </svg>
     <div
-        class="u-knob"
-        :style="`left: ${$store.state.gradient.direction.x * 100}%; top: ${100 - $store.state.gradient.direction.y * 100}%`"
-        @mousedown="down($event, 'direction')"
-        @touchstart.prevent="down($event, 'direction')"
-        >
-    </div>
+      class="u-knob"
+      :style="`left: ${$store.state.gradient.direction.x * 100}%; top: ${100 - $store.state.gradient.direction.y * 100}%`"
+      @mousedown="down($event, 'direction')"
+      @touchstart.prevent="down($event, 'direction')"
+    />
   </div>
 </template>
 
@@ -52,4 +51,3 @@ export default {
   fill: none;
 }
 </style>
-

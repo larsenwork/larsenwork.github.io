@@ -5,29 +5,33 @@ import chroma from 'chroma-js'
 
 export default {
   computed: {
-    gradientDirection () {
+    gradientDirection() {
       return this.getStoreDirection()
     },
-    gradientColor1 () {
+    gradientColor1() {
       return this.getStoreHsla1()
     },
-    gradientColor2 () {
+    gradientColor2() {
       return this.getStoreHsla2()
     },
-    gradientFunction () {
-      if (this.$store.state.gradient.settings.easingFunction === 'cubic-bezier') {
-        const cubic = `cubic-bezier(${this.getStoreBezierCoordinates().join(', ')})`
-        return shorthands.cubic[cubic]
-          ? shorthands.cubic[cubic]
-          : cubic
+    gradientFunction() {
+      if (
+        this.$store.state.gradient.settings.easingFunction === 'cubic-bezier'
+      ) {
+        const cubic = `cubic-bezier(${this.getStoreBezierCoordinates().join(
+          ', '
+        )})`
+        return shorthands.cubic[cubic] ? shorthands.cubic[cubic] : cubic
       } else {
-        return `steps(${this.$store.state.gradient.steps.number}, ${this.$store.state.gradient.steps.skip})`
+        return `steps(${this.$store.state.gradient.steps.number}, ${
+          this.$store.state.gradient.steps.skip
+        })`
       }
     }
   },
   methods: {
     // lrgb as default value since it produces a result closes to most browser defaults
-    gradientCalc (colorMode = 'lrgb') {
+    gradientCalc(colorMode = 'lrgb') {
       // Because number input in Safari is a bitch...
       let stepsNumber = this.$store.state.gradient.steps.number
       if (stepsNumber === undefined || stepsNumber < 2) {
@@ -37,14 +41,12 @@ export default {
       }
 
       // Get the colorstops
-      const colorStopsCoordinates = this.$store.state.gradient.settings.easingFunction === 'cubic-bezier'
-        ? easingStopsCubic(this.getStoreBezierCoordinates())
-        : easingStopsSteps(stepsNumber, this.$store.state.gradient.steps.skip)
+      const colorStopsCoordinates =
+        this.$store.state.gradient.settings.easingFunction === 'cubic-bezier'
+          ? easingStopsCubic(this.getStoreBezierCoordinates())
+          : easingStopsSteps(stepsNumber, this.$store.state.gradient.steps.skip)
       this.$store.commit('updateStopCoordinates', colorStopsCoordinates)
-      const colors = [
-        this.getStoreHsla1(),
-        this.getStoreHsla2()
-      ]
+      const colors = [this.getStoreHsla1(), this.getStoreHsla2()]
 
       // Browsers don't really agree how to treat gradients that go from one hue to alpha 0 of another hue...
       const correctTransparentColors = colors.map((color, i) => {
@@ -55,38 +57,45 @@ export default {
 
       // Mix them colors and write it as sensible css
       const cssColorStops = colorStopsCoordinates.map(stop => {
-        let mixedColor = chroma.mix(...correctTransparentColors, stop.mix, colorMode)
+        let mixedColor = chroma.mix(
+          ...correctTransparentColors,
+          stop.mix,
+          colorMode
+        )
         mixedColor = mixedColor.alpha(rounded(mixedColor.alpha(), 3))
-        return `${mixedColor.css('hsl').split(',').join(', ')} ${rounded(stop.position * 100, 1)}%`
+        return `${mixedColor
+          .css('hsl')
+          .split(',')
+          .join(', ')} ${rounded(stop.position * 100, 1)}%`
       })
       const direction = this.getStoreDirection()
       return `linear-gradient(${direction}, ${cssColorStops.join(', ')})`
     },
-    getStoreDirection () {
+    getStoreDirection() {
       const deg = rounded(this.$store.state.gradient.direction.deg)
       const str = shorthands.direction[deg]
         ? shorthands.direction[deg]
         : `${deg}deg`
       return str
     },
-    getStoreBezierCoordinates () {
+    getStoreBezierCoordinates() {
       const x1 = rounded(this.$store.state.gradient.ease1.x, 2)
       const y1 = rounded(this.$store.state.gradient.ease1.y, 2)
       const x2 = rounded(this.$store.state.gradient.ease2.x, 2)
       const y2 = rounded(this.$store.state.gradient.ease2.y, 2)
       return [x1, y1, x2, y2]
     },
-    getStoreHsla (color) {
+    getStoreHsla(color) {
       const hue = rounded(this.$store.state.gradient[color].h)
       const sat = rounded(this.$store.state.gradient[color].s)
       const light = rounded(this.$store.state.gradient[color].l)
       const alpha = rounded(this.$store.state.gradient[color].a, 2)
       return `hsla(${hue}, ${sat}%, ${light}%, ${alpha})`
     },
-    getStoreHsla1 () {
+    getStoreHsla1() {
       return this.getStoreHsla('color1')
     },
-    getStoreHsla2 () {
+    getStoreHsla2() {
       return this.getStoreHsla('color2')
     }
   }

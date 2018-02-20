@@ -1,10 +1,10 @@
 <template>
   <div class="hero">
-    <div class="hero-gradient u-position-cover"></div>
+    <div class="hero-gradient u-position-cover"/>
     <img
-        class="hero-img"
-        src="https://res.cloudinary.com/larsenwork/image/upload/w_1000/v1517138735/andreas.jpg"
-        srcset="https://res.cloudinary.com/larsenwork/image/upload/w_500/v1517138735/andreas.jpg 500w,
+      class="hero-img"
+      src="https://res.cloudinary.com/larsenwork/image/upload/w_1000/v1517138735/andreas.jpg"
+      srcset="https://res.cloudinary.com/larsenwork/image/upload/w_500/v1517138735/andreas.jpg 500w,
             https://res.cloudinary.com/larsenwork/image/upload/w_1000/v1517138735/andreas.jpg 1000w,
             https://res.cloudinary.com/larsenwork/image/upload/w_1500/v1517138735/andreas.jpg 1500w,
             https://res.cloudinary.com/larsenwork/image/upload/w_2000/v1517138735/andreas.jpg 2000w"
@@ -13,9 +13,7 @@
 </template>
 
 <script>
-  export default {
-
-  }
+export default {}
 </script>
 
 <style lang="postcss">

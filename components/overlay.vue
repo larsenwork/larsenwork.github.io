@@ -1,21 +1,20 @@
 <template>
   <div
-      class="c-overlay"
-      :class="$store.state.overlayVisible ? 'is-visible' : ''"
-      @click.stop="hideNavigation"
-      >
-  </div>
+    class="c-overlay"
+    :class="$store.state.overlayVisible ? 'is-visible' : ''"
+    @click.stop="hideNavigation"
+  />
 </template>
 
 <script>
-  export default {
-    methods: {
-      hideNavigation () {
-        this.$store.commit('hideNavigation')
-        this.$store.commit('hideOverlay')
-      }
+export default {
+  methods: {
+    hideNavigation() {
+      this.$store.commit('hideNavigation')
+      this.$store.commit('hideOverlay')
     }
   }
+}
 </script>
 
 <style lang="postcss">

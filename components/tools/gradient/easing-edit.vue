@@ -1,99 +1,89 @@
 <template>
-  <div class="c-easingEdit u-position-cover"
-      @touchmove="move"
-      @touchend.prevent="up"
-      >
+  <div
+    class="c-easingEdit u-position-cover"
+    @touchmove="move"
+    @touchend.prevent="up"
+  >
     <svg
-        class="c-easingEdit-lines u-position-cover"
-        viewBox="0 0 1 1"
-        >
+      class="c-easingEdit-lines u-position-cover"
+      viewBox="0 0 1 1"
+    >
       <line
-          class="c-easingEdit-thinLine"
-          x1=".25"
-          y1="0"
-          x2=".25"
-          y2="1"
-          >
-      </line>
+        class="c-easingEdit-thinLine"
+        x1=".25"
+        y1="0"
+        x2=".25"
+        y2="1"
+      />
       <line
-          class="c-easingEdit-thinLine"
-          x1=".5"
-          y1="0"
-          x2=".5"
-          y2="1"
-          >
-      </line>
+        class="c-easingEdit-thinLine"
+        x1=".5"
+        y1="0"
+        x2=".5"
+        y2="1"
+      />
       <line
-          class="c-easingEdit-thinLine"
-          x1=".75"
-          y1="0"
-          x2=".75"
-          y2="1"
-          >
-      </line>
+        class="c-easingEdit-thinLine"
+        x1=".75"
+        y1="0"
+        x2=".75"
+        y2="1"
+      />
       <line
-          class="c-easingEdit-thinLine"
-          x1="0"
-          y1=".25"
-          x2="1"
-          y2=".25"
-          >
-      </line>
+        class="c-easingEdit-thinLine"
+        x1="0"
+        y1=".25"
+        x2="1"
+        y2=".25"
+      />
       <line
-          class="c-easingEdit-thinLine"
-          x1="0"
-          y1=".5"
-          x2="1"
-          y2=".5"
-          >
-      </line>
+        class="c-easingEdit-thinLine"
+        x1="0"
+        y1=".5"
+        x2="1"
+        y2=".5"
+      />
       <line
-          class="c-easingEdit-thinLine"
-          x1="0"
-          y1=".75"
-          x2="1"
-          y2=".75"
-          >
-      </line>
+        class="c-easingEdit-thinLine"
+        x1="0"
+        y1=".75"
+        x2="1"
+        y2=".75"
+      />
       <rect
-          class="c-easingEdit-helpLine"
-          x="0"
-          y="0"
-          width="1"
-          height="1"
-          >
-      </rect>
+        class="c-easingEdit-helpLine"
+        x="0"
+        y="0"
+        width="1"
+        height="1"
+      />
       <line
-          class="c-easingEdit-line"
-          x1="0"
-          y1="1"
-          :x2="$store.state.gradient.ease1.x"
-          :y2="1 - $store.state.gradient.ease1.y"
-          >
-      </line>
+        class="c-easingEdit-line"
+        x1="0"
+        y1="1"
+        :x2="$store.state.gradient.ease1.x"
+        :y2="1 - $store.state.gradient.ease1.y"
+      />
       <line
-          class="c-easingEdit-line"
-          x1="1"
-          y1="0"
-          :x2="$store.state.gradient.ease2.x"
-          :y2="1 - $store.state.gradient.ease2.y"
-          >
-      </line>
+        class="c-easingEdit-line"
+        x1="1"
+        y1="0"
+        :x2="$store.state.gradient.ease2.x"
+        :y2="1 - $store.state.gradient.ease2.y"
+      />
     </svg>
     <div
-        class="u-knob"
-        :style="`left: ${$store.state.gradient.ease1.x * 100}%; top: ${100 - $store.state.gradient.ease1.y * 100}%`"
-        @mousedown="down($event, 'ease1')"
-        @touchstart.prevent="down($event, 'ease1')"
-        >
-    </div>
+      class="u-knob"
+      :style="`left: ${$store.state.gradient.ease1.x * 100}%; top: ${100 - $store.state.gradient.ease1.y * 100}%`"
+      @mousedown="down($event, 'ease1')"
+      @touchstart.prevent="down($event, 'ease1')"
+    />
     <div
-        class="u-knob"
-        :style="`left: ${$store.state.gradient.ease2.x * 100}%; top: ${100 - $store.state.gradient.ease2.y * 100}%`"
-        @mousedown="down($event, 'ease2')"
-        @touchstart.prevent="down($event, 'ease2')"
-        >
-    </div>
+      class="u-knob"
+      :style="`left: ${$store.state.gradient.ease2.x * 100}%; top: ${100 - $store.state.gradient.ease2.y * 100}%`"
+      @mousedown="down($event, 'ease2')"
+      @touchstart.prevent="down($event, 'ease2')"
+    />
   </div>
 </template>
 
@@ -145,4 +135,3 @@ export default {
   vector-effect: non-scaling-stroke;
 }
 </style>
-

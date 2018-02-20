@@ -1,18 +1,18 @@
 <template>
   <div>
     <svg
-        class="c-easingPreview u-position-cover"
-        viewBox="0 0 1 1">
+      class="c-easingPreview u-position-cover"
+      viewBox="0 0 1 1">
       <polyline
-          v-if="$store.state.gradient.settings.easingFunction === 'steps'"
-          class="c-easingPreview-path"
-          :points=polyline
-          />
+        v-if="$store.state.gradient.settings.easingFunction === 'steps'"
+        class="c-easingPreview-path"
+        :points="polyline"
+      />
       <path
-          v-else
-          class="c-easingPreview-path"
-          :d="`M0 1C ${$store.state.gradient.ease1.x} ${1 - $store.state.gradient.ease1.y} ${$store.state.gradient.ease2.x} ${1 - $store.state.gradient.ease2.y} 1 0`"
-          />
+        v-else
+        class="c-easingPreview-path"
+        :d="`M0 1C ${$store.state.gradient.ease1.x} ${1 - $store.state.gradient.ease1.y} ${$store.state.gradient.ease2.x} ${1 - $store.state.gradient.ease2.y} 1 0`"
+      />
     </svg>
   </div>
 </template>
@@ -20,7 +20,7 @@
 <script>
 export default {
   computed: {
-    polyline () {
+    polyline() {
       if (this.$store.state.gradient.settings.easingFunction === 'steps') {
         let coordinates = this.$store.state.gradient.colorStopCoordinates
         // Add missing coordinates that the svg needs but gradients doesn't
@@ -46,11 +46,11 @@ export default {
           mix: 1,
           position: 1
         })
-        const polyline = coordinates.map(
-          obj => {
+        const polyline = coordinates
+          .map(obj => {
             return `${obj.position},${1 - obj.mix}`
-          }
-        ).join(' ')
+          })
+          .join(' ')
         return polyline
       }
     }
