@@ -14,7 +14,7 @@
       class="ie-check"
     >
       <notifications/>
-      <navigation/>
+      <!-- <navigation/> -->
       <overlay/>
     </div>
     <div
