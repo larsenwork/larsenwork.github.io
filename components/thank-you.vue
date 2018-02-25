@@ -16,20 +16,20 @@ export default {
   props: {
     tweetText: {
       type: String,
-      required: true
+      required: true,
     },
     tweetHashtags: {
       type: String,
-      required: true
+      required: true,
     },
     slug: {
       type: String,
-      required: true
+      required: true,
     },
     repo: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
   computed: {
     twitterText() {
@@ -40,8 +40,8 @@ export default {
     },
     twitterUrl() {
       return encodeURI(`https://larsenwork.com/${this.slug}`)
-    }
-  }
+    },
+  },
 }
 </script>
 

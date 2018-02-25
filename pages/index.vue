@@ -16,13 +16,13 @@ import hero from '~/components/hero'
 
 export default {
   components: {
-    'app-hero': hero
+    'app-hero': hero,
   },
   transition() {
     return {
-      mode: ''
+      mode: '',
     }
-  }
+  },
 }
 </script>
 

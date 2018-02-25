@@ -29,22 +29,22 @@ export default {
         if (firstCoordinate.mix !== 0) {
           coordinates.unshift({
             mix: firstCoordinate.mix,
-            position: 0
+            position: 0,
           })
         }
         coordinates.unshift({
           mix: 0,
-          position: 0
+          position: 0,
         })
         if (lastCoordinate.mix !== 1) {
           coordinates.push({
             mix: lastCoordinate.mix,
-            position: 1
+            position: 1,
           })
         }
         coordinates.push({
           mix: 1,
-          position: 1
+          position: 1,
         })
         const polyline = coordinates
           .map(obj => {
@@ -53,8 +53,8 @@ export default {
           .join(' ')
         return polyline
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

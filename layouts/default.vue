@@ -30,8 +30,8 @@ export default {
     navigation,
     overlay,
     notifications,
-    githubCorner
-  }
+    githubCorner,
+  },
 }
 </script>
 

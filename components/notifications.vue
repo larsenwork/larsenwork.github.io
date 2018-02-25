@@ -21,9 +21,9 @@
 export default {
   data: function() {
     return {
-      notifications: []
+      notifications: [],
     }
-  }
+  },
 }
 </script>
 

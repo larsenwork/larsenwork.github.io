@@ -55,7 +55,7 @@ let components = {}
 if (process.browser) {
   let VueSlider = require('vue-slider-component')
   components = {
-    'vue-slider': VueSlider
+    'vue-slider': VueSlider,
   }
 }
 
@@ -65,8 +65,8 @@ const defaultSlider = {
   dotSize: 32,
   speed: 0,
   processStyle: {
-    display: 'none'
-  }
+    display: 'none',
+  },
 }
 
 export default {
@@ -75,8 +75,8 @@ export default {
   props: {
     color: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   data: function() {
     return {
@@ -84,16 +84,16 @@ export default {
         hue: {
           ...defaultSlider,
           max: 360,
-          interval: 0.1
+          interval: 0.1,
         },
         alpha: {
           ...defaultSlider,
           max: 1,
-          interval: 0.001
-        }
-      }
+          interval: 0.001,
+        },
+      },
     }
-  }
+  },
 }
 </script>
 

@@ -84,7 +84,7 @@
 import social from '~/components/social'
 export default {
   components: {
-    'app-social': social
+    'app-social': social,
   },
   methods: {
     toggleNavigation() {
@@ -98,8 +98,8 @@ export default {
     hideNavigation() {
       this.$store.commit('hideNavigation')
       this.$store.commit('hideOverlay')
-    }
-  }
+    },
+  },
 }
 </script>
 

@@ -8,7 +8,7 @@ module.exports = {
   head: {
     title: 'Larsenwork',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'en',
     },
     meta: [
       { charset: 'utf-8' },
@@ -17,7 +17,7 @@ module.exports = {
         hid: 'description',
         name: 'description',
         content:
-          'Andreas Larsen is an ambitious and humble healthcare professional turned developer + designer from Cph, Denmark.'
+          'Andreas Larsen is an ambitious and humble healthcare professional turned developer + designer from Cph, Denmark.',
       },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:site', content: '@larsenwork' },
@@ -26,41 +26,41 @@ module.exports = {
         hid: 'og:image',
         property: 'og:image',
         content:
-          'https://res.cloudinary.com/larsenwork/image/upload/v1517138735/andreas.jpg'
+          'https://res.cloudinary.com/larsenwork/image/upload/v1517138735/andreas.jpg',
       },
       { hid: 'og:title', property: 'og:title', content: 'Larsenwork' },
       {
         hid: 'og:description',
         property: 'og:description',
         content:
-          'Andreas Larsen is an ambitious and humble healthcare professional turned developer + designer from Cph, Denmark.'
+          'Andreas Larsen is an ambitious and humble healthcare professional turned developer + designer from Cph, Denmark.',
       },
       { name: 'apple-mobile-web-app-title', content: 'Larsenwork' },
       { name: 'application-name', content: 'Larsenwork' },
-      { name: 'theme-color', content: '#ee2b7c' }
+      { name: 'theme-color', content: '#ee2b7c' },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       {
         rel: 'apple-touch-icon',
         sizes: '180x180',
-        href: '/apple-touch-icon.png'
+        href: '/apple-touch-icon.png',
       },
       {
         rel: 'icon',
         type: 'image/png',
         sizes: '32x32',
-        href: '/favicon-32x32.png'
+        href: '/favicon-32x32.png',
       },
       {
         rel: 'icon',
         type: 'image/png',
         sizes: '16x16',
-        href: '/favicon-16x16.png'
+        href: '/favicon-16x16.png',
       },
       { rel: 'manifest', href: '/manifest.json' },
-      { rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: '#ee2b7c' }
-    ]
+      { rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: '#ee2b7c' },
+    ],
   },
   /*
   ** Customize the progress bar color
@@ -75,8 +75,8 @@ module.exports = {
         analyzerMode: 'static',
         generateStatsFile: true,
         openAnalyzer: false,
-        logLevel: 'info'
-      })
+        logLevel: 'info',
+      }),
     ],
 
     /*
@@ -88,7 +88,7 @@ module.exports = {
           enforce: 'pre',
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
-          exclude: /(node_modules)/
+          exclude: /(node_modules)/,
         })
       }
     },
@@ -101,12 +101,12 @@ module.exports = {
       require('postcss-custom-media')(),
       require('postcss-nesting')(),
       require('postcss-easing-gradients')(),
-      require('autoprefixer')
+      require('autoprefixer'),
     ],
 
     /*
     ** Babel config
     */
-    babel: {}
-  }
+    babel: {},
+  },
 }

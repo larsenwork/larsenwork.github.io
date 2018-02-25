@@ -12,7 +12,7 @@
     "deploy": "push-dir --dir=dist --branch=master --cleanup",
     "live": "npm run generate && npm run deploy",
     "lint": "eslint --ext .js,.vue src test --ignore-path .gitignore .",
-    "lint-autofix": "eslint --ext .js,.vue src test --fix",
+    "lint-fix": "eslint --ext .js,.vue src test --fix --ignore-path .gitignore .",
     "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
     "precommit": "npm run eslint-check && npm run lint"
   },

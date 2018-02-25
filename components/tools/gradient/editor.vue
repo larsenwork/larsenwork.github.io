@@ -273,7 +273,7 @@ export default {
     easingPreview,
     directionEdit,
     directionPreview,
-    icon
+    icon,
   },
   mixins: [gradientOutput],
   computed: {
@@ -287,7 +287,7 @@ export default {
   ${this.gradientFunction},
   ${this.gradientColor2}
 );`
-    }
+    },
   },
   methods: {
     toggleEditor(editor) {
@@ -309,8 +309,8 @@ export default {
       } else {
         return true
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

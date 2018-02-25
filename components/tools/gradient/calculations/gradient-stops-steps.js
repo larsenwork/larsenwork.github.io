@@ -1,7 +1,7 @@
 const createStop = (x, y, coordinates) => {
   coordinates.push({
     mix: x,
-    position: `${+y.toFixed(3)}`
+    position: `${+y.toFixed(3)}`,
   })
 }
 

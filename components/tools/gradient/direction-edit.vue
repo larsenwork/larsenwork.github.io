@@ -27,7 +27,7 @@
 <script>
 import mouse from '~/components/mixins/mouse'
 export default {
-  mixins: [mouse]
+  mixins: [mouse],
 }
 </script>
 

@@ -12,8 +12,8 @@ export default {
     hideNavigation() {
       this.$store.commit('hideNavigation')
       this.$store.commit('hideOverlay')
-    }
-  }
+    },
+  },
 }
 </script>
 

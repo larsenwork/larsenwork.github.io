@@ -29,7 +29,7 @@ export default function(bezierCoordinates, delta = 0.1, incrementSize = 0.001) {
       if (Math.hypot(x - xOld, y - yOld) > delta) {
         coordinates.push({
           mix: x,
-          position: `${+y.toFixed(3)}`
+          position: `${+y.toFixed(3)}`,
         })
         xOld = x
         yOld = y
@@ -41,13 +41,13 @@ export default function(bezierCoordinates, delta = 0.1, incrementSize = 0.001) {
   coordinates = [
     {
       mix: 0,
-      position: 0
+      position: 0,
     },
     ...coordinates,
     {
       mix: 1,
-      position: 1
-    }
+      position: 1,
+    },
   ]
 
   return coordinates

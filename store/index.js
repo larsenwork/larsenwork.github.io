@@ -15,19 +15,19 @@ const createStore = () => {
         direction: {
           deg: 180,
           x: 0.5,
-          y: 0.2
+          y: 0.2,
         },
         ease1: {
           x: 0.42,
-          y: 0
+          y: 0,
         },
         ease2: {
           x: 0.58,
-          y: 1
+          y: 1,
         },
         steps: {
           number: 4,
-          skip: 'skip-none'
+          skip: 'skip-none',
         },
         color1: {
           h: 330,
@@ -36,8 +36,8 @@ const createStore = () => {
           a: 1,
           hsv: {
             s: 100,
-            v: 90
-          }
+            v: 90,
+          },
         },
         color2: {
           h: 210,
@@ -46,15 +46,15 @@ const createStore = () => {
           a: 1,
           hsv: {
             s: 100,
-            v: 90
-          }
+            v: 90,
+          },
         },
         colorStopCoordinates: [],
         settings: {
           colorMode: 'lrgb',
-          easingFunction: 'cubic-bezier'
-        }
-      }
+          easingFunction: 'cubic-bezier',
+        },
+      },
     },
     mutations: {
       showNavigation(state) {
@@ -120,8 +120,8 @@ const createStore = () => {
           state.gradient[`${obj.element}`].hsv.s = hsvS * 100
           state.gradient[`${obj.element}`].hsv.v = hsvV * 100
         }
-      }
-    }
+      },
+    },
   })
 }
 

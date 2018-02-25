@@ -4,6 +4,7 @@ module.exports = {
     sourceType: 'module',
     parser: 'babel-eslint'
   },
+
   env: {
     browser: true,
     node: true,
@@ -11,19 +12,30 @@ module.exports = {
     jest: true
   },
 
+  plugins: [
+    "vue",
+    "prettier"
+  ],
+
   // https://medium.com/@doppelmutzi/eslint-prettier-vue-workflow-46a3cf54332f
   // https://github.com/prettier/eslint-config-prettier
-  extends: ["prettier", "prettier/standard", "plugin:vue/recommended"],
+  // https://github.com/vuejs/eslint-plugin-vue
+  extends: [
+    "prettier",
+    "prettier/standard",
+    "plugin:vue/recommended"
+  ],
+
   // https://github.com/prettier/eslint-plugin-prettier
   rules: {
     "prettier/prettier": ["error",
       {
         singleQuote: true,
+        trailingComma: "es5",
         semi: false
       }
     ]
   },
-  plugins: ["vue", "prettier"],
 
   // Needed for future jest/mocha stuff
   globals: {

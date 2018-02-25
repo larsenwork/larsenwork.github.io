@@ -52,9 +52,9 @@ export default {
           type: 'updateXY',
           element,
           x: xPosition,
-          y: yPosition
+          y: yPosition,
         })
       }
-    }, throttleDuration)
-  }
+    }, throttleDuration),
+  },
 }

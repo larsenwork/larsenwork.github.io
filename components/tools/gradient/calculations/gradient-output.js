@@ -3,6 +3,8 @@ import easingStopsSteps from './gradient-stops-steps'
 import * as shorthands from './gradient-shorthands'
 import chroma from 'chroma-js'
 
+const rounded = (number, precission = 0) => +number.toFixed(precission)
+
 export default {
   computed: {
     gradientDirection() {
@@ -27,7 +29,7 @@ export default {
           this.$store.state.gradient.steps.skip
         })`
       }
-    }
+    },
   },
   methods: {
     // lrgb as default value since it produces a result closes to most browser defaults
@@ -97,8 +99,6 @@ export default {
     },
     getStoreHsla2() {
       return this.getStoreHsla('color2')
-    }
-  }
+    },
+  },
 }
-
-const rounded = (number, precission = 0) => +number.toFixed(precission)
