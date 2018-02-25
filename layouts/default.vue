@@ -1,21 +1,27 @@
 <template>
   <div>
     <div
-      class="layout ie-check"
       :class="{
         'is-dimmed': $store.state.overlayVisible,
         'is-moused': $store.state.mouseElement
       }"
+      class="layout ie-check"
     >
       <githubCorner/>
       <nuxt/>
     </div>
-    <div class="ie-check">
+    <div
+      class="ie-check"
+    >
       <notifications/>
       <navigation/>
       <overlay/>
     </div>
-    <div class="ie-message">Sorry, this is my playground where I test out new techniques so I don't support IE/Edge browsers right now. Try using Chrome or Firefox.</div>
+    <div
+      class="ie-message"
+    >
+      Sorry, this is my playground where I test out new techniques so I don't support IE/Edge browsers right now. Try using Chrome or Firefox.
+    </div>
   </div>
 </template>
 

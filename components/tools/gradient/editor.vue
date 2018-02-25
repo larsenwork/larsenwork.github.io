@@ -1,19 +1,21 @@
 <template>
   <div
-    class="c-gradientEditor"
-    :class="{
-      'is-active': $store.state.gradient.editorActive !== ''
-    }"
     :style="{
       '--gradient': gradient,
       '--gradient--linear': `linear-gradient(${ gradientDirection }, ${ gradientColor1 }, ${ gradientColor2 })`
     }"
+    :class="{
+      'is-active': $store.state.gradient.editorActive !== ''
+    }"
+    class="c-gradientEditor"
   >
     <div
       class="c-gradientEditor-settings u-grid u-marginTop"
     >
       <div>
-        <div class="c-gradientEditor-label">
+        <div
+          class="c-gradientEditor-label"
+        >
           Easing function
         </div>
         <select
@@ -24,7 +26,9 @@
         </select>
       </div>
       <div>
-        <div class="c-gradientEditor-label">
+        <div
+          class="c-gradientEditor-label"
+        >
           Color space
         </div>
         <select
@@ -38,16 +42,20 @@
         </select>
       </div>
     </div>
-    <p class="c-gradientEditor-label u-marginTop">Easing linear gradient</p>
+    <p
+      class="c-gradientEditor-label u-marginTop"
+    >
+      Easing linear gradient
+    </p>
     <div
       class="c-gradientEditor-toggles u-grid u-marginBottom"
     >
       <button
-        @click="toggleEditor('direction')"
-        @keydown.tab="tabAway($event, 'direction')"
         :class="{
           'is-active': $store.state.gradient.editorActive === 'direction'
         }"
+        @click="toggleEditor('direction')"
+        @keydown.tab="tabAway($event, 'direction')"
       >
         <div
           class="u-aspect--1-1"
@@ -56,23 +64,23 @@
         </div>
       </button>
       <button
-        @click="toggleEditor('color1')"
         :class="{
           'is-active': $store.state.gradient.editorActive === 'color1'
         }"
+        @click="toggleEditor('color1')"
       >
         <div
-          class="c-gradientEditor-toggles-color u-aspect--1-1"
           :style="{
             '--hsla': gradientColor1
           }"
+          class="c-gradientEditor-toggles-color u-aspect--1-1"
         />
       </button>
       <button
-        @click="toggleEditor('ease')"
         :class="{
           'is-active': $store.state.gradient.editorActive === 'ease'
         }"
+        @click="toggleEditor('ease')"
       >
         <div
           class="u-aspect--1-1"
@@ -81,17 +89,17 @@
         </div>
       </button>
       <button
-        @click="toggleEditor('color2')"
-        @keydown.tab="tabAway($event, 'color2')"
         :class="{
           'is-active': $store.state.gradient.editorActive === 'color2'
         }"
+        @click="toggleEditor('color2')"
+        @keydown.tab="tabAway($event, 'color2')"
       >
         <div
-          class="c-gradientEditor-toggles-color u-aspect--1-1"
           :style="{
             '--hsla': gradientColor2
           }"
+          class="c-gradientEditor-toggles-color u-aspect--1-1"
         />
       </button>
     </div>
@@ -99,10 +107,10 @@
       class="u-position-relative"
     >
       <div
-        class="c-gradientEditor-output"
         :class="{
           'is-slim': $store.state.gradient.editorActive !== ''
         }"
+        class="c-gradientEditor-output"
       >
         <div
           class="c-gradientEditor-gradient u-position-cover"
@@ -117,7 +125,9 @@
           </div>
         </div>
       </div>
-      <div class="c-gradientEditor-editors c-gradientEditor-editors--dummy u-grid">
+      <div
+        class="c-gradientEditor-editors c-gradientEditor-editors--dummy u-grid"
+      >
         <div
           class="u-aspect--1-1"
         />
@@ -126,8 +136,8 @@
         name="tr-fade"
       >
         <div
-          class="c-gradientEditor-editors u-grid u-position-cover"
           v-if="$store.state.gradient.editorActive !== ''"
+          class="c-gradientEditor-editors u-grid u-position-cover"
         >
           <div
             class="u-aspect--1-1"
@@ -136,9 +146,9 @@
               name="tr-fade"
             >
               <div
-                class="u-position-cover"
                 v-if="$store.state.gradient.editorActive === 'direction' && !$store.state.gradient.settingsVisible"
                 key="direction"
+                class="u-position-cover"
               >
                 <div
                   class="c-gradientEditor-svg"
@@ -149,8 +159,8 @@
               </div>
               <div
                 v-if="$store.state.gradient.editorActive === 'color1' && !$store.state.gradient.settingsVisible"
-                class="u-position-cover"
                 key="color1"
+                class="u-position-cover"
               >
                 <color-edit
                   color="color1"
@@ -158,16 +168,16 @@
               </div>
               <div
                 v-if="$store.state.gradient.editorActive === 'ease' && !$store.state.gradient.settingsVisible"
-                class="u-position-cover"
                 key="ease"
+                class="u-position-cover"
               >
                 <transition
                   name="tr-fade"
                 >
                   <div
-                    class="c-gradientEditor-svg"
                     v-if="$store.state.gradient.settings.easingFunction === 'cubic-bezier'"
                     key="cubic"
+                    class="c-gradientEditor-svg"
                   >
                     <easing-preview/>
                     <easing-edit/>
@@ -184,12 +194,12 @@
                     </label>
                     <input
                       id="c-gradientEditor-input-steps-number"
-                      class="u-marginBottom"
-                      @keypress="isNumber($event)"
                       v-model="$store.state.gradient.steps.number"
+                      class="u-marginBottom"
                       type="number"
                       min="2"
                       max="100"
+                      @keypress="isNumber($event)"
                     >
                     <label
                       for="c-gradientEditor-input-steps-number"
@@ -211,8 +221,8 @@
               </div>
               <div
                 v-if="$store.state.gradient.editorActive === 'color2' && !$store.state.gradient.settingsVisible"
-                class="u-position-cover"
                 key="color2"
+                class="u-position-cover"
               >
                 <color-edit
                   color="color2"
@@ -224,10 +234,10 @@
             class="u-position-relative"
           >
             <div
-              class="c-gradientEditor-gradient-wrap"
               :class="{
                 'is-active': $store.state.gradient.editorActive !== ''
               }"
+              class="c-gradientEditor-gradient-wrap"
             >
               <div
                 class="c-gradientEditor-gradient u-position-cover"

@@ -1,18 +1,18 @@
 <template>
   <div
-    class="c-colorEdit"
-    @touchmove="move"
-    @touchend.prevent="up"
     :style="{
       '--hue': $store.state.gradient[color].h
     }"
+    class="c-colorEdit"
+    @touchmove="move"
+    @touchend.prevent="up"
   >
     <div
       class="c-colorEdit-square"
     >
       <div
-        class="u-knob"
         :style="`top: ${100 - $store.state.gradient[color].hsv.v}%; left: ${$store.state.gradient[color].hsv.s}%`"
+        class="u-knob"
         @mousedown="down($event, color)"
         @touchstart.prevent="down($event, color)"
       />

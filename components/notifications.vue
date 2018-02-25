@@ -1,10 +1,14 @@
 <template>
-  <transition name="tr-dropup">
+  <transition
+    name="tr-dropup"
+  >
     <div
-      class="c-notifications"
       v-if="notifications.length"
+      class="c-notifications"
     >
-      <transition name="tr-fade">
+      <transition
+        name="tr-fade"
+      >
         <div
           v-for="(notification, index) of notifications"
           :key="index"

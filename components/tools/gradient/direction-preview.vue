@@ -1,11 +1,13 @@
 <template>
   <svg
     class="c-directionPreview u-position-cover"
-    viewBox="0 0 1 1">
+    viewBox="0 0 1 1"
+  >
     <polyline
+      :transform="`rotate(${$store.state.gradient.direction.deg} .5 .5)`"
       class="c-directionPreview-polyline"
       points=".5 1 .5 0 .44 .06 .56 .06 .5 0"
-      :transform="`rotate(${$store.state.gradient.direction.deg} .5 .5)`"/>
+    />
   </svg>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
   <div
-    class="c-overlay"
     :class="$store.state.overlayVisible ? 'is-visible' : ''"
+    class="c-overlay"
     @click.stop="hideNavigation"
   />
 </template>

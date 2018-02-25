@@ -58,29 +58,29 @@
         height="1"
       />
       <line
+        :x2="$store.state.gradient.ease1.x"
+        :y2="1 - $store.state.gradient.ease1.y"
         class="c-easingEdit-line"
         x1="0"
         y1="1"
-        :x2="$store.state.gradient.ease1.x"
-        :y2="1 - $store.state.gradient.ease1.y"
       />
       <line
+        :x2="$store.state.gradient.ease2.x"
+        :y2="1 - $store.state.gradient.ease2.y"
         class="c-easingEdit-line"
         x1="1"
         y1="0"
-        :x2="$store.state.gradient.ease2.x"
-        :y2="1 - $store.state.gradient.ease2.y"
       />
     </svg>
     <div
-      class="u-knob"
       :style="`left: ${$store.state.gradient.ease1.x * 100}%; top: ${100 - $store.state.gradient.ease1.y * 100}%`"
+      class="u-knob"
       @mousedown="down($event, 'ease1')"
       @touchstart.prevent="down($event, 'ease1')"
     />
     <div
-      class="u-knob"
       :style="`left: ${$store.state.gradient.ease2.x * 100}%; top: ${100 - $store.state.gradient.ease2.y * 100}%`"
+      class="u-knob"
       @mousedown="down($event, 'ease2')"
       @touchstart.prevent="down($event, 'ease2')"
     />

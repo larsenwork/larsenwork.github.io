@@ -16,8 +16,8 @@
       />
     </svg>
     <div
-      class="u-knob"
       :style="`left: ${$store.state.gradient.direction.x * 100}%; top: ${100 - $store.state.gradient.direction.y * 100}%`"
+      class="u-knob"
       @mousedown="down($event, 'direction')"
       @touchstart.prevent="down($event, 'direction')"
     />
