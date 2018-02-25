@@ -87,8 +87,7 @@
       >
         <h3
           class="c-navigation-links-header"
-        >
-          andreas@larsenwork.com
+        >andreas@larsenwork.com
         </h3>
         <app-social/>
       </div>
