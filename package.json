@@ -49,6 +49,6 @@
     "push-dir": "^0.4.1",
     "throttleit": "^1.0.0",
     "vue-slider-component": "^2.5.7",
-    "webpack-bundle-analyzer": "^2.10.1"
+    "webpack-bundle-analyzer": "^2.11.0"
   }
 }
