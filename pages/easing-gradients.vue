@@ -100,7 +100,7 @@ export default {
           hid: 'og:image',
           property: 'og:image',
           content:
-            'https://res.cloudinary.com/larsenwork/image/upload/v1517138718/gradients-social.gif',
+            'https://res.cloudinary.com/larsenwork/image/upload/v1517138718/gradients-social.jpg',
         },
         {
           hid: 'og:title',
