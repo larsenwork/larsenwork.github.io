@@ -1,7 +1,6 @@
-import easingStopsCubic from './gradient-stops-cubic'
-import easingStopsSteps from './gradient-stops-steps'
 import * as shorthands from './gradient-shorthands'
 import chroma from 'chroma-js'
+import { stepsCoordinates, cubicCoordinates } from 'easing-coordinates'
 
 const rounded = (number, precission = 0) => +number.toFixed(precission)
 
@@ -45,8 +44,9 @@ export default {
       // Get the colorstops
       const colorStopsCoordinates =
         this.$store.state.gradient.settings.easingFunction === 'cubic-bezier'
-          ? easingStopsCubic(this.getStoreBezierCoordinates())
-          : easingStopsSteps(stepsNumber, this.$store.state.gradient.steps.skip)
+          ? cubicCoordinates(...this.getStoreBezierCoordinates())
+          : stepsCoordinates(stepsNumber, this.$store.state.gradient.steps.skip)
+
       this.$store.commit('updateStopCoordinates', colorStopsCoordinates)
       const colors = [this.getStoreHsla1(), this.getStoreHsla2()]
 
@@ -61,14 +61,14 @@ export default {
       const cssColorStops = colorStopsCoordinates.map(stop => {
         let mixedColor = chroma.mix(
           ...correctTransparentColors,
-          stop.mix,
+          stop.y,
           colorMode
         )
         mixedColor = mixedColor.alpha(rounded(mixedColor.alpha(), 3))
         return `${mixedColor
           .css('hsl')
           .split(',')
-          .join(', ')} ${rounded(stop.position * 100, 1)}%`
+          .join(', ')} ${rounded(stop.x * 100, 1)}%`
       })
       const direction = this.getStoreDirection()
       return `linear-gradient(${direction}, ${cssColorStops.join(', ')})`

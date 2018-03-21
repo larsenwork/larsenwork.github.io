@@ -22,36 +22,11 @@ export default {
   computed: {
     polyline() {
       if (this.$store.state.gradient.settings.easingFunction === 'steps') {
-        let coordinates = this.$store.state.gradient.colorStopCoordinates
-        // Add missing coordinates that the svg needs but gradients doesn't
-        const firstCoordinate = coordinates[0]
-        const lastCoordinate = coordinates[coordinates.length - 1]
-        if (firstCoordinate.mix !== 0) {
-          coordinates.unshift({
-            mix: firstCoordinate.mix,
-            position: 0,
-          })
-        }
-        coordinates.unshift({
-          mix: 0,
-          position: 0,
-        })
-        if (lastCoordinate.mix !== 1) {
-          coordinates.push({
-            mix: lastCoordinate.mix,
-            position: 1,
-          })
-        }
-        coordinates.push({
-          mix: 1,
-          position: 1,
-        })
-        const polyline = coordinates
-          .map(obj => {
-            return `${obj.position},${1 - obj.mix}`
-          })
-          .join(' ')
-        return polyline
+        const coordinates = this.$store.state.gradient.colorStopCoordinates
+        // Add potentially missing coordinates for svg rendering purposes
+        coordinates.unshift({ x: 0, y: 0 })
+        coordinates.push({ x: 1, y: 1 })
+        return coordinates.map(obj => `${obj.x},${1 - obj.y}`).join(' ')
       }
     },
   },
