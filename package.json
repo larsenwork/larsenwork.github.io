@@ -26,7 +26,6 @@
   "devDependencies": {
     "autoprefixer": "^7.2.6",
     "babel-eslint": "^7.2.3",
-    "bezier-easing": "^2.0.3",
     "chroma-js": "^1.3.6",
     "cross-env": "^5.1.3",
     "easing-coordinates": "^1.0.0",
