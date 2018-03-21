@@ -1,6 +1,6 @@
 import * as shorthands from './gradient-shorthands'
 import chroma from 'chroma-js'
-const easingCoordinates = require('easing-coordinates')
+import { stepsCoordinates, cubicCoordinates } from 'easing-coordinates'
 
 const rounded = (number, precission = 0) => +number.toFixed(precission)
 
@@ -44,13 +44,8 @@ export default {
       // Get the colorstops
       const colorStopsCoordinates =
         this.$store.state.gradient.settings.easingFunction === 'cubic-bezier'
-          ? easingCoordinates.cubicCoordinates(
-              ...this.getStoreBezierCoordinates()
-            )
-          : easingCoordinates.stepsCoordinates(
-              stepsNumber,
-              this.$store.state.gradient.steps.skip
-            )
+          ? cubicCoordinates(...this.getStoreBezierCoordinates())
+          : stepsCoordinates(stepsNumber, this.$store.state.gradient.steps.skip)
 
       this.$store.commit('updateStopCoordinates', colorStopsCoordinates)
       const colors = [this.getStoreHsla1(), this.getStoreHsla2()]
