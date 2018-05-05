@@ -103,10 +103,7 @@ export default {}
   padding: var(--spacer-xsmall) var(--spacer-small);
 
   &.c-gradientExamples-item-scrim--linear {
-    background-image: linear-gradient(
-      transparent,
-      hsla(0, 0%, 0%, 0.8)
-    )
+    background-image: linear-gradient(transparent, hsla(0, 0%, 0%, 0.8));
   }
 
   &.c-gradientExamples-item-scrim--easing {
@@ -115,7 +112,7 @@ export default {}
       transparent,
       cubic-bezier(0.45, 0, 0.5, 0.5),
       hsla(0, 0%, 0%, 0.7)
-    )
+    );
   }
 }
 
@@ -123,42 +120,36 @@ export default {}
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image:
-    linear-gradient(
+  background-image: linear-gradient(
       100deg,
-      rgba(58,205,252,.6),
-      rgba(255,71,179,.6),
-      rgba(255,151,38,.6)
+      rgba(58, 205, 252, 0.6),
+      rgba(255, 71, 179, 0.6),
+      rgba(255, 151, 38, 0.6)
     ),
-    linear-gradient(
-      rgb(30, 6, 60),
-      rgb(30, 6, 60)
-    );
+    linear-gradient(rgb(30, 6, 60), rgb(30, 6, 60));
   background-repeat: no-repeat;
 
-  &::before, &::after {
+  &::before,
+  &::after {
     content: '';
     position: absolute;
     left: 0;
     right: 0;
   }
-
 }
 
 .c-gradientExamples-item-momondo--linear {
   background-size: 100% calc(100% - var(--spacer-small) * 2), 100% 100%;
   background-position: 0% var(--spacer-small), 0% 0%;
 
-  &::before, &::after {
+  &::before,
+  &::after {
     height: calc(1px + 50% - var(--lineHeight-body) / 2 - var(--spacer-medium));
   }
 
   &::before {
     top: calc(var(--spacer-small) - 1px);
-    background-image: linear-gradient(
-      rgb(30, 6, 60) 1px,
-      rgba(30, 6, 60, 0)
-    );
+    background-image: linear-gradient(rgb(30, 6, 60) 1px, rgba(30, 6, 60, 0));
   }
 
   &::after {
@@ -175,14 +166,15 @@ export default {}
   background-size: 100% calc(100% - var(--spacer-xsmall) * 2), 100% 100%;
   background-position: 0% var(--spacer-xsmall), 0% 0%;
 
-  &::before, &::after {
+  &::before,
+  &::after {
     height: calc(1px + 50% - var(--lineHeight-body) / 2 - var(--spacer-small));
   }
   &::before {
     top: calc(var(--spacer-xsmall) - 1px);
     background-image: linear-gradient(
       rgb(30, 6, 60),
-      cubic-bezier(.42,0,.58,1),
+      cubic-bezier(0.42, 0, 0.58, 1),
       rgba(30, 6, 60, 0)
     );
   }
@@ -192,7 +184,7 @@ export default {}
     background-image: linear-gradient(
       to top,
       rgb(30, 6, 60),
-      cubic-bezier(.42,0,.58,1),
+      cubic-bezier(0.42, 0, 0.58, 1),
       rgba(30, 6, 60, 0)
     );
   }

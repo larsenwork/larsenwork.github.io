@@ -178,7 +178,8 @@ export default {
   }
 
   @nest .c-navigation.is-expanded & {
-    transition: calc(var(--expand-transitionDuration) / 2) var(--transitionFunction) calc(var(--expand-transitionDuration) / 2);
+    transition: calc(var(--expand-transitionDuration) / 2)
+      var(--transitionFunction) calc(var(--expand-transitionDuration) / 2);
     visibility: visible;
     opacity: 1;
   }
@@ -235,7 +236,8 @@ export default {
   fill: var(--color-brand);
   will-change: transform;
   animation: fade-up var(--transitionDuration) ease 1s backwards;
-  transition: transform calc(var(--expand-transitionDuration) / 2) var(--transitionFunction);
+  transition: transform calc(var(--expand-transitionDuration) / 2)
+    var(--transitionFunction);
   transform: translatex(0);
 
   @nest .c-navigation.is-expanded & {
@@ -263,9 +265,7 @@ export default {
   width: 100%;
   height: 100%;
   transition: filter 0s linear var(--transitionDuration);
-  filter:
-    drop-shadow( var(--shadow1--hover) )
-    drop-shadow( var(--shadow2--hover) );
+  filter: drop-shadow(var(--shadow1--hover)) drop-shadow(var(--shadow2--hover));
 
   @nest .c-navigation.is-expanded & {
     transition: none;
@@ -280,11 +280,13 @@ export default {
   will-change: transform;
   transform: scale(0.02);
   opacity: 0;
-  transition: opacity var(--transition), transform 0s linear var(--transitionDuration);
+  transition: opacity var(--transition),
+    transform 0s linear var(--transitionDuration);
 
   @nest .c-navigation.is-expanded & {
     opacity: 1;
-    transition: transform calc(var(--expand-transitionDuration) / 3 * 2) var(--transitionFunction) calc(var(--expand-transitionDuration) / 3 * 1);
+    transition: transform calc(var(--expand-transitionDuration) / 3 * 2)
+      var(--transitionFunction) calc(var(--expand-transitionDuration) / 3 * 1);
     transform: translateY(var(--spacer-small)) scale(1);
   }
 }

@@ -333,15 +333,25 @@ export default {
 
 .c-gradientEditor-toggles-color {
   border-radius: var(--spacer-xsmall);
-  background-image:
+  background-image: linear-gradient(var(--hsla), var(--hsla)),
     linear-gradient(
-      var(--hsla),
-      var(--hsla)
+      45deg,
+      var(--color-themed-bg-dimmed-more) 25%,
+      transparent 25%,
+      transparent 75%,
+      var(--color-themed-bg-dimmed-more) 75%,
+      var(--color-themed-bg-dimmed-more)
     ),
-    linear-gradient(45deg, var(--color-themed-bg-dimmed-more) 25%, transparent 25%, transparent 75%, var(--color-themed-bg-dimmed-more) 75%, var(--color-themed-bg-dimmed-more)),
-    linear-gradient(45deg, var(--color-themed-bg-dimmed-more) 25%, transparent 25%, transparent 75%, var(--color-themed-bg-dimmed-more) 75%, var(--color-themed-bg-dimmed-more));
+    linear-gradient(
+      45deg,
+      var(--color-themed-bg-dimmed-more) 25%,
+      transparent 25%,
+      transparent 75%,
+      var(--color-themed-bg-dimmed-more) 75%,
+      var(--color-themed-bg-dimmed-more)
+    );
   background-size: 1rem 1rem;
-  background-position: 0 0, 0 0, .5rem .5rem;
+  background-position: 0 0, 0 0, 0.5rem 0.5rem;
 }
 
 .c-gradientEditor-settings {
@@ -379,7 +389,8 @@ export default {
   justify-content: center;
 
   &.c-gradientEditor-gradient--linear {
-    background: var(--gradient--linear), linear-gradient(var(--color-themed-bg), var(--color-themed-bg));
+    background: var(--gradient--linear),
+      linear-gradient(var(--color-themed-bg), var(--color-themed-bg));
     opacity: 0;
     will-change: opacity;
     transition: var(--transition);

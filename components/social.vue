@@ -83,17 +83,17 @@
 </template>
 
 <style lang="postcss">
-  .c-social {
-    /* Placeholder */
-  }
+.c-social {
+  /* Placeholder */
+}
 
-  .c-social-link {
-    color: inherit;
-  }
+.c-social-link {
+  color: inherit;
+}
 
-  .c-social-icon {
-    fill: currentColor;
-    height: var(--fontSize-h2);
-    width: var(--fontSize-h2);
-  }
+.c-social-icon {
+  fill: currentColor;
+  height: var(--fontSize-h2);
+  width: var(--fontSize-h2);
+}
 </style>

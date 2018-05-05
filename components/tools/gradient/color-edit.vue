@@ -110,10 +110,13 @@ export default {
   flex-shrink: 1;
   flex-grow: 1;
   border-radius: var(--spacer-xsmall);
-  background-image:
-    linear-gradient( to bottom, hsla(0, 0%, 0%, 0), hsl(0, 0%, 0%)),
-    linear-gradient( to right, hsl(0, 0%, 100%), hsla(0, 0%, 100%, 0)),
-    linear-gradient( hsl(var(--hue), 100%, 50%), hsl(var(--hue), 100%, 50%));
+  background-image: linear-gradient(
+      to bottom,
+      hsla(0, 0%, 0%, 0),
+      hsl(0, 0%, 0%)
+    ),
+    linear-gradient(to right, hsl(0, 0%, 100%), hsla(0, 0%, 100%, 0)),
+    linear-gradient(hsl(var(--hue), 100%, 50%), hsl(var(--hue), 100%, 50%));
   position: relative;
 }
 
@@ -123,20 +126,38 @@ export default {
 
 .c-colorEdit-hue {
   & .vue-slider {
-    background: linear-gradient(to right, #F00, #FF0, #0F0, #0FF, #00F, #F0F, #F00);
+    background: linear-gradient(
+      to right,
+      #f00,
+      #ff0,
+      #0f0,
+      #0ff,
+      #00f,
+      #f0f,
+      #f00
+    );
   }
 }
 
 .c-colorEdit-alpha {
   & .vue-slider {
-    background-image:
+    background-image: linear-gradient(to right, transparent, black),
       linear-gradient(
-        to right,
-        transparent,
-        black
+        45deg,
+        var(--color-themed-bg-dimmed-more) 25%,
+        transparent 25%,
+        transparent 75%,
+        var(--color-themed-bg-dimmed-more) 75%,
+        var(--color-themed-bg-dimmed-more)
       ),
-      linear-gradient(45deg, var(--color-themed-bg-dimmed-more) 25%, transparent 25%, transparent 75%, var(--color-themed-bg-dimmed-more) 75%, var(--color-themed-bg-dimmed-more)),
-      linear-gradient(45deg, var(--color-themed-bg-dimmed-more) 25%, transparent 25%, transparent 75%, var(--color-themed-bg-dimmed-more) 75%, var(--color-themed-bg-dimmed-more)),
+      linear-gradient(
+        45deg,
+        var(--color-themed-bg-dimmed-more) 25%,
+        transparent 25%,
+        transparent 75%,
+        var(--color-themed-bg-dimmed-more) 75%,
+        var(--color-themed-bg-dimmed-more)
+      ),
       linear-gradient(#fff, #fff);
     background-size: 100% 100%, 16px 16px, 16px 16px, 100% 100%;
     background-position: 0 0, 0 0, 8px 8px, 0 0;
@@ -154,7 +175,8 @@ export default {
     box-shadow: var(--shadow);
     cursor: auto;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       box-shadow: var(--shadow--hover);
     }
   }

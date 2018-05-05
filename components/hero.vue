@@ -28,7 +28,7 @@ export default {}
   }
 
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     right: 0;
     bottom: 0;

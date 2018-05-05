@@ -48,7 +48,7 @@ export default {
   width: 100%;
   overflow-x: hidden;
 
-  & > [class^="p-"] {
+  & > [class^='p-'] {
     flex-basis: 100%;
     flex-shrink: 0;
     max-width: 100%;

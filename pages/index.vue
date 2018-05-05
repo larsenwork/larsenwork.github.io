@@ -27,12 +27,12 @@ export default {
 </script>
 
 <style lang="postcss">
-  .p-index {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .p-index-section {
-    z-index: 1;
-  }
+.p-index {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.p-index-section {
+  z-index: 1;
+}
 </style>
