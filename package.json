@@ -13,7 +13,8 @@
     "live": "npm run generate && npm run deploy",
     "lint": "eslint --ext .js,.vue src test --ignore-path .gitignore .",
     "lint-fix": "eslint --ext .js,.vue src test --fix --ignore-path .gitignore .",
-    "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check"
+    "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
+    "precommit": "npm run eslint-check && npm run lint"
   },
   "browserslist": [
     "> 5%",
@@ -39,7 +40,7 @@
     "eslint-plugin-promise": "^3.7.0",
     "eslint-plugin-standard": "^3.1.0",
     "eslint-plugin-vue": "^4.5.0",
-    "husky": "^1.0.0-rc.2",
+    "husky": "^0.14.3",
     "postcss-custom-media": "^6.0.0",
     "postcss-easing-gradients": "^2.0.1",
     "postcss-import": "^11.1.0",
@@ -49,10 +50,5 @@
     "throttleit": "^1.0.0",
     "vue-slider-component": "^2.6.2",
     "webpack-bundle-analyzer": "^2.11.1"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run eslint-check && npm run lint"
-    }
   }
 }
