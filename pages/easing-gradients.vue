@@ -16,7 +16,7 @@
         Examples
       </h2>
       <gradient-examples/>
-      <div id="editor"/><!-- For linking purposes -->
+      <div id="editor"><!--For link--></div>
       <h2>
         Editor
       </h2>

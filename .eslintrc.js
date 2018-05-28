@@ -1,45 +1,32 @@
 module.exports = {
   root: true,
-  parserOptions: {
-    sourceType: 'module',
-    parser: 'babel-eslint'
-  },
-
   env: {
     browser: true,
-    node: true,
-    mocha: true,
-    jest: true
+    node: true
   },
-
-  plugins: [
-    "vue",
-    "prettier"
-  ],
-
-  // https://medium.com/@doppelmutzi/eslint-prettier-vue-workflow-46a3cf54332f
-  // https://github.com/prettier/eslint-config-prettier
-  // https://github.com/vuejs/eslint-plugin-vue
+  parserOptions: {
+    parser: "babel-eslint"
+  },
   extends: [
-    "prettier",
-    "prettier/standard",
-    "plugin:vue/recommended"
+    "eslint:recommended",
+    // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
+    // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
+    "plugin:vue/recommended",
+    "plugin:prettier/recommended"
   ],
-
-  // https://github.com/prettier/eslint-plugin-prettier
+  // required to lint *.vue files
+  plugins: ["vue"],
+  // add your custom rules here
   rules: {
-    "prettier/prettier": ["error",
+    "no-console": "off",
+    "vue/max-attributes-per-line": "off",
+    "prettier/prettier": [
+      "error",
       {
+        semi: false,
         singleQuote: true,
-        trailingComma: "es5",
-        semi: false
+        trailingComma: "es5"
       }
     ]
-  },
-
-  // Needed for future jest/mocha stuff
-  globals: {
-    expect: true,
-    sinon: true
   }
-}
+};
