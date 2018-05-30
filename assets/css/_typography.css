@@ -1,8 +1,6 @@
 @font-face {
   font-family: 'gidole';
-  src:
-    url('~/assets/fonts/gidole-regular.woff2') format('woff2'),
-    url('~/assets/fonts/gidole-regular.woff') format('woff');
+  src: url('~/assets/fonts/gidole-regular.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
@@ -19,12 +17,18 @@ body {
   letter-spacing: 0.2px;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   line-height: 1.1; /* Good enough for now... */
   letter-spacing: 0;
 }
 
-h1, h2 {
+h1,
+h2 {
   color: var(--color-themed-bg);
   background-color: var(--color-themed-fg);
   display: inline-block;
@@ -66,8 +70,9 @@ input {
   font-family: inherit;
 }
 
-pre, code {
-  font-family: Monaco, Menlo, Consolas, "Lucida Console", monospace;
+pre,
+code {
+  font-family: Monaco, Menlo, Consolas, 'Lucida Console', monospace;
   font-size: 0.8rem;
   line-height: calc(var(--lineHeight-body) * 3 / 4);
   letter-spacing: 0;
@@ -104,38 +109,26 @@ pre {
   }
 }
 
-.layout .u-section a {
+.layout .u-section a:not(.u-button) {
   background-image: linear-gradient(var(--color-brand), var(--color-brand));
   background-repeat: no-repeat;
   background-size: 100% 1.5px;
   background-position: center bottom;
   background-origin: padding-box;
-  text-shadow:
-    0 0.12em var(--color-themed-bg),
-    0 0.06em var(--color-themed-bg),
-    0 -0.06em var(--color-themed-bg),
-    0 -0.12em var(--color-themed-bg),
-    0.06em 0.12em var(--color-themed-bg),
-    0.06em 0.06em var(--color-themed-bg),
-    0.06em 0 var(--color-themed-bg),
-    0.06em -0.06em var(--color-themed-bg),
-    0.06em -0.12em var(--color-themed-bg),
-    -0.06em 0.12em var(--color-themed-bg),
-    -0.06em 0.06em var(--color-themed-bg),
-    -0.06em 0em var(--color-themed-bg),
+  text-shadow: 0 0.12em var(--color-themed-bg), 0 0.06em var(--color-themed-bg),
+    0 -0.06em var(--color-themed-bg), 0 -0.12em var(--color-themed-bg),
+    0.06em 0.12em var(--color-themed-bg), 0.06em 0.06em var(--color-themed-bg),
+    0.06em 0 var(--color-themed-bg), 0.06em -0.06em var(--color-themed-bg),
+    0.06em -0.12em var(--color-themed-bg), -0.06em 0.12em var(--color-themed-bg),
+    -0.06em 0.06em var(--color-themed-bg), -0.06em 0em var(--color-themed-bg),
     -0.06em -0.06em var(--color-themed-bg),
-    -0.06em -0.12em var(--color-themed-bg),
-    0.12em 0.12em var(--color-themed-bg),
-    0.12em 0.06em var(--color-themed-bg),
-    0.12em 0 var(--color-themed-bg),
-    0.12em -0.06em var(--color-themed-bg),
-    0.12em -0.12em var(--color-themed-bg),
-    -0.12em 0.12em var(--color-themed-bg),
-    -0.12em 0.06em var(--color-themed-bg),
-    -0.12em 0 var(--color-themed-bg),
-    -0.12em -0.06em var(--color-themed-bg),
+    -0.06em -0.12em var(--color-themed-bg), 0.12em 0.12em var(--color-themed-bg),
+    0.12em 0.06em var(--color-themed-bg), 0.12em 0 var(--color-themed-bg),
+    0.12em -0.06em var(--color-themed-bg), 0.12em -0.12em var(--color-themed-bg),
+    -0.12em 0.12em var(--color-themed-bg), -0.12em 0.06em var(--color-themed-bg),
+    -0.12em 0 var(--color-themed-bg), -0.12em -0.06em var(--color-themed-bg),
     -0.12em -0.12em var(--color-themed-bg);
-  transition: color .1s ease-out;
+  transition: color 0.1s ease-out;
 }
 
 .t-codeLabel {

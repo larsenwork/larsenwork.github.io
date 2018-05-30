@@ -15,6 +15,7 @@ button,
   display: flex;
   background: var(--color-themed-bg);
   color: inherit;
+  text-decoration: none;
   padding: var(--spacer-small);
   border-radius: var(--spacer-small);
   transition: var(--transition);
@@ -35,7 +36,6 @@ button,
     transition: 0.2s var(--transitionFunction);
   }
 
-  &.button-small,
   &.u-button-small {
     padding: var(--spacer-xsmall);
     border-radius: var(--spacer-xsmall);
@@ -47,6 +47,7 @@ select {
   display: flex;
   font-family: inherit;
   font-size: 1rem;
+  line-height: inherit;
   margin: 0;
   padding: var(--spacer-xsmall);
   outline: none;

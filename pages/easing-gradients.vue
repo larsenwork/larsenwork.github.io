@@ -11,12 +11,33 @@
       </p>
       <p>
         It's currently a <a href="https://github.com/w3c/csswg-drafts/issues/1332">CSSWG proposal</a> and you can use the
-        <ul>
-          <li><a href="#editor">editor below</a></li>
-          <li><a href="https://github.com/larsenwork/postcss-easing-gradients">PostCSS plugin</a></li>
-          <li><a href="https://github.com/larsenwork/sketch-easing-gradient">Sketch plugin</a></li>
-        </ul>
       </p>
+      <ul class="u-grid p-easingGradients-cta">
+        <li>
+          <a
+            class="u-button u-button-small"
+            href="#editor"
+          >
+            Editor here
+          </a>
+        </li>
+        <li>
+          <a
+            class="u-button u-button-small"
+            href="https://github.com/larsenwork/postcss-easing-gradients"
+          >
+            PostCSS plugin
+          </a>
+        </li>
+        <li>
+          <a
+            class="u-button u-button-small"
+            href="https://github.com/larsenwork/sketch-easing-gradient#readme"
+          >
+            Sketch plugin
+          </a>
+        </li>
+      </ul>
       <h2>
         Examples
       </h2>
@@ -125,3 +146,16 @@ export default {
   },
 }
 </script>
+
+<style lang="postcss">
+@import '../assets/css/_media.css';
+
+.p-easingGradients-cta {
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: var(--lineHeight-margin-small);
+
+  @media (--medium) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+</style>
