@@ -18,12 +18,17 @@
         >
           Easing function
         </div>
-        <select
-          v-model="$store.state.gradient.settings.easingFunction"
+        <div
+          class="u-position-relative"
         >
-          <option>cubic-bezier</option>
-          <option>steps</option>
-        </select>
+          <select-chevrons />
+          <select
+            v-model="$store.state.gradient.settings.easingFunction"
+          >
+            <option>cubic-bezier</option>
+            <option>steps</option>
+          </select>
+        </div>
       </div>
       <div>
         <div
@@ -31,15 +36,20 @@
         >
           Color space
         </div>
-        <select
-          v-model="$store.state.gradient.settings.colorMode"
+        <div
+          class="u-position-relative"
         >
-          <option>rgb</option>
-          <option>hsl</option>
-          <option>lab</option>
-          <option>lch</option>
-          <option>lrgb</option>
-        </select>
+          <select-chevrons />
+          <select
+            v-model="$store.state.gradient.settings.colorMode"
+          >
+            <option>rgb</option>
+            <option>hsl</option>
+            <option>lab</option>
+            <option>lch</option>
+            <option>lrgb</option>
+          </select>
+        </div>
       </div>
     </div>
     <p
@@ -207,15 +217,20 @@
                     >
                       Steps skip
                     </label>
-                    <select
-                      id="c-gradientEditor-input-steps-number"
-                      v-model="$store.state.gradient.steps.skip"
+                    <div
+                      class="u-position-relative"
                     >
-                      <option>skip-none</option>
-                      <option>skip-both</option>
-                      <option>skip-start</option>
-                      <option>skip-end</option>
-                    </select>
+                      <select-chevrons />
+                      <select
+                        id="c-gradientEditor-input-steps-number"
+                        v-model="$store.state.gradient.steps.skip"
+                      >
+                        <option>skip-none</option>
+                        <option>skip-both</option>
+                        <option>skip-start</option>
+                        <option>skip-end</option>
+                      </select>
+                    </div>
                   </div>
                 </transition>
               </div>
@@ -268,13 +283,13 @@
 </template>
 
 <script>
+import selectChevrons from '~/components/select-chevrons'
 import colorEdit from '~/components/tools/gradient/color-edit'
 import easingEdit from '~/components/tools/gradient/easing-edit'
 import easingPreview from '~/components/tools/gradient/easing-preview'
 import directionEdit from '~/components/tools/gradient/direction-edit'
 import directionPreview from '~/components/tools/gradient/direction-preview'
 import gradientOutput from '~/components/tools/gradient/calculations/gradient-output'
-import icon from '~/components/icon'
 
 export default {
   components: {
@@ -283,7 +298,7 @@ export default {
     easingPreview,
     directionEdit,
     directionPreview,
-    icon,
+    selectChevrons,
   },
   mixins: [gradientOutput],
   computed: {

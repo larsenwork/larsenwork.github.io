@@ -52,6 +52,7 @@
     "prettier-eslint-cli": "^4.7.1",
     "push-dir": "^0.4.1",
     "throttleit": "^1.0.0",
+    "vue-feather-icons": "^4.7.1",
     "vue-slider-component": "^2.6.2",
     "webpack-bundle-analyzer": "^2.11.1"
   }
