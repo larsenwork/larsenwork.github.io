@@ -10,7 +10,12 @@
         Linear gradients often have hard edges where they start and/or end. We can avoid those by controlling the color mix with easing functions.
       </p>
       <p>
-        It's currently a <a href="https://github.com/w3c/csswg-drafts/issues/1332">CSSWG proposal</a> but you can use the <a href="#editor">editor</a> below and/or <a href="https://github.com/larsenwork/postcss-easing-gradients">postCSS-easing-gradients</a>. I'm creating a <a href="https://github.com/larsenwork/sketch-easing-gradient">Sketch plugin</a> too.
+        It's currently a <a href="https://github.com/w3c/csswg-drafts/issues/1332">CSSWG proposal</a> and you can use the
+        <ul>
+          <li><a href="#editor">editor below</a></li>
+          <li><a href="https://github.com/larsenwork/postcss-easing-gradients">PostCSS plugin</a></li>
+          <li><a href="https://github.com/larsenwork/sketch-easing-gradient">Sketch plugin</a></li>
+        </ul>
       </p>
       <h2>
         Examples
@@ -79,7 +84,7 @@ export default {
     return {
       title: 'Easing Gradients',
       description:
-        "Easing gradients supercharges linear gradients so they're a lot more flexible and you can say goodbye to hard edges.",
+        'Supercharge your gradients with non-linear color mix and custom color spaces.',
     }
   },
   head() {
@@ -99,8 +104,7 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content:
-            'https://res.cloudinary.com/larsenwork/image/upload/v1517138718/gradients-social.jpg',
+          content: '~/assets/images/easing-gradient.jpg',
         },
         {
           hid: 'og:title',

@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   overflow-x: hidden;
 }
 
@@ -9,7 +10,8 @@ body,
   color: var(--color-themed-fg);
 }
 
-button {
+button,
+.u-button {
   display: flex;
   background: var(--color-themed-bg);
   color: inherit;
@@ -33,19 +35,21 @@ button {
     transition: 0.2s var(--transitionFunction);
   }
 
-  &.button-small {
+  &.button-small,
+  &.u-button-small {
     padding: var(--spacer-xsmall);
     border-radius: var(--spacer-xsmall);
   }
 }
 
-input, select {
+input,
+select {
   display: flex;
   font-family: inherit;
-	font-size: 1rem;
-	margin: 0;
-	padding: var(--spacer-xsmall);
-	outline: none;
+  font-size: 1rem;
+  margin: 0;
+  padding: var(--spacer-xsmall);
+  outline: none;
   appearance: none;
   border-radius: var(--spacer-xsmall);
   box-shadow: var(--shadow);
@@ -89,7 +93,7 @@ select {
   }
 }
 
-@supports (-ms-ime-align:auto) {
+@supports (-ms-ime-align: auto) {
   .ie-check,
   .ie-check * {
     display: none !important;
