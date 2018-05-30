@@ -11,7 +11,7 @@
           Linear
         </div>
         <img
-          src="~/assets/images/gradient-plant.jpg"
+          src="/images/gradient-plant.jpg"
           alt="plant"
         >
       </div>
@@ -24,7 +24,7 @@
           Easing
         </div>
         <img
-          src="~/assets/images/gradient-plant.jpg"
+          src="/images/gradient-plant.jpg"
           alt="plant"
         >
       </div>

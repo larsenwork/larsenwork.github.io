@@ -104,7 +104,7 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content: '~/assets/images/easing-gradient.jpg',
+          content: '/images/easing-gradient.jpg',
         },
         {
           hid: 'og:title',
