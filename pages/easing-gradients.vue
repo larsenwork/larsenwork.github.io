@@ -104,7 +104,8 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content: '/images/easing-gradient.jpg',
+          content:
+            'https://res.cloudinary.com/larsenwork/image/upload/easing-gradient_dnhqb0.jpg',
         },
         {
           hid: 'og:title',
