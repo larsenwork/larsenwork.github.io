@@ -13,16 +13,18 @@
       class="c-gradientEditor-settings u-grid u-marginTop"
     >
       <div>
-        <div
+        <label
           class="c-gradientEditor-label"
+          for="selectTiming"
         >
           Easing function
-        </div>
+        </label>
         <div
           class="u-position-relative"
         >
           <select-chevron />
           <select
+            id="selectTiming"
             v-model="$store.state.gradient.settings.easingFunction"
           >
             <option>cubic-bezier</option>
@@ -31,16 +33,18 @@
         </div>
       </div>
       <div>
-        <div
+        <label
           class="c-gradientEditor-label"
+          for="selectColorSpace"
         >
           Color space
-        </div>
+        </label>
         <div
           class="u-position-relative"
         >
           <select-chevron />
           <select
+            id="selectColorSpace"
             v-model="$store.state.gradient.settings.colorMode"
           >
             <option>rgb</option>
@@ -64,6 +68,7 @@
         :class="{
           'is-active': $store.state.gradient.editorActive === 'direction'
         }"
+        name="Gradient direction"
         @click="toggleEditor('direction')"
         @keydown.tab="tabAway($event, 'direction')"
       >
@@ -77,6 +82,7 @@
         :class="{
           'is-active': $store.state.gradient.editorActive === 'color1'
         }"
+        name="Gradient start color"
         @click="toggleEditor('color1')"
       >
         <div
@@ -90,6 +96,7 @@
         :class="{
           'is-active': $store.state.gradient.editorActive === 'ease'
         }"
+        name="Gradient timing function"
         @click="toggleEditor('ease')"
       >
         <div
@@ -102,6 +109,7 @@
         :class="{
           'is-active': $store.state.gradient.editorActive === 'color2'
         }"
+        name="Gradient stop color"
         @click="toggleEditor('color2')"
         @keydown.tab="tabAway($event, 'color2')"
       >
@@ -212,7 +220,7 @@
                       @keypress="isNumber($event)"
                     >
                     <label
-                      for="c-gradientEditor-input-steps-number"
+                      for="c-gradientEditor-input-steps-skip"
                       class="c-gradientEditor-label"
                     >
                       Steps skip
@@ -222,7 +230,7 @@
                     >
                       <select-chevron />
                       <select
-                        id="c-gradientEditor-input-steps-number"
+                        id="c-gradientEditor-input-steps-skip"
                         v-model="$store.state.gradient.steps.skip"
                       >
                         <option>skip-none</option>

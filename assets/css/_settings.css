@@ -1,11 +1,11 @@
 :root {
   --color-dark: hsl(0, 0%, 8%);
-  --color-dark-50: hsla(0, 0%, 8%, 0.5);
+  --color-dark-72: hsla(0, 0%, 8%, 0.72);
   --color-dark-dimmed: hsl(0, 0%, 4%);
   --color-dark-dimmed-transparent: hsla(0, 0%, 4%, 0);
   --color-dark-dimmed-more: hsl(0, 0%, 0%);
   --color-bright: hsl(0, 0%, 100%);
-  --color-bright-50: hsl(0, 0%, 100%, 0.5);
+  --color-bright-72: hsl(0, 0%, 100%, 0.72);
   --color-bright-dimmed: hsl(0, 0%, 96%);
   --color-bright-dimmed-transparent: hsla(0, 0%, 96%, 0);
   --color-bright-dimmed-more: hsl(0, 0%, 92%);
@@ -15,7 +15,7 @@
   --color-themed-bg-dimmed-transparent: var(--color-dark-dimmed-transparent);
   --color-themed-bg-dimmed-more: var(--color-dark-dimmed-more);
   --color-themed-fg: var(--color-bright);
-  --color-themed-fg-50: var(--color-bright-50);
+  --color-themed-fg-50: var(--color-bright-72);
 
   --lineLength-maxWidth: 35rem;
   --img-maxWidth: 51rem;
@@ -77,7 +77,7 @@
   --color-themed-bg-dimmed-more: var(--color-dark-dimmed-more);
   --color-themed-bg-dimmed-transparent: var(--color-dark-dimmed-transparent);
   --color-themed-fg: var(--color-bright);
-  --color-themed-fg-50: var(--color-bright-50);
+  --color-themed-fg-50: var(--color-bright-72);
 }
 
 .theme-secondary {
@@ -86,7 +86,7 @@
   --color-themed-bg-dimmed-more: var(--color-bright-dimmed-more);
   --color-themed-bg-dimmed-transparent: var(--color-bright-dimmed-transparent);
   --color-themed-fg: var(--color-dark);
-  --color-themed-fg-50: var(--color-dark-50);
+  --color-themed-fg-50: var(--color-dark-72);
 }
 
 @media (--highRes) {
