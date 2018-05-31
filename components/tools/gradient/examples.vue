@@ -1,7 +1,9 @@
 <template>
-  <div>
+  <div v-lazy-container="{ selector: 'img' }">
     <p>Gradients under text/ui are used to increase contrast but should often be as invisible as possible. The examples below have the same amount of blackness behind the text.</p>
-    <div class="c-gradientExamples u-grid">
+    <div
+      class="c-gradientExamples u-grid"
+    >
       <div
         class="c-gradientExamples-item"
       >
@@ -11,7 +13,7 @@
           Linear
         </div>
         <img
-          src="/images/gradient-plant.jpg"
+          data-src="/images/gradient-plant.jpg"
           alt="plant"
         >
       </div>
@@ -24,7 +26,7 @@
           Easing
         </div>
         <img
-          src="/images/gradient-plant.jpg"
+          data-src="/images/gradient-plant.jpg"
           alt="plant"
         >
       </div>
@@ -51,13 +53,15 @@
       </div>
     </div>
     <p>I believe that there are many designs out there that could benefit from this approach, including the Spotify player shown below (click to see the big picture).</p>
-    <div class="c-gradientExamples u-grid">
+    <div
+      class="c-gradientExamples u-grid"
+    >
       <a
         href="/images/gradient-spotify-linear.jpg"
         class="c-gradientExamples-item"
       >
         <img
-          src="/images/gradient-spotify-linear.jpg"
+          data-src="/images/gradient-spotify-linear.jpg"
           alt="spotify with linear gradient"
         >
       </a>
@@ -66,7 +70,7 @@
         class="c-gradientExamples-item"
       >
         <img
-          src="/images/gradient-spotify-easing.jpg"
+          data-src="/images/gradient-spotify-easing.jpg"
           alt="spotify with easing gradient"
         >
       </a>

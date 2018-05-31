@@ -68,7 +68,7 @@
         :class="{
           'is-active': $store.state.gradient.editorActive === 'direction'
         }"
-        name="Gradient direction"
+        aria-label="Gradient direction"
         @click="toggleEditor('direction')"
         @keydown.tab="tabAway($event, 'direction')"
       >
@@ -82,7 +82,7 @@
         :class="{
           'is-active': $store.state.gradient.editorActive === 'color1'
         }"
-        name="Gradient start color"
+        aria-label="Gradient start color"
         @click="toggleEditor('color1')"
       >
         <div
@@ -96,7 +96,7 @@
         :class="{
           'is-active': $store.state.gradient.editorActive === 'ease'
         }"
-        name="Gradient timing function"
+        aria-label="Gradient timing function"
         @click="toggleEditor('ease')"
       >
         <div
@@ -109,7 +109,7 @@
         :class="{
           'is-active': $store.state.gradient.editorActive === 'color2'
         }"
-        name="Gradient stop color"
+        aria-label="Gradient stop color"
         @click="toggleEditor('color2')"
         @keydown.tab="tabAway($event, 'color2')"
       >

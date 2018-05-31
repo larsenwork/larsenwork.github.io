@@ -70,6 +70,10 @@ module.exports = {
     ],
   },
   /*
+  ** Plugins
+  */
+  plugins: [{ src: '~/plugins/vue-lazyload', ssr: false }],
+  /*
   ** Customize the progress bar color
   */
   loading: false,
@@ -77,6 +81,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    vendor: ['vue-lazyload'],
     plugins: [
       new BundleAnalyzerPlugin({
         analyzerMode: 'static',
