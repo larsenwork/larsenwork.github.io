@@ -26,7 +26,9 @@
 .u-section {
   margin-bottom: var(--lineHeight-margin-large);
   &:last-child {
-    margin-bottom: calc(var(--lineHeight-margin-large) + var(--lineHeight-margin-small));
+    margin-bottom: calc(
+      var(--lineHeight-margin-large) + var(--lineHeight-margin-small)
+    );
   }
 }
 
@@ -98,4 +100,11 @@
 
 .u-textCapitalize {
   text-transform: capitalize;
+}
+
+/* ICON */
+.u-icon {
+  width: 1rem;
+  height: 1rem;
+  opacity: var(--opacity-high);
 }
