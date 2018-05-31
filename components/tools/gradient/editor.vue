@@ -21,7 +21,7 @@
         <div
           class="u-position-relative"
         >
-          <select-chevrons />
+          <select-chevron />
           <select
             v-model="$store.state.gradient.settings.easingFunction"
           >
@@ -39,7 +39,7 @@
         <div
           class="u-position-relative"
         >
-          <select-chevrons />
+          <select-chevron />
           <select
             v-model="$store.state.gradient.settings.colorMode"
           >
@@ -220,7 +220,7 @@
                     <div
                       class="u-position-relative"
                     >
-                      <select-chevrons />
+                      <select-chevron />
                       <select
                         id="c-gradientEditor-input-steps-number"
                         v-model="$store.state.gradient.steps.skip"
@@ -283,7 +283,7 @@
 </template>
 
 <script>
-import selectChevrons from '~/components/select-chevrons'
+import selectChevron from '~/components/select-chevron'
 import colorEdit from '~/components/tools/gradient/color-edit'
 import easingEdit from '~/components/tools/gradient/easing-edit'
 import easingPreview from '~/components/tools/gradient/easing-preview'
@@ -298,7 +298,7 @@ export default {
     easingPreview,
     directionEdit,
     directionPreview,
-    selectChevrons,
+    selectChevron,
   },
   mixins: [gradientOutput],
   computed: {

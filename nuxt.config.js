@@ -40,6 +40,7 @@ module.exports = {
       { name: 'theme-color', content: '#ee2b7c' },
     ],
     link: [
+      { rel: 'preload', href: '/fonts/gidole-regular.woff2', as: 'font' },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       {
         rel: 'apple-touch-icon',
