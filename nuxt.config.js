@@ -72,7 +72,10 @@ module.exports = {
   /*
   ** Plugins
   */
-  plugins: [{ src: '~/plugins/vue-lazyload', ssr: false }],
+  plugins: [
+    { src: '~/plugins/vue-lazyload', ssr: false },
+    { src: '~/plugins/eagle', ssr: false },
+  ],
   /*
   ** Customize the progress bar color
   */
@@ -81,7 +84,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
-    vendor: ['vue-lazyload'],
+    vendor: ['vue-lazyload', 'eagle.js'],
     plugins: [
       new BundleAnalyzerPlugin({
         analyzerMode: 'static',
@@ -112,7 +115,9 @@ module.exports = {
       require('postcss-import')(),
       require('postcss-custom-media')(),
       require('postcss-nesting')(),
-      require('postcss-easing-gradients')(),
+      require('postcss-easing-gradients')({
+        colorMode: 'lab',
+      }),
       require('autoprefixer'),
     ],
 

@@ -1,6 +1,8 @@
 <template>
   <nav
-    :class="$store.state.navigationVisible ? 'is-expanded' : ''"
+    :class="{
+      'is-expanded': $store.state.navigationVisible,
+    }"
     class="c-navigation"
   >
     <div
@@ -61,11 +63,13 @@
         >
           Blog
         </div>
-        <div
-          class="c-navigation-link c-navigation-link--wip"
+        <nuxt-link
+          class="c-navigation-link"
+          to="/talks"
+          @click.native="hideNavigation"
         >
           Talks
-        </div>
+        </nuxt-link>
       </div>
       <div
         class="c-navigation-links-donate"
@@ -109,7 +113,7 @@
         <path
           class="c-navigation-toggle-logo-a"
           d="M33.97 23.87c1.77 0 3.57 0 4.84 1.27.9.9 1.38 2.44.62 4.18h4.26l-1.75 4.55 5.12.02s-2.73 4.79-3.95 7.46c4.62 0 7.6 2.85 8.8 6.8.74 2.41 1.41 7 1.96 11.98H48.6c-.58-4.76-1.13-9.14-1.94-11.22-1-2.53-2.32-3.56-5.57-3.35-2.56 5.46-2.94 9.88-2.94 14.57h-5.27c0-9.8 2.04-14 7.1-23.8l-4.42-.02 2.01-5.34c-1.07.46-2.37.46-3.59.46.32-2.44.32-5.12 0-7.56z"
-          fill="#FFF" />
+          fill="#fff" />
       </svg>
     </div>
   </nav>
@@ -117,6 +121,7 @@
 
 <script>
 import social from '~/components/social'
+
 export default {
   components: {
     'app-social': social,
@@ -161,6 +166,12 @@ export default {
 
   &.is-expanded {
     pointer-events: auto;
+  }
+
+  @nest .is-presenting & {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
   }
 }
 

@@ -5,7 +5,7 @@
       '--gradient--linear': `linear-gradient(${ gradientDirection }, ${ gradientColor1 }, ${ gradientColor2 })`
     }"
     :class="{
-      'is-active': $store.state.gradient.editorActive !== ''
+      'is-active': isEditorActive
     }"
     class="c-gradientEditor"
   >
@@ -279,19 +279,14 @@
         </div>
       </transition>
     </div>
-    <code>
-      <h3 class="t-codeLabel">CSS</h3>
-      <pre>{{ gradient }};</pre>
-    </code>
-    <code>
-      <h3 class="t-codeLabel">CSSWG Proposal</h3>
-      <pre>{{ prettyGradient }}</pre>
-    </code>
+    <prism language="css" label="CSSWG Proposal">{{ futureCSS }}</prism>
+    <prism language="css" label="CSS">{{ oldCSS }}</prism>
   </div>
 </template>
 
 <script>
 import selectChevron from '~/components/select-chevron'
+import prism from '~/components/prism'
 import colorEdit from '~/components/tools/gradient/color-edit'
 import easingEdit from '~/components/tools/gradient/easing-edit'
 import easingPreview from '~/components/tools/gradient/easing-preview'
@@ -307,9 +302,13 @@ export default {
     directionEdit,
     directionPreview,
     selectChevron,
+    prism,
   },
   mixins: [gradientOutput],
   computed: {
+    isEditorActive: function() {
+      return !!this.$store.state.gradient.editorActive
+    },
     gradient: function() {
       return this.gradientCalc(this.$store.state.gradient.settings.colorMode)
     },
@@ -320,6 +319,21 @@ export default {
   ${this.gradientFunction},
   ${this.gradientColor2}
 );`
+    },
+    oldCSS: function() {
+      return `.forNow {
+  ${this.gradientCalc(this.$store.state.gradient.settings.colorMode, true)}
+};`
+    },
+    futureCSS: function() {
+      return `#future {
+  linear-gradient(
+    ${this.gradientDirection},
+    ${this.gradientColor1},
+    ${this.gradientFunction},
+    ${this.gradientColor2}
+  );
+};`
     },
   },
   methods: {
@@ -384,7 +398,7 @@ export default {
 .c-gradientEditor-label {
   display: block;
   margin-bottom: var(--lineHeight-margin-xsmall);
-  color: var(--color-themed-fg-50);
+  color: var(--color-themed-fg-72);
 }
 
 .c-gradientEditor-editors {
@@ -428,7 +442,7 @@ export default {
 
 .c-gradientEditor-gradient-tooltip {
   color: var(--color-themed-bg);
-  background-color: var(--color-themed-fg-50);
+  background-color: var(--color-themed-fg-72);
   padding: var(--spacer-xsmall);
   border-radius: var(--spacer-xsmall);
 }

@@ -22,7 +22,10 @@
     "last 1 versions"
   ],
   "dependencies": {
-    "nuxt": "^1.4.0"
+    "eagle.js": "^0.1.5",
+    "nuxt": "^1.4.0",
+    "prismjs": "^1.14.0",
+    "vue-prism-component": "^1.0.1"
   },
   "devDependencies": {
     "ajv": "^6.5.0",

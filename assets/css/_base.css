@@ -15,6 +15,7 @@ button,
   display: flex;
   background: var(--color-themed-bg);
   color: inherit;
+  font-family: inherit;
   text-decoration: none;
   padding: var(--spacer-small);
   border-radius: var(--spacer-small);

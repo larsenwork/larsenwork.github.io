@@ -1,9 +1,13 @@
 <template>
-  <div>
+  <div
+    :class="{
+      'is-presenting': $store.state.presentation.isLive
+    }"
+  >
     <div
       :class="{
         'is-dimmed': $store.state.overlayVisible,
-        'is-moused': $store.state.mouseElement
+        'is-moused': $store.state.mouseElement,
       }"
       class="layout ie-check"
     >

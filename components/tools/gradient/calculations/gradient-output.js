@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     // lrgb as default value since it produces a result closes to most browser defaults
-    gradientCalc(colorMode = 'lrgb') {
+    gradientCalc(colorMode = 'lrgb', preview = false) {
       // Because number input in Safari is a bitch...
       let stepsNumber = Number(this.$store.state.gradient.steps.number)
       if (stepsNumber === undefined || stepsNumber < 2) {
@@ -44,7 +44,7 @@ export default {
       // Get the colorstops
       const colorStopsCoordinates =
         this.$store.state.gradient.settings.easingFunction === 'cubic-bezier'
-          ? cubicCoordinates(...this.getStoreBezierCoordinates())
+          ? cubicCoordinates(...this.getStoreBezierCoordinates(), 15)
           : stepsCoordinates(stepsNumber, this.$store.state.gradient.steps.skip)
 
       this.$store.commit('updateStopCoordinates', colorStopsCoordinates)
@@ -71,7 +71,12 @@ export default {
           .join(', ')} ${rounded(stop.x * 100, 1)}%`
       })
       const direction = this.getStoreDirection()
-      return `linear-gradient(${direction}, ${cssColorStops.join(', ')})`
+      return preview
+        ? `linear-gradient(
+    ${direction},
+    ${cssColorStops.join(',\n    ')}
+  );`
+        : `linear-gradient(${direction}, ${cssColorStops.join(', ')})`
     },
     getStoreDirection() {
       const deg = rounded(this.$store.state.gradient.direction.deg)

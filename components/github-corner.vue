@@ -49,6 +49,12 @@ export default {}
   top: 0;
   right: 0;
   z-index: var(--zIndex-githubCorner);
+
+  @nest .is-presenting & {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+  }
 }
 
 .c-githubCorner-svg {

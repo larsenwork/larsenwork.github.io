@@ -10,12 +10,13 @@
   --color-bright-dimmed-transparent: hsla(0, 0%, 96%, 0);
   --color-bright-dimmed-more: hsl(0, 0%, 92%);
   --color-brand: hsl(330, 100%, 45%);
+  --color-brand-alt: hsl(210, 100%, 45%);
   --color-themed-bg: var(--color-dark);
   --color-themed-bg-dimmed: var(--color-dark-dimmed);
   --color-themed-bg-dimmed-transparent: var(--color-dark-dimmed-transparent);
   --color-themed-bg-dimmed-more: var(--color-dark-dimmed-more);
   --color-themed-fg: var(--color-bright);
-  --color-themed-fg-50: var(--color-bright-72);
+  --color-themed-fg-72: var(--color-bright-72);
 
   --lineLength-maxWidth: 35rem;
   --img-maxWidth: 51rem;
@@ -77,7 +78,7 @@
   --color-themed-bg-dimmed-more: var(--color-dark-dimmed-more);
   --color-themed-bg-dimmed-transparent: var(--color-dark-dimmed-transparent);
   --color-themed-fg: var(--color-bright);
-  --color-themed-fg-50: var(--color-bright-72);
+  --color-themed-fg-72: var(--color-bright-72);
 }
 
 .theme-secondary {
@@ -86,7 +87,7 @@
   --color-themed-bg-dimmed-more: var(--color-bright-dimmed-more);
   --color-themed-bg-dimmed-transparent: var(--color-bright-dimmed-transparent);
   --color-themed-fg: var(--color-dark);
-  --color-themed-fg-50: var(--color-dark-72);
+  --color-themed-fg-72: var(--color-dark-72);
 }
 
 @media (--highRes) {
