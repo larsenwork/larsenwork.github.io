@@ -70,6 +70,7 @@ select {
   color: var(--color-themed-bg);
   background-color: var(--color-themed-fg);
   text-shadow: none;
+  opacity: 1;
 }
 
 :focus {

@@ -76,7 +76,7 @@
 
 .u-aspect--1-1 {
   &::before {
-    padding-top: 100%;
+    padding-top: 10%;
   }
 }
 

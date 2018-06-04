@@ -2,7 +2,9 @@
   <div>
     <svg
       class="c-easingPreview u-position-cover"
-      viewBox="0 0 1 1">
+      viewBox="0 0 1 1"
+      preserveAspectRatio="none"
+    >
       <polyline
         v-if="$store.state.gradient.settings.easingFunction === 'steps'"
         :points="polyline"

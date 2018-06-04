@@ -7,56 +7,61 @@
     <svg
       class="c-easingEdit-lines u-position-cover"
       viewBox="0 0 1 1"
+      preserveAspectRatio="none"
     >
-      <line
-        class="c-easingEdit-thinLine"
-        x1=".25"
-        y1="0"
-        x2=".25"
-        y2="1"
-      />
-      <line
-        class="c-easingEdit-thinLine"
-        x1=".5"
-        y1="0"
-        x2=".5"
-        y2="1"
-      />
-      <line
-        class="c-easingEdit-thinLine"
-        x1=".75"
-        y1="0"
-        x2=".75"
-        y2="1"
-      />
-      <line
-        class="c-easingEdit-thinLine"
-        x1="0"
-        y1=".25"
-        x2="1"
-        y2=".25"
-      />
-      <line
-        class="c-easingEdit-thinLine"
-        x1="0"
-        y1=".5"
-        x2="1"
-        y2=".5"
-      />
-      <line
-        class="c-easingEdit-thinLine"
-        x1="0"
-        y1=".75"
-        x2="1"
-        y2=".75"
-      />
-      <rect
-        class="c-easingEdit-helpLine"
-        x="0"
-        y="0"
-        width="1"
-        height="1"
-      />
+      <g
+        v-if="showGrid"
+      >
+        <line
+          class="c-easingEdit-thinLine"
+          x1=".25"
+          y1="0"
+          x2=".25"
+          y2="1"
+        />
+        <line
+          class="c-easingEdit-thinLine"
+          x1=".5"
+          y1="0"
+          x2=".5"
+          y2="1"
+        />
+        <line
+          class="c-easingEdit-thinLine"
+          x1=".75"
+          y1="0"
+          x2=".75"
+          y2="1"
+        />
+        <line
+          class="c-easingEdit-thinLine"
+          x1="0"
+          y1=".25"
+          x2="1"
+          y2=".25"
+        />
+        <line
+          class="c-easingEdit-thinLine"
+          x1="0"
+          y1=".5"
+          x2="1"
+          y2=".5"
+        />
+        <line
+          class="c-easingEdit-thinLine"
+          x1="0"
+          y1=".75"
+          x2="1"
+          y2=".75"
+        />
+        <rect
+          class="c-easingEdit-helpLine"
+          x="0"
+          y="0"
+          width="1"
+          height="1"
+        />
+      </g>
       <line
         :x2="$store.state.gradient.ease1.x"
         :y2="1 - $store.state.gradient.ease1.y"
@@ -92,6 +97,9 @@ import mouse from '~/components/mixins/mouse'
 
 export default {
   mixins: [mouse],
+  props: {
+    showGrid: { default: true, type: Boolean },
+  },
 }
 </script>
 

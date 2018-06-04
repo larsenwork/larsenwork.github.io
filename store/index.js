@@ -11,9 +11,6 @@ const createStore = () => {
       mouseElement: '',
       presentation: {
         isLive: false,
-        slides: 0,
-        showSlide: 0,
-        children: [],
       },
       gradient: {
         editorActive: '',

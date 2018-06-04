@@ -39,6 +39,18 @@ h2 {
   display: inline-block;
   padding-right: calc(var(--lineHeight-margin-xsmall) / 2);
   padding-left: calc(var(--lineHeight-margin-xsmall) / 2);
+
+  @nest .c-presentation & {
+    color: var(--color-themed-fg);
+    background-color: unset;
+    padding: 0;
+    line-height: 0.9;
+    letter-spacing: 0;
+
+    &:only-child {
+      margin-bottom: 0;
+    }
+  }
 }
 
 h1 {
@@ -149,4 +161,9 @@ code {
   transform: translateY(-50%);
   z-index: 1;
   user-select: none;
+
+  @nest .c-presentation & {
+    color: var(--color-themed-fg);
+    transform: translateY(-53%);
+  }
 }

@@ -115,9 +115,7 @@ module.exports = {
       require('postcss-import')(),
       require('postcss-custom-media')(),
       require('postcss-nesting')(),
-      require('postcss-easing-gradients')({
-        colorMode: 'lab',
-      }),
+      require('postcss-easing-gradients')(),
       require('autoprefixer'),
     ],
 

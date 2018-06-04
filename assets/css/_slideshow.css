@@ -1,0 +1,28 @@
+.eg-slide {
+  width: calc(100% - var(--spacer-small) * 2);
+  height: calc(100% - var(--spacer-small) * 2);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.eg-slide-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  & .eg-iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--spacer-xsmall);
+    overflow: hidden;
+  }
+
+  & iframe {
+    width: 100%;
+    height: 100%;
+  }
+}
