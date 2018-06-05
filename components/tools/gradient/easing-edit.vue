@@ -63,6 +63,7 @@
         />
       </g>
       <line
+        v-if="$store.state.gradient.ease1.x > 0 || $store.state.gradient.ease1.y > 0"
         :x2="$store.state.gradient.ease1.x"
         :y2="1 - $store.state.gradient.ease1.y"
         class="c-easingEdit-line"
@@ -70,6 +71,7 @@
         y1="1"
       />
       <line
+        v-if="$store.state.gradient.ease2.x < 1 || $store.state.gradient.ease2.y < 1"
         :x2="$store.state.gradient.ease2.x"
         :y2="1 - $store.state.gradient.ease2.y"
         class="c-easingEdit-line"
@@ -105,7 +107,7 @@ export default {
 
 <style lang="postcss">
 .c-easingEdit {
-  /* Placeholder */
+  z-index: 1;
 }
 
 .c-easingEdit-toggle {

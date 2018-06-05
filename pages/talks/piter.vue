@@ -1,26 +1,31 @@
 <template>
-  <div
+  <!-- <div
     :style="{
       '--rotation': `${rotation}deg`,
     }"
     class="c-presentation eg-slideshow"
+  > -->
+  <div
+    class="c-presentation eg-slideshow"
   >
-    <linear-to-easing />
     <slide>
       <h1>Easing Gradients, the Squircle of Colors</h1>
       <p>@larsenwork<br>Devsigner<br>Cph, Denmark</p>
     </slide>
+    <color-spaces-demo />
     <slide>
-      <div class="eg-iframe">
-        <iframe src="http://www.colorzilla.com/gradient-editor/" frameborder="0" />
-      </div>
+      <iframe src="http://www.colorzilla.com/gradient-editor/" frameborder="0" />
     </slide>
     <slide :steps="4">
       <prism language="javascript" label="CSSWG Proposal">{{ js }}</prism>
       <p v-if="step >= 1">{{ step }}</p>
       <p v-if="step >= 2">{{ step }}</p>
       <p v-if="step >= 3">{{ step }}</p>
-      <p v-if="step >= 4">{{ step }}</p>
+    </slide>
+    <linear-to-easing />
+    <slide>
+      <h1>The End</h1>
+      <p>@larsenwork</p>
     </slide>
   </div>
 </template>
@@ -28,16 +33,18 @@
 <script>
 import eagle from 'eagle.js'
 import prism from '~/components/prism'
-import linearToEasing from '~/components/slides/linear-to-easing'
+import { linearToEasing, colorSpacesDemo } from '~/components/slides'
 
 export default {
   components: {
     prism,
     linearToEasing,
+    colorSpacesDemo,
   },
   mixins: [eagle.slideshow],
   props: {
     mouseNavigation: { default: false, type: Boolean },
+    backBySlide: { default: true, type: Boolean },
   },
   data: function() {
     return {

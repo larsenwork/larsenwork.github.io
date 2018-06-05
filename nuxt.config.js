@@ -84,7 +84,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
-    vendor: ['vue-lazyload', 'eagle.js'],
+    // vendor: ['vue-lazyload', 'eagle.js'],
     plugins: [
       new BundleAnalyzerPlugin({
         analyzerMode: 'static',
@@ -98,6 +98,28 @@ module.exports = {
     ** Run ESLint on save
     */
     extend(config, { isDev, isClient }) {
+      // config.module.rules.push({
+      //   test: /\.(js)$/,
+      //   loader: 'babel-loader',
+      //   include: /(node_modules\/eagle.js)/,
+      // })
+      const babelLoader = config.module.rules.find(
+        rule => rule.loader === 'babel-loader'
+      )
+      babelLoader.exclude = /node_modules\/(?!eagle.js)/
+
+      //   test: /\.(js)$/,
+      //   loader: 'babel-loader',
+      //   include: /(node_modules\/eagle.js)/,
+      // }
+
+      // const babelLoader = {
+      //   test: /\.jsx?$/,
+      //   loader: 'babel-loader',
+      //   exclude: /node_modules/,
+      //   options: { babelrc: false, cacheDirectory: true, presets: [[Array]] },
+      // }
+
       if (isDev && isClient) {
         config.module.rules.push({
           enforce: 'pre',
