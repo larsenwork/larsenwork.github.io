@@ -50,5 +50,9 @@ export default {
   @nest .c-gradientEditor-editors & {
     stroke-width: var(--stroke-large);
   }
+
+  @nest .eg-slide-linearToEasing & {
+    stroke: hsl(0, 0%, 50%);
+  }
 }
 </style>

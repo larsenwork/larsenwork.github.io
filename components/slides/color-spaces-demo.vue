@@ -12,7 +12,7 @@
     }"
     class="eg-slide"
   >
-    <div class="eg-slide-content eg-slide-colorSpacesDemo">
+    <div class="eg-slide-content eg-slide-colorSpacesDemo u-grid u-grid--3-2">
       <div class="u-position-relative">
         Default
       </div>
@@ -20,16 +20,16 @@
         RGB
       </div>
       <div class="u-position-relative">
-        1
+        LRGB
       </div>
       <div class="u-position-relative">
-        1
+        HSL
       </div>
       <div class="u-position-relative">
-        1
+        LAB
       </div>
       <div class="u-position-relative">
-        1
+        LCH
       </div>
     </div>
   </div>
@@ -99,12 +99,6 @@ export default {
 
 <style lang="postcss">
 .eg-slide-colorSpacesDemo {
-  display: grid;
-  grid-gap: var(--spacer-small);
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  overflow: hidden;
-
   & > * {
     padding: var(--spacer-xsmall);
     width: 100%;

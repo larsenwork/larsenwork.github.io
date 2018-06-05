@@ -87,7 +87,7 @@ export default {
         const color2 = {
           h: 0,
           s: 0,
-          l: 80,
+          l: 100,
           a: 1,
           hsv: {
             s: 0,
@@ -176,7 +176,7 @@ export default {
   fill: none;
   stroke-width: var(--stroke-medium);
   stroke-linecap: round;
-  stroke: currentColor;
+  stroke: hsl(0, 0%, 50%);
   vector-effect: non-scaling-stroke;
 }
 </style>

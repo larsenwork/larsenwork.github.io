@@ -51,7 +51,7 @@ export default {
       const colors = [this.getStoreHsla1(), this.getStoreHsla2()]
 
       // Browsers don't really agree how to treat gradients that go from one hue to alpha 0 of another hue...
-      const correctTransparentColors = colors.map((color, i) => {
+      const [color1, color2] = colors.map((color, i) => {
         return chroma(color).alpha() === 0
           ? chroma(colors[Math.abs(i - 1)]).alpha(0)
           : chroma(color)
@@ -59,11 +59,21 @@ export default {
 
       // Mix them colors and write it as sensible css
       const cssColorStops = colorStopsCoordinates.map(stop => {
-        let mixedColor = chroma.mix(
-          ...correctTransparentColors,
-          stop.y,
-          colorMode
-        )
+        let mixedColor
+        if (colorMode === 'squared') {
+          const color1rgba = color1.rgba(false)
+          const color2rgba = color2.rgba(false)
+          const colorMix = color1rgba.map((num, i) => {
+            const value = Math.sqrt(
+              num ** 2 * (1 - stop.y) + color2rgba[i] ** 2 * stop.y
+            )
+            return i < 3 ? rounded(value) : value
+          })
+          console.log(colorMix)
+          mixedColor = chroma(`rgba(${colorMix.join(',')})`)
+        } else {
+          mixedColor = chroma.mix(color1, color2, stop.y, colorMode)
+        }
         mixedColor = mixedColor.alpha(rounded(mixedColor.alpha(), 3))
         return `${mixedColor
           .css('hsl')
@@ -72,10 +82,9 @@ export default {
       })
       const direction = this.getStoreDirection()
       return preview
-        ? `linear-gradient(
-    ${direction},
-    ${cssColorStops.join(',\n    ')}
-  );`
+        ? `linear-gradient(\n    ${direction},\n    ${cssColorStops.join(
+            ',\n    '
+          )}\n  );`
         : `linear-gradient(${direction}, ${cssColorStops.join(', ')})`
     },
     getStoreDirection() {

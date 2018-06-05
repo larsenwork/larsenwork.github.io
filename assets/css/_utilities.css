@@ -50,8 +50,18 @@
 }
 
 .u-grid {
-  display: grid;
+  display: grid !important;
   grid-gap: var(--spacer-small);
+}
+
+.u-grid--3-2 {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.u-grid--2-2 {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
 }
 
 .u-aspect--1-1,

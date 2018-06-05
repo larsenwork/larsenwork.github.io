@@ -1,3 +1,11 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .eg-slide {
   width: calc(100% - var(--spacer-small) * 2);
   height: calc(100% - var(--spacer-small) * 2);
@@ -15,8 +23,16 @@
   justify-content: center;
 
   & iframe {
-    background-color: hsla(0, 0%, 100%, 0.5);
+    animation: fadeIn 1s;
+    background-color: white;
     width: 100%;
     height: 100%;
+
+    &.c-iframe--scaled {
+      width: 175%;
+      height: 175%;
+      transform: scale(0.571428571);
+      transform-origin: top left;
+    }
   }
 }

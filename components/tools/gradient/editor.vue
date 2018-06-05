@@ -52,6 +52,7 @@
             <option>lab</option>
             <option>lch</option>
             <option>lrgb</option>
+            <option>squared</option>
           </select>
         </div>
       </div>

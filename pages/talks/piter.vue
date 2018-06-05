@@ -24,6 +24,27 @@
     </slide>
     <linear-to-easing />
     <slide>
+      <div class="u-position-cover u-grid u-grid--2-2">
+        <iframe
+          class="c-iframe--scaled"
+          src="http://gka.github.io/chroma.js/"
+        />
+        <iframe
+          class="c-iframe--scaled"
+          src="http://pomax.github.io/bezierjs/"
+        />
+        <iframe
+          class="c-iframe--scaled"
+          src="https://zulko.github.io/eaglejs-demo/"
+        />
+        <iframe
+          class="c-iframe--scaled"
+          src="https://larsenwork.com/"
+          style="background-color:transparent;"
+        />
+      </div>
+    </slide>
+    <slide>
       <h1>The End</h1>
       <p>@larsenwork</p>
     </slide>
