@@ -14,7 +14,7 @@ dist
 .DS_Store
 
 # Temp piter images
-static/piter
+static/images/piter
 
 # Env file
 .env
