@@ -171,7 +171,6 @@ export default {
   @nest .is-presenting & {
     visibility: hidden;
     opacity: 0;
-    pointer-events: none;
   }
 }
 
@@ -281,6 +280,10 @@ export default {
   @nest .c-navigation.is-expanded & {
     transition: none;
     filter: none;
+  }
+
+  @nest .is-presenting & {
+    pointer-events: none;
   }
 }
 

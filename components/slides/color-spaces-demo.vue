@@ -20,16 +20,16 @@
         RGB
       </div>
       <div class="u-position-relative">
-        LRGB
+        LCH
       </div>
       <div class="u-position-relative">
-        HSL
+        LRGB
       </div>
       <div class="u-position-relative">
         LAB
       </div>
       <div class="u-position-relative">
-        LCH
+        HSL
       </div>
     </div>
   </div>
@@ -48,49 +48,110 @@ export default {
   },
   mixins: [eagle.slide, gradientOutput],
   props: {
-    // steps: { default: 3, type: Number },
+    steps: { default: 3, type: Number },
   },
   watch: {
+    step: function() {
+      if (this.step === 1) {
+        this.initialColors()
+      }
+      if (this.step === 2) {
+        this.middleColors()
+      }
+      if (this.step === 3) {
+        this.finalColors()
+      }
+    },
     active: function() {
       if (this.active) {
-        const color1 = {
-          h: 0,
-          s: 100,
-          l: 50,
-          a: 1,
-          hsv: {
-            s: 0,
-            v: 20,
-          },
-        }
-        const color2 = {
-          h: 166,
-          s: 100,
-          l: 46,
-          a: 1,
-          hsv: {
-            s: 0,
-            v: 10,
-          },
-        }
-        const ease1 = {
+        this.$store.state.gradient.ease1 = {
           x: 0,
           y: 0,
         }
-        const ease2 = {
+        this.$store.state.gradient.ease2 = {
           x: 1,
           y: 1,
         }
-        const direction = {
+        this.$store.state.gradient.direction = {
           deg: 180,
           x: 0.5,
           y: 0.2,
         }
-        this.$store.state.gradient.direction = direction
-        this.$store.state.gradient.ease1 = ease1
-        this.$store.state.gradient.ease2 = ease2
-        this.$store.state.gradient.color1 = color1
-        this.$store.state.gradient.color2 = color2
+        // And because watch.step doesn't fire on load...
+        if (this.step === 1) {
+          this.initialColors()
+        }
+        if (this.step === 3) {
+          this.finalColors()
+        }
+      }
+    },
+  },
+  methods: {
+    initialColors() {
+      this.$store.state.gradient.color1 = {
+        h: 0,
+        s: 100,
+        l: 50,
+        a: 1,
+        hsv: {
+          s: 0,
+          v: 20,
+        },
+      }
+      this.$store.state.gradient.color2 = {
+        h: 166,
+        s: 100,
+        l: 46,
+        a: 1,
+        hsv: {
+          s: 0,
+          v: 10,
+        },
+      }
+    },
+    middleColors() {
+      this.$store.state.gradient.color1 = {
+        h: 0,
+        s: 0,
+        l: 100,
+        a: 1,
+        hsv: {
+          s: 0,
+          v: 20,
+        },
+      }
+      this.$store.state.gradient.color2 = {
+        h: 0,
+        s: 0,
+        l: 0,
+        a: 1,
+        hsv: {
+          s: 0,
+          v: 10,
+        },
+      }
+    },
+    finalColors() {
+      this.$store.state.gradient.color1 = {
+        h: 54,
+        s: 100,
+        l: 50,
+        a: 1,
+        hsv: {
+          s: 0,
+          v: 20,
+        },
+      }
+      this.$store.state.gradient.color2 = {
+        h: 283,
+        s: 100,
+        l: 31,
+        a: 1,
+        hsv: {
+          s: 0,
+          v: 10,
+        },
       }
     },
   },
@@ -105,28 +166,58 @@ export default {
     height: 100%;
   }
 
-  & > :nth-child(1) {
-    background: linear-gradient(to bottom, var(--color1), var(--color2));
+  & > * {
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    &::before {
+      background: linear-gradient(to bottom, var(--color1), var(--color2));
+      z-index: -1;
+    }
+
+    &::after {
+      z-index: -1;
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    &:nth-child(2)::after {
+      background: var(--gradientRGB);
+    }
+
+    &:nth-child(3)::after {
+      background: var(--gradientLCH);
+    }
+
+    &:nth-child(4)::after {
+      background: var(--gradientLRGB);
+    }
+
+    &:nth-child(5)::after {
+      background: var(--gradientLAB);
+    }
+
+    &:nth-child(6)::after {
+      background: var(--gradientHSL);
+    }
   }
 
-  & > :nth-child(2) {
-    background: var(--gradientRGB);
-  }
-
-  & > :nth-child(3) {
-    background: var(--gradientLRGB);
-  }
-
-  & > :nth-child(4) {
-    background: var(--gradientHSL);
-  }
-
-  & > :nth-child(5) {
-    background: var(--gradientLAB);
-  }
-
-  & > :nth-child(6) {
-    background: var(--gradientLCH);
+  &:hover {
+    & > *::after {
+      opacity: 1;
+      transition: var(--transition);
+    }
   }
 }
 </style>

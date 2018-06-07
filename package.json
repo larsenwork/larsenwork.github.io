@@ -22,10 +22,13 @@
     "last 1 versions"
   ],
   "dependencies": {
-    "eagle.js": "^0.1.5",
+    "@nuxtjs/dotenv": "^1.1.1",
+    "eagle.js": "git+https://github.com/larsenwork/eagle.js.git",
+    "firebase": "^5.0.4",
     "nuxt": "^1.4.0",
     "prismjs": "^1.14.0",
-    "vue-prism-component": "^1.0.1"
+    "vue-prism-component": "^1.0.1",
+    "vuefire": "^1.4.5"
   },
   "devDependencies": {
     "ajv": "^6.5.0",
@@ -38,6 +41,7 @@
     "eslint-config-prettier": "^2.9.0",
     "eslint-config-standard": "^11.0.0",
     "eslint-loader": "^2.0.0",
+    "eslint-plugin-html": "^4.0.3",
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-prettier": "^2.6.0",

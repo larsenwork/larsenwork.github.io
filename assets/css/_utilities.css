@@ -17,6 +17,25 @@
   height: 100%;
 }
 
+.u-release-cover {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.u-cover {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .u-container {
   padding-right: var(--spacer-small);
   padding-left: var(--spacer-small);
@@ -62,6 +81,10 @@
 .u-grid--2-2 {
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
+}
+
+.u-grid--2-1 {
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .u-aspect--1-1,

@@ -76,6 +76,12 @@ module.exports = {
     { src: '~/plugins/vue-lazyload', ssr: false },
     { src: '~/plugins/eagle', ssr: false },
   ],
+
+  /*
+  ** Modules
+  */
+  modules: ['@nuxtjs/dotenv'],
+
   /*
   ** Customize the progress bar color
   */
@@ -103,22 +109,11 @@ module.exports = {
       //   loader: 'babel-loader',
       //   include: /(node_modules\/eagle.js)/,
       // })
-      const babelLoader = config.module.rules.find(
-        rule => rule.loader === 'babel-loader'
-      )
-      babelLoader.exclude = /node_modules\/(?!eagle.js)/
 
-      //   test: /\.(js)$/,
-      //   loader: 'babel-loader',
-      //   include: /(node_modules\/eagle.js)/,
-      // }
-
-      // const babelLoader = {
-      //   test: /\.jsx?$/,
-      //   loader: 'babel-loader',
-      //   exclude: /node_modules/,
-      //   options: { babelrc: false, cacheDirectory: true, presets: [[Array]] },
-      // }
+      // const babelLoader = config.module.rules.find(
+      //   rule => rule.loader === 'babel-loader'
+      // )
+      // babelLoader.exclude = /node_modules\/(?!eagle.js)/
 
       if (isDev && isClient) {
         config.module.rules.push({

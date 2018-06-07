@@ -32,7 +32,12 @@ export default {
   },
   methods: {
     // lrgb as default value since it produces a result closes to most browser defaults
-    gradientCalc(colorMode = 'lrgb', preview = false) {
+    gradientCalc(
+      colorMode = 'lrgb',
+      preview = false,
+      colors = [this.getStoreHsla1(), this.getStoreHsla2()],
+      easing = this.$store.state.gradient.settings.easingFunction
+    ) {
       // Because number input in Safari is a bitch...
       let stepsNumber = Number(this.$store.state.gradient.steps.number)
       if (stepsNumber === undefined || stepsNumber < 2) {
@@ -43,12 +48,11 @@ export default {
 
       // Get the colorstops
       const colorStopsCoordinates =
-        this.$store.state.gradient.settings.easingFunction === 'cubic-bezier'
+        easing === 'cubic-bezier'
           ? cubicCoordinates(...this.getStoreBezierCoordinates(), 15)
           : stepsCoordinates(stepsNumber, this.$store.state.gradient.steps.skip)
 
       this.$store.commit('updateStopCoordinates', colorStopsCoordinates)
-      const colors = [this.getStoreHsla1(), this.getStoreHsla2()]
 
       // Browsers don't really agree how to treat gradients that go from one hue to alpha 0 of another hue...
       const [color1, color2] = colors.map((color, i) => {

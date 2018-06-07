@@ -1,48 +1,89 @@
 <template>
-  <!-- <div
-    :style="{
-      '--rotation': `${rotation}deg`,
-    }"
-    class="c-presentation eg-slideshow"
-  > -->
   <div
     class="c-presentation eg-slideshow"
   >
-    <slide>
+    <!-- <div
+      class="c-presentation eg-slideshow"
+    > -->
+    <slide id="intro" >
+      <img src="/images/piter/corgi.png" class="corgi corgi--stay" >
       <h1>Easing Gradients, the Squircle of Colors</h1>
-      <p>@larsenwork<br>Devsigner<br>Cph, Denmark</p>
+      <p>Andreas Larsen<br>@larsenwork</p>
+    </slide>
+    <slide id="helloWorld" :steps="2">
+      <h1 v-if="step == 1">piter.larsen.work</h1>
+      <h1 v-if="step == 2">Hello World</h1>
+      <img src="/images/piter/corgi.png" class="corgi" >
+    </slide>
+    <slide id="me">
+      <img v-if="step == 1" src="/images/piter/me.jpg" class="u-cover" alt="">
+      <div v-if="step == 2" class="eg-slide-gradient">
+        <img src="/images/piter/nurse.jpg" class="u-cover " alt="">
+      </div>
+    </slide>
+    <slide id="mason" :steps="2">
+      <img v-if="step == 1" src="/images/piter/bricklaying.jpg" class="u-cover lucy">
+      <!-- <iframe v-if="step == 1" class="is-transparent" src="https://www.youtube.com/embed/3XD3DDWrt6Q?rel=0&autoplay=1&mute=1&controls=0&showinfo=0&start=200&end=250" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen /> -->
+      <div v-if="step == 2" class="u-position-cover u-grid u-grid--2-1">
+        <img src="/images/piter/grundtvig1.jpg" class="u-cover">
+        <img src="/images/piter/grundtvig2.jpg" class="u-cover">
+      </div>
+    </slide>
+    <slide id="lucy" :steps="3">
+      <img v-if="step == 1" src="/images/piter/lucy.jpg" class="u-cover lucy">
+      <img v-if="step >= 2" src="/images/piter/savanna.jpg" class="u-cover">
+      <div v-if="step == 3" class="eg-slideshow-lion">🦁</div>
+    </slide>
+    <slide id="medical" :steps="2">
+      <h1 v-if="step == 1" class="shit">Hit<br>Shappens</h1>
+      <img v-if="step == 2" src="/images/piter/tiles.jpg" class="u-cover">
+      <!-- Some things about tiles and then rods / ganglion potential. -->
+    </slide>
+    <momondo id="momondo" />
+    <linear-to-easing id="easeDemo" />
+    <slide :steps="2">
+      <prism language="javascript" label="CSSWG Proposal">{{ js }}</prism>
+      <p v-if="step >= 0">{{ step }}</p>
     </slide>
     <color-spaces-demo />
-    <slide>
-      <iframe src="http://www.colorzilla.com/gradient-editor/" frameborder="0" />
-    </slide>
-    <slide :steps="4">
-      <prism language="javascript" label="CSSWG Proposal">{{ js }}</prism>
-      <p v-if="step >= 1">{{ step }}</p>
-      <p v-if="step >= 2">{{ step }}</p>
-      <p v-if="step >= 3">{{ step }}</p>
-    </slide>
-    <linear-to-easing />
-    <slide>
+    <blur />
+    <gamma-correction />
+    <slide :steps="2">
       <div class="u-position-cover u-grid u-grid--2-2">
-        <iframe
-          class="c-iframe--scaled"
-          src="http://gka.github.io/chroma.js/"
-        />
-        <iframe
-          class="c-iframe--scaled"
-          src="http://pomax.github.io/bezierjs/"
-        />
-        <iframe
-          class="c-iframe--scaled"
-          src="https://zulko.github.io/eaglejs-demo/"
-        />
-        <iframe
-          class="c-iframe--scaled"
-          src="https://larsenwork.com/"
-          style="background-color:transparent;"
-        />
+        <template
+          v-if="step == 1"
+        >
+          <iframe
+            class="c-iframe--scaled"
+            src="http://gka.github.io/chroma.js/"
+          />
+          <iframe
+            class="c-iframe--scaled"
+            src="http://pomax.github.io/bezierjs/"
+          />
+          <iframe
+            class="c-iframe--scaled"
+            src="https://zulko.github.io/eaglejs-demo/"
+          />
+        </template>
+        <template
+          v-if="step == 2"
+        >
+          <iframe
+            class="c-iframe--scaled"
+            src="http://jamie-wong.com/post/color/"
+            style="background-color:transparent;"
+          />
+          <iframe
+            class="c-iframe--scaled"
+            src="https://larsenwork.com/"
+            style="background-color:transparent;"
+          />
+        </template>
       </div>
+    </slide>
+    <slide id="colorzilla">
+      <iframe src="http://www.colorzilla.com/gradient-editor/" frameborder="0" />
     </slide>
     <slide>
       <h1>The End</h1>
@@ -53,37 +94,46 @@
 
 <script>
 import eagle from 'eagle.js'
+import slideshowMethods from '~/components/mixins/slideshow'
 import prism from '~/components/prism'
-import { linearToEasing, colorSpacesDemo } from '~/components/slides'
+import {
+  linearToEasing,
+  colorSpacesDemo,
+  momondo,
+  blur,
+  gammaCorrection,
+} from '~/components/slides'
 
 export default {
   components: {
     prism,
     linearToEasing,
     colorSpacesDemo,
+    momondo,
+    blur,
+    gammaCorrection,
   },
-  mixins: [eagle.slideshow],
+  mixins: [eagle.slideshow, slideshowMethods],
   props: {
     mouseNavigation: { default: false, type: Boolean },
-    backBySlide: { default: true, type: Boolean },
+    // backBySlide: { default: true, type: Boolean },
   },
   data: function() {
     return {
-      rotation: -90,
       js: `// larsenwork.com
 const test = false
 this is a very long line which we normally shouldn't be using`,
-      preloadedImages: {
-        hiThere: 'http://i.imgur.com/ZLT46UN.jpg',
-      },
+      // preloadedImages: {
+      //   ...images,
+      // },
     }
   },
-  created() {
-    const duration = 1
-    const resolution = 0.25
-    setInterval(() => {
-      this.rotation = this.rotation + 1 * resolution
-    }, duration * 60 * 1000 * resolution / 360)
+  watch: {
+    currentSlide: function() {
+      if (this.currentSlide.$attrs.id) {
+        this.updateSlideId(this.currentSlide.$attrs.id)
+      }
+    },
   },
 }
 </script>
@@ -117,10 +167,53 @@ this is a very long line which we normally shouldn't be using`,
   width: 100vw;
   padding: var(--spacer-xsmall);
   background-image: linear-gradient(
-    var(--rotation),
-    hsla(0, 0%, 12%, 1),
+    to bottom right,
+    hsla(0, 0%, 16%, 1),
     steps(10, skip-none),
-    hsla(0, 0%, 8%, 1)
+    hsla(0, 0%, 4%, 1)
   );
+
+  & .corgi {
+    position: fixed;
+    top: -5vmin;
+    right: -5vmin;
+    width: 15vmin;
+    pointer-events: none;
+    z-index: 1000;
+
+    &:not(.corgi--stay) {
+      animation-iteration-count: 1;
+      animation-fill-mode: both;
+      animation-duration: 4s;
+      animation-delay: 1s;
+      animation-name: corgi;
+    }
+  }
+
+  & .shit {
+    font-family: -apple-system, BlinkMacSystemFont;
+    font-size: 15vw;
+  }
+
+  & .lucy {
+    object-fit: contain;
+  }
+}
+@keyframes corgi {
+  0%,
+  40%,
+  80% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  20%,
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform-origin: top right;
+    transform: scale(0.5);
+  }
 }
 </style>
