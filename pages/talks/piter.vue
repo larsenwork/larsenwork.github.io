@@ -1,12 +1,12 @@
 <template>
   <div
+    :class="{ 'has-corgi': corgi }"
     class="c-presentation eg-slideshow"
   >
     <!-- <div
       class="c-presentation eg-slideshow"
     > -->
     <slide id="intro" >
-      <img src="/images/piter/corgi.png" class="corgi corgi--stay" >
       <h1>Easing Gradients, the Squircle of Colors</h1>
       <p>Andreas Larsen<br>@larsenwork</p>
     </slide>
@@ -15,14 +15,16 @@
       <h1 v-if="step == 2">Hello World</h1>
       <img src="/images/piter/corgi.png" class="corgi" >
     </slide>
-    <slide id="me">
+    <slide id="me" :steps="2">
       <img v-if="step == 1" src="/images/piter/me.jpg" class="u-cover" alt="">
       <div v-if="step == 2" class="eg-slide-gradient">
         <img src="/images/piter/nurse.jpg" class="u-cover " alt="">
       </div>
     </slide>
     <slide id="mason" :steps="2">
-      <img v-if="step == 1" src="/images/piter/bricklaying.jpg" class="u-cover lucy">
+      <div v-if="step == 1" class="eg-slide-gradient">
+        <img src="/images/piter/bricklaying.jpg" class="u-cover lucy">
+      </div>
       <!-- <iframe v-if="step == 1" class="is-transparent" src="https://www.youtube.com/embed/3XD3DDWrt6Q?rel=0&autoplay=1&mute=1&controls=0&showinfo=0&start=200&end=250" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen /> -->
       <div v-if="step == 2" class="u-position-cover u-grid u-grid--2-1">
         <img src="/images/piter/grundtvig1.jpg" class="u-cover">
@@ -120,6 +122,7 @@ export default {
   },
   data: function() {
     return {
+      corgi: false,
       js: `// larsenwork.com
 const test = false
 this is a very long line which we normally shouldn't be using`,
@@ -132,6 +135,7 @@ this is a very long line which we normally shouldn't be using`,
     currentSlide: function() {
       if (this.currentSlide.$attrs.id) {
         this.updateSlideId(this.currentSlide.$attrs.id)
+        this.corgi = this.currentSlide.$attrs.id === 'intro'
       }
     },
   },
@@ -159,6 +163,12 @@ this is a very long line which we normally shouldn't be using`,
   --fontSize-html: 4vw;
   --fontSize-h1: 2.5rem;
   --lineHeight-body: 1.3rem;
+  --defaultGradient: linear-gradient(
+    to bottom right,
+    hsl(210, 100%, 45%),
+    steps(10, skip-none),
+    hsl(330, 100%, 45%)
+  );
 }
 
 .c-presentation {
@@ -168,10 +178,22 @@ this is a very long line which we normally shouldn't be using`,
   padding: var(--spacer-xsmall);
   background-image: linear-gradient(
     to bottom right,
-    hsla(0, 0%, 16%, 1),
+    hsla(210, 10%, 16%, 1),
     steps(10, skip-none),
-    hsla(0, 0%, 4%, 1)
+    hsla(210, 10%, 4%, 1)
   );
+
+  &.has-corgi {
+    background-image: var(--defaultGradient),
+      linear-gradient(
+        to bottom right,
+        hsla(210, 100%, 45%, 0.5),
+        hsla(330, 100%, 45%, 0.5)
+      ),
+      url('/images/piter/corgi-big.png');
+    background-blend-mode: multiply, normal;
+    background-size: cover;
+  }
 
   & .corgi {
     position: fixed;
@@ -180,14 +202,11 @@ this is a very long line which we normally shouldn't be using`,
     width: 15vmin;
     pointer-events: none;
     z-index: 1000;
-
-    &:not(.corgi--stay) {
-      animation-iteration-count: 1;
-      animation-fill-mode: both;
-      animation-duration: 4s;
-      animation-delay: 1s;
-      animation-name: corgi;
-    }
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+    animation-duration: 4s;
+    animation-delay: 1s;
+    animation-name: corgi;
   }
 
   & .shit {

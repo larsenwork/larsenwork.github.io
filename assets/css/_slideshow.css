@@ -27,9 +27,33 @@
   transform: translate(-50%, -50%);
 }
 
+.eg-slide-gradient {
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(
+      to bottom right,
+      hsl(210, 100%, 45%),
+      hsl(330, 100%, 45%)
+    );
+    mix-blend-mode: multiply;
+    z-index: 1;
+  }
+
+  & img {
+    filter: grayscale(70%);
+  }
+}
+
 .eg-slideshow-lion {
   position: absolute;
-  bottom: 30%;
+  bottom: 20%;
   left: 10%;
   animation: fadeInUp 0.3s;
 }
