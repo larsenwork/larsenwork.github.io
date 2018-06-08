@@ -12,7 +12,7 @@
             to="/piter"
             class="c-navigation-link"
           >
-            {{ talk }}
+            Piter
           </nuxt-link>
         </li>
       </ul>
