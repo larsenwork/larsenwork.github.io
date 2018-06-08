@@ -3,12 +3,12 @@ import 'firebase/firestore'
 
 // Initialize Firebase
 const config = {
-  apiKey: process.env.API_KEY,
-  authDomain: process.env.AUTH_DOMAIN,
-  databaseURL: process.env.DATABASE_URL,
-  projectId: process.env.PROJECT_ID,
-  messagingSenderId: process.env.MESSAGING_SENDER_ID,
-  storageBucket: '',
+  apiKey: 'AIzaSyBz5B1khDRrzz5TRS0jEB6rF8e8U3yyJ_0',
+  authDomain: 'larsentalks.firebaseapp.com',
+  databaseURL: 'https://larsentalks.firebaseio.com',
+  projectId: 'larsentalks',
+  storageBucket: 'larsentalks.appspot.com',
+  messagingSenderId: '964389312791',
 }
 
 if (!firebase.apps.length) {
