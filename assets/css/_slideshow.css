@@ -27,6 +27,11 @@
   transform: translate(-50%, -50%);
 }
 
+.eg-slide-scroll {
+  overflow-y: scroll;
+  display: block;
+}
+
 .eg-slide-gradient {
   overflow: hidden;
 

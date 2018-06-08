@@ -8,16 +8,40 @@
     > -->
     <slide id="intro" >
       <h1>Easing Gradients, the Squircle of Colors</h1>
-      <p>Andreas Larsen<br>@larsenwork</p>
+      <p>Andreas Larsen<br>@larsenwork<br>piter.larsen.work</p>
     </slide>
     <slide id="helloWorld" :steps="2">
       <h1 v-if="step == 1">piter.larsen.work</h1>
       <h1 v-if="step == 2">Hello World</h1>
       <img src="/images/piter/corgi.png" class="corgi" >
     </slide>
-    <slide id="me" :steps="2">
-      <img v-if="step == 1" src="/images/piter/me.jpg" class="u-cover" alt="">
-      <div v-if="step == 2" class="eg-slide-gradient">
+    <slide id="me">
+      <img src="/images/piter/me.jpg" class="u-cover" alt="">
+    </slide>
+    <slide id="blame">
+      <h1>Blame typography</h1>
+      <p>Also, people will notice!</p>
+    </slide>
+    <slide id="wow" :steps="4">
+      <template v-if="step == 1">
+        <h1 class="is-emoji">👎</h1>
+        <p>“Wow, that gradient on top of the picture is colorful”</p>
+      </template>
+      <template v-if="step == 2">
+        <h1 class="is-emoji">👍</h1>
+        <p>“Wow, that is nice and colorful picture”</p>
+      </template>
+      <template v-if="step == 3">
+        <h1 class="is-emoji">👎</h1>
+        <p>“Wow, this gradient really helps me read this text that is above that picture”</p>
+      </template>
+      <template v-if="step == 4">
+        <h1 class="is-emoji">👍</h1>
+        <p>“Wow, this text is easily readable even on top of the picture.”</p>
+      </template>
+    </slide>
+    <slide id="nurse">
+      <div class="eg-slide-gradient">
         <img src="/images/piter/nurse.jpg" class="u-cover " alt="">
       </div>
     </slide>
@@ -25,7 +49,6 @@
       <div v-if="step == 1" class="eg-slide-gradient">
         <img src="/images/piter/bricklaying.jpg" class="u-cover lucy">
       </div>
-      <!-- <iframe v-if="step == 1" class="is-transparent" src="https://www.youtube.com/embed/3XD3DDWrt6Q?rel=0&autoplay=1&mute=1&controls=0&showinfo=0&start=200&end=250" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen /> -->
       <div v-if="step == 2" class="u-position-cover u-grid u-grid--2-1">
         <img src="/images/piter/grundtvig1.jpg" class="u-cover">
         <img src="/images/piter/grundtvig2.jpg" class="u-cover">
@@ -36,16 +59,33 @@
       <img v-if="step >= 2" src="/images/piter/savanna.jpg" class="u-cover">
       <div v-if="step == 3" class="eg-slideshow-lion">🦁</div>
     </slide>
-    <slide id="medical" :steps="2">
-      <h1 v-if="step == 1" class="shit">Hit<br>Shappens</h1>
-      <img v-if="step == 2" src="/images/piter/tiles.jpg" class="u-cover">
+    <slide id="tiles" :steps="3">
+      <img v-if="step == 1" src="/images/piter/girih-tiles.jpg" class="u-cover">
+      <h1 v-if="step == 2" class="shit">Hit<br>Shappens</h1>
+      <img v-if="step == 3" src="/images/piter/tiles.jpg" class="u-cover">
       <!-- Some things about tiles and then rods / ganglion potential. -->
     </slide>
-    <momondo id="momondo" />
+    <slide id="momondo" :steps="3">
+      <div v-if="step == 1" class="eg-slide-content eg-slide-scroll">
+        <img src="/images/piter/momondo-a.png">
+      </div>
+      <div v-if="step == 2" class="eg-slide-content u-grid u-grid--2-1">
+        <div class="eg-slide-momondo">
+          <img src="/images/piter/momondo-a.png">
+        </div>
+        <div class="eg-slide-momondo">
+          <img src="/images/piter/momondo-b.png">
+        </div>
+      </div>
+    </slide>
+    <slide id="css tricks" :steps="3">
+      <iframe v-if="step == 1" src="https://css-tricks.com/easing-linear-gradients/" />
+      <img v-if="step == 2" src="/images/piter/twitter.jpg" class="u-cover u-cover--top">
+      <img v-if="step == 3" src="/images/piter/github.jpg" class="u-cover u-cover--top">
+    </slide>
     <linear-to-easing id="easeDemo" />
-    <slide :steps="2">
-      <prism language="javascript" label="CSSWG Proposal">{{ js }}</prism>
-      <p v-if="step >= 0">{{ step }}</p>
+    <slide>
+      <prism language="css" label="CSSWG Proposal">{{ futureCSS }}</prism>
     </slide>
     <color-spaces-demo />
     <blur />
@@ -98,10 +138,10 @@
 import eagle from 'eagle.js'
 import slideshowMethods from '~/components/mixins/slideshow'
 import prism from '~/components/prism'
+import gradientOutput from '~/components/tools/gradient/calculations/gradient-output'
 import {
   linearToEasing,
   colorSpacesDemo,
-  momondo,
   blur,
   gammaCorrection,
 } from '~/components/slides'
@@ -111,11 +151,10 @@ export default {
     prism,
     linearToEasing,
     colorSpacesDemo,
-    momondo,
     blur,
     gammaCorrection,
   },
-  mixins: [eagle.slideshow, slideshowMethods],
+  mixins: [eagle.slideshow, slideshowMethods, gradientOutput],
   props: {
     mouseNavigation: { default: false, type: Boolean },
     // backBySlide: { default: true, type: Boolean },
@@ -130,6 +169,18 @@ this is a very long line which we normally shouldn't be using`,
       //   ...images,
       // },
     }
+  },
+  computed: {
+    futureCSS: function() {
+      return `#future {
+  linear-gradient(
+    ${this.gradientDirection},
+    ${this.gradientColor1},
+    ${this.gradientFunction},
+    ${this.gradientColor2}
+  );
+};`
+    },
   },
   watch: {
     currentSlide: function() {
