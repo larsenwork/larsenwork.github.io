@@ -139,6 +139,9 @@ this is a very long line which we normally shouldn't be using`,
       }
     },
   },
+  created: function() {
+    this.$store.state.presentation.isLive = true
+  },
 }
 </script>
 
