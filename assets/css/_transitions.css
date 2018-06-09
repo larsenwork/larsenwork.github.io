@@ -9,6 +9,23 @@
   will-change: opacity;
 }
 
+.tr-slides-enter-active,
+.tr-slides-leave-active {
+  transition: var(--transition);
+}
+
+.tr-slides-enter {
+  transform: translateY(calc(var(--spacer-xsmall) * -1));
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.tr-slides-leave-to {
+  transform: translateY(calc(var(--spacer-xsmall) * 1));
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
 .tr-dropdown-enter-active,
 .tr-dropdown-leave-active {
   transition: var(--transition);

@@ -43,7 +43,7 @@ button,
   }
 }
 
-input,
+input:not([type='range']),
 select {
   display: flex;
   font-family: inherit;
@@ -71,6 +71,11 @@ select {
   background-color: var(--color-themed-fg);
   text-shadow: none;
   opacity: 1;
+}
+
+input::selection {
+  background-color: var(--color-themed-bg);
+  color: var(--color-themed-fg);
 }
 
 :focus {

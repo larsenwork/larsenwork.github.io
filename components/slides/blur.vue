@@ -43,14 +43,12 @@
         <label class="c-gradientEditor-label">
           Blur
         </label>
-        <input v-model="blur" type="number" class="u-marginBottom">
+        <input v-model="blur" type="number" min="0" class="u-marginBottom">
       </div>
 
       <svg>
         <filter id="sharpBlur">
           <feGaussianBlur :stdDeviation="blur" />
-          <feColorMatrix type="matrix" values="1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 9 0" />
-          <feComposite in2="SourceGraphic" operator="in" />
         </filter>
       </svg>
     </div>
@@ -60,13 +58,16 @@
 <script>
 import eagle from 'eagle.js'
 import gradientOutput from '~/components/tools/gradient/calculations/gradient-output'
+import slideshowMethods from '~/components/mixins/slideshow'
 
 export default {
-  mixins: [eagle.slide, gradientOutput],
+  mixins: [eagle.slide, gradientOutput, slideshowMethods],
+  props: {
+    id: { default: '', type: String },
+  },
   data: function() {
     return {
-      blur: 20,
-      show: true,
+      blur: 0,
     }
   },
   watch: {
@@ -77,6 +78,7 @@ export default {
     },
     active: function() {
       if (this.active) {
+        this.updateSlideId(this.id)
         this.$store.state.gradient.ease1 = {
           x: 0.42,
           y: 0,

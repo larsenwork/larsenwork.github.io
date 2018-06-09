@@ -2,17 +2,33 @@
   <div
     v-if="active"
     :style="{
-      '--blur': blur,
-      '--blurPx': `${blur}px`,
-      '--gradientLRGB': gradientCalc('lrgb'),
-      '--gradientRGB': gradientCalc('rgb'),
-      '--color1': gradientColor1,
-      '--color2': gradientColor2
+      '--rgba1': rgba1,
+      '--rgba2': rgba2,
+      '--rgbaMix': rgbaMix,
+      '--rgbaMixL': rgbaMixL,
     }"
     class="eg-slide"
   >
-    <div class="eg-slide-content eg-slide-gamma u-grid">
-      <div class="eg-slide-gamma-demo" />
+    <div class="eg-slide-content u-grid u-grid--3-4">
+      <input v-model="color1" type="text">
+      <div />
+      <input v-model="color2" type="text">
+      <div class="color-demo rgba1">
+        {{ rgba1 }}
+      </div>
+      <div class="color-demo rgbaMix">
+        {{ rgbaMix }}
+      </div>
+      <div class="color-demo rgba2">
+        {{ rgba2 }}
+      </div>
+      <div class="color-demo rgbaMixL">
+        {{ rgbaMixL }}
+      </div>
+      <div class="math">
+        <div>({{ r1 }} + {{ r2 }}) / 2 = {{ rMix }}</div>
+        <div>√(({{ r1 }}^2 + {{ r2 }}^2) / 2) = {{ rMixL }}</div>
+      </div>
     </div>
   </div>
 </template>
@@ -20,119 +36,108 @@
 <script>
 import eagle from 'eagle.js'
 import gradientOutput from '~/components/tools/gradient/calculations/gradient-output'
+import slideshowMethods from '~/components/mixins/slideshow'
+import chroma from 'chroma-js'
 
 export default {
-  mixins: [eagle.slide, gradientOutput],
+  mixins: [eagle.slide, gradientOutput, slideshowMethods],
+  props: {
+    id: { default: '', type: String },
+  },
   data: function() {
     return {
-      blur: 20,
-      show: true,
+      color1: 'red',
+      color2: 'green',
     }
   },
-  watch: {
-    step: function() {
-      if (this.step === 1) {
-        this.initialColors()
+  computed: {
+    r1() {
+      try {
+        return chroma(this.color1).rgb()[0]
+      } catch (error) {
+        return error
       }
     },
+    r2() {
+      try {
+        return chroma(this.color2).rgb()[0]
+      } catch (error) {
+        return error
+      }
+    },
+    rMix() {
+      return (this.r1 + this.r2) / 2
+    },
+    rMixL() {
+      return parseInt(Math.sqrt((this.r1 ** 2 + this.r2 ** 2) / 2))
+    },
+    rgba1() {
+      try {
+        return chroma(this.color1).css()
+      } catch (error) {
+        return error
+      }
+    },
+    rgba2() {
+      try {
+        return chroma(this.color2).css()
+      } catch (error) {
+        return error
+      }
+    },
+    rgbaMix() {
+      try {
+        return chroma.mix(this.color1, this.color2).css()
+      } catch (error) {
+        return error
+      }
+    },
+    rgbaMixL() {
+      try {
+        return chroma.mix(this.color1, this.color2, 0.5, 'lrgb').css()
+      } catch (error) {
+        return error
+      }
+    },
+  },
+  watch: {
     active: function() {
       if (this.active) {
-        this.$store.state.gradient.ease1 = {
-          x: 0.42,
-          y: 0,
-        }
-        this.$store.state.gradient.ease2 = {
-          x: 0.58,
-          y: 1,
-        }
-        this.$store.state.gradient.direction = {
-          deg: 90,
-          x: 0.5,
-          y: 0.2,
-        }
-        // And because watch.step doesn't fire on load...
-        if (this.step === 1) {
-          this.initialColors()
-        }
+        this.updateSlideId(this.id)
       }
     },
   },
-  methods: {
-    initialColors() {
-      this.$store.state.gradient.color1 = {
-        h: 0,
-        s: 100,
-        l: 50,
-        a: 1,
-        hsv: {
-          s: 0,
-          v: 20,
-        },
-      }
-      this.$store.state.gradient.color2 = {
-        h: 130,
-        s: 100,
-        l: 20,
-        a: 1,
-        hsv: {
-          s: 0,
-          v: 10,
-        },
-      }
-    },
-  },
+  methods: {},
 }
 </script>
 
 <style lang="postcss">
-.eg-slide-gamma {
-  justify-content: unset !important;
+.color-demo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacer-xsmall);
+  border-radius: var(--spacer-xsmall);
 
-  & svg {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
+  &.rgba1 {
+    grid-row: 2 / span 2;
+    background-color: var(--rgba1);
+  }
+  &.rgba2 {
+    grid-column: 3;
+    grid-row: 2 / span 2;
+    background-color: var(--rgba2);
+  }
+  &.rgbaMix {
+    background-color: var(--rgbaMix);
+  }
+  &.rgbaMixL {
+    background-color: var(--rgbaMixL);
   }
 }
-
-.eg-slide-gamma-demo {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-
-  &:nth-child(1) {
-    filter: blur(var(--blurPx));
-  }
-
-  &:nth-child(2) {
-    filter: url('#sharpBlur');
-  }
-}
-
-.eg-slide-gamma-left {
-  background-color: var(--color1);
-}
-
-.eg-slide-gamma-right {
-  background-color: var(--color2);
-}
-
-.eg-slide-gamma-gradient {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-  background: var(--gradientRGB);
-  width: calc(var(--blurPx) * 6);
-
-  &.eg-slide-gamma-gradient--fancy {
-    background: var(--gradientLRGB);
-  }
+.math {
+  grid-column: 1 / span 3;
+  display: flex;
+  justify-content: space-around;
 }
 </style>

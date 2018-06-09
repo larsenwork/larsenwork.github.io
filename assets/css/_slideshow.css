@@ -29,7 +29,7 @@
 
 .eg-slide-scroll {
   overflow-y: scroll;
-  display: block;
+  display: block !important;
 }
 
 .eg-slide-gradient {
@@ -69,6 +69,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  &.is-horisontal {
+    flex-direction: row;
+    align-items: center;
+    justify-content: unset;
+  }
 
   & iframe {
     animation: fadeIn 1s;

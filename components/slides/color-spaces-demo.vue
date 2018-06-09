@@ -40,15 +40,17 @@ import eagle from 'eagle.js'
 import easingEdit from '~/components/tools/gradient/easing-edit'
 import easingPreview from '~/components/tools/gradient/easing-preview'
 import gradientOutput from '~/components/tools/gradient/calculations/gradient-output'
+import slideshowMethods from '~/components/mixins/slideshow'
 
 export default {
   components: {
     easingEdit,
     easingPreview,
   },
-  mixins: [eagle.slide, gradientOutput],
+  mixins: [eagle.slide, gradientOutput, slideshowMethods],
   props: {
     steps: { default: 3, type: Number },
+    id: { default: '', type: String },
   },
   watch: {
     step: function() {
@@ -64,6 +66,7 @@ export default {
     },
     active: function() {
       if (this.active) {
+        this.updateSlideId(this.id)
         this.$store.state.gradient.ease1 = {
           x: 0,
           y: 0,

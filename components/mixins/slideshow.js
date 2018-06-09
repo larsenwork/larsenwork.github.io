@@ -20,5 +20,14 @@ export default {
           gradient,
         })
     },
+    updateGrayscale(greyscale) {
+      console.log(greyscale)
+      database
+        .collection('piter')
+        .doc('state')
+        .update({
+          greyscale,
+        })
+    },
   },
 }
