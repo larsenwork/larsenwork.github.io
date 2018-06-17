@@ -60,7 +60,7 @@
 </template>
 
 <script>
-import eagle from 'eagle.js'
+import { Slide } from 'eagle.js'
 import easingEdit from '~/components/tools/gradient/easing-edit'
 import easingPreview from '~/components/tools/gradient/easing-preview'
 import gradientOutput from '~/components/tools/gradient/calculations/gradient-output'
@@ -71,7 +71,7 @@ export default {
     easingEdit,
     easingPreview,
   },
-  mixins: [eagle.slide, gradientOutput, slideshowMethods],
+  mixins: [Slide, gradientOutput, slideshowMethods],
   props: {
     steps: { default: 3, type: Number },
     id: { default: '', type: String },

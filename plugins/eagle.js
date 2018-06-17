@@ -1,4 +1,5 @@
 import Vue from 'vue'
-import Eagle from 'eagle.js'
+import { Slide, Transition } from 'eagle.js'
 
-Vue.use(Eagle)
+Vue.component(Slide.name, Slide)
+Vue.component(Transition.name, Transition)

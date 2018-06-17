@@ -8,7 +8,7 @@
     }"
     class="c-presentation eg-slideshow"
   >
-    <slide id="intro" >
+    <slide id="intro">
       <h1>Easing Gradients, the Squircle of Colors</h1>
       <p>Andreas Larsen<br>@larsenwork</p>
     </slide>
@@ -193,7 +193,7 @@
 </template>
 
 <script>
-import eagle from 'eagle.js'
+import { Slideshow } from 'eagle.js'
 import slideshowMethods from '~/components/mixins/slideshow'
 import prism from '~/components/prism'
 import gradientOutput from '~/components/tools/gradient/calculations/gradient-output'
@@ -216,7 +216,7 @@ export default {
     gammaCorrection,
     helmholz,
   },
-  mixins: [eagle.slideshow, slideshowMethods, gradientOutput],
+  mixins: [Slideshow, slideshowMethods, gradientOutput],
   props: {
     mouseNavigation: { default: false, type: Boolean },
     // backBySlide: { default: true, type: Boolean },

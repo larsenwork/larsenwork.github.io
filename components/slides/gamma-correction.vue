@@ -34,13 +34,13 @@
 </template>
 
 <script>
-import eagle from 'eagle.js'
+import { Slide } from 'eagle.js'
 import gradientOutput from '~/components/tools/gradient/calculations/gradient-output'
 import slideshowMethods from '~/components/mixins/slideshow'
 import chroma from 'chroma-js'
 
 export default {
-  mixins: [eagle.slide, gradientOutput, slideshowMethods],
+  mixins: [Slide, gradientOutput, slideshowMethods],
   props: {
     id: { default: '', type: String },
   },
