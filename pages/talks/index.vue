@@ -9,7 +9,7 @@
       <ul>
         <li>
           <nuxt-link
-            to="talks/piter"
+            to="piter"
             class="c-navigation-link"
           >
             Piter
