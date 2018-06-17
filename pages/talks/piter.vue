@@ -320,9 +320,7 @@ export default {
     jumpToSlide() {
       if (this.$route.query.slide) {
         const slideIndex = this.$route.query.slide
-        console.log(this.slides)
         this.slides.forEach(slide => (slide.active = false))
-        console.log(this.slides)
         this.currentSlideIndex = slideIndex
         this.currentSlide = this.slides[slideIndex - 1]
       }

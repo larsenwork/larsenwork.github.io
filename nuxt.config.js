@@ -74,7 +74,7 @@ module.exports = {
   */
   plugins: [
     { src: '~/plugins/vue-lazyload', ssr: false },
-    { src: '~/plugins/eagle', ssr: false },
+    { src: '~/plugins/eagle' },
   ],
 
   /*
@@ -91,7 +91,6 @@ module.exports = {
   */
   build: {
     vendor: ['vue-lazyload', 'chroma-js'],
-    // vendor: ['vue-lazyload', 'eagle.js'],
     plugins: [
       new BundleAnalyzerPlugin({
         analyzerMode: 'static',
