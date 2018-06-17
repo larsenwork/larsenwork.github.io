@@ -99,22 +99,24 @@ export default {
             v: 0,
           },
         }
-        const ease1 = {
-          x: 0,
-          y: 0,
+        if (this.step === 1) {
+          const ease1 = {
+            x: 0,
+            y: 0,
+          }
+          const ease2 = {
+            x: 1,
+            y: 1,
+          }
+          const direction = {
+            deg: 90,
+            x: 0.5,
+            y: 0.2,
+          }
+          this.$store.state.gradient.direction = direction
+          this.$store.state.gradient.ease1 = ease1
+          this.$store.state.gradient.ease2 = ease2
         }
-        const ease2 = {
-          x: 1,
-          y: 1,
-        }
-        const direction = {
-          deg: 90,
-          x: 0.5,
-          y: 0.2,
-        }
-        this.$store.state.gradient.direction = direction
-        this.$store.state.gradient.ease1 = ease1
-        this.$store.state.gradient.ease2 = ease2
         this.$store.state.gradient.color1 = color1
         this.$store.state.gradient.color2 = color2
         this.updateSlideId(this.id)

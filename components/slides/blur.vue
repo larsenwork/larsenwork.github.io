@@ -12,28 +12,34 @@
     class="eg-slide"
   >
     <div class="eg-slide-content eg-slide-blur u-grid u-grid--3-2">
-      <div class="eg-slide-blur-demo">
+      <img :src="images.corgi" class="corgi" >
+
+      <div :key="`${blur}px`" class="eg-slide-blur-demo css-blur u-position-relative">
+        <small class="u-position-cover small-label">css filter blur</small>
         <div class="eg-slide-blur-left" />
         <div class="eg-slide-blur-right" />
       </div>
 
-      <div :key="blur" class="eg-slide-blur-demo">
-        <div class="eg-slide-blur-left" />
-        <div class="eg-slide-blur-right" />
-      </div>
-
-      <div class="eg-slide-blur-demo">
+      <div :key="blur" class="eg-slide-blur-demo svg-blur u-position-relative">
+        <small class="u-position-cover small-label">feGaussianBlur</small>
         <div class="eg-slide-blur-left" />
         <div class="eg-slide-blur-right" />
       </div>
 
       <div class="eg-slide-blur-demo u-position-relative">
+        <div class="eg-slide-blur-left" />
+        <div class="eg-slide-blur-right" />
+      </div>
+
+      <div class="eg-slide-blur-demo u-position-relative">
+        <small class="u-position-cover small-label">RGB gradient</small>
         <div class="eg-slide-blur-left" />
         <div class="eg-slide-blur-right" />
         <div class="eg-slide-blur-gradient" />
       </div>
 
       <div class="eg-slide-blur-demo u-position-relative">
+        <small class="u-position-cover small-label">linearRGB gradient</small>
         <div class="eg-slide-blur-left" />
         <div class="eg-slide-blur-right" />
         <div class="eg-slide-blur-gradient eg-slide-blur-gradient--fancy" />
@@ -59,6 +65,7 @@
 import eagle from 'eagle.js'
 import gradientOutput from '~/components/tools/gradient/calculations/gradient-output'
 import slideshowMethods from '~/components/mixins/slideshow'
+import images from '~/components/piter/images'
 
 export default {
   mixins: [eagle.slide, gradientOutput, slideshowMethods],
@@ -68,6 +75,7 @@ export default {
   data: function() {
     return {
       blur: 0,
+      images,
     }
   },
   watch: {
@@ -147,11 +155,11 @@ export default {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 
-  &:nth-child(1) {
+  &.css-blur {
     filter: blur(var(--blurPx));
   }
 
-  &:nth-child(2) {
+  &.svg-blur {
     filter: url('#sharpBlur');
   }
 }

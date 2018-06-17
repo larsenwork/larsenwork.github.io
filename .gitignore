@@ -13,8 +13,5 @@ dist
 # Mac
 .DS_Store
 
-# Temp piter images
-static/images/piter
-
 # Env file
 .env

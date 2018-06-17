@@ -47,7 +47,7 @@ input:not([type='range']),
 select {
   display: flex;
   font-family: inherit;
-  font-size: 1rem;
+  font-size: inherit;
   line-height: inherit;
   margin: 0;
   padding: var(--spacer-xsmall);

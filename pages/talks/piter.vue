@@ -4,83 +4,87 @@
       'has-corgi': corgi,
       'has-wow': wow,
       'has-football': football,
+      'is-live': $store.state.presentation.isLive
     }"
     class="c-presentation eg-slideshow"
   >
     <slide id="intro" >
       <h1>Easing Gradients, the Squircle of Colors</h1>
-      <p>Andreas Larsen<br>@larsenwork<br>piter.larsen.work</p>
+      <p>Andreas Larsen<br>@larsenwork</p>
     </slide>
-    <slide id="football" />
-    <slide id="intro" >
-      <h1>Easing Gradients, the Squircle of Colors</h1>
-      <p>Andreas Larsen<br>@larsenwork<br>piter.larsen.work</p>
+    <slide id="football" :steps="2">
+      <iframe v-if="step == 2" class="is-transparent" src="https://www.youtube.com/embed/Z6szMwKsoX4?rel=0&autoplay=1&mute=1&controls=1&showinfo=0&start=12" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen />
     </slide>
     <slide id="helloWorld" :steps="2">
+      <img :src="preloadedImages.corgi" class="corgi" >
       <h1 v-if="step == 1">piter.larsen.work</h1>
       <h1 v-if="step == 2">Hello World</h1>
-      <img src="/images/piter/corgi.png" class="corgi" >
     </slide>
     <slide id="me">
-      <img src="/images/piter/me.jpg" class="u-cover" alt="">
+      <img :src="preloadedImages.habesha" class="u-cover" alt="">
     </slide>
     <slide id="blame">
       <h1>Blame typography</h1>
       <p>Also, people will notice!</p>
     </slide>
-    <slide id="wow" :steps="5">
-      <div v-if="step == 2">
+    <slide id="wow" :steps="6">
+      <div v-if="step == 1 || step == 2">
+        <h1>So why use gradients?</h1>
+        <p>We want our users to say <span v-if="step == 2">wow</span><span v-else>...</span></p>
+      </div>
+      <div v-if="step == 3">
         <h1 class="is-emoji">👎</h1>
         <p>“Wow, that gradient on top of the picture is colorful”<br>&nbsp;</p>
       </div>
-      <div v-if="step == 3">
+      <div v-if="step == 4">
         <h1 class="is-emoji">👍</h1>
         <p>“Wow, that is a nice and colorful picture”<br>&nbsp;</p>
       </div>
-      <div v-if="step == 4">
+      <div v-if="step == 5">
         <h1 class="is-emoji">👎</h1>
         <p>“Wow, that gradient really helps me read the text above the picture.”</p>
       </div>
-      <div v-if="step == 5">
+      <div v-if="step == 6">
         <h1 class="is-emoji">👍</h1>
         <p>“Wow, that text on top of the picture is very readable”<br>&nbsp;</p>
       </div>
     </slide>
     <slide id="nurse">
       <div class="eg-slide-gradient">
-        <img src="/images/piter/nurse.jpg" class="u-cover " alt="">
+        <img :src="preloadedImages.nurse" class="u-cover " alt="">
       </div>
     </slide>
     <slide id="mason" :steps="2">
       <div v-if="step == 1" class="eg-slide-gradient">
-        <img src="/images/piter/bricklaying.jpg" class="u-cover lucy">
+        <img :src="preloadedImages.bricks" class="u-cover lucy">
       </div>
       <div v-if="step == 2" class="u-position-cover u-grid u-grid--2-1">
-        <img src="/images/piter/grundtvig1.jpg" class="u-cover">
-        <img src="/images/piter/grundtvig2.jpg" class="u-cover">
+        <small class="u-position-cover small-label">Pictures by <a href="https://www.instagram.com/ghanavati/">@ghanavati</a></small>
+        <img :src="preloadedImages.grundtvig_1" class="u-cover">
+        <img :src="preloadedImages.grundtvig_2" class="u-cover">
       </div>
     </slide>
     <slide id="lucy" :steps="3">
-      <img v-if="step == 1" src="/images/piter/lucy.jpg" class="u-cover lucy">
-      <img v-if="step >= 2" src="/images/piter/savanna.jpg" class="u-cover">
+      <img v-if="step == 1" :src="preloadedImages.lucy" class="u-cover lucy">
+      <img v-if="step >= 2" :src="preloadedImages.savana" class="u-cover">
       <div v-if="step == 3" class="eg-slideshow-lion">🦁</div>
     </slide>
     <slide id="tiles" :steps="2">
       <h1 v-if="step == 1" class="shit">Hit<br>Shappens</h1>
-      <img v-if="step == 2" src="/images/piter/tiles.jpg" class="u-cover">
+      <img v-if="step == 2" :src="preloadedImages.tiles" class="u-cover">
     </slide>
     <slide id="eye">
-      <img src="/images/piter/eye.jpg" class="screenshot u-cover">
+      <img :src="preloadedImages.eye_anatomy" class="screenshot u-cover">
     </slide>
     <slide id="eye1">
-      <img src="/images/piter/eye-receptive.jpg" class="screenshot u-cover">
+      <img :src="preloadedImages.eye_photosensors" class="screenshot u-cover">
     </slide>
     <slide id="eye2">
-      <img src="/images/piter/eye-signal.jpg" class="screenshot u-cover">
+      <img :src="preloadedImages.eye_receptive" class="screenshot u-cover">
     </slide>
     <slide id="momondo-a">
       <div class="eg-slide-scroll">
-        <img src="/images/piter/momondo-a.png">
+        <img :src="preloadedImages.momondo_linear">
       </div>
     </slide>
     <slide id="mistakes">
@@ -89,27 +93,34 @@
       </div>
     </slide>
     <slide id="bob">
-      <img src="/images/piter/bob.png" class="u-cover bob">
+      <img :src="preloadedImages.bob" class="u-cover bob">
     </slide>
     <slide id="momondo-b">
       <div class="u-grid u-grid--2-1">
         <div class="eg-slide-scroll">
-          <img src="/images/piter/momondo-a.png">
+          <img :src="preloadedImages.momondo_linear">
         </div>
         <div class="eg-slide-scroll">
-          <img src="/images/piter/momondo-b.png">
+          <img :src="preloadedImages.momondo_ease">
         </div>
       </div>
     </slide>
     <linear-to-easing id="easeDemo" />
+    <slide>
+      <iframe
+        src="https://codepen.io/larsenwork/live/bf62b78d1c3cba51a00101e21ddaa025"
+        style="background-color:transparent;"
+      />
+    </slide>
     <slide id="tell the world">
       <h1 class="is-emoji">🗣</h1>
-      <p>Our ideas are worthless if we dont share them.</p>
+      <p>Our ideas are worthless if we dont share them.<br>
+        Also, I am a n00b so if I can do it anybody can</p>
     </slide>
     <slide id="css tricks" :steps="3">
       <iframe v-if="step == 1" src="https://css-tricks.com/easing-linear-gradients/" />
-      <img v-if="step == 2" src="/images/piter/twitter.jpg" class="u-cover twitter">
-      <img v-if="step == 3" src="/images/piter/github.jpg" class="u-cover twitter">
+      <img v-if="step == 2" :src="preloadedImages.twitter" class="u-cover twitter">
+      <img v-if="step == 3" :src="preloadedImages.csswg" class="u-cover twitter">
     </slide>
     <slide id="syntax me">
       <prism language="css" label="My Needs">{{ myCSS }}</prism>
@@ -118,24 +129,27 @@
       <prism language="css" label="Eric Meyer">{{ meyerCSS }}</prism>
     </slide>
     <slide id="syntax amelia" :steps="3">
-      <prism v-if="step == 1" language="css" label="AmeliaBR">{{ futureCSS }}</prism>
-      <prism v-if="step == 2" language="css" label="AmeliaBR">{{ futureCSS1 }}</prism>
-      <prism v-if="step == 3" language="css" label="AmeliaBR">{{ futureCSS2 }}</prism>
+      <prism v-if="step == 1" language="css" label="Amelia Bellamy-Royds">{{ futureCSS }}</prism>
+      <prism v-if="step == 2" language="css" label="Amelia Bellamy-Royds">{{ futureCSS1 }}</prism>
+      <prism v-if="step == 3" language="css" label="Amelia Bellamy-Royds">{{ futureCSS2 }}</prism>
+    </slide>
+    <slide id="larsenwork">
+      <h1>larsenwork.com/easing-gradients</h1>
     </slide>
     <slide id="color">
       <h1>RGB and LRGB</h1>
       <p>All about the gamma correction</p>
     </slide>
     <slide id="eye discarge">
-      <img src="/images/piter/eye-discarge.jpg" class="screenshot u-cover">
+      <img :src="preloadedImages.eye_discharge" class="screenshot u-cover">
     </slide>
     <slide id="eye gamma">
-      <img src="/images/piter/gamma.png" class="screenshot u-cover">
+      <img :src="preloadedImages.eye_brightness" class="screenshot u-cover">
     </slide>
     <blur id="blur" />
     <gamma-correction id="gamma" />
     <slide id="helmholz1">
-      <img src="/images/piter/corgi.png" class="corgi" >
+      <img :src="preloadedImages.corgi" class="corgi" >
       <h1>Helmholtz–Kohlrausch</h1>
       <p>Even when they have the same luminance, colored lights seem brighter than white light does.</p>
     </slide>
@@ -147,43 +161,31 @@
     <slide id="demo time">
       <h1>Demo / Code</h1>
     </slide>
-    <slide :steps="2">
+    <slide>
       <div class="u-position-cover u-grid u-grid--2-2">
-        <template
-          v-if="step == 1"
-        >
-          <iframe
-            class="c-iframe--scaled"
-            src="http://gka.github.io/chroma.js/"
-          />
-          <iframe
-            class="c-iframe--scaled"
-            src="http://pomax.github.io/bezierjs/"
-          />
-          <iframe
-            class="c-iframe--scaled"
-            src="https://zulko.github.io/eaglejs-demo/"
-          />
-        </template>
-        <template
-          v-if="step == 2"
-        >
-          <iframe
-            class="c-iframe--scaled"
-            src="http://jamie-wong.com/post/color/"
-          />
-          <iframe
-            class="c-iframe--scaled"
-            src="https://larsenwork.com/"
-            style="background-color:transparent;"
-          />
-        </template>
+        <iframe
+          class="c-iframe--scaled"
+          src="http://gka.github.io/chroma.js/"
+        />
+        <iframe
+          class="c-iframe--scaled"
+          src="http://pomax.github.io/bezierjs/"
+        />
+        <iframe
+          class="c-iframe--scaled"
+          src="http://jamie-wong.com/post/color/"
+        />
+        <iframe
+          class="c-iframe--scaled"
+          src="https://larsenwork.com/"
+          style="background-color:transparent;"
+        />
       </div>
     </slide>
     <slide id="colorzilla">
       <iframe src="http://www.colorzilla.com/gradient-editor/" frameborder="0" />
     </slide>
-    <slide>
+    <slide id="finito">
       <h1>The End</h1>
       <p>@larsenwork</p>
     </slide>
@@ -195,6 +197,8 @@ import eagle from 'eagle.js'
 import slideshowMethods from '~/components/mixins/slideshow'
 import prism from '~/components/prism'
 import gradientOutput from '~/components/tools/gradient/calculations/gradient-output'
+import images from '~/components/piter/images'
+
 import {
   linearToEasing,
   colorSpacesDemo,
@@ -221,12 +225,10 @@ export default {
     return {
       corgi: false,
       wow: false,
-      js: `// larsenwork.com
-const test = false
-this is a very long line which we normally shouldn't be using`,
-      // preloadedImages: {
-      //   ...images,
-      // },
+      football: false,
+      preloadedImages: {
+        ...images,
+      },
     }
   },
   computed: {
@@ -283,24 +285,38 @@ this is a very long line which we normally shouldn't be using`,
     },
   },
   watch: {
+    step: function() {
+      const wowSlides = ['wow']
+      this.wow =
+        wowSlides.includes(this.currentSlide.$attrs.id) && this.step >= 2
+    },
     currentSlide: function() {
       if (this.currentSlide.$attrs.id) {
         this.updateSlideId(this.currentSlide.$attrs.id)
-        const corgiSlides = ['intro', 'mistakes', 'lab']
+        const corgiSlides = ['intro', 'mistakes', 'lab', 'helloWorld']
         this.corgi = corgiSlides.includes(this.currentSlide.$attrs.id)
-        const wowSlides = ['wow']
-        this.wow = wowSlides.includes(this.currentSlide.$attrs.id)
-        const footballSlides = ['football']
+        const footballSlides = ['football', 'finito']
         this.football = footballSlides.includes(this.currentSlide.$attrs.id)
-      } else {
-        this.corgi = false
-        this.wow = false
-        this.football = false
       }
+    },
+    currentSlideIndex: function(index) {
+      this.updateUrlQuery(index)
     },
   },
   mounted: function() {
+    this.currentSlideIndex = this.$route.query.slide
+      ? this.$route.query.slide
+      : 2
+    this.currentSlide = this.slides[this.currentSlideIndex - 1]
     this.$store.state.presentation.isLive = true
+  },
+  destroyed: function() {
+    this.$store.state.presentation.isLive = false
+  },
+  methods: {
+    updateUrlQuery(index) {
+      this.$router.push({ name: 'talks-piter', query: { slide: index } })
+    },
   },
 }
 </script>
@@ -321,11 +337,6 @@ this is a very long line which we normally shouldn't be using`,
 }
 
 :root {
-  --font-family: 'piter', sans-serif;
-  --font-family-mono: 'piter-mono', monospace;
-  --fontSize-html: 4vw;
-  --fontSize-h1: 2.2rem;
-  --lineHeight-body: 1.3rem;
   --defaultGradient: linear-gradient(
     to bottom right,
     hsl(210, 100%, 45%),
@@ -337,7 +348,10 @@ this is a very long line which we normally shouldn't be using`,
 .c-presentation {
   height: 100vh;
   width: 100vw;
-  padding: var(--spacer-xsmall);
+  padding: var(--spacer-medium);
+  opacity: 0;
+  will-change: opacity;
+  transition: var(--transition);
   background-image: linear-gradient(
     to bottom right,
     hsla(210, 10%, 16%, 1),
@@ -345,11 +359,31 @@ this is a very long line which we normally shouldn't be using`,
     hsla(210, 10%, 4%, 1)
   );
 
+  & * {
+    font-family: 'piter', sans-serif;
+    font-size: 4vw;
+    line-height: 1;
+  }
+
+  & small {
+    font-size: 80%;
+  }
+
+  & pre,
+  & code {
+    font-family: 'piter-mono', monospace;
+  }
+
   & h1 {
     font-family: 'Gidole', sans-serif;
+    font-size: 8.8vw;
     line-height: 1.2;
     letter-spacing: -0.02em;
     margin-left: -0.06em;
+  }
+
+  &.is-live {
+    opacity: 1;
   }
 
   &.has-corgi {
@@ -359,7 +393,7 @@ this is a very long line which we normally shouldn't be using`,
         hsla(210, 100%, 45%, 0.5),
         hsla(330, 100%, 45%, 0.5)
       ),
-      url('/images/piter/corgi-big.png');
+      url('https://i.imgur.com/q0tMNDP.gif');
     background-blend-mode: multiply, normal;
     background-size: cover;
   }
@@ -371,7 +405,7 @@ this is a very long line which we normally shouldn't be using`,
         hsla(210, 100%, 45%, 0.5),
         hsla(330, 100%, 45%, 0.5)
       ),
-      url('/images/piter/wow.png');
+      url('https://imgur.com/wFKEUJ2.gif');
     background-blend-mode: multiply, normal;
     background-size: cover;
   }
@@ -383,7 +417,7 @@ this is a very long line which we normally shouldn't be using`,
         hsla(210, 100%, 45%, 0.5),
         hsla(330, 100%, 45%, 0.5)
       ),
-      url('/images/piter/hummel.jpg');
+      url('https://imgur.com/hEP4l2G.jpg');
     background-blend-mode: multiply, normal;
     background-size: cover;
     background-position: bottom center;
@@ -399,7 +433,7 @@ this is a very long line which we normally shouldn't be using`,
     animation-iteration-count: 1;
     animation-fill-mode: both;
     animation-duration: 4s;
-    animation-delay: 1s;
+    animation-delay: 0.1s;
     animation-name: corgi;
   }
 
@@ -422,6 +456,15 @@ this is a very long line which we normally shouldn't be using`,
 
   & .twitter {
     object-position: top center;
+  }
+
+  & .small-label {
+    padding-top: var(--spacer-xsmall);
+    padding-left: var(--spacer-small);
+
+    & a {
+      color: var(--color-brand);
+    }
   }
 }
 @keyframes corgi {

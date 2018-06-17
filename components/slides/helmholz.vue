@@ -4,6 +4,7 @@
     class="eg-slide"
   >
     <div class="eg-slide-content eg-slide-helmholz u-grid">
+      <img :src="images.corgi" class="corgi" >
       <input
         v-model="greyscale"
         type="range"
@@ -32,6 +33,7 @@
 import eagle from 'eagle.js'
 import gradientOutput from '~/components/tools/gradient/calculations/gradient-output'
 import slideshowMethods from '~/components/mixins/slideshow'
+import images from '~/components/piter/images'
 
 export default {
   mixins: [eagle.slide, gradientOutput, slideshowMethods],
@@ -41,6 +43,7 @@ export default {
   data: function() {
     return {
       greyscale: 1,
+      images,
     }
   },
   watch: {
