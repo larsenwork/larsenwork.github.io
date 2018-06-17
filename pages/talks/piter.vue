@@ -291,6 +291,9 @@ export default {
         wowSlides.includes(this.currentSlide.$attrs.id) && this.step >= 2
     },
     currentSlide: function() {
+      this.corgi = false
+      this.football = false
+      this.wow = false
       if (this.currentSlide.$attrs.id) {
         this.updateSlideId(this.currentSlide.$attrs.id)
         const corgiSlides = ['intro', 'mistakes', 'lab', 'helloWorld']
@@ -304,11 +307,7 @@ export default {
     },
   },
   mounted: function() {
-    this.currentSlideIndex = this.$route.query.slide
-      ? this.$route.query.slide
-      : 1
-    this.currentSlide = this.slides[this.currentSlideIndex - 1]
-    this.$store.state.presentation.isLive = true
+    setTimeout(this.jumpToSlide, 100)
   },
   destroyed: function() {
     this.$store.state.presentation.isLive = false
@@ -316,6 +315,12 @@ export default {
   methods: {
     updateUrlQuery(index) {
       this.$router.push({ name: 'talks-piter', query: { slide: index } })
+    },
+    jumpToSlide() {
+      const slideIndex = this.$route.query.slide ? this.$route.query.slide : 1
+      this.currentSlideIndex = slideIndex
+      this.currentSlide = this.slides[slideIndex - 1]
+      this.$store.state.presentation.isLive = true
     },
   },
 }
