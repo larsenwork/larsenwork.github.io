@@ -306,7 +306,7 @@ export default {
   mounted: function() {
     this.currentSlideIndex = this.$route.query.slide
       ? this.$route.query.slide
-      : 2
+      : 1
     this.currentSlide = this.slides[this.currentSlideIndex - 1]
     this.$store.state.presentation.isLive = true
   },
