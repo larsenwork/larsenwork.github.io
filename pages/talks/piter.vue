@@ -305,7 +305,7 @@ export default {
     },
     currentSlideIndex: function(index) {
       console.log('currentslide', index)
-      // this.updateUrlQuery(index)
+      this.updateUrlQuery(index)
     },
   },
   mounted: function() {
