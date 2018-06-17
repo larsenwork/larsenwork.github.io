@@ -304,11 +304,18 @@ export default {
       }
     },
     currentSlideIndex: function(index) {
+      console.log('currentslide', index)
       this.updateUrlQuery(index)
     },
   },
   mounted: function() {
-    setTimeout(this.jumpToSlide(), 200)
+    console.log('mounted')
+    if (this.$route.query.slide) {
+      const slideIndex = this.$route.query.slide
+      this.currentSlideIndex = slideIndex
+      this.currentSlide = this.slides[slideIndex - 1]
+    }
+    this.$store.state.presentation.isLive = true
   },
   destroyed: function() {
     this.$store.state.presentation.isLive = false
@@ -316,15 +323,6 @@ export default {
   methods: {
     updateUrlQuery(index) {
       this.$router.push({ name: 'talks-piter', query: { slide: index } })
-    },
-    jumpToSlide() {
-      if (this.$route.query.slide) {
-        const slideIndex = this.$route.query.slide
-        this.slides.forEach(slide => (slide.active = false))
-        this.currentSlideIndex = slideIndex
-        this.currentSlide = this.slides[slideIndex - 1]
-      }
-      this.$store.state.presentation.isLive = true
     },
   },
 }
