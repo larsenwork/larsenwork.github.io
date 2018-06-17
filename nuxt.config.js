@@ -90,6 +90,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    vendor: ['vue-lazyload', 'chroma-js'],
     // vendor: ['vue-lazyload', 'eagle.js'],
     plugins: [
       new BundleAnalyzerPlugin({
