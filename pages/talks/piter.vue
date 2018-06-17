@@ -305,11 +305,10 @@ export default {
     },
     currentSlideIndex: function(index) {
       console.log('currentslide', index)
-      this.updateUrlQuery(index)
+      // this.updateUrlQuery(index)
     },
   },
   mounted: function() {
-    console.log('mounted')
     if (this.$route.query.slide) {
       const slideIndex = this.$route.query.slide
       this.currentSlideIndex = slideIndex
