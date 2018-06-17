@@ -326,7 +326,13 @@ export default {
       } else {
         this.step++
       }
-      console.log('steppyyy')
+    },
+    previousStep() {
+      if (this.step <= 1) {
+        this.previousSlide()
+      } else {
+        this.step--
+      }
     },
     updateUrlQuery(index) {
       this.$router.push({ name: 'talks-piter', query: { slide: index } })
