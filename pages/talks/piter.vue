@@ -320,6 +320,14 @@ export default {
     this.$store.state.presentation.isLive = false
   },
   methods: {
+    nextStep() {
+      if (this.step >= this.currentSlide.steps) {
+        this.nextSlide()
+      } else {
+        this.step++
+      }
+      console.log('steppyyy')
+    },
     updateUrlQuery(index) {
       this.$router.push({ name: 'talks-piter', query: { slide: index } })
     },
