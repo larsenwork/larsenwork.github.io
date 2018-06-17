@@ -90,7 +90,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
-    vendor: ['vue-lazyload', 'chroma-js'],
+    vendor: ['vue-lazyload'],
     plugins: [
       new BundleAnalyzerPlugin({
         analyzerMode: 'static',
@@ -114,6 +114,10 @@ module.exports = {
       //   rule => rule.loader === 'babel-loader'
       // )
       // babelLoader.exclude = /node_modules\/(?!eagle.js)/
+
+      // config.externals = {
+      //   'highlight.js': 'HighlightJS',
+      // }
 
       if (isDev && isClient) {
         config.module.rules.push({

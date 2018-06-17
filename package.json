@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "cross-env HOST=0.0.0.0 PORT=3333 nuxt",
     "build": "nuxt build",
+    "analyse": "nuxt build --analyze",
     "start": "nuxt start",
     "generate": "nuxt generate",
     "deploy": "push-dir --dir=dist --branch=master --cleanup",
@@ -14,13 +15,11 @@
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lintfix": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
     "check": "prettier-eslint-check **/*.vue",
-    "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
+    "eslint-check":
+      "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
     "precommit": "npm run eslint-check && npm run lint"
   },
-  "browserslist": [
-    "> 5%",
-    "last 1 versions"
-  ],
+  "browserslist": ["> 5%", "last 1 versions"],
   "dependencies": {
     "@nuxtjs/dotenv": "^1.1.1",
     "eagle.js": "^0.2.1-beta",
