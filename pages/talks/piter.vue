@@ -223,6 +223,7 @@ export default {
   },
   data: function() {
     return {
+      step: 1,
       corgi: false,
       wow: false,
       football: false,

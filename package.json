@@ -23,7 +23,7 @@
   ],
   "dependencies": {
     "@nuxtjs/dotenv": "^1.1.1",
-    "eagle.js": "git+https://github.com/larsenwork/eagle.js.git",
+    "eagle.js": "^0.2.1-beta",
     "firebase": "^5.0.4",
     "nuxt": "^1.4.0",
     "prismjs": "^1.14.0",
