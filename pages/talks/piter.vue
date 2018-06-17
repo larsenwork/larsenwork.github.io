@@ -307,7 +307,7 @@ export default {
     },
   },
   mounted: function() {
-    setTimeout(this.jumpToSlide, 100)
+    this.jumpToSlide()
   },
   destroyed: function() {
     this.$store.state.presentation.isLive = false
@@ -317,9 +317,12 @@ export default {
       this.$router.push({ name: 'talks-piter', query: { slide: index } })
     },
     jumpToSlide() {
-      const slideIndex = this.$route.query.slide ? this.$route.query.slide : 1
-      this.currentSlideIndex = slideIndex
-      this.currentSlide = this.slides[slideIndex - 1]
+      if (this.$route.query.slide) {
+        const slideIndex = this.$route.query.slide
+        this.slides.forEach(slide => (slide.active = false))
+        this.currentSlideIndex = slideIndex
+        this.currentSlide = this.slides[slideIndex - 1]
+      }
       this.$store.state.presentation.isLive = true
     },
   },
