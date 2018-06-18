@@ -11,6 +11,7 @@
           <nuxt-link
             to="piter"
             class="c-navigation-link"
+            append
           >
             Piter
           </nuxt-link>
