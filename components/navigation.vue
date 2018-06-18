@@ -63,11 +63,13 @@
         >
           Blog
         </div>
-        <div
-          class="c-navigation-link c-navigation-link--wip"
+        <nuxt-link
+          class="c-navigation-link"
+          to="/talks"
+          @click.native="hideNavigation"
         >
           Talks
-        </div>
+        </nuxt-link>
       </div>
       <div
         class="c-navigation-links-donate"
