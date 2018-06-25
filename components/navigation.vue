@@ -23,11 +23,13 @@
         >
           About
         </nuxt-link>
-        <div
-          class="c-navigation-link c-navigation-link--wip"
+        <nuxt-link
+          class="c-navigation-link"
+          to="/projects"
+          @click.native="hideNavigation"
         >
           Projects
-        </div>
+        </nuxt-link>
       </div>
       <div
         class="c-navigation-links-column"
@@ -58,11 +60,13 @@
         >
           Ramblings
         </h3>
-        <div
-          class="c-navigation-link c-navigation-link--wip"
+        <nuxt-link
+          class="c-navigation-link"
+          to="/blog"
+          @click.native="hideNavigation"
         >
           Blog
-        </div>
+        </nuxt-link>
         <nuxt-link
           class="c-navigation-link"
           to="/talks"

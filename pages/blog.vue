@@ -1,37 +1,38 @@
 <template>
   <div
-    class="p-talks"
+    class="p-blog"
   >
     <section
       class="p-index-section u-lineLength u-container u-section"
     >
-      <h1>Talks</h1>
-      <ul>
+      <h1>Blog (WIP)</h1>
+
+      <!-- <ul>
         <li
-          v-for="talk in talks"
-          :key="talk.title"
+          v-for="blog in blogs"
+          :key="blog.title"
         >
           <nuxt-link
-            :to="talk.link"
-            class="p-talks-link"
+            :to="blog.link"
+            class="p-blog-link"
             append
           >
             <div>
-              {{ talk.title }}
+              {{ blog.title }}
             </div>
             <div
-              class="p-talks-date"
+              class="p-blog-date"
             >
-              {{ talk.date }}
+              {{ blog.date }}
             </div>
             <div
-              class="p-talks-location"
+              class="p-blog-location"
             >
-              {{ talk.location }}
+              {{ blog.location }}
             </div>
           </nuxt-link>
         </li>
-      </ul>
+      </ul> -->
     </section>
   </div>
 </template>
@@ -45,7 +46,7 @@ export default {
   },
   data() {
     return {
-      talks: [
+      blogs: [
         {
           link: 'piter',
           title: 'Easing Gradients, the Squircle of Colors',
@@ -59,11 +60,11 @@ export default {
 </script>
 
 <style>
-.p-talks {
+.p-blog {
   /* Placeholder */
 }
 
-.p-talks-link {
+.p-blog-link {
   color: var(--color-bright);
   text-decoration: none;
   display: flex;
@@ -71,12 +72,12 @@ export default {
   justify-content: space-between;
   padding-top: var(--spacer-small);
 }
-.p-talks-date {
+.p-blog-date {
   margin-left: auto;
   padding-left: var(--spacer-small);
 }
 
-.p-talks-location {
+.p-blog-location {
   text-align: right;
   flex-basis: 100%;
   flex-shrink: 0;
