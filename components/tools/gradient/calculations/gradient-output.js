@@ -1,5 +1,5 @@
 import * as shorthands from './gradient-shorthands'
-import chroma from 'chroma-js'
+import * as chroma from 'chroma-js'
 import { stepsCoordinates, cubicCoordinates } from 'easing-coordinates'
 
 const rounded = (number, precission = 0) => +number.toFixed(precission)
