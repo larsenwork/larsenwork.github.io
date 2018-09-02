@@ -101,7 +101,7 @@ const createStore = () => {
           const center = 0.5
           const radius = 0.3
           const deg = xy2deg(obj.x, obj.y)
-          const mathDeg = 360 - (deg + 270) % 360
+          const mathDeg = 360 - ((deg + 270) % 360)
           const radians = angle2rad(mathDeg)
           state.gradient[`${obj.element}`].x = (
             Math.cos(radians) * radius +
