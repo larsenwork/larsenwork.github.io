@@ -1,22 +1,20 @@
 <template>
-  <div>
-    <svg
-      class="c-easingPreview u-position-cover"
-      viewBox="0 0 1 1"
-      preserveAspectRatio="none"
-    >
-      <polyline
-        v-if="$store.state.gradient.settings.easingFunction === 'steps'"
-        :points="polyline"
-        class="c-easingPreview-path"
-      />
-      <path
-        v-else
-        :d="`M0 1C ${$store.state.gradient.ease1.x} ${1 - $store.state.gradient.ease1.y} ${$store.state.gradient.ease2.x} ${1 - $store.state.gradient.ease2.y} 1 0`"
-        class="c-easingPreview-path"
-      />
-    </svg>
-  </div>
+  <svg
+    class="c-easingPreview u-position-cover"
+    viewBox="0 0 1 1"
+    preserveAspectRatio="none"
+  >
+    <polyline
+      v-if="$store.state.gradient.settings.easingFunction === 'steps'"
+      :points="polyline"
+      class="c-easingPreview-path"
+    />
+    <path
+      v-else
+      :d="`M0 1C ${$store.state.gradient.ease1.x} ${1 - $store.state.gradient.ease1.y} ${$store.state.gradient.ease2.x} ${1 - $store.state.gradient.ease2.y} 1 0`"
+      class="c-easingPreview-path"
+    />
+  </svg>
 </template>
 
 <script>

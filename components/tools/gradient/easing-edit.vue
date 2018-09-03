@@ -107,7 +107,6 @@ export default {
 
 <style lang="postcss">
 .c-easingEdit {
-  z-index: 1;
 }
 
 .c-easingEdit-toggle {
