@@ -17,8 +17,6 @@ export default {}
 </script>
 
 <style lang="postcss">
-@import '../assets/css/_media.css';
-
 .hero {
   position: relative;
   margin-bottom: -5rem;
@@ -31,7 +29,7 @@ export default {}
     content: '';
     position: absolute;
     right: 0;
-    bottom: 0;
+    bottom: -1px;
     left: 0;
     height: 75%;
     max-height: 20rem;

@@ -35,7 +35,7 @@ export default {
     gradientCalc(
       colorMode = 'lrgb',
       preview = false,
-      colors = [this.getStoreHsla1(), this.getStoreHsla2()],
+      colors = [this.gradientColor1, this.gradientColor2],
       easing = this.$store.state.gradient.settings.easingFunction
     ) {
       // Because number input in Safari is a bitch...
@@ -63,33 +63,20 @@ export default {
 
       // Mix them colors and write it as sensible css
       const cssColorStops = colorStopsCoordinates.map(stop => {
-        let mixedColor
-        if (colorMode === 'squared') {
-          const color1rgba = color1.rgba(false)
-          const color2rgba = color2.rgba(false)
-          const colorMix = color1rgba.map((num, i) => {
-            const value = Math.sqrt(
-              num ** 2 * (1 - stop.y) + color2rgba[i] ** 2 * stop.y
-            )
-            return i < 3 ? rounded(value) : value
-          })
-          console.log(colorMix)
-          mixedColor = chroma(`rgba(${colorMix.join(',')})`)
-        } else {
-          mixedColor = chroma.mix(color1, color2, stop.y, colorMode)
-        }
+        let mixedColor = chroma.mix(color1, color2, stop.y, colorMode)
         mixedColor = mixedColor.alpha(rounded(mixedColor.alpha(), 3))
         return `${mixedColor
           .css('hsl')
           .split(',')
           .join(', ')} ${rounded(stop.x * 100, 1)}%`
       })
-      const direction = this.getStoreDirection()
       return preview
-        ? `linear-gradient(\n    ${direction},\n    ${cssColorStops.join(
-            ',\n    '
-          )}\n  );`
-        : `linear-gradient(${direction}, ${cssColorStops.join(', ')})`
+        ? `linear-gradient(\n    ${
+            this.gradientDirection
+          },\n    ${cssColorStops.join(',\n    ')}\n  );`
+        : `linear-gradient(${this.gradientDirection}, ${cssColorStops.join(
+            ', '
+          )})`
     },
     getStoreDirection() {
       const deg = rounded(this.$store.state.gradient.direction.deg)

@@ -33,7 +33,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="postcss">
 .c-icon {
   width: calc((24 / 17) * 1rem);
   height: calc((24 / 17) * 1rem);

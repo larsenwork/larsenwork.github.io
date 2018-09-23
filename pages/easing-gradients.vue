@@ -148,8 +148,6 @@ export default {
 </script>
 
 <style lang="postcss">
-@import '../assets/css/_media.css';
-
 .p-easingGradients-cta {
   grid-template-columns: repeat(2, 1fr);
   margin-top: var(--lineHeight-margin-small);

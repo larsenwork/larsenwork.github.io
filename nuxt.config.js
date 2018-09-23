@@ -90,7 +90,6 @@ module.exports = {
   ** Build configuration
   */
   build: {
-    vendor: ['vue-lazyload'],
     plugins: [
       new BundleAnalyzerPlugin({
         analyzerMode: 'static',
@@ -127,18 +126,19 @@ module.exports = {
           exclude: /(node_modules)/,
         })
       }
-    },
 
-    /*
-    ** PostCSS config
-    */
-    postcss: [
-      require('postcss-import')(),
-      require('postcss-custom-media')(),
-      require('postcss-nesting')(),
-      require('postcss-easing-gradients')(),
-      require('autoprefixer'),
-    ],
+      config.module.rules.push({
+        test: /\.postcss$/,
+        use: [
+          'vue-style-loader',
+          {
+            loader: 'css-loader',
+            options: { importLoaders: 1 },
+          },
+          'postcss-loader',
+        ],
+      })
+    },
 
     /*
     ** Babel config

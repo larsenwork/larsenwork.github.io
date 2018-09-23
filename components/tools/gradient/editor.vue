@@ -52,7 +52,6 @@
             <option>lab</option>
             <option>lch</option>
             <option>lrgb</option>
-            <option>squared</option>
           </select>
         </div>
       </div>
@@ -363,8 +362,6 @@ export default {
 </script>
 
 <style lang="postcss">
-@import '../../../assets/css/_media.css';
-
 .c-gradientEditor-toggles {
   grid-template-columns: repeat(4, 1fr);
 }

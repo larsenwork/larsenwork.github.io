@@ -148,8 +148,6 @@ export default {
 </script>
 
 <style lang="postcss">
-@import '../assets/css/_media.css';
-
 :root {
   --expand-transitionDuration: 0.6s;
 }
