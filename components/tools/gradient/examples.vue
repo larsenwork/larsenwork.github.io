@@ -83,6 +83,8 @@ export default {}
 </script>
 
 <style lang="postcss">
+@import '../../../assets/css/_settings.css';
+
 .c-gradientExamples {
   grid-template-columns: repeat(2, 1fr);
   margin-top: var(--lineHeight-margin-small);

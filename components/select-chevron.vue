@@ -15,6 +15,8 @@ export default {
 </script>
 
 <style lang="postcss">
+@import '../assets/css/_settings.css';
+
 .c-selectChevron {
   position: absolute;
   right: var(--spacer-xsmall);

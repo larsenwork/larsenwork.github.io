@@ -17,6 +17,8 @@ export default {}
 </script>
 
 <style lang="postcss">
+@import '../assets/css/_settings.css';
+
 .hero {
   position: relative;
   margin-bottom: -5rem;

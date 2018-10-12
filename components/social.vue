@@ -83,6 +83,8 @@
 </template>
 
 <style lang="postcss">
+@import '../assets/css/_settings.css';
+
 .c-social {
   /* Placeholder */
 }

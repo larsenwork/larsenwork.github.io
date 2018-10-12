@@ -43,6 +43,8 @@ export default {}
 </script>
 
 <style lang="postcss">
+@import '../assets/css/_settings.css';
+
 .c-githubCorner {
   fill: var(--color-brand);
   position: absolute;
@@ -50,7 +52,7 @@ export default {}
   right: 0;
   z-index: var(--zIndex-githubCorner);
 
-  @nest .is-presenting & {
+  .is-presenting & {
     visibility: hidden;
     opacity: 0;
     pointer-events: none;
@@ -65,7 +67,7 @@ export default {}
 .c-githubCorner-svg-arm {
   transform-origin: 130px 106px;
 
-  @nest .c-githubCorner:hover & {
+  .c-githubCorner:hover & {
     animation: octocat-wave 560ms ease-in-out;
   }
 }

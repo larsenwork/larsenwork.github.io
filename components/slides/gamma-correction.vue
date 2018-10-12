@@ -112,6 +112,8 @@ export default {
 </script>
 
 <style lang="postcss">
+@import '../../assets/css/_settings.css';
+
 .color-demo {
   display: flex;
   align-items: center;

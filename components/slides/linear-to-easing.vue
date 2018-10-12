@@ -134,6 +134,8 @@ export default {
 </script>
 
 <style lang="postcss">
+@import '../../assets/css/_settings.css';
+
 .eg-slide-linearToEasing {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

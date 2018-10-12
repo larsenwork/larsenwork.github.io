@@ -98,6 +98,8 @@ export default {
 </script>
 
 <style lang="postcss">
+@import '../../../assets/css/_settings.css';
+
 .c-colorEdit {
   display: flex;
   flex-direction: column;

@@ -1,3 +1,5 @@
+@import './_media.css';
+
 :root {
   --color-dark: hsl(0, 0%, 8%);
   --color-dark-72: hsla(0, 0%, 8%, 0.72);

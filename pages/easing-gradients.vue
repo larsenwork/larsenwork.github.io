@@ -18,7 +18,7 @@
             class="u-button u-button-small"
             href="#editor"
           >
-            Editor here
+            Editor
           </a>
         </li>
         <li>

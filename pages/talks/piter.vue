@@ -150,7 +150,7 @@
     <gamma-correction id="gamma" />
     <slide id="helmholz1">
       <img :src="preloadedImages.corgi" class="corgi" >
-      <h1>Helmholtz–Kohlrausch</h1>
+      <h1>Helmholtz-Kohlrausch</h1>
       <p>Even when they have the same luminance, colored lights seem brighter than white light does.</p>
     </slide>
     <helmholz id="helmholz2" />
@@ -342,6 +342,8 @@ export default {
 </script>
 
 <style lang="postcss">
+@import '../../assets/css/_settings.css';
+
 @font-face {
   font-family: 'piter';
   src: url('/fonts/piter-regular.woff2') format('woff2');

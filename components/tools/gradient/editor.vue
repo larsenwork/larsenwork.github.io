@@ -362,6 +362,8 @@ export default {
 </script>
 
 <style lang="postcss">
+@import '../../../assets/css/_settings.css';
+
 .c-gradientEditor-toggles {
   grid-template-columns: repeat(4, 1fr);
 }

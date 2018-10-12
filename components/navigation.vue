@@ -148,6 +148,8 @@ export default {
 </script>
 
 <style lang="postcss">
+@import '../assets/css/_settings.css';
+
 :root {
   --expand-transitionDuration: 0.6s;
 }
@@ -170,7 +172,7 @@ export default {
     pointer-events: auto;
   }
 
-  @nest .is-presenting & {
+  .is-presenting & {
     visibility: hidden;
     opacity: 0;
   }
@@ -189,7 +191,7 @@ export default {
     grid-template-columns: repeat(6, 1fr);
   }
 
-  @nest .c-navigation.is-expanded & {
+  .c-navigation.is-expanded & {
     transition: calc(var(--expand-transitionDuration) / 2)
       var(--transitionFunction) calc(var(--expand-transitionDuration) / 2);
     visibility: visible;
@@ -252,7 +254,7 @@ export default {
     var(--transitionFunction);
   transform: translatex(0);
 
-  @nest .c-navigation.is-expanded & {
+  .c-navigation.is-expanded & {
     opacity: 1;
     transform: translateX(-50vw) translateX(50%) translateX(var(--spacer-small));
   }
@@ -279,12 +281,12 @@ export default {
   transition: filter 0s linear var(--transitionDuration);
   filter: drop-shadow(var(--shadow1--hover)) drop-shadow(var(--shadow2--hover));
 
-  @nest .c-navigation.is-expanded & {
+  .c-navigation.is-expanded & {
     transition: none;
     filter: none;
   }
 
-  @nest .is-presenting & {
+  .is-presenting & {
     pointer-events: none;
   }
 }
@@ -299,7 +301,7 @@ export default {
   transition: opacity var(--transition),
     transform 0s linear var(--transitionDuration);
 
-  @nest .c-navigation.is-expanded & {
+  .c-navigation.is-expanded & {
     opacity: 1;
     transition: transform calc(var(--expand-transitionDuration) / 3 * 2)
       var(--transitionFunction) calc(var(--expand-transitionDuration) / 3 * 1);

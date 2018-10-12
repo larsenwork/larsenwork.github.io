@@ -16,6 +16,8 @@ export default {}
 </script>
 
 <style lang="postcss">
+@import '../../../assets/css/_settings.css';
+
 .c-directionPreview {
   overflow: visible;
 }
@@ -28,7 +30,7 @@ export default {}
   stroke-linejoin: round;
   vector-effect: non-scaling-stroke;
 
-  @nest .c-gradientEditor-editors & {
+  .c-gradientEditor-editors & {
     stroke-width: var(--stroke-large);
   }
 }

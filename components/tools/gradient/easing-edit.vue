@@ -106,6 +106,8 @@ export default {
 </script>
 
 <style lang="postcss">
+@import '../../../assets/css/_settings.css';
+
 .c-easingEdit {
 }
 

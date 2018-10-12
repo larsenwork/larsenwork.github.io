@@ -32,6 +32,8 @@ export default {
 </script>
 
 <style lang="postcss">
+@import '../assets/css/_settings.css';
+
 .c-notifications {
   position: fixed;
   right: 0;

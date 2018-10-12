@@ -57,6 +57,8 @@ export default {
 </script>
 
 <style lang="postcss">
+@import '../../assets/css/_settings.css';
+
 .eg-slide-helmholz {
   justify-content: unset !important;
 

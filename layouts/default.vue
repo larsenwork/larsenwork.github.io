@@ -47,6 +47,7 @@ export default {
 
 <style lang="postcss">
 @import '../assets/css/main.css';
+
 .layout {
   display: flex;
   width: 100%;

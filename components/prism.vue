@@ -29,6 +29,8 @@ export default {
 </script>
 
 <style lang="postcss">
+@import '../assets/css/_settings.css';
+
 *:not(h1):not(h2) + .c-prism {
   margin-top: var(--lineHeight-margin-small);
 }

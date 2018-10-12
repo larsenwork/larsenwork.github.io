@@ -18,6 +18,8 @@ export default {
 </script>
 
 <style lang="postcss">
+@import '../assets/css/_settings.css';
+
 .c-overlay {
   position: fixed;
   top: 0;

@@ -34,6 +34,8 @@ export default {
 </script>
 
 <style lang="postcss">
+@import '../../../assets/css/_settings.css';
+
 .c-easingPreview {
   overflow: visible;
 }
@@ -45,11 +47,11 @@ export default {
   stroke: currentColor;
   vector-effect: non-scaling-stroke;
 
-  @nest .c-gradientEditor-editors & {
+  .c-gradientEditor-editors & {
     stroke-width: var(--stroke-large);
   }
 
-  @nest .eg-slide-linearToEasing & {
+  .eg-slide-linearToEasing & {
     stroke: hsl(0, 0%, 50%);
   }
 }
