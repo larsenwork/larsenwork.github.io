@@ -21,28 +21,32 @@
     <div
       class="c-colorEdit-sliders"
     >
-      <no-ssr>
-        <div
+      <div
+        class="c-colorEdit-slider -hue"
+      >
+        <input
+          :show="$store.state.gradient.editorActive === color"
+          v-model.number="$store.state.gradient[color].h"
           class="c-colorEdit-hue"
+          type="range"
+          min="0"
+          max="360"
+          step="0.1"
         >
-          <vue-slider
-            v-bind="slider.hue"
-            :show="$store.state.gradient.editorActive === color"
-            v-model="$store.state.gradient[color].h"
-          />
-        </div>
-      </no-ssr>
-      <no-ssr>
-        <div
+      </div>
+      <div
+        class="c-colorEdit-slider -alpha"
+      >
+        <input
+          :show="$store.state.gradient.editorActive === color"
+          v-model.number="$store.state.gradient[color].a"
           class="c-colorEdit-alpha"
+          type="range"
+          min="0"
+          max="1"
+          step="0.001"
         >
-          <vue-slider
-            v-bind="slider.alpha"
-            :show="$store.state.gradient.editorActive === color"
-            v-model="$store.state.gradient[color].a"
-          />
-        </div>
-      </no-ssr>
+      </div>
     </div>
   </div>
 </template>
@@ -52,23 +56,6 @@ import mouse from '~/components/mixins/mouse'
 
 let components = {}
 
-if (process.browser) {
-  let VueSlider = require('vue-slider-component')
-  components = {
-    'vue-slider': VueSlider,
-  }
-}
-
-const defaultSlider = {
-  tooltip: 'none',
-  height: 16,
-  dotSize: 32,
-  speed: 0,
-  processStyle: {
-    display: 'none',
-  },
-}
-
 export default {
   components,
   mixins: [mouse],
@@ -77,22 +64,6 @@ export default {
       type: String,
       required: true,
     },
-  },
-  data: function() {
-    return {
-      slider: {
-        hue: {
-          ...defaultSlider,
-          max: 360,
-          interval: 0.1,
-        },
-        alpha: {
-          ...defaultSlider,
-          max: 1,
-          interval: 0.001,
-        },
-      },
-    }
   },
 }
 </script>
@@ -123,11 +94,21 @@ export default {
 }
 
 .c-colorEdit-sliders {
-  margin: 24px -16px -16px;
+  margin-top: var(--spacer-small);
+  display: flex;
+  flex-direction: column;
 }
 
-.c-colorEdit-hue {
-  & .vue-slider {
+.c-colorEdit-slider {
+  display: inline-flex;
+  width: 100%;
+  border-radius: calc(var(--spacer-small) * 0.5);
+
+  &:not(:last-child) {
+    margin-bottom: var(--spacer-small);
+  }
+
+  &.-hue {
     background: linear-gradient(
       to right,
       #f00,
@@ -139,10 +120,8 @@ export default {
       #f00
     );
   }
-}
 
-.c-colorEdit-alpha {
-  & .vue-slider {
+  &.-alpha {
     background-image: linear-gradient(to right, transparent, black),
       linear-gradient(
         45deg,
@@ -161,26 +140,11 @@ export default {
         var(--color-themed-bg-dimmed-more)
       ),
       linear-gradient(#fff, #fff);
-    background-size: 100% 100%, 16px 16px, 16px 16px, 100% 100%;
-    background-position: 0 0, 0 0, 8px 8px, 0 0;
-    position: relative;
-  }
-}
-
-.vue-slider-component {
-  & .vue-slider-tooltip-wrap.vue-slider-tooltip-top {
-    top: calc(var(--spacer-xsmall) * -1);
-    text-align: center;
-  }
-
-  & .vue-slider-dot {
-    box-shadow: var(--shadow);
-    cursor: auto;
-
-    &:hover,
-    &:focus {
-      box-shadow: var(--shadow--hover);
-    }
+    background-size: 100% 100%,
+      calc(var(--spacer-small) * 0.5) calc(var(--spacer-small) * 0.5),
+      calc(var(--spacer-small) * 0.5) calc(var(--spacer-small) * 0.5), 100% 100%;
+    background-position: 0 0, 0 0,
+      calc(var(--spacer-small) * 0.25) calc(var(--spacer-small) * 0.25), 0 0;
   }
 }
 </style>

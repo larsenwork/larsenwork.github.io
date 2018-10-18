@@ -43,6 +43,32 @@ button,
   }
 }
 
+input[type='range'] {
+  background-color: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+  margin-left: calc(var(--spacer-small) * -0.5);
+  margin-right: calc(var(--spacer-small) * -0.5);
+  width: calc(var(--spacer-small) + 100%);
+  -webkit-appearance: none;
+}
+
+::range-track {
+  background: transparent;
+  width: 100%;
+  height: var(--spacer-small);
+}
+
+::range-thumb {
+  -webkit-appearance: none;
+  background-color: var(--color-bright);
+  box-shadow: var(--shadow);
+  border: 0px solid white;
+  border-radius: 50%;
+  height: var(--spacer-small);
+  width: var(--spacer-small);
+}
+
 input:not([type='range']),
 select {
   display: flex;

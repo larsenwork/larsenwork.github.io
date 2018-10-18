@@ -53,6 +53,7 @@
     "postcss-custom-media": "^7.0.5",
     "postcss-easing-gradients": "^3.0.1",
     "postcss-import": "^12.0.0",
+    "postcss-input-range": "^4.0.0",
     "postcss-nested": "^4.1.0",
     "postcss-preset-env": "^6.1.0",
     "prettier": "^1.14.3",
@@ -63,7 +64,6 @@
     "throttleit": "^1.0.0",
     "vue-feather-icons": "^4.7.1",
     "vue-lazyload": "^1.2.6",
-    "vue-slider-component": "^2.7.9",
     "webpack-bundle-analyzer": "^3.0.2"
   }
 }

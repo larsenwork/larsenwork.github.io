@@ -405,7 +405,7 @@ export default {
   grid-template-columns: minmax(10rem, 1fr) 1fr;
   background-color: var(--color-themed-bg);
   z-index: var(--zIndex-editor);
-  padding-left: var(--spacer-medium);
+  padding-left: var(--spacer-small);
 
   @media (min-width: 650px) {
     padding-left: 0;

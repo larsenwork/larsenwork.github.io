@@ -57,12 +57,13 @@
 
 .u-knob {
   border-radius: 50%;
-  width: 32px;
-  height: 32px;
-  position: absolute;
+  width: var(--spacer-small);
+  height: var(--spacer-small);
   background-color: var(--color-bright);
   box-shadow: var(--shadow);
+  position: absolute;
   transform: translate(-50%, -50%);
+
   &:hover {
     box-shadow: var(--shadow--hover);
   }
