@@ -323,12 +323,12 @@ export default {
     },
     oldCSS: function() {
       return `.forNow {
-  ${this.gradientCalc(this.$store.state.gradient.settings.colorMode, true)}
+  background-image: ${this.gradientCalc(this.$store.state.gradient.settings.colorMode, true)}
 };`
     },
     futureCSS: function() {
       return `#future {
-  linear-gradient(
+  background-image: linear-gradient(
     ${this.gradientDirection},
     ${this.gradientColor1},
     ${this.gradientFunction},
